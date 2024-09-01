@@ -4,7 +4,27 @@ kanban-plugin: board
 
 ---
 
-## Mission Control
+## Hangar
+
+
+
+## Pre-Flight
+
+
+
+## Cruise
+
+
+
+## Orbiting
+
+
+
+## Landed
+
+
+
+## Aborted
 
 
 
@@ -12,6 +32,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,true,true],"tag-colors":[]}
 ```
 %%

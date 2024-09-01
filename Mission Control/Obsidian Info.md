@@ -27,3 +27,6 @@ Pandoc is installed with brew, so the path should be in the cellar
 Add todo or task for global settings so that tasks and just regular \- \[\] are not added.
 
 Can use before and after to show if a task can be done or not depending if it depends on other stuff. Use is blocked query. [User this](https://publish.obsidian.md/tasks/Queries/About+Queries)
+## Folder Ordering
+Download the Custom file explorer sorting plugin and the file hider plugin. 
+This allows you to add custom ordering to each of your folders with a sortspec, and also toggle a hide feature on your sortspec files to keep everything clean when you are not using them.
