@@ -8,7 +8,7 @@ kanban-plugin: board
 
 - [ ] #Tasks  Sort all Photos
 - [ ] #Tasks   Setup folder and info for preparing interview prep and career services
-- [ ] #DAA Review Week 0
+- [ ] #DAA Review [[Week 0]]
 
 
 ## Pre-Flight

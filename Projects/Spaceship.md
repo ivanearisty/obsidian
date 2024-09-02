@@ -6,7 +6,7 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Calendarize Setup Tasks
+- [ ] #Calendarize Setup Tasks [[Intro]]
 - [ ] #OOS Allow Spotify Login
 
 

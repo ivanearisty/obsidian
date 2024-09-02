@@ -9,6 +9,11 @@ tags:
 Classes --> [[Classes + Uni/Spaceship|Spaceship]]
 Projects --> [[Projects/Spaceship|Spaceship]]
 Recruiting --> [[Recruiting/Spaceship|Spaceship]]
+
+Template --> [[Spaceship template]]
+## Control Stations
+
+Recruiting --> LeetCode [[Mission Control]]
 ## Ports
 <p align="left">
 <a href="https://www.linkedin.com/in/aristy/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="aristy" height="30" width="40" /></a>
@@ -28,3 +33,5 @@ GROUP BY file.folder AS Folder
 FLATTEN file.link AS Name
 SORT Order ASC
 ```
+## Help
+[[Obsidian Info]]

@@ -1,8 +1,9 @@
 ```dataview
-TABLE file.link AS "Question", tags AS "Tags"
-FROM "Questions"
-FLATTEN tags AS Tag
-GROUP BY Tag
-WHERE contains(tags, "leetcodeQuestion")
-SORT length(Tag) DESC, file.name ASC
+TABLE tags AS "Tags", difficulty AS "Difficulty", completed AS "completed?"
+FROM "Recruiting/Leetcode/Questions"
+WHERE file.name != "sortspec"
+SORT tags ASC
 ```
+
+## Ships
+Recruiting --> [[Recruiting/Spaceship|Spaceship]]
