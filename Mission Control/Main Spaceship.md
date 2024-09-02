@@ -6,6 +6,8 @@ kanban-plugin: board
 
 ## Hangar
 
+- [ ] #Course Read Syllabus for all courses
+- [ ] #Projects test
 
 
 ## Pre-Flight
