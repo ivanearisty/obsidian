@@ -2,6 +2,13 @@
 tags:
   - mission-control
 ---
+```dataview
+TASK
+WHERE !completed
+GROUP BY file.folder AS Folder
+FLATTEN file.link AS Name
+SORT Folder ASC, due ASC
+```
 ## Ships
 
 [[Main Spaceship]]
@@ -9,7 +16,6 @@ tags:
 Classes --> [[Classes + Uni/Spaceship|Spaceship]]
 Projects --> [[Projects/Spaceship|Spaceship]]
 Recruiting --> [[Recruiting/Spaceship|Spaceship]]
-
 ## Ports
 <p align="left">
 <a href="https://www.linkedin.com/in/aristy/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="aristy" height="30" width="40" /></a>
