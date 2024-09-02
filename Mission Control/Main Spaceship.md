@@ -12,7 +12,8 @@ kanban-plugin: board
 
 ## Pre-Flight
 
-- [ ] #Classes  Read Syllabus for all courses
+- [ ] Setup Projects #Projects
+- [ ] Setup Recruiting #Recruiting
 
 
 ## Cruise
@@ -26,6 +27,7 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] Setup Classes #Classes
 
 
 ## Aborted
