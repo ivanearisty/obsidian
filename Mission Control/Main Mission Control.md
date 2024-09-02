@@ -6,7 +6,7 @@ tags:
 
 [[Main Spaceship]]
 
-Classes --> [[Classes/Spaceship|Spaceship]]
+Classes --> [[Classes + Uni/Spaceship|Spaceship]]
 Projects --> [[Projects/Spaceship|Spaceship]]
 Recruiting --> [[Recruiting/Spaceship|Spaceship]]
 

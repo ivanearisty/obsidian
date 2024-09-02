@@ -7,6 +7,7 @@ kanban-plugin: board
 ## Hangar
 
 - [ ] #Recruiting Setup Main Recruiting Board
+- [ ] #Misc Update Github Readme
 
 
 ## Pre-Flight
