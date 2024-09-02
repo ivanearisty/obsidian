@@ -8,6 +8,8 @@ They link to spacheships.
 Spaceships manage notes that serve as modules that do the actual work.
 Spaceships are concerned with the completion of modules and reporting back on status to mission control.
 The main spaceship does work about obsidian and setting up other spaceships but no real work.
+
+Mission control should contain dataview 
 ## DataView.
 Filter notes: 
 

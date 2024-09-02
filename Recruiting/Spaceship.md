@@ -1,5 +1,7 @@
 ---
+
 kanban-plugin: board
+
 ---
 
 ## Hangar
@@ -22,6 +24,7 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] [[Contains Duplicate]] #LC
 
 
 ## Aborted
