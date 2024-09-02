@@ -2,13 +2,6 @@
 tags:
   - mission-control
 ---
-```dataview
-TASK
-WHERE !completed
-GROUP BY file.folder AS Folder
-FLATTEN file.link AS Name
-SORT Folder ASC, due ASC
-```
 ## Ships
 
 [[Main Spaceship]]
@@ -27,4 +20,11 @@ Recruiting --> [[Recruiting/Spaceship|Spaceship]]
 
 ![Ivan's GitHub stats](https://github-readme-stats.vercel.app/api?username=ivanearisty&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&rank_icon=percentile&theme=nord)
 
-
+## Rundown
+```dataview
+TASK
+WHERE !completed
+GROUP BY file.folder AS Folder
+FLATTEN file.link AS Name
+SORT Order ASC
+```

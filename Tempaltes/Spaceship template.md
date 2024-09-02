@@ -22,10 +22,12 @@ kanban-plugin: board
 
 ## Landed
 
+**Complete**
 
 
 ## Aborted
 
+**Complete**
 
 
 
