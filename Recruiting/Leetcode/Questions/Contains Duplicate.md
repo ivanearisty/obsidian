@@ -18,3 +18,5 @@ class Solution {
     }
 }
 ```
+
+Simple, hash is best solution.
