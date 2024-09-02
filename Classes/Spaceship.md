@@ -6,12 +6,10 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Recruiting Setup Main Recruiting Board
 
 
 ## Pre-Flight
 
-- [ ] #Classes  Read Syllabus for all courses
 
 
 ## Cruise
