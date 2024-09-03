@@ -7,6 +7,7 @@ kanban-plugin: board
 ## Hangar
 
 - [ ] [[Simple DFS]] #LC
+- [ ] [[Binary Search]] #LC
 
 
 ## Pre-Flight
