@@ -8,6 +8,8 @@ kanban-plugin: board
 
 - [ ] [[Simple DFS]] #LC
 - [ ] [[Binary Search]] #LC
+- [ ] Setup [[Big Interview]] #Recruiting
+- [ ] Evaluate data from [[OpenData.NYU]] search #Recruiting
 
 
 ## Pre-Flight
@@ -25,6 +27,7 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] Get help from wasserman on accessing the [[OpenData.NYU]] database #Recruiting
 - [x] [[Contains Duplicate]] #LC
 
 
