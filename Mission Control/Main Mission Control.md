@@ -9,8 +9,6 @@ tags:
 Classes --> [[Classes + Uni/Spaceship|Spaceship]]
 Projects --> [[Projects/Spaceship|Spaceship]]
 Recruiting --> [[Recruiting/Spaceship|Spaceship]]
-
-Template --> [[Spaceship template]]
 ## Control Stations
 
 Recruiting --> LeetCode [[Mission Control]]
