@@ -6,18 +6,19 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Tasks  Sort all Photos
 - [ ] #Tasks   Setup folder and info for preparing interview prep and career services
+- [ ] Tell the professor to add you to Poll Anywhere #DAA
+- [ ] Review notes for career development and wasserman stuff #Tasks
 
 
 ## Pre-Flight
 
+- [ ] Review and respond to Email from professor #INFOVI
 - [ ] #DAA Review [[Week 0]]
 
 
 ## Cruise
 
-- [ ] #DAA #INFOVI #PDS Read and Import Syllabi
 
 
 ## Orbiting
@@ -27,6 +28,8 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] #DAA #INFOVI #PDS Read and Import Syllabi
+- [x] #Tasks  Sort all Photos
 
 
 ## Aborted
