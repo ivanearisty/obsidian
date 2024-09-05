@@ -81,3 +81,44 @@ Main question: How can you transform your data into something that people can un
 | Week 13 (11/28) | Thanksgiving Break                                   |                                          |
 | Week 14 (12/5)  | Modern topics: deep learning/VR/AR/interaction       |                                          |
 | Week 15 (12/12) | Final project presentations                          |                                          |
+## Why
+Why do we have a user in the loop?
+	We want to communicate a message
+		Messages are useless without a recipient
+	Data Viz allows users to answer/formulate questions
+		Questions that machine's can't answer
+		Viz can be a stepping stone for developing a computer based answer
+
+Why consider the computer?
+	Too much data -> need to process it all
+	Different questions might require different types of processing
+	Data might change in real-time
+
+Why use external representation?
+"Renderings"
+	Organize info by spatial organization
+	Offload internal cognition
+	Can speed up recognition and search
+
+Why use human vision?
+	What about perceptual channels, haptic, taste, audio...?
+	We are visual creatures and a lot of our brain is allocated to visual; it's fast and high bandwidth
+	We have appropriate devices for vision (displays and such)
+
+Why not use summary statistics?
+	Summary statistics can be extremely misleading -> Anscombe's Quartet
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Anscombe%27s_quartet_3.svg/850px-Anscombe%27s_quartet_3.svg.png" alt="Anscombe's" width="300px" />
+<img src="https://miro.medium.com/v2/resize:fit:1166/1*JyDU5qgFA-S2XOFBah9YcQ.png" alt="Anscombe's" width="300px" />
+
+Why consider multiple techniques?
+	Many possible ways to do viz's -> consider all -> leads to good design
+
+Why is validation difficult? 
+	Many reasonable ways to communicate one message
+	Different representations resonate differently for different people
+	Your audience will have bias from life experiences
+	Users will do unexpected things
+	Subjective outcomes (visual appeal)
+
+Why analyze vizs?
+	most data sets are not *that* unique -> thre 
