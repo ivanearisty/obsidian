@@ -24,6 +24,7 @@ kanban-plugin: board
 
 ## Orbiting
 
+- [ ] Fill [[Ideas for Viz Projects]] as stuff goes #INFOVI
 
 
 ## Landed
