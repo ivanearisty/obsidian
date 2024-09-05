@@ -121,4 +121,7 @@ Why is validation difficult?
 	Subjective outcomes (visual appeal)
 
 Why analyze vizs?
-	most data sets are not *that* unique -> thre 
+	Most data sets are not *that* unique -> there probably exists a similar data set with an associated viz. 
+	Learn from mistakes and successes of others
+	Ask -> Why is the task being performed, what data is shown, and how the viz idiom is constructed in terms of design choice
+
