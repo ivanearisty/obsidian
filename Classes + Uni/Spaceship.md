@@ -19,6 +19,7 @@ kanban-plugin: board
 
 ## Cruise
 
+- [ ] Attend [[Intro Class]] for Infovi #INFOVI
 
 
 ## Orbiting
