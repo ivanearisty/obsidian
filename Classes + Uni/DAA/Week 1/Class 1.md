@@ -15,5 +15,4 @@ Do whatever you can do to justify your goal.
 
 For example if you want to prove linear. Then you do $T(n) \leq x\times n$
 
-### Problem 4
-
+I've heard that insertion sort is really good for when arrays are almost sorted, bubble feels good too, can you help articulate why insertion sort is better for that use case?
