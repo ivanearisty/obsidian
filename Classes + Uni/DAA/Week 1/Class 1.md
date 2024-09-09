@@ -26,4 +26,10 @@ FACT:
 ### Problem 11
 we assume $n \geq 1$ sometimes
 for O$\left( n^\left( \frac{1}{2} \right) \right)$ operations, if the number that binds k is big, we can say that there is some k and we dont have to find it; however, the professor will let us know if we have to find it for small inputs.
-Look at the facts and make clarifications if there are assumptions basically. Most of these will happ
+Look at the facts and make clarifications if there are assumptions basically. Most of these will happen if we reach situations where 
+
+Problem 12:
+Must pick a specific log when proving something. 
+Note that when the base gets smaller the number itself gets bigger.
+
+Simplify e in problem 14. 
