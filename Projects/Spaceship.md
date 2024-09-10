@@ -8,6 +8,7 @@ kanban-plugin: board
 
 - [ ] #Calendarize Setup Tasks [[Intro]]
 - [ ] #OOS Allow Spotify Login
+- [ ] Add Homepage, privacy policy, and application terms of service for calendarize #Calendarize
 
 
 ## Pre-Flight
