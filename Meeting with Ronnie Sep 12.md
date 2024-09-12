@@ -11,3 +11,5 @@ You wouldn't get this popup that says admin password, but the reason it does tha
 US Cellular they also have testimonials of a split, some people think it's amazing and other's think the app is horrible.
 
 Youtube explanation with animated script driven how-to's.
+
+Switch to wavelink main and then switch the password to wavelink1!
