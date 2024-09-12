@@ -20,3 +20,4 @@ User personas: bios of what the users are, pain points and frustrations, what th
 Develop: El wireframe se aplica el branding y se hace todo. iterative process. instead of adding colors and branding, we validate that the information si validated by the user flows. How do we want to define the information. Afterwards we add the branding, the copy (what is gonna be the voice and tone). 
 
 Deliver: When the design is done we start with making the website.
+
