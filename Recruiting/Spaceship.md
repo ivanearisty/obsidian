@@ -14,6 +14,7 @@ kanban-plugin: board
 
 ## Pre-Flight
 
+- [ ] Review Notes from Google Meeting with [[Etienne Ardant]] #Recruiting
 
 
 ## Cruise
