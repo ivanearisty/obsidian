@@ -21,6 +21,7 @@ kanban-plugin: board
 ## Cruise
 
 - [ ] Attend [[Intro Class]] for Infovi #INFOVI
+- [ ] [[Entity Relationships]]
 
 
 ## Orbiting
