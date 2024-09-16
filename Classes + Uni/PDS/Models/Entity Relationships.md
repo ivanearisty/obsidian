@@ -39,6 +39,8 @@ Allows us to have "duplicates" by adding more nuance to what describes the relat
 ## Weak entity sets
 Sometimes there isn't a suitable choice for primary key for an entity set without associating it with another entity set:
 
+> For every weak entity set, you need a strong entity set to identify it.
+
 Some situations where this often happens:
 - Want to represent an entity set and also partition it into subgroups
 - Want to represent multiple copies or instances of entities
@@ -97,3 +99,6 @@ Here we would represent as such:
 ## ER Model -> Relational Model
 
 ![[PDS Schema Info]]
+- 4:21 review the schema diagram for university DB conversion #Tasks 
+
+Remember Optimization for timeslot table.
