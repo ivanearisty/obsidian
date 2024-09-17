@@ -39,3 +39,5 @@ Pros:
 
 Very funny:
 ![[Screenshot 2024-09-17 at 12.06.12 PM.jpg]]
+
+Send network diagrams so that we can look at what oss vendors we need to integrate with. What do we want on the OSS side. 
