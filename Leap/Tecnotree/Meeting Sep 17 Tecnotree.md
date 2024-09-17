@@ -36,3 +36,6 @@ Concerns:
 
 Pros: 
 - Built in Dark/Light themes
+
+Very funny:
+![[Screenshot 2024-09-17 at 12.06.12 PM.jpg]]
