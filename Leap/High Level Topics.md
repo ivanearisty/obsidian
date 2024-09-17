@@ -5,7 +5,7 @@ cssclasses: []
 ---
 Regarding the DMLD:
 - Overview of the B2B, B2B2C, and B2C configurations.
-- **Accessibility considerations; hover for help, colorblind mode, **
+- **Accessibility considerations; hover for help, colorblind mode, dynamic rendering, responsive components to screen size**
 - **What level of customization is available for branding the platform to fit our company’s identity?**
 - **Can customer's manage and view their service (like router config/utilization) through this platform's connections to the OSS?**
 - **What level of customization is available for modifying the platform's modules to our specific needs? Could we add additional components, and, if so, what framework was used to build it?**

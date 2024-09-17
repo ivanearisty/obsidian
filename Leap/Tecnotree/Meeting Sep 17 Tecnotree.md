@@ -26,3 +26,13 @@ Compliance Matrix:
 
 ## Additional Questions
 How do you handle deployment scallability and service availability; especially in the sense of do we need to have a CDN?
+
+Themes and delivery of the application is based on the branding requirements that we provide. We are not allowed to specifically modify any code. The marketing theme 
+
+Concerns:
+- No dynamic rendering
+- No responsive components (like screen size)
+- The design specifications will have to be provided to TT, but we cannot edit specific components by ourselves, after the design docs are provided.
+
+Pros: 
+- Built in Dark/Light themes
