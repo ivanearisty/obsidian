@@ -45,10 +45,31 @@ $$
 ## Proofs of Sum Rules
 $$
 \begin{gather}
-\text{Let's proove that: } \\
-\sum_{k=0}^{L} a^{k} = \frac{a^{L+1}-1}{a-1} \\ \\
-\text{Base case(s): }  \\ 
-P(0): \sum_{k=0}^{0} a^{k} = a^0 = 1 \land \frac{a^{0+1}-1}{a-1} = \frac{a-1}{a-1} = 1 \space \checkmark \\
-P(1): \sum_{k=0}^{1} a^{k} = a^0 + a^1 = a \land \frac{a^{0+1}-1}{a-1} = \frac{a-1}{a-1} = 1 \space \checkmark \\
+\text{Let's prove that: } \\
+\sum_{k=0}^{L} a^{k} = \frac{a^{L+1} - 1}{a - 1} \\ \\
+\text{Base case:} \\
+P(0): \sum_{k=0}^{0} a^{k} = a^0 = 1 \quad \land \quad \frac{a^{0+1} - 1}{a - 1} = \frac{a - 1}{a - 1} = 1 \quad \checkmark \\ \\
+\text{Inductive hypothesis:} \\
+\text{Assume } P(x) \text{ is true, i.e., } \sum_{k=0}^{x} a^{k} = \frac{a^{x+1} - 1}{a - 1} \\ \\
+\text{We need to prove } P(x+1): \\
+\sum_{k=0}^{x+1} a^{k} = \frac{a^{(x+1)+1} - 1}{a - 1} \\ \\
+\text{Start with the left-hand side:} \\
+\sum_{k=0}^{x+1} a^{k} = \sum_{k=0}^{x} a^{k} + a^{x+1} \\ \\
+\text{Using the inductive hypothesis, substitute for } \sum_{k=0}^{x} a^{k}: \\
+\sum_{k=0}^{x+1} a^{k} = \frac{a^{x+1} - 1}{a - 1} + a^{x+1} \\ \\
+\text{Rewrite } a^{x+1} \text{ to have the same denominator:} \\
+\frac{a^{x+1} - 1}{a - 1} + a^{x+1} = \frac{a^{x+1} - 1}{a - 1} + \frac{a^{x+1}(a - 1)}{a - 1} \\ \\
+\text{Combine the terms:} \\
+\frac{a^{x+1} - 1 + a^{x+1}(a - 1)}{a - 1} = \frac{a^{x+1}(1 + (a - 1)) - 1}{a - 1} \\ \\
+\text{Simplify:} \\
+\frac{a^{x+1}(a) - 1}{a - 1} = \frac{a^{x+2} - 1}{a - 1} \\ \\
+\text{Thus, } \sum_{k=0}^{x+1} a^{k} = \frac{a^{(x+1)+1} - 1}{a - 1}. \blacksquare
+\end{gather}
+$$
+
+$$
+\begin{gather}
+\text{Let's proove that:} \\
+
 \end{gather}
 $$
