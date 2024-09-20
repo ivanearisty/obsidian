@@ -13,7 +13,6 @@ kanban-plugin: board
 
 ## Pre-Flight
 
-- [ ] #DAA Review [[Week 0]]
 - [ ] Catch up with PDS #PDS
 - [ ] [[Assignment 1 DAA]] #DAA
 - [ ] [[Assignment 1 PDS]] #PDS
@@ -21,8 +20,7 @@ kanban-plugin: board
 
 ## Cruise
 
-- [ ] Attend [[Intro Class]] for Infovi #INFOVI
-- [ ] [[Entity Relationships]]
+- [ ] [[Entity Relationship Model]]
 
 
 ## Orbiting
@@ -33,6 +31,8 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] Attend [[Intro Class]] for Infovi #INFOVI
+- [x] #DAA Review [[Week 0]]
 - [x] Review and respond to Email from professor #INFOVI
 - [x] #DAA #INFOVI #PDS Read and Import Syllabi
 - [x] #Tasks  Sort all Photos

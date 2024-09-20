@@ -2,6 +2,9 @@
 tags:
   - DAA
 ---
+## Week 0:
+
+https://brightspace.nyu.edu/d2l/le/lessons/400251/lessons/10555860
 ### Problem 1:
 \# Comparisons: n-1 is the best case scenario of **comparisons**
 \# Swaps: 0 is the best case scenario of **swaps**
