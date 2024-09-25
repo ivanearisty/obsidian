@@ -25,5 +25,21 @@ Comparisons:
 
 ## Problem 2
 
-Show that the best-case runtime of insertion sort is T (n) = an + b for constants a and b, and use this result to deduce that the best-case runtime is O(n). Do some research to determine the average-case runtime of insertion sort.
+Show that the best-case runtime of insertion sort is T (n) = an + b for constants a and b, and use this result to deduce that the best-case runtime is O(n). Do some research to determine the average-case runtime of insertion sort
 
+## Problem 3
+
+Let A be an array of n numbers. Write the pseudo-code for an algorithm that reverses the elements of A between indices i and j. Call the procedure Reverse(A, i, j). Let T (n) be the worst-case runtime of your algorithm when run on A between indices 1 and n. Find an expression for T (n) and show that this is O(n).
+
+```
+Reverse(A, i, j)
+	while i < j 
+		swap A[i] and A[j]
+		increment i
+		increment j
+```
+
+When reverse is called with i = 1 and j = n, we will do half of the array size as swaps, if it is odd, we skip the last element when the loop fails. 
+We can express this as T(n) =  c x (n/2) + d , where c and d are some constant amount of work.
+
+> Ask if adding as an (n/2 - 1) makes it wrong, and if so, how wrong.
