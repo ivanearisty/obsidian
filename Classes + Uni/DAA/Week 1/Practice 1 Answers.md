@@ -43,3 +43,21 @@ When reverse is called with i = 1 and j = n, we will do half of the array size a
 We can express this as T(n) =  c x (n/2) + d , where c and d are some constant amount of work.
 
 > Ask if adding as an (n/2 - 1) makes it wrong, and if so, how wrong.
+
+## Problem 4
+
+A sorting algorithm that is similar to Insertion Sort, is Selection sort . If you have not seen this algorithm before, I suggest the video https://www.youtube.com/watch?v=g-PGLbMth_g 
+Let T (n) be the worst-case runtime of Selection sort. Show that T (n) is of the form $an^{2} + bn + c$, and that the runtime is $\mathcal{O}(n^{2})$. Repeat for the best-case runtime. How does the runtime of Selection sort differ from that of Insertion sort?
+
+selection sort:
+
+```
+SelectionSort(A, start, end):
+	i = start
+		for (j = end) down to i
+			temporary = MAX_INTEGER
+			temporaryIndex = -1 
+			for (k = j - 1) down to i
+				if A[k] <= A[]
+```
+
