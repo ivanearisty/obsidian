@@ -47,6 +47,9 @@ $f(n) = n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2}$
 
 $$
 \begin{gather}
-\text{We set out to prove that n}
+\text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
+\text{First we have to realize that the dominant term is } n^{2} \text{ in the function above.} \\
+\text{This is because it grows faster asymptotically than the other terms as } \lim_{ n \to \infty } . \\ \\
+\text{}
 \end{gather}
 $$
