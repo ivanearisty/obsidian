@@ -36,7 +36,7 @@ kanban-plugin: board
 - [x] Review and respond to Email from professor #INFOVI
 - [x] #DAA #INFOVI #PDS Read and Import Syllabi
 - [x] #Tasks  Sort all Photos
-- [x] [[Class 1]] #DAA
+- [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
 
 
 ## Aborted
