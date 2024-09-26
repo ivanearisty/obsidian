@@ -1,8 +1,10 @@
 ---
 tags:
   - DAA
+cssclasses:
+  - academic-pdf-export
 ---
-Ivan Aristy — iae225
+# Ivan Aristy — iae225
 ## Question 1: Asymptotic Notation
 
 ### Question A (8 points)
@@ -50,6 +52,17 @@ $$
 \text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
 \text{First we have to realize that the dominant term is } n^{2} \text{ in the function above.} \\
 \text{This is because it grows faster asymptotically than the other terms as } \lim_{ n \to \infty } . \\ \\
-\text{}
+\text{To prove that} f(n) = \Theta(n^2), \text{ we set out to prove that there exists constants } c_{1}, c_{2} > 0 \\ \text{ and } k \geq 1 \text{ such that: } \\
+c_{1} \cdot n^{2} \leq f(n) \leq c_{2} \cdot n^2 : \forall n \geq k. \\ \\
+\text{Upper bound proof:} \\
+\mathcal{O}(n^{2}) : \text{ We shall show that } n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2} \leq c_{2} \cdot n^{2} \\
+n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2} \leq c_{2} \cdot n^{2}
 \end{gather}
 $$
+$$
+\begin{align}
+2+4 && sdsad
+\end{align}
+$$
+
+## Question 2
