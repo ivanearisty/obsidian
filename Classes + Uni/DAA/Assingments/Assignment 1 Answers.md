@@ -1,21 +1,40 @@
+---
+tags:
+  - DAA
+---
+Ivan Aristy — iae225
 ## Question 1: Asymptotic Notation
 
 ### Question A (8 points)
 
 Rank the following functions in order (non-decreasing) of their asymptotic growth. Next to each function, write its big-Theta value, (ie. write the correct Θ(g(n)) next to each function but you are not required to prove the big-Theta value).
 
-| Function to be Examined              | Big Theta Value                                        |
-| ------------------------------------ | ------------------------------------------------------ |
-| $\frac{\sqrt{ n\log n+1 }}{n^{2}+1}$ | $\Theta\left( \frac{\sqrt{ \log n }}{n^{3/2}} \right)$ |
-| $\log(n^{3}+ 2n)$                    | $\Theta(\log n)$                                       |
-| $2^{\log_{3}n}$                      | $\Theta (n^{\log_{3}2})$                               |
-| $\log_{3}2^n$                        | $\Theta(n)$                                            |
-| $\frac{n^{2}\log n + n}{n+\log n}$   | $\Theta(n\log n)$                                      |
-| $\sqrt{ n^{3}(\log n) + n}$          | $\Theta(n^{3/2}\cdot \sqrt{ \log n })$                 |
-| $8^{n/3+1}$                          | $\Theta(2^{n})$                                        |
-| $(2^{10}+6)\cdot(2^{n}+3^{n})$       | $\Theta(3^{n})$                                        |
-| $2^{3n+1}$                           | $\Theta(8^{n})$                                        |
-| $2^{\log_{2}n+1}$                    | $\Theta()$                                             |
+| Function to be Examined                             | Big Theta Value                                        |
+| --------------------------------------------------- | ------------------------------------------------------ |
+| $\frac{\sqrt{ n\log n+1 }}{n^{2}+1}$                | $\Theta\left( \frac{\sqrt{ \log n }}{n^{3/2}} \right)$ |
+| $\log(n^{3}+ 2n)$                                   | $\Theta(\log n)$                                       |
+| $\left( \log\left( \frac{n}{2} \right) \right)^{2}$ | $\Theta((\log n)^{2})$                                 |
+| $2^{\log_{3}n}$                                     | $\Theta (n^{\log_{3}2})$                               |
+| $2^{\log_{2}n+1}$                                   | $\Theta(n)$                                            |
+| $\log_{3}2^n$                                       | $\Theta(n)$                                            |
+| $\frac{n^{2}\log n + n}{n+\log n}$                  | $\Theta(n\log n)$                                      |
+| $\sqrt{ n^{3}(\log n) + n}$                         | $\Theta(n^{3/2}\cdot \sqrt{ \log n })$                 |
+| $8^{n/3+1}$                                         | $\Theta(2^{n})$                                        |
+| $(2^{10}+6)\cdot(2^{n}+3^{n})$                      | $\Theta(3^{n})$                                        |
+| $2^{3n+1}$                                          | $\Theta(8^{n})$                                        |
 
+### Question B (6 points)
 
+Determine if each of the following statements are true or false. If the statement is false, provide a counter example. If the statement is true, justify the statement using the formal definitions from class.
 
+1. $\text{If } f(n) \text{ is } \mathcal{O}(n), \text{does this imply that } f(n) \text{ is also } \Theta(n) \text{?}$
+
+False. $f(n)$ being $\mathcal{O}(n)$ just means that $f(n)$ has an upper bound of n; however, it does not describe the lower bound. The lower bound could be much smaller. For example, binary search has a $\Theta(\log n)$ however, anything higher is a valid upper bound; hence, it is also $\mathcal{O}(n)$
+
+2. $\text{If } f(n) \text{ is } \mathcal{O}(n^{3}), \text{does this imply that } f(n) \text{ is also } \mathcal{O}(3^{n}) \text{?}$
+
+True. The exponential function will grow larger asymptotically than the polynomial. Since the algorithm runs in $\mathcal{O}(n^{3})$ then we can say that there exists a positive constant c, such that after some threshold k we have: $f(n) \leq c_{1}*n^{3}$. It would also be $\mathcal{O}(3^{n})$ since there will exist some $n^{*}$ such that for all further n's, $n \geq n^{*}$, $n^{3} < 3^{n}$. Hence, $f(n) \leq c_{1} * n^{3} \leq c_{2} * 3^{n} : \forall n>n^{*}$
+
+3. $\text{If} f(n) \text{ is } \mathcal{O}(n^{2}), \text{ does this imply that } f(n) \text{ is also } \mathcal{O}(n) \text{?}$
+
+False. $f(n)$ being $\mathcal{O}(n^{2})$ does not necessarily imply that 
