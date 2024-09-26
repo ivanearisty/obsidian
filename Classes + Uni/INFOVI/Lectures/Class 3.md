@@ -37,4 +37,6 @@ All colors available to you are the color space.
 
 The hex-code is technically gibberish since it doesn't intuitively tell you anything.
 
+Use HSL maybe since it's the best in-between of true color like CIE Lab
 
+Identify Marks and Visual Channels
