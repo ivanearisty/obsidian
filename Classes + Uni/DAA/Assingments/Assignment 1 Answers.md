@@ -558,6 +558,33 @@ This one is pretty simple, we just have n work per level for log_4(n) levels, wh
 
 - Show $T(n) = T(n/2) + \log n \text{ is } \mathcal{O}((\log n)^{2})$
 
+![[Drawing 2024-09-27 14.18.40.excalidraw]]
+
+So for $\log_{2}n$ levels we can make a sum.
+Then we find the work done at each level:
+$$
+\begin{gather}
+\log\left( \frac{n}{2^{k-1}} \right) \\
+\log_{2} n - \log_{2}(2^{k-1}) \\
+\log_{2} n - (k-1) \\
+\end{gather}
+$$
+$$
+\begin{gather}
+\text{The series:}
+\log n + (\log n-1) + (\log n-2) + \dots + 1 \\ \\
+\text{Which simplifies to our good old:} \\
+\frac{\log n \cdot (\log n+1)}{2} \\
+\text{which will give:} \\
+\frac{(\log n)^{2}+\log n}{2} \\
+\text{And from our growth of functions we know that } (\log n)^{2} \geq \log n \\
+\text{So, } T(n) = O(n^{2}) \\ \\
+\text{I guess we could quickly prove it as well:} \\
+\frac{(\log n)^{2}+\log n}{2} \leq c \cdot (\log n)^{2}\\
+\frac{(\log n)^{2}+(\log n)^{2}}{2} \leq c \cdot (\log n)^{2}\\
+\end{gather}
+$$
+
 
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
