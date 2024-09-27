@@ -538,6 +538,8 @@ Use the recursion tree to find a tight asymptotic bound for each of
 
 $T(n) = 2T\left( \frac{n}{4} \right)+1$
 
+
+
 $T (n) = 4T \left( \frac{n}{4} \right) + n$ 
 
 ## Notes for self
