@@ -346,6 +346,35 @@ However, we must note that we do n comparisons in the while loops' if statements
 
 Recall that the pseudo-code from class for MergeSort required external space as part of the merge step. These types of algorithms are referred to as sorting algorithm that do not run in-place. Do some research to determine if there is a known version of MergeSort that runs in-place, and if so, what its best-known runtime is.
 
+I found a couple of attempts from wikipedia and these posts: 
+- https://stackoverflow.com/questions/2571049/how-to-sort-in-place-using-the-merge-sort-algorithm
+- https://www.interviewkickstart.com/blogs/learn/in-place-merge-sort#:~:text=The%20standard%20implementation%20of%20merge,called%20in%2Dplace%20merge%20sort.
+
+There seem to be multiple variations that either create a constant amount of extra space, use temporary memory cells, or relax the meaning of in-place.
+
+One of them has $\mathcal{O}(n^2)$ time because it just used the extra space as storage for merging.
+
+The other combines shell sort with merge sort to create an algorithm with $\mathcal{O}(n(\log n)^{2})$ complexity, but it is not stable (doesn't keep relative order of elements).
+
+I believe this method uses a version of this in place merging algorithm: https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=ed3adb71787fd7cf0fc32053af920fe1e5bf3cc6 which is where the additional logn comes from.
+
+### B (8 points)
+Suppose we want to re-write the MergeSort algorithm so that it splits the array into three subarrays each of size approximately n/3. Your job is to write the pseudo-code for this new version of MergeSort. Ensure that you have a valid base case! (you can check this by testing it on input of size n = 1,n = 2. You will have to write a new version of the Merge procedure, which merges three sorted arrays. You can call this procedure MergeThree(A, s, q, q2, f ), which merges sorted subarrays A\[s . . . q], A\[q + 1 . . . q2], A\[q2 + 1 . . . f ].
+
+```
+
+
+MergeThree(A, s, q, q2, f ):
+	Initialize array B[] of size s-f
+	
+	a = s
+	b = q
+	c = q2
+	
+	while a < q and b < q2 and c < f:
+		if 
+```
+
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
