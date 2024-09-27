@@ -309,7 +309,23 @@ Yes. It does sort the array.
 
 - Let T (n) be the best-case runtime of this procedure. Express T (n) is a function and show that it is O(n).
 
-T(n) = n
+In the best case the input array is already sorted. We do constant work at e=s, do constant work n times for every member of the array in the first while loop, and finally check the second while loop and fail. 
+
+$$
+\begin{gather}
+T(n) = c \cdot n + d \\
+\text{We want to show that } T(n) \text{ is } \mathcal{O}(n) \\ \\
+\text{Let c and d be two positive constants.} \\
+\text{We must find } c^* \text{ such that:} \\
+T(n) \leq c^* n \\
+T(n) = c \cdot n + d \leq c^* n \\ 
+c \cdot n + d \leq c \cdot n + d \cdot n \\
+T(n) = c \cdot n + d \cdot n \leq (c+d) n \\
+\text{Since } (c+d) \text{ are two constants,} (c+d) = c^*
+\end{gather}
+$$
+Suppose the input array A has n elements which are sorted in decreasing order. In this case, show that the number of comparisons is $\mathcal{O}(n^{2})$.
+
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
