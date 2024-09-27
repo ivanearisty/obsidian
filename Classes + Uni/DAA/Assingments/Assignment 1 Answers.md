@@ -427,7 +427,7 @@ MergeThree(A, s, q, q2, f ):
 	Copy elements from L[] between s and f into array A[]
 ```
 
-This merging algorithm runs in 2n time, since we do one pass through all the elements to add them to L, and another pass to add them back to A .
+This merging algorithm runs in 2n time, since we do one pass through all the elements to add them to L, and another pass to add them back to A . This won't matter for master method later though...
 
 ```
 MergeSort(A, s, f):
@@ -436,10 +436,9 @@ MergeSort(A, s, f):
 		return
 	
 	if f - s + 1 == 2:
-		
-
-	if f - s + 1 == 3:
-		MergeThree(A, s, q, q2, f)
+		if A[s] > A[f]:
+			swap A[s] and A[f]
+		return
 		
 	q1 = [(2s+f)/3]
 	q2 = [(s+2f)/3]
@@ -448,8 +447,47 @@ MergeSort(A, s, f):
 	MergeSort(A, q1, q2)
 	MergeSort(A, q2, f)
 		
-	MergeThree(A, s, q, q2, f)
+	MergeThree(A, s, q1+1, q2+1, f)
 ```
+
+There's some iffyness that could happen with assigning the weights, but double test cases fix that from what I have reasoned. No infinite recursion here since we break when we have two elements, not just 1.
+
+### C (4 points)
+
+$$
+\begin{gather}
+T(n) = aT\left( \frac{n}{b} \right)+ f(n) \\
+T(n) = 3T\left( \frac{n}{3} \right) + c n \text{ , the c encompasses the 2n we talked about above }\\ \\
+a = 3 \\
+b = 3 \\
+f = n \\ \\
+k = \log_{3}(3) = 1 \rightarrow n^{k} = n^{1} = 1 \\ \\
+\text{Comparing } f(n) = n \text{ to } n^{1} \rightarrow n = n \\
+f(n) = n \text{ is } \Theta(n) \\
+\therefore T(n) \text{ is } \Theta(n\log n)
+\end{gather}
+$$
+
+### D (8 points)
+
+8 points Consider the the pseudo-code below for the recursive algorithm MyPrint(A, s, f ), which takes as input an array A, indexed between s and f .
+
+![[Screenshot 2024-09-27 at 8.03.29 AM.jpg]]
+
+- Trace the recursive algorithm on the input A = \[5, 4, 3, 2, 1] indexed from s = 1 to f = 5. Ensure that you show the state of the array during the recursive calls, and detail the parameters passed at each stage of the recursion. Clearly show the final state of the array A. 
+
+MyPrint(A,1,5):
+	q1 = 2
+	q2 = 3
+		MergeSort(A,2,3):
+		 \[5, 3, 4, 2, 1]
+	MyPrint(A, 2, 5):
+	
+	MyPrint(A, 1, 3)
+
+Write and justify the runtime recurrence for the above algorithm. 
+
+Use Master Method to theta-value for the runtime of this algorithm.
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
