@@ -69,13 +69,24 @@ n^2 + n^2 \leq c_{2} \cdot n^{2} && n(\log n)^{2} \leq n^2 : \lim_{ n \to \infty
 $$
 $$
 \begin{gather}
-\text{And, we can set the value for } k_{1} = 1.
+\text{And, we can set the value for } k_{2} = 1.
 \end{gather}
 $$
 $$
 \begin{gather}
 \text{Lower bound proof:} \\
 \Omega(n^{2}): \text{ We shall show that } n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2} \geq c_{1} \cdot n^{2} \\
+\text{We can drop the } n(\log n)^{2} \text{ since it makes the function bigger and we have:} \\
+n^2 - \frac{\sqrt{ n }}{\log n}\geq c_{1} \cdot n^{2} \\
+\text{ We can replace } \frac{\sqrt{ n }}{\log n}\geq c_{1}  \text{ with } \frac{n^{2}}{2} \\
+\text{ for a k value of 4 we get}: \frac{\sqrt{ 4 }}{\log_{2}(4)} = \frac{2}{2} \text{ and } \frac{n^{2}}{2} = \frac{4^{2}}{2}=8 \\
+\text{Hence, we get:} \\
+n^{2} - \frac{n^{2}}{2} = \frac{1}{2} \cdot n^{2} \geq c_{1} \cdot n : \forall n \geq k_{1}, k_{1} = 4
+\end{gather}
+$$
+$$
+\begin{gather}
+\text{Finally, we can say that the function f(n) is } \Theta(n^{2}) \\ \text{ for all } n \geq 4 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
 \end{gather}
 $$
 
