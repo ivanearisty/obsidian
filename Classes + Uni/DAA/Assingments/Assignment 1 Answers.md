@@ -505,9 +505,36 @@ MyPrint(A,1,5):
 
 Write and justify the runtime recurrence for the above algorithm. 
 
-The algorithm splits an array into two parts of size 2/3 and then passes overlapping parts into two other functions, finishing when the final function is of size 
+The algorithm splits an array into two parts of size 2/3 and then passes overlapping parts into two other functions, finishing when the final function takes input of size 2 or smaller, but it always does mergesort when it ends or 
+
+We can represent as:
+
+$T(1) = n\log n$ 
+$T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + \frac{1}{3}n\log n$
+
 
 Use Master Method to theta-value for the runtime of this algorithm.
+$$
+\begin{gather}
+T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + \frac{1}{3}n\log n \\
+\\
+a = 2 \\
+b = \frac{3}{2} \\
+f(n) = \frac{1}{3}n\log n \\
+\\
+k = \log_{b}a
+\end{gather}
+$$
+
+## Question 4
+
+### A (12 points)
+Use the recursion tree to find a tight asymptotic bound for each of
+
+$T(n) = 2T\left( \frac{n}{4} \right)+1$
+
+$T (n) = 4T \left( \frac{n}{4} \right) + n$ 
+
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
