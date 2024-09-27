@@ -542,7 +542,11 @@ We do 1 work, twice, and break n/4
 
 ![[Drawing 2024-09-27 11.11.23.excalidraw]]
 
+Hence we do $1, 2, 4, \dots 2^{\log_{4}n}$
 
+Transform to: $n^{\log_{4}2} \rightarrow \sqrt{ n }$
+
+$\sum_{k=0}^{L} \sqrt{ n } =$
 
 $T (n) = 4T \left( \frac{n}{4} \right) + n$ 
 
