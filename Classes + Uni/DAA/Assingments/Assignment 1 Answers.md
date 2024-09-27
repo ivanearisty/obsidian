@@ -482,7 +482,17 @@ MyPrint(A,1,5):
 		MergeSort(A,2,3):
 		 \[5, 3, 4, 2, 1]
 	MyPrint(A, 2, 5):
-	
+		 \[5, 3, 4, 2, 1]
+		 q1 = 3
+		 q2 = 4
+		 MergeSort(A,3,4):
+			  \[5, 3, 2, 4, 1]
+			MyPrint(A,3,5):
+				\[5, 3, 2, 4, 1]
+				q1 = 3
+				q2 = 4
+				
+			MyPrint(A,2,4)
 	MyPrint(A, 1, 3)
 
 Write and justify the runtime recurrence for the above algorithm. 
