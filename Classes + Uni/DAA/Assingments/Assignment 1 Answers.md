@@ -478,6 +478,7 @@ $$
 
 The following is a tree like interpretation of the call stack and A, q1, and q2 as new calls happen (represented as indentations)
 
+```
 MyPrint(A,1,5):
 	\[5, 4, 3, 2, 1]
 	q1 = 2
@@ -504,6 +505,7 @@ MyPrint(A,1,5):
 		\[1, 2, 5, 3, 4]
 	\[1, 2, 5, 3, 4]
 \[1, 2, 5, 3, 4]
+```
 
 Write and justify the runtime recurrence for the above algorithm. 
 
@@ -641,7 +643,8 @@ f(n) = n^{2}\log n \\
 k=\log_{4}(15) \approx 1.95 \\
 n^{k} = n^{1.95}\\ 
 \\
-\text{Does not apply.}
+\text{Case 3 } f(n) \text{ is } \Omega(n^{2+e}) \\
+\therefore T(n) \text{ is } \Theta(n^{2}\log n)
 \end{gather}
 $$
 
@@ -657,7 +660,8 @@ f(n) = n^{2} + \log n \\
 k=\log_{4}(17) \approx 2.04 \\
 n^{k} = n^{2.04}\\ 
 \\
-\text{Does not apply.}
+\text{Case 1, fn is much smaller and is } \mathcal{O}(n^{2.04-e}) \\
+T(n) \text{ is } \mathcal{O}(n^{2.04})
 \end{gather}
 $$
 
