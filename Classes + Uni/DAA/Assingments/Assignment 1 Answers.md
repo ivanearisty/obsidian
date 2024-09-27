@@ -121,9 +121,25 @@ $$
 $$
 \begin{gather}
 \text{Lower Bound:} \\
-
+\text{We set out to show that } \Omega(n^{2}) = \frac{3n^{3}-n}{2n+\log n} + 2^{10} \\ 
+\text{So, there exists a } c_{1} \text{ and } k_{1} \text{ such that:} \\
+\frac{3n^{3}-n}{2n+\log n} + 2^{10} \geq c_{1} \cdot n^{2} \\ \\
+\text{Let's deal with the constant first.} \\
+\text{We can just drop it, since it is adding to the lower bound.} \\ \\
+\text{Since } n \geq \log n: \\
+\frac{3n^{3}-n}{2n+n} \geq c_{1} \cdot n^{2} \\  \\
+\text{ and since } n \leq n^{3}: \\
+\frac{3n^{3}-n^{3}}{2n+n} \geq c_{1} \cdot n^{2} \\ \\
+\frac{2n^{3}}{3n} \rightarrow \frac{2}{3} \cdot n^{2}\geq c_{1} \cdot n^{2} \\
+\text{So we can use } c_{1} = \frac{2}{3}
+\end{gather}
+$$\
+$$
+\begin{gather}
+\text{Finally, we can say that the function f(n) is } \Theta(n^{2}) \\ \text{ for all } n \geq 32 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
 \end{gather}
 $$
+2560 > 
 ## Question 2
 
 ## Notes for self
