@@ -139,7 +139,6 @@ $$
 \text{Finally, we can say that the function f(n) is } \Theta(n^{2}) \\ \text{ for all } n \geq 32 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
 \end{gather}
 $$
-2560 > 
 ## Question 2
 
 ## Notes for self
