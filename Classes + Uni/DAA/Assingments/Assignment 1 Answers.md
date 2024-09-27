@@ -62,11 +62,23 @@ $$
 \begin{align}
 n^2 - \frac{\sqrt{ n }}{\log n} + n(\log n)^{2} \leq c_{2} \cdot n^{2} && \text{Initial Inequality} \\
 n^2 + n(\log n)^{2} \leq c_{2} \cdot n^{2} && \text{Middle term makes smaller } \\ \\
-n \geq (\log n)^{2}  && \forall n \geq 1  \\  \\
-n^2 + n^2 \leq c_{2} \cdot n^{2} && n(\log n)^{2} \leq n^2 \lim_{ n \to \infty }  \\
+n \geq (\log n)^{2}  && \forall n \geq 1 \text{ ... yes I checked} \\  \\
+n^2 + n^2 \leq c_{2} \cdot n^{2} && n(\log n)^{2} \leq n^2 : \lim_{ n \to \infty } \space \land \forall n \geq 1  \\
 2 \cdot n^2 \leq c_{2} \cdot n^2 && c_{2} = 2 \text{ is acceptable.} 
 \end{align}
 $$
+$$
+\begin{gather}
+\text{And, we can set the value for } k_{1} = 1.
+\end{gather}
+$$
+$$
+\begin{gather}
+\text{Lower bound proof:} \\
+\Omega(n^{2}): \text{ We shall show that } n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2} \geq c_{1} \cdot n^{2} \\
+\end{gather}
+$$
+
 ## Question 2
 
 ## Notes for self
