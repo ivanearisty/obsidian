@@ -89,7 +89,41 @@ $$
 \text{Finally, we can say that the function f(n) is } \Theta(n^{2}) \\ \text{ for all } n \geq 4 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
 \end{gather}
 $$
+$f(n) = \frac{3n^{3}-n}{2n+\log n} + 2^{10}$
+$$
+\begin{gather}
+\text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
+\text{First we have to realize that the dominant term is } n^{2} \text{ in the function above.} \\
+\text{This is because } 2^{10} \text{ is just some constant and the terms in the fraction come out to } n^{2} \\
+\text{To prove that} f(n) = \Theta(n^2), \text{ we set out to prove that there exists constants } c_{1}, c_{2} > 0 \\ \text{ and } k \geq 1 \text{ such that: } \\
+c_{1} \cdot n^{2} \leq \frac{3n^{3}-n}{2n+\log n} + 2^{10} \leq c_{2} \cdot n^{2}
+\end{gather}
+$$
+$$
+\begin{gather}
+\text{Upper bound: } \\
+\text{We set out to show that } \mathcal{O}(n^{2}) = \frac{3n^{3}-n}{2n+\log n} + 2^{10} \\ 
+\text{So, there exists a } c_{2} \text{ and } k_{2} \text{ such that: }\\
+\frac{3n^{3}-n}{2n+\log n} + 2^{10} \leq c_{2} \cdot n^{2} : \forall n \geq k \\
+\\
+\text{Let's deal with the constant first.}\\
+2^{10} = 1024. \text{ So, we can replace it with an } n^{2} \text{ for values where } n^{2} \geq 1024 \\
+\text{This is } n = \sqrt{ 1024 } = 32\\
+\text{Preliminarily, } k_{2} = 32 \\ \\
+\text{Now we have:} \\
+\frac{3n^{3}-n}{2n+\log n} + n^{2} \leq c_{2} \cdot n^{2} \\ \\
+\text{Since the logarithm on the denominator and negative n on numerator} \\
+\text{both decrease the function's value:} \\
+\frac{3n^{3}}{2n} + n^{2} \leq c_{2} \cdot n^{2} \rightarrow \frac{3n^{2}}{2} + n^{2} \rightarrow \frac{5n^{2}}{2} \leq c_{2} \cdot n^{2} \\
+c_{2} = \frac{5}{2}, k_{2} = 32
+\end{gather}
+$$
+$$
+\begin{gather}
+\text{Lower Bound:} \\
 
+\end{gather}
+$$
 ## Question 2
 
 ## Notes for self
