@@ -227,6 +227,7 @@ $$
 \end{gather}
 $$
 ## Question 2
+### A (12 points)
 
 Write the pseudo-code (non-recursive) for this algorithm. You must use the skeleton below, called SimpleSort(A, s, f ) which sorts array A between indices s and f . The final sorted array is in array L\[1, . . . , n]
 
@@ -252,10 +253,63 @@ while lastindex ≠ n
 	last = -infinity
 ```
 
+- What is the worst-case number of comparisons on array A of length n? You must describe the input that causes this worst-case scenario, and justify the worst-case number of comparisons.
+
+The worst case happens when we have an array in decreasing order.
+But see, this is complicated because with a better implementation we kind of get two answers for this question.
+Since here we are doing from i = s to f every time, we technically get **$n^2$ comparisons**, if we count comparing the elements that we "remove," but we don't *actually* remove them here do we? We make them -infinity, and those should count for comparisons.
+If we had a way to actually remove those elements, then we'd do n comparisons on the first run, then n-1 on the second, and so on... this leads to $\frac{n(n+1)}{2}$ comparisons. But that's not what we did above. So my answer remains the first point
+
+- What is the best-case number of comparisons made on array A of length n? You must describe the input that causes this best-case scenario, and justify the best-case number of comparisons.
+
+When the array is already sorted, we add everything in immediately. Hence we only ever do n comparisons and the while loop then breaks.
+
 I found it to be strand sort with O(n^2) complexity from these sources:
 - https://viblo.asia/p/strand-sort-XL6lAQLRlek
 - https://stackoverflow.com/questions/4579786/why-is-strand-sort-on-sqrt-n-in-the-average-case
-- 
+- https://groups.google.com/g/fido7.ru.algorithms/c/dL4SAH96OPY/m/s4oABNtMCCYJ?pli=1
+
+### B (12 points)
+
+Below is a non-recursive variation of MergeSort, which is intended to sort array A between indices s and f . Note that it makes reference to the Merge procedure from week 2. You should remind yourself of the specific parameters of the Merge algorithm.
+
+![[Screenshot 2024-09-27 at 3.01.04 AM.jpg]]
+
+- Procedure Execution:
+Start:
+\[3,4,5,1,6,2]
+
+First while loop:
+\[3 < e ,4,5,1,6,2]
+\[3,4 < e ,5,1,6,2]
+\[3,4,5 < e ,1,6,2]
+
+Second while loop
+\[3,4,5 < e ,1 < e2 ,6,2]
+\[3,4,5 < e ,1,6 < e2 ,2]
+
+Merge:
+\[1,3,4 < e,5,6 < e2,2]
+
+e = e2:
+\[1,3,4,5,6 < e e2,2]
+
+While start:
+e2 = e+1
+\[1,3,4,5,6 < e, 2 < e2]
+
+e2 >= f
+
+Merge:
+\[1,2,3,4,5,6] done.
+
+- Is this a correct sorting algorithm?
+
+Yes. It does sort the array.
+
+- Let T (n) be the best-case runtime of this procedure. Express T (n) is a function and show that it is O(n).
+
+T(n) = n
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
