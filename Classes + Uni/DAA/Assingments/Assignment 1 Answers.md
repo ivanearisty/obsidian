@@ -190,7 +190,6 @@ $f(n) = \sqrt{ n^{3} + 1 } + n^{2} \sqrt{ n+1 }$
 $$
 \begin{gather}
 \text{Simplifying:} \\
-n^{3/2} + 1 + n^{5/2} + 1 \\ \\
 \text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
 \text{First we have to realize that the dominant term is }  \text{ in the function above.} \\
 
