@@ -476,6 +476,8 @@ $$
 
 - Trace the recursive algorithm on the input A = \[5, 4, 3, 2, 1] indexed from s = 1 to f = 5. Ensure that you show the state of the array during the recursive calls, and detail the parameters passed at each stage of the recursion. Clearly show the final state of the array A. 
 
+The following is a tree like interpretation of the call stack and A, q1, and q2 as new calls happen (represented as indentations)
+
 MyPrint(A,1,5):
 	\[5, 4, 3, 2, 1]
 	q1 = 2
@@ -510,7 +512,7 @@ The algorithm splits an array into two parts of size 2/3 and then passes overlap
 We can represent as:
 
 $T(1) = n\log n$ 
-$T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + \frac{1}{3}n\log n$ 
+$T(n) = 2 \cdot T\left( n \cdot  \right) + \frac{1}{3}n\log n$ 
 $T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + c \cdot n\log n$
 
 Use Master Method to theta-value for the runtime of this algorithm.
@@ -599,9 +601,20 @@ $$
 \begin{gather}
 \sum_{k=0}^{\log_{3}n} n^2 \cdot 3^{k} \\
 \sum_{k=0}^{\log_{3}n} n^2 \cdot 3^{k} \\
-n^{2} \cdot \frac{3^{\log_{3}n+1}​-1}{3-1}
+n^{2} \cdot \frac{3^{\log_{3}n+1}​-1}{3-1} \\
+n^{2} \cdot \frac{3 \cdot 3^{\log_{3}n}​-1}{3-1} \\
+n^{2} \cdot \frac{3 \cdot n​-1}{2} \approx n^{3}\\
+\text{So, it is }\mathcal{O}(n^{3})
 \end{gather}
 $$
+
+### B (8 points)
+
+Apply the master theorem to to each of the following, or state that it does not apply:
+
+- $T(n) = 2 \cdot T\left( \frac{n}{2} \right) + n^{2}+n$
+- $T(n) = 15 \cdot T\left( \frac{n}{4} \right)+n^{2}\log n$
+- $T(n) = 17 \cdot T\left( \frac{n}{4} \right) + n^{2}$
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
