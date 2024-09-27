@@ -477,9 +477,10 @@ $$
 - Trace the recursive algorithm on the input A = \[5, 4, 3, 2, 1] indexed from s = 1 to f = 5. Ensure that you show the state of the array during the recursive calls, and detail the parameters passed at each stage of the recursion. Clearly show the final state of the array A. 
 
 MyPrint(A,1,5):
+	\[5, 4, 3, 2, 1]
 	q1 = 2
 	q2 = 3
-		MergeSort(A,2,3):
+	MergeSort(A,2,3):
 		 \[5, 3, 4, 2, 1]
 	MyPrint(A, 2, 5):
 		 \[5, 3, 4, 2, 1]
@@ -489,13 +490,22 @@ MyPrint(A,1,5):
 			  \[5, 3, 2, 4, 1]
 			MyPrint(A,3,5):
 				\[5, 3, 2, 4, 1]
-				q1 = 3
-				q2 = 4
-				
+				Mergesort(A,3,5):
+					\[5, 3, 1, 2, 4]
 			MyPrint(A,2,4)
+				\[5, 3, 1, 2, 4]
+				Mergesort(A,2,4):
+					\[5, 1, 2, 3, 4]
 	MyPrint(A, 1, 3)
+	\[5, 1, 2, 3, 4]
+		Mergesort(A,1,3)
+		\[1, 2, 5, 3, 4]
+	\[1, 2, 5, 3, 4]
+\[1, 2, 5, 3, 4]
 
 Write and justify the runtime recurrence for the above algorithm. 
+
+The algorithm splits an array into two parts of size 2/3 and then passes overlapping parts into two other functions, finishing when the final function is of size 
 
 Use Master Method to theta-value for the runtime of this algorithm.
 ## Notes for self
