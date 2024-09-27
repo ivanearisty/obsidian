@@ -536,7 +536,7 @@ $$
 ### A (12 points)
 Use the recursion tree to find a tight asymptotic bound for each of
 
-$T(n) = 2T\left( \frac{n}{4} \right)+1$
+- $T(n) = 2T\left( \frac{n}{4} \right)+1$
 
 We do 1 work, twice, and break n/4
 
@@ -544,11 +544,20 @@ We do 1 work, twice, and break n/4
 
 Hence we do $1, 2, 4, \dots 2^{\log_{4}n}$
 
-Transform to: $n^{\log_{4}2} \rightarrow \sqrt{ n }$
+$\sum_{k=0}^{L} 2^{\log_{4}n} = \frac{2^{\log_{4}n+1}-1}{2-1} \rightarrow 2 \cdot 2^{\log_{4}n}-1 \rightarrow 2\sqrt{ n } -1$
 
-$\sum_{k=0}^{L} \sqrt{ n } =$
+$\therefore T(n) \text{ is } \Theta(\sqrt{ n })$
 
-$T (n) = 4T \left( \frac{n}{4} \right) + n$ 
+- $T (n) = 4T \left( \frac{n}{4} \right) + n$ 
+
+Here we do n work, 4 times, and divide the input size by 4
+
+![[Drawing 2024-09-27 14.10.27.excalidraw]]
+
+This one is pretty simple, we just have n work per level for log_4(n) levels, which is $n\log_{4}n$ making the entire thing $T(n) = \Theta(n\log_{4}n)$
+
+- Show $T(n) = T(n/2) + \log n \text{ is } \mathcal{O}((\log n)^{2})$
+
 
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
