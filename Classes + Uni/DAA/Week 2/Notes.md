@@ -49,4 +49,37 @@ Combine and simplify:
 Facts used: 
 	Cancelled the 2
 	log with a fraction is the log of the top - log of the bottom
-	log_2(2) = 1 
+	log_2(2) = 1
+	common factored an n from rhs
+
+We realize that we can achieve our goal if we get the right constants:
+![[Screenshot 2024-09-27 at 5.41.53 AM.jpg]]
+
+### Substitution example 2
+
+```
+Fact(n)
+	if n = 1
+		return 1
+	else 
+		return n*Fact(n-1)
+```
+
+![[Screenshot 2024-09-27 at 5.44.41 AM.jpg]]
+We can guess that this is $\mathcal{O}(n)$ since we can replace the T multiple times and see how it behaves.
+
+![[Screenshot 2024-09-27 at 5.46.06 AM.jpg]]
+
+We are done here because we can just assume that d is bigger than c.
+
+### Master method
+
+![[Screenshot 2024-09-27 at 5.47.29 AM.jpg]]
+
+![[Screenshot 2024-09-27 at 5.58.58 AM.jpg]]
+
+Case 3:
+![[Screenshot 2024-09-27 at 6.01.20 AM.jpg]]
+
+Case 2: 
+![[Screenshot 2024-09-27 at 6.03.33 AM.jpg]]
