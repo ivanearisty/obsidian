@@ -341,6 +341,11 @@ $$
 However, we must note that we do n comparisons in the while loops' if statements that immediately break. Adding this to the above is trivial and will still yield an $\mathcal{O}(n^{2})$ number of comparisons. We can just pick up were we left off and say $\frac{n^{2}-n}{2} \leq c*n^{2}$ becomes $\frac{n^{2}-n}{2} + n \leq c*n^{2}$, with c = 4 after simplifying $n^{2}+n \rightarrow 2n^{2} \leq 2c \cdot n^{2}$.
 
 ## Question 3 
+
+### A (3 points)
+
+Recall that the pseudo-code from class for MergeSort required external space as part of the merge step. These types of algorithms are referred to as sorting algorithm that do not run in-place. Do some research to determine if there is a known version of MergeSort that runs in-place, and if so, what its best-known runtime is.
+
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
