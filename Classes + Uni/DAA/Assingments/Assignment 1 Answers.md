@@ -139,6 +139,14 @@ $$
 \text{Finally, we can say that the function f(n) is } \Theta(n^{2}) \\ \text{ for all } n \geq 32 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
 \end{gather}
 $$
+$2^{n} \cdot n + n^{5}\log n - 1.5^{n}$
+
+$$
+\begin{gather}
+\text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
+\text{First we have to realize that the dominant term is } 2^{n} \cdot n \text{ in the function above.} \\
+\end{gather}
+$$
 ## Question 2
 
 ## Notes for self
