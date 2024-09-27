@@ -228,6 +228,31 @@ $$
 $$
 ## Question 2
 
+Write the pseudo-code (non-recursive) for this algorithm. You must use the skeleton below, called SimpleSort(A, s, f ) which sorts array A between indices s and f . The final sorted array is in array L\[1, . . . , n]
+
+Simple sort loops through input array and takes the first element of the array. It then finds a bigger number and you add it to a list, continuing for numbers that are bigger adding them to that list.
+Then it merges both lists together. 
+
+
+```
+// Assuming that Nan does not produce an error
+
+n = f - s
+Initialize array L[1, . . . , n] 
+last = Nan
+lastindex = 1
+end = 0 
+while lastindex ≠ n
+	for i = s to f 
+		if A[i] > last 
+			lastindex ++ 
+			last = A[i]
+			A[i] = Nan
+	Merge(L, 1, end ,lastindex)
+	end = 
+	__________
+```
+
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
