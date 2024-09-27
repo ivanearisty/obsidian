@@ -613,8 +613,71 @@ $$
 Apply the master theorem to to each of the following, or state that it does not apply:
 
 - $T(n) = 2 \cdot T\left( \frac{n}{2} \right) + n^{2}+n$
+
+$$
+\begin{gather}
+T(n) = 2 \cdot T\left( \frac{n}{2} \right) + n^{2}+n \\ \\
+a = 2 \\
+b = 2 \\
+f(n) = n^{2} + n = n^{2}\\
+\\ 
+k=\log_{2}(2)=1 \\
+n^{k} = n\\ 
+\\
+\text{Case 3 } f(n) \text{ is } \Omega(n^{1+e}) \\
+\therefore T(n) \text{ is } \Theta(n^{2})
+\end{gather}
+$$
+
 - $T(n) = 15 \cdot T\left( \frac{n}{4} \right)+n^{2}\log n$
-- $T(n) = 17 \cdot T\left( \frac{n}{4} \right) + n^{2}$
+
+$$
+\begin{gather}
+T(n) = 15 \cdot T\left( \frac{n}{4} \right)+n^{2}\log n \\ \\
+a = 15 \\
+b = 4 \\
+f(n) = n^{2}\log n \\
+\\ 
+k=\log_{4}(15) \approx 1.95 \\
+n^{k} = n^{1.95}\\ 
+\\
+\text{Does not apply.}
+\end{gather}
+$$
+
+- $T(n) = 17 \cdot T\left( \frac{n}{4} \right) + n^{2}+\log n$
+
+$$
+\begin{gather}
+T(n) = 17 \cdot T\left( \frac{n}{4} \right) + n^{2}+\log n \\ \\
+a = 17 \\
+b = 4 \\
+f(n) = n^{2} + \log n \\
+\\ 
+k=\log_{4}(17) \approx 2.04 \\
+n^{k} = n^{2.04}\\ 
+\\
+\text{Does not apply.}
+\end{gather}
+$$
+
+- $T(n) = 16T\left( \frac{n}{4} \right)+n^{2}\log n+n^{3}$
+
+$$
+\begin{gather}
+T(n) = 16T\left( \frac{n}{4} \right)+n^{2}\log n+n^{3} \\ \\
+a = 16 \\
+b = 4 \\
+f(n) = n^{3} + n^{2}\log n \\
+\\ 
+k=\log_{4}(16) = 2 \\
+n^{k} = n^{2}\\ 
+\\
+\text{Case 3 } f(n) \text{ is } \Omega(n^{2+e}) \\
+\therefore T(n) \text{ is } \Theta(n^{3})
+\end{gather}
+$$
+
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
