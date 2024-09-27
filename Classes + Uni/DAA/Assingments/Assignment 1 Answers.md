@@ -571,21 +571,37 @@ $$
 $$
 $$
 \begin{gather}
-\text{The series:}
+\text{The series as each level, k, increases:} \\
 \log n + (\log n-1) + (\log n-2) + \dots + 1 \\ \\
 \text{Which simplifies to our good old:} \\
 \frac{\log n \cdot (\log n+1)}{2} \\
 \text{which will give:} \\
 \frac{(\log n)^{2}+\log n}{2} \\
 \text{And from our growth of functions we know that } (\log n)^{2} \geq \log n \\
-\text{So, } T(n) = O(n^{2}) \\ \\
+\text{So, } T(n) = O((\log n)^{2}) \\ \\
 \text{I guess we could quickly prove it as well:} \\
 \frac{(\log n)^{2}+\log n}{2} \leq c \cdot (\log n)^{2}\\
 \frac{(\log n)^{2}+(\log n)^{2}}{2} \leq c \cdot (\log n)^{2}\\
+(\log n)^{2}\leq c \cdot (\log n)^{2}\\
+\text{ for any constant c that is greater than or equal to 1}
 \end{gather}
 $$
 
+- $T (n) = 9T (n/3) + n^{2}$
+I mean...
+![[Assignment 1 Answers 2024-09-27 15.09.21.excalidraw]]
 
+Height is log_3(n)
+
+We do $3^{k-1} \cdot n^{2}$ work on each level.
+
+$$
+\begin{gather}
+\sum_{k=0}^{\log_{3}n} n^2 \cdot 3^{k} \\
+\sum_{k=0}^{\log_{3}n} n^2 \cdot 3^{k} \\
+n^{2} \cdot \frac{3^{\log_{3}n+1}​-1}{3-1}
+\end{gather}
+$$
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
