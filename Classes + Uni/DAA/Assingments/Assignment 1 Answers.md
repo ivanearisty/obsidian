@@ -538,6 +538,10 @@ Use the recursion tree to find a tight asymptotic bound for each of
 
 $T(n) = 2T\left( \frac{n}{4} \right)+1$
 
+We do 1 work, twice, and break n/4
+
+![[Drawing 2024-09-27 11.11.23.excalidraw]]
+
 
 
 $T (n) = 4T \left( \frac{n}{4} \right) + n$ 
