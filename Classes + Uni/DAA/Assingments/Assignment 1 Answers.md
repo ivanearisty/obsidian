@@ -189,10 +189,41 @@ $f(n) = \sqrt{ n^{3} + 1 } + n^{2} \sqrt{ n+1 }$
 
 $$
 \begin{gather}
-\text{Simplifying:} \\
 \text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
-\text{First we have to realize that the dominant term is }  \text{ in the function above.} \\
-
+\text{First we have to realize that the dominant term is } n^{5/2} \text{ in the function above.} \\ 
+\text{We set out to prove that } \Theta(n^{5/2}) \\
+\text{We will find constants } c_{1}, c_{2} \text{ such that: } \\
+c_{1} \cdot n^{5/2} \leq \sqrt{ n^{3} + 1 } + n^{2} \sqrt{ n+1 } \leq c_{2} \cdot n^{5/2} : \forall n \geq k
+\\ \\
+\text{This time the lower bound is pretty easy so let's do it first.} \\
+\text{We can ignore } \sqrt{ n^{3} + 1 } \text{ since it is positive, leaving us:} \\
+n^{2}\sqrt{ n+1 } \geq c_{1} \cdot n^{5/2} \\ \\
+\text{We can also ignore the 1, since it is positive:} \\
+n^{2}\sqrt{ n} \geq c_{1} \cdot n^{5/2} \\
+\text{This leaves us with: }
+n^{2}*n^{1/2} \rightarrow n^{5/2}. \\
+\text{So, } c_{1} = 1, k_{1} = 1 \\ 
+\text{Note that this could be much tighter but it works.}\\
+\text{For the upper bound:} \\
+\end{gather}
+$$
+$$
+\begin{align}
+\sqrt{ n^{3} + 1 } + n^{2} \sqrt{ n+1 } \leq c_{2} \cdot n^{5/2} && \text{Initial expression}\\
+\sqrt{ n^{3} + n^{3} } + n^{2} \sqrt{ n+1 } \leq c_{2} \cdot n^{5/2} && n^{3} \geq 1 \\
+\sqrt{ 2n^{3} } + n^{2} \sqrt{ n+1 } \leq c_{2} \cdot n^{5/2} && \text{ Simplify}  \\
+\sqrt{ 2n^{3} } + n^{2} \sqrt{ n+n} \leq c_{2} \cdot n^{5/2} && n\geq1 \\
+\sqrt{ 2n^{3} } + n^{2} \sqrt{ 2n} \leq c_{2} \cdot n^{5/2} && \text{Simplify}  \\
+\sqrt{ 2n^{3} } + \sqrt{ 2 }n^{5/2}  \leq c_{2} \cdot n^{5/2} && \text{Evaluate exponent}  \\
+\sqrt{2}n^{3/2} + \sqrt{ 2 }n^{5/2}  \leq c_{2} \cdot n^{5/2} && \text{Evaluate exponent}  \\
+\sqrt{2}n^{5/2} + \sqrt{ 2 }n^{5/2}  \leq c_{2} \cdot n^{5/2} && n^{3/2} \leq n^{5/2}  \\
+2 \sqrt{ 2 }n^{5/2}  \leq c_{2} \cdot n^{5/2} && \text{Combine like terms}
+\end{align}
+$$
+$$
+\begin{gather}
+\text{Hence } c_{2} = 2\sqrt{ 2 }, k=1 \\
+\text{Finally, we can say that the function f(n) is } \Theta(n^{5/2}) \\ \text{ for all } n \geq 1 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
 \end{gather}
 $$
 ## Question 2
