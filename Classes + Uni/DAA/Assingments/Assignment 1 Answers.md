@@ -177,6 +177,23 @@ $$
 2^{n} \cdot n + n^{5}\log n - 1.5^{n} \geq c_{1} \cdot 2^{n}n \\ \\
 \text{Here we can drop the log term: } \\
 2^{n} \cdot n - 1.5^{n} \geq c_{1} \cdot 2^{n}n \\ \\
+\text{Then we can sub:} \\
+2^{n} \cdot n - \frac{2^{n} \cdot n}{2} \geq c_{1} \cdot 2^{n}n \\
+\text{since we are making the fraction smaller.} \\
+\text{We don't really have to prove this since } 2^{n} > 1.5^{n} \\ 
+\text{Our } c_{1} \text{ would be } \frac{1}{2} \text{ and we can just leave } k_{1} = k_{2} = 20\\ \\
+\text{Finally, we can say that the function f(n) is } \Theta(2^{n}n) \\ \text{ for all } n \geq 20 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
+\end{gather}
+$$
+$f(n) = \sqrt{ n^{3} + 1 } + n^{2} \sqrt{ n+1 }$
+
+$$
+\begin{gather}
+\text{Simplifying:} \\
+n^{3/2} + 1 + n^{5/2} + 1 \\ \\
+\text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
+\text{First we have to realize that the dominant term is }  \text{ in the function above.} \\
+
 \end{gather}
 $$
 ## Question 2
