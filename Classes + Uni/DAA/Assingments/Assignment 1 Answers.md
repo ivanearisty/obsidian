@@ -363,18 +363,18 @@ Suppose we want to re-write the MergeSort algorithm so that it splits the array 
 
 ```
 MergeThree(A, s, q, q2, f ):
-	Initialize an array L[] of size s - f + 1
+	Initialize an array L[] of size f - s + 1
 	
 	a = s
 	b = q
 	c = q2
 	i = 1
 	
-	while a < q and b < q2 and c < f:
-		if A[a] < A[b] and A[a] < A[c]:
+	while a < q and b < q2 and c <= f:
+		if A[a] <= A[b] and A[a] <= A[c]:
 			L[i] = A[a]
 			a++
-		else if A[b] < A[a] and A[b] < A[c]:
+		else if A[b] <= A[a] and A[b] <= A[c]:
 			L[i] = A[b]
 			b++
 		else:
@@ -382,35 +382,32 @@ MergeThree(A, s, q, q2, f ):
 			c++
 		i++
 
-	if a == q:
-		while b < q2 and c < f:
-			if A[b] < A[c]:
-				L[i] = A[b]
-				b++
-			else:
-				L[i] = A[c]
-				c++
-			i++	
+	while b < q2 and c <= f:
+		if A[b] <= A[c]:
+			L[i] = A[b]
+			b++
+		else:
+			L[i] = A[c]
+			c++
+		i++	
 
-	if b == q2:
-		while a < q and c < f:
-			if A[a] < A[c]:
-				L[i] = A[a]
-				b++
-			else:
-				L[i] = A[c]
-				c++
-			i++	
+	while a < q and c <= f:
+		if A[a] <= A[c]:
+			L[i] = A[a]
+			a++
+		else:
+			L[i] = A[c]
+			c++
+		i++	
 			
-	if c == f:
-		while a < q and b < q2:
-			if A[a] < A[b]:
-				L[i] = A[a]
-				a++
-			else:
-				L[i] = A[b]
-				b++
-			i++	
+	while a < q and b < q2:
+		if A[a] <= A[b]:
+			L[i] = A[a]
+			a++
+		else:
+			L[i] = A[b]
+			b++
+		i++	
 
 	while a < q:
 		L[i] = A[a]
@@ -422,7 +419,7 @@ MergeThree(A, s, q, q2, f ):
 		b++
 		i++
 		
-	while c < f:
+	while c <= f:
 		L[i] = A[c]
 		c++
 		i++
@@ -432,6 +429,27 @@ MergeThree(A, s, q, q2, f ):
 
 This merging algorithm runs in 2n time, since we do one pass through all the elements to add them to L, and another pass to add them back to A .
 
+```
+MergeSort(A, s, f):
+
+	if f - s + 1 == 1:
+		return
+	
+	if f - s + 1 == 2:
+		
+
+	if f - s + 1 == 3:
+		MergeThree(A, s, q, q2, f)
+		
+	q1 = [(2s+f)/3]
+	q2 = [(s+2f)/3]
+
+	MergeSort(A, s, q1)
+	MergeSort(A, q1, q2)
+	MergeSort(A, q2, f)
+		
+	MergeThree(A, s, q, q2, f)
+```
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
