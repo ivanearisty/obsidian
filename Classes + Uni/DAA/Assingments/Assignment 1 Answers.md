@@ -133,7 +133,7 @@ $$
 \frac{2n^{3}}{3n} \rightarrow \frac{2}{3} \cdot n^{2}\geq c_{1} \cdot n^{2} \\
 \text{So we can use } c_{1} = \frac{2}{3}
 \end{gather}
-$$\
+$$
 $$
 \begin{gather}
 \text{Finally, we can say that the function f(n) is } \Theta(n^{2}) \\ \text{ for all } n \geq 32 \text{ sandwiched between our } c_{1} \text{ and } c_{2}
@@ -145,9 +145,32 @@ $$
 \begin{gather}
 \text{We set out to prove that } f(n) \text{ is } \Theta(g(n)) \text{ for some function } g(n) . \\ \\
 \text{First we have to realize that the dominant term is } 2^{n} \cdot n \text{ in the function above.} \\
+\text{To prove that } f(n) = \Theta(2^{n}), \text{ we will find constants } c_{1}, c_{2} \text{ such that:} \\
+2^{n} \cdot c_{1} \leq 2^{n} \cdot n + n^{5}\log n - 1.5^{n} \leq 2^{n} \cdot c_{2} : \forall n \geq k. \\
+\text{Upper Bound: } \\
+\mathcal{O}(2^{n}) = 2^{n} \cdot n + n^{5}\log n - 1.5^{n} \\
+2^{n} \cdot n + n^{5}\log n - 1.5^{n} \leq c_{2} \cdot 2^{n} \\ \\
+\text{We can drop the } -1.5^{n} \text{ since we're making the function bigger:} \\
+2^{n} \cdot n + n^{5}\log n \leq c_{2} \cdot 2^{n} \\ \\
+\text{Now we can transform the second term into } 2^{n}\cdot n \text{, but we need to find when it is true:}
 \end{gather}
 $$
+
+| $n$    | $2^{n} \cdot n$ | $n^{5} \log n$ |
+| ------ | --------------- | -------------- |
+| 5      | 160             | 7256           |
+| 10     | 10240           | 332192         |
+| 15     | 491,520         | 2,966,795      |
+| **20** | **20,971,520**  | **13,830,169** |
+$$
+\begin{gather}
+\text{Let's go with 20 then} \dots \\ \\
+
+\end{gather}
+$$
+
 ## Question 2
 
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
+1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
