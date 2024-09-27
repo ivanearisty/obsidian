@@ -510,8 +510,8 @@ The algorithm splits an array into two parts of size 2/3 and then passes overlap
 We can represent as:
 
 $T(1) = n\log n$ 
-$T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + \frac{1}{3}n\log n$
-
+$T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + \frac{1}{3}n\log n$ 
+$T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + c \cdot n\log n$
 
 Use Master Method to theta-value for the runtime of this algorithm.
 $$
@@ -520,11 +520,16 @@ T(n) = 2 \cdot T\left( n \cdot \frac{2}{3} \right) + \frac{1}{3}n\log n \\
 \\
 a = 2 \\
 b = \frac{3}{2} \\
-f(n) = \frac{1}{3}n\log n \\
+f(n) = c \cdot n\log n \\
 \\
-k = \log_{b}a
+k = \log_{b}a = \log_{\frac{3}{2}}2 \approx 1.7 \\
+n^{k} = n^{1.7} \\ \\
+n^{1.7} \geq n\log n \\
+f(n) \text{ is } \Omega(n^{1.7 + e}) \\
+\therefore T(n) \text{ is } \Theta(n^{1.7})
 \end{gather}
 $$
+
 
 ## Question 4
 
