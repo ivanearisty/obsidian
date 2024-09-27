@@ -56,13 +56,18 @@ $$
 c_{1} \cdot n^{2} \leq f(n) \leq c_{2} \cdot n^2 : \forall n \geq k. \\ \\
 \text{Upper bound proof:} \\
 \mathcal{O}(n^{2}) : \text{ We shall show that } n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2} \leq c_{2} \cdot n^{2} \\
-n^2 - \frac{\sqrt{ n }}{\log n}+n(\log n)^{2} \leq c_{2} \cdot n^{2}
 \end{gather}
 $$
 $$
 \begin{align}
-2+4 && sdsad
+n^2 - \frac{\sqrt{ n }}{\log n} + n(\log n)^{2} \leq c_{2} \cdot n^{2} && \text{Initial Inequality} \\
+n^2 + n(\log n)^{2} \leq c_{2} \cdot n^{2} && \text{Middle term makes smaller } \\ \\
+n \geq (\log n)^{2}  && \forall n \geq 1  \\  \\
+n^2 + n^2 \leq c_{2} \cdot n^{2} && n(\log n)^{2} \leq n^2 \lim_{ n \to \infty }  \\
+2 \cdot n^2 \leq c_{2} \cdot n^2 && c_{2} = 2 \text{ is acceptable.} 
 \end{align}
 $$
-
 ## Question 2
+
+## Notes for self
+1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
