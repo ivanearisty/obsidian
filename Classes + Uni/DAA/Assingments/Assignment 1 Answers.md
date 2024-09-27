@@ -236,7 +236,7 @@ Then it merges both lists together.
 
 
 ```
-n = f - s
+n = f - s + 1
 Initialize array L[1, . . . , n] 
 last = -infinity
 lastindex = 0
@@ -362,19 +362,77 @@ I believe this method uses a version of this in place merging algorithm: https:/
 Suppose we want to re-write the MergeSort algorithm so that it splits the array into three subarrays each of size approximately n/3. Your job is to write the pseudo-code for this new version of MergeSort. Ensure that you have a valid base case! (you can check this by testing it on input of size n = 1,n = 2. You will have to write a new version of the Merge procedure, which merges three sorted arrays. You can call this procedure MergeThree(A, s, q, q2, f ), which merges sorted subarrays A\[s . . . q], A\[q + 1 . . . q2], A\[q2 + 1 . . . f ].
 
 ```
-
-
 MergeThree(A, s, q, q2, f ):
-	Initialize array B[] of size s-f
+	Initialize an array L[] of size s - f + 1
 	
 	a = s
 	b = q
 	c = q2
+	i = 1
 	
 	while a < q and b < q2 and c < f:
-		if 
+		if A[a] < A[b] and A[a] < A[c]:
+			L[i] = A[a]
+			a++
+		else if A[b] < A[a] and A[b] < A[c]:
+			L[i] = A[b]
+			b++
+		else:
+			L[i] = A[c]
+			c++
+		i++
+
+	if a == q:
+		while b < q2 and c < f:
+			if A[b] < A[c]:
+				L[i] = A[b]
+				b++
+			else:
+				L[i] = A[c]
+				c++
+			i++	
+
+	if b == q2:
+		while a < q and c < f:
+			if A[a] < A[c]:
+				L[i] = A[a]
+				b++
+			else:
+				L[i] = A[c]
+				c++
+			i++	
+			
+	if c == f:
+		while a < q and b < q2:
+			if A[a] < A[b]:
+				L[i] = A[a]
+				a++
+			else:
+				L[i] = A[b]
+				b++
+			i++	
+
+	while a < q:
+		L[i] = A[a]
+		a++
+		i++
+
+	while b < q2:
+		L[i] = A[b]
+		b++
+		i++
+		
+	while c < f:
+		L[i] = A[c]
+		c++
+		i++
+		
+	Copy elements from L[] between s and f into array A[]
 ```
+
+This merging algorithm runs in 2n time, since we do one pass through all the elements to add them to L, and another pass to add them back to A .
 
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
-1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
+1.3.3: can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
+3.2: how come we do not care about index out of bound errors for our traditional merge algorithm? 
