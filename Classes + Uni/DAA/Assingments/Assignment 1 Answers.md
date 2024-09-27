@@ -326,7 +326,7 @@ T(n) = c \cdot n + d \cdot n \leq (c+d) n \\
 $$
 - Suppose the input array A has n elements which are sorted in decreasing order. In this case, show that the number of comparisons is $\mathcal{O}(n^{2})$.
 
-The first while loop will break immediately after doing one comparison. Then the second while will do another comparison in it's nested while. This will break to call merge. Afterwards, we will call merge n-1 times for an array that always just increases from size 2 to n. Merge will then perform 1 comparison per element in the array called. 
+The first while loop will break immediately after doing one comparison. Then the second while will do another comparison in it's nested while. This will break to call merge. Afterwards, we will call merge n-1 times for an array that always just increases from size 2 to n. Merge will then perform 1 comparison per element in the arrays merge works on (the singleton array and the already sorted array). 
 $$
 \begin{gather}
 \text{For completeness, here's an abbreviated proof just for merge: } \\
@@ -338,7 +338,9 @@ n^{2} \leq 2*n^{2}
 \end{gather}
 $$
 
-However, since we are actually not removing the 
+However, we must note that we do n comparisons in the while loops' if statements that immediately break. Adding this to the above is trivial and will still yield an $\mathcal{O}(n^{2})$ number of comparisons. We can just pick up were we left off and say $\frac{n^{2}-n}{2} \leq c*n^{2}$ becomes $\frac{n^{2}-n}{2} + n \leq c*n^{2}$, with c = 4 after simplifying $n^{2}+n \rightarrow 2n^{2} \leq 2c \cdot n^{2}$.
+
+## Question 3 
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
