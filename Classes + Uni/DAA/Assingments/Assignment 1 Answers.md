@@ -235,24 +235,27 @@ Then it merges both lists together.
 
 
 ```
-// Assuming that Nan does not produce an error
-
 n = f - s
 Initialize array L[1, . . . , n] 
-last = Nan
-lastindex = 1
+last = -infinity
+lastindex = 0
 end = 0 
 while lastindex ≠ n
 	for i = s to f 
 		if A[i] > last 
 			lastindex ++ 
 			last = A[i]
-			A[i] = Nan
-	Merge(L, 1, end ,lastindex)
-	end = 
-	__________
+			L[lastindex] = last
+			A[i] = -infinity <- idk how to solve this without adding this
+	Merge(L, 1, end, lastindex) <- this asumes that we merge from 1 to end and from end + 1 to last index
+	end = lastindex
+	last = -infinity
 ```
 
+I found it to be strand sort with O(n^2) complexity from these sources:
+- https://viblo.asia/p/strand-sort-XL6lAQLRlek
+- https://stackoverflow.com/questions/4579786/why-is-strand-sort-on-sqrt-n-in-the-average-case
+- 
 ## Notes for self
 1.3.1: is $n \geq \log(n)^{k} : \forall n \geq \land \space \forall k \geq 1$?
 1.3.3 can i drop the n and logn from the table? Like, I already know for sure that n > log n, could I worry about the 2^n and n^5 terms and call it a day when I find the values?
