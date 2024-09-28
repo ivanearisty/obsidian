@@ -70,8 +70,15 @@ that attribute.
 
 ![[Screenshot 2024-09-28 at 12.51.43 AM.jpg | 500]]
 
-Composite attributes, on can be divided into subparts (i.e., other attributes). For example, an attribute name could be structured as a composite attribute consisting of first name, middle initial, and last name.
+- **Single vs Composite** attributes. Composites can be divided into subparts (i.e., other attributes). For example, an attribute name could be structured as a composite attribute consisting of first name, middle initial, and last name.
+- **Single-valued and multivalued** attributes. There may be instances where an attribute has a set of values for a specific entity, like owning multiple phone numbers, making it multivalued.
+- **Derived attributes**. The value for this type of attribute can be derived from the values of other related attributes or entities. Like a count of phone numbers owned.
 
+An attribute takes a **null value** when an entity does not have a value for it.
+
+| Entity Set                                          | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![[Screenshot 2024-09-28 at 1.30.24 AM.jpg \| 200]] | *Composite attribute* **name** with component attributes *first name, middle initial, and last name* replaces the simple attribute name of instructor. <br><br>Address can be defined as the **composite attribute address** with the attributes *street, city, state, and postal code*. The attribute **street** is itself a composite attribute whose component attributes are *street number, street name, and apartment number*. <br><br>The figure also illustrates a *multivalued attribute* phone number, denoted by “**{phone number}**”<br><br>**Derived attribute age** depicted by “ age ( )” from *date of birth* |
 
 ## Lectures
 
