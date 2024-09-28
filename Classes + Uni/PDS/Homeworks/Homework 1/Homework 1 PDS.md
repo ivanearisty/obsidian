@@ -76,3 +76,57 @@ Also, let's assume that for awards like best direction of a play, the play is th
 - Dots show other attributes not used for our PK.
 
 ![[P1Sb.drawio.svg]]
+
+## Problem 2
+
+### Section A
+
+A shoe store has hired you to design a database to keep track of their inventory and orders. The Inventory is a collection of (pairs of) shoes. Each type of shoe the store carries is identified by its brand, styleID, size, and color; in addition, the inventory keeps track of the quantity of each type of shoe that is currently in stock. Each Customer has a unique email, any number of phone numbers, a number of bonus points, and an address composed of their street address, which in turn is composed of the building number, street name, and apartment number, and a city, state, and zip code.
+#### Question
+
+Using the notation studied, design an ER diagram with entity sets representing Customer and Inventory and a relationship set representing Current Orders. The model should enable tracking of the date on which an order is made, the status of the order, the number of (pairs of) each type of shoe in an order, the price paid for each type of shoe, and the status of the order. For part (a), assume that customers cannot have separate current orders of the same shoe type (though they can order several identical pairs in a single order). Your ER diagram for part (a) should be as simple as possible. In particular, it should have only one relationship set and that relationship set should be binary.
+
+#### Reasoning
+
+Entity Inventory (Shoes)
+- Brand
+- StyleID
+- Size 
+- Color
+- QuantityInStock
+
+Entity Customer has:
+- PK email 
+- multivalued {phone number}
+- bonus points
+- address (street address \[build number, street name, apartment number], city, state, zip code)
+
+ER Digram with the two entity sets.
+
+Relationship set Current Orders.
+
+- tracking of date in which order is made
+- Order Status
+- number of pairs of each type of shoe in an order -> signals one to many, also we could have a function that calculates number of pairs by counting the shoe types
+- Price paid per shoe
+
+Assumption:
+- customers cannot have separate current orders of the same shoe type (though they can order several identical pairs in a single order).
+- Simple as possible. In particular, it should have only one relationship set and that relationship set should be binary.
+
+I mean like... I can smell the imminent redundancy even before starting to think about how to do this.
+
+So, we have:
+Entity Inventory (Shoes)
+- Brand
+- StyleID
+- Size 
+- Color
+- QuantityInStock
+
+How could we 
+
+
+#### Answer
+
+![[P2Sa.drawio.svg]]
