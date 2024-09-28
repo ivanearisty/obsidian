@@ -582,8 +582,8 @@ $$
 \text{which will give:} \\
 \frac{(\log n)^{2}+\log n}{2} \\
 \text{And from our growth of functions we know that } (\log n)^{2} \geq \log n \\
-\text{So, } T(n) = O((\log n)^{2}) \\ \\
-\text{I guess we could quickly prove it as well:} \\
+\text{So, } T(n) = \Theta((\log n)^{2}) \\ \\
+\text{I guess we could quickly prove the upper bound for fun as well:} \\
 \frac{(\log n)^{2}+\log n}{2} \leq c \cdot (\log n)^{2}\\
 \frac{(\log n)^{2}+(\log n)^{2}}{2} \leq c \cdot (\log n)^{2}\\
 (\log n)^{2}\leq c \cdot (\log n)^{2}\\
@@ -606,7 +606,7 @@ $$
 n^{2} \cdot \frac{3^{\log_{3}n+1}​-1}{3-1} \\
 n^{2} \cdot \frac{3 \cdot 3^{\log_{3}n}​-1}{3-1} \\
 n^{2} \cdot \frac{3 \cdot n​-1}{2} \approx n^{3}\\
-\text{So, it is }\mathcal{O}(n^{3})
+\text{So, it is } \Theta(n^{3})
 \end{gather}
 $$
 
