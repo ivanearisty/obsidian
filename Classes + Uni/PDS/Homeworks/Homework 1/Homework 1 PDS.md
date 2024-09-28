@@ -128,9 +128,17 @@ So, the name "current orders" makes me think that when a status has order comple
 
 We can heed this advice "customers cannot have separate current orders of the same shoe type (though they can order several identical pairs in a single order)."
 
-and express the complexity through a many to many constraint number of pairs of each type of shoe in an order + price paid per shoe - though therein lies the redundancy
-
+and express the complexity through a 0..* constraint on customers, and just asume that it's taken care for us that there will not be those "duplicates"
 
 #### Answer
-
 ![[P2Sa.drawio.svg]]
+
+### Section B
+
+#### Question
+
+The store manager realizes that they would also like to keep track of the history of all of the orders that have been made. Briefly explain why the ER diagram from part (a) does not allow representation of a customer who makes multiple orders of the same type of shoe on different dates. Then modify the ER diagram, adding any needed entity sets and replacing Current Orders by a relationship set Orders which can represent past and present orders of the same type of shoe by the same customer.
+
+#### Explanation
+
+A current order that a customer places is identified by the type of shoe and the customer who ordered it. 
