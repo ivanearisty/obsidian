@@ -1,11 +1,10 @@
 ---
 tags:
   - PDS
-cssclasses:
-  - academic-pdf-export
+cssclasses: []
 ---
+# Notes
 ## Book
-
 ### The ER Model
 #### Entities and Entity Sets
 

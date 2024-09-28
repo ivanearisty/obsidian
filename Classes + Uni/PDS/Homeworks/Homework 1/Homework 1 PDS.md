@@ -54,6 +54,8 @@ This looks better because now a show can be nominated for none of multiple of th
 This way we allow an award to be won multiple times over, but still only once on a particular year.
 
 Plus, now the people nominated for an award are implicitly associated to the year they were nominated in.
+
+PS: I forgot to use camelCase, my bad.
 ### Section B
 
 #### Question
@@ -95,13 +97,16 @@ Entity Inventory (Shoes)
 - Color
 - QuantityInStock
 
+and we know: 
+> Each type of shoe the store carries is identified by its brand, styleID, size, and color
+
+So that will be the PKs.
+
 Entity Customer has:
 - PK email 
 - multivalued {phone number}
 - bonus points
 - address (street address \[build number, street name, apartment number], city, state, zip code)
-
-ER Digram with the two entity sets.
 
 Relationship set Current Orders.
 
@@ -116,15 +121,14 @@ Assumption:
 
 I mean like... I can smell the imminent redundancy even before starting to think about how to do this.
 
-So, we have:
-Entity Inventory (Shoes)
-- Brand
-- StyleID
-- Size 
-- Color
-- QuantityInStock
+So, the name "current orders" makes me think that when a status has order completed it exists this current order pool. if that's the case then we can just have everything a descriptive attribute and use complex attributes for any issues, though, this will spell redundancy... However, I think the question is asking me to make things redundant and things will get fixed later on part b and c. 
 
-How could we 
+- tracking of date in which order is made -> Simple attribute
+- Order Status -> Simple attribute
+
+We can heed this advice "customers cannot have separate current orders of the same shoe type (though they can order several identical pairs in a single order)."
+
+and express the complexity through a many to many constraint number of pairs of each type of shoe in an order + price paid per shoe - though therein lies the redundancy
 
 
 #### Answer
