@@ -4,13 +4,60 @@ tags:
 cssclasses:
   - academic-pdf-export
 ---
-## Recap of Week 1
+## Book
+
+### The ER Model
+#### Entities and Entity Sets
+
+An **entity** is a “*thing*” or “*object*” in the real world that is distinguishable from all other  
+objects.
+
+An **entity set** is a set of entities of the same type that share the same properties,  
+or attributes.
+
+An *entity* is represented by a *set of attributes*. **Attributes** are descriptive properties  
+possessed by each member of an entity set.
+
+> Possible attributes of the instructor entity set are ID, name, dept name, and salary.
+
+A database thus includes a *collection of entity sets*, each of which contains any  
+number of entities of the same type.
+
+An entity set is represented in an ER diagram by a rectangle, which is divided  
+into two parts:
+1. Title
+2. Attributes (Attributes that are part of the *primary key are underlined*)
+
+![[Screenshot 2024-09-27 at 11.28.23 PM.jpg|350]]
+
+#### Relationship Sets
+
+A **relationship** is an association among several entities.
+
+A **relationship set** is a set of relationships of the same type.
+
+Consider two entity sets instructor and student. We define the relationship set advisor to denote the associations between students and the instructors who act as their advisors.
+
+A **relationship instance** *in an E-R schema* represents an association between the named entities in the real-world enterprise that is being modeled. As an illustration, the individual instructor entity Katz, who has instructor ID 45565, and the student entity Shankar, who has student ID 12345, participate in a relationship instance of advisor. 
+![[Screenshot 2024-09-27 at 11.32.22 PM.jpg | 300]]
+
+A **relationship set** is represented in an ER diagram by a *diamond*, which is *linked*  
+via lines to a number of different entity sets. 
+
+| This ER diagram shows two entity sets, instructor and student, related through a binary relationship set advisor: | ![[Screenshot 2024-09-27 at 11.36.53 PM.jpg \| 400]] |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+
+
+
+
+
+## Lectures
 
 Review the notation for upper and lower bound notations for ER model diagrams.
 Review partial vs total participation
 You can use one of the two notations for the exams review both, choose one that is preferred.
 
-## Week 2
+
 Design issues:
 - Entity set vs attribute:
 	- Does it have further attributes
