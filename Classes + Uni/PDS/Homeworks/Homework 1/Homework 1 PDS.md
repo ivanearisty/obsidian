@@ -149,8 +149,33 @@ If we want to make current orders into orders, then an easy fix would be to make
 
 A very fast solution would be to add a ternary entity to the relationship, like datetime, which would fix things because orders would now also be identified by the PK of datetime. We would only have issues if a customer placed an order for a particular shoe on a particular datetime (YYYY-MM_DD:HH-MM-SS), which would be rare.
 
-![[P2Sb v2.drawio .svg | 400]] (ignore the arrow)
+![[P2Sb v2.drawio .svg | 300]] (ignore the arrow)
 
 But this solution is not the most elegant I think.
 
-**Datetime** is more naturally represented as an **attribute** rather than as an entity, and, funnily enough, orders are more naturally represe
+Datetime is more naturally represented as an attribute rather than as an entity, and, funnily enough, orders are more naturally represented as an entity rather than just a bunch of descriptive attributes; hence, I will follow that intuition.
+
+We're gonna make this new Order entity that allows for a customer to place an order, and for shoes to feed into it.
+
+**Final Answer:** 
+![[P2Sb.drawio.svg]]
+Now that's MUCH better!
+
+In this, an order has at least one but maybe many shoes, and the price and everything is contained on "Contains" but, we fixed the issues with not being able to placing multiple orders of the same shoe or on the same date because we just use an orderID.
+
+### Section C
+
+#### Question
+
+Now the manager realizes that in addition to storing the prices customers paid, they would like to store the current price of each type of shoe and a description of each type of shoe. Furthermore, the current price and the description are determined by the brand and styleID. In other words, shoes that have the same brand and styleID always have the same current price and description, even though they may have different size and/or color. In addition, the manager would like to allow each customer to designate one Favorite shoe type (which should not involve the size or the color). Modify the ER diagram accordingly. HINT: Use a weak entity set; think carefully about which weak or strong entity sets participate directly in each relationship set. [For part c) you may start with the assumptions either in part a) or part b)
+
+#### Reasoning
+
+- We want to store price and description for each shoe
+- They are determined **solely** by a shoe's **BRAND AND STYLEID**
+
+- One Favorite shoe type
+
+So both of the abstractions we have to concrete require that we ignore the identifying size and color 
+
+The favorite type is tricky. Initially one would think that a simple relationship set that links a customer with shoe is all good. But, we explicitly are mentioned that their favourite should not involve size or color. Let's just make a subcategory 
