@@ -47,7 +47,23 @@ via lines to a number of different entity sets.
 | This ER diagram shows two entity sets, instructor and student, related through a binary relationship set advisor: | ![[Screenshot 2024-09-27 at 11.36.53 PM.jpg \| 400]] |
 | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
 
+A relationship set may denote the association of *more than two* entity sets
 
+The association between entity sets is referred to as participation; i.e., the entity sets $E_{1}, E_{2}, ... , E_{n}$ participate in relationship set $R$
+
+> It is possible to have more than one relationship set involving the same entity sets
+
+The *function that an entity plays* in a relationship is called that entity’s **role**.
+
+In a recursive relationship set, explicit role names are necessary to specify how an entity participates in a relationship instance: 
+![[Screenshot 2024-09-28 at 12.08.03 AM.jpg | 300]]
+
+A relationship may also have attributes called **descriptive attributes**. An attribute of a relationship set is represented in an E-R diagram by an **undivided rectangle**.
+![[Screenshot 2024-09-28 at 12.10.02 AM.jpg | 400]]
+
+The number of entity sets that participate in a relationship set is the **degree of the** **relationship set**. A **binary relationship set** is of degree 2; a **ternary relationship set** is of degree 3.
+
+### Complex Attributes
 
 
 
