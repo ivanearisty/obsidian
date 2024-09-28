@@ -230,7 +230,25 @@ In the case that an entity set consists of only two attributes—a single primar
 
 Consider the entity set time slot depicted in the ER. Here, time slot id is the primary key of the time slot entity set, and there is a single multivalued attribute that happens also to be composite. The entity set can be represented by just the following schema created from the multivalued composite attribute:
 
+#### Extended Features
 
+The process of designating subgroupings within an entity set is called **specialization**.
+
+The way we depict specialization in an E-R diagram depends on whether an entity may belong to multiple specialized entity sets or if it must belong to at most one specialized entity set. 
+
+The former case (multiple sets permitted) is called **overlapping specialization**, while the latter case (at most one permitted) is called **disjoint specialization**. 
+
+**Overlapping specialization** (as is the case for student and employee as specializations of person), two separate arrows are used. 
+
+For a **disjoint specialization** (as is the case for instructor and secretary as specializations of employee), a single arrow is used. 
+
+The specialization relationship may also be referred to as a superclass-subclass relationship.
+
+![[Screenshot 2024-09-28 at 2.53.25 PM.jpg]]
+
+The refinement from an initial entity set into successive levels of entity subgroupings represents a top-down design process in which distinctions are made explicit. The design process may also proceed in a bottom-up manner, in which multiple entity sets are synthesized into a higher-level entity set on the basis of common features, this is called **generalization**.
+
+To create a **generalization**, the attributes must be given a common name and represented with the higher-level entity.
 
 ## Lectures
 
