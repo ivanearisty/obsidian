@@ -199,6 +199,38 @@ A good entity-relationship design does not contain redundant attributes.
 
 You need to verify that none of the entity sets has any attribute that is made redundant by one of the relationship sets.
 
+![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
+![[Pasted image 20240928140552.png | 400]]
+
+#### Reducing E-R to Relationship Schemas
+
+Both the E-R model and the relational database model are abstract, logical representations of real-world enterprises.
+
+##### Strong Entity Sets
+
+Let *E be a strong entity set* with only simple descriptive attributes a1, a2, ... , an. We represent this entity with a schema called E with n distinct attributes. Each tuple in a relation on this schema corresponds to one entity of the entity set E.  
+
+For schemas derived from strong entity sets, the primary key of the entity set serves as the primary key of the resulting schema. This follows directly from the fact that each tuple corresponds to a specific entity in the entity set.  
+
+As an illustration, consider the entity set student of the E-R diagram. 
+
+This entity set has three attributes: ID, name, tot_cred. We represent this entity set by a schema called student with three attributes: **student** *(_ID_, name, tot_cred)*
+![[Screenshot 2024-09-28 at 2.12.42 PM.jpg | 300]]
+
+When a strong entity set has *non-simple attributes*, things are a bit more complex. We handle composite attributes by creating a *separate attribute for each of the component* *attributes*; we do not create a separate attribute for the composite attribute itself.
+
+![[Screenshot 2024-09-28 at 2.15.08 PM.jpg| 400]]
+- For the composite attribute name, the schema generated for instructor contains the attributes that composed it.
+\
+For a **multivalued attribute M** , we create a relation schema R with an attribute A that corresponds to M and attributes corresponding to the primary key of the entity set or relationship set of which M is an attribute.
+
+Relation Schema: ![[Screenshot 2024-09-28 at 2.17.26 PM.jpg | 300]]
+
+In the case that an entity set consists of only two attributes—a single primary-key attribute B and a single multivalued attribute M—the relation schema for the entity set would contain only one attribute, namely, the primary-key attribute B. --> We can drop this relation, while retaining the relation schema with the attribute B and attribute A that corresponds to M .
+
+Consider the entity set time slot depicted in the ER. Here, time slot id is the primary key of the time slot entity set, and there is a single multivalued attribute that happens also to be composite. The entity set can be represented by just the following schema created from the multivalued composite attribute:
+
+
 
 ## Lectures
 
