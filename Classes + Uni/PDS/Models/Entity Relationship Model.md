@@ -86,10 +86,15 @@ An attribute takes a **null value** when an entity does not have a value for it.
 
 Mapping cardinalities are most useful in describing binary relationship sets, although they can contribute to the description of relationship sets that involve more than two entity sets.
 
-- **One-to-one**: An entity in A is associated with at most one entity in B, and an entity in B is associated with at most one entity in A
+- **One-to-one**: An entity in A is associated with at most one entity in B, and an entity in B is associated with at most one entity in A 
 - **One-to-many**: An entity in A is associated with any number (zero or more) of entities in B. An entity in B, however, can be associated with at most one entity in A
 - **Many-to-one**: An entity in A is associated with at most one entity in B. An entity in B, however, can be associated with any number (zero or more) of entities in A.
 - **Many-to-many**: An entity in A is associated with any number (zero or more) of entities in B, and an entity in B is associated with any number (zero or more) of entities in A.
+
+- **One-to-One**: (0..1) or (1..1) in both directions.
+- **One-to-Many (0..N) or(1..N) in one direction and (0..1) or (1..1) in the other.
+- **Many-to-One **: (0..1) or (1..1) in one direction and (0..N) or (1..N) in the other.
+- **Many-to-Many**: (0..N) or (1..N) in both directions.
 
 ![[Screenshot 2024-09-28 at 2.04.34 AM.jpg | 400]]
 

@@ -141,4 +141,16 @@ The store manager realizes that they would also like to keep track of the histor
 
 #### Explanation
 
-A current order that a customer places is identified by the type of shoe and the customer who ordered it. 
+We assumed that no duplicate current orders of the same shoe type could exist earlier, because a current order that a customer places is identified by the type of shoe and the customer who ordered it. The date attribute of current order does not make this difference for us; hence, if a customer came in and ordered the same shoe on a different date, the previous order would get overridden. Which, with our assumptions from earlier was fine, but now it's not.
+
+#### Fixing Things
+
+If we want to make current orders into orders, then an easy fix would be to make orders identifiable by the date. 
+
+A very fast solution would be to add a ternary entity to the relationship, like datetime, which would fix things because orders would now also be identified by the PK of datetime. We would only have issues if a customer placed an order for a particular shoe on a particular datetime (YYYY-MM_DD:HH-MM-SS), which would be rare.
+
+![[P2Sb v2.drawio .svg | 400]] (ignore the arrow)
+
+But this solution is not the most elegant I think.
+
+**Datetime** is more naturally represented as an **attribute** rather than as an entity, and, funnily enough, orders are more naturally represe
