@@ -307,7 +307,7 @@ In contrast, it would not be appropriate to treat the attribute name (of an inst
 It is not always clear whether an object is best expressed by an entity set or a relationship  
 set.
 
-Re-consider: ![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|400]]
+Re-consider: ![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
 
 Here we modelled the takes relationship set to model the situation where student takes a (section of a) course.
 

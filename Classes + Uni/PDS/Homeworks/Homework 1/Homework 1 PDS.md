@@ -35,6 +35,35 @@ Assumptions:
 - Every award must have a winner
 - Every award must have at least 1 nominee
 
+Preliminary answer:
+![[P1Sa.svg | 400]]
+
+We realize that in this configuration we are saying that an award can only be won a single time ever.
+
+We need to tweak this to get the correct answer.
+
+S
 #### Answer
 
-![[P1Sa.svg]]
+### Section B
+
+#### Question
+
+Show a little sample data for a few shows, a few award categories and which shows were nominated for and won those categories in the 77th annual Tony Awards. You may use any reasonable notation to indicate elements of the relationship set(s), e.g. (entity1, entity2) or lines connecting entities from the participating entity sets, etc.
+
+#### Reasoning
+
+I see this in the book:
+![[Screenshot 2024-09-28 at 4.35.54 PM.jpg]]
+Which seems appropriate to show some sample data.
+
+But I am not to sure about how to show multiple relationship instances without making duplicates.
+
+Since this is just an instance though, an example if you will, it doesn't really matter because the data would not be actually duplicated... the important things to show are the lines. So let's do the above for both.
+
+Also, let's assume that for awards like best direction of a play, the play is the one that wins the award... i mean **Show**.
+#### Answer
+
+- Dots show other attributes not used for our PK.
+
+![[P1Sb.drawio.svg]]
