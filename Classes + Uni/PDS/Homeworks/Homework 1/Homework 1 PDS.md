@@ -24,5 +24,17 @@ Design a simple ER diagram modeling data *representing which production won whic
 - Relationship set what shows won an **Award**
 - *indicate that there is exactly one winner of each award each year*
 
+Reasoning:
+- Only one show can win an award.
+- A show can win multiple awards.
+- A show can be nominated for multiple awards
+- An award can have multiple nominees
+
 Assumptions:
 - No shows on the same year have the exact same name
+- Every award must have a winner
+- Every award must have at least 1 nominee
+
+#### Answer
+
+![[P1Sa.svg]]
