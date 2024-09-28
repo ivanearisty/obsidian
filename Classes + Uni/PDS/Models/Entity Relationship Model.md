@@ -250,6 +250,65 @@ The refinement from an initial entity set into successive levels of entity subgr
 
 To create a **generalization**, the attributes must be given a common name and represented with the higher-level entity.
 
+A crucial property of the higher and lower level entities created by specialization and  
+generalization is attribute **inheritance**. The attributes of the higher-level entity sets are  
+said to be inherited by the lower-level entity sets.
+
+**Completeness constraint**, specify whether or not an entity in the higher-level entity set must belong to at least one of the lower-level entity sets within the generalization/specialization.
+
+- In **Total specialization** or generalization. Each higher-level entity must belong to a lower-level entity set.  
+- In **Partial specialization** or generalization. Some higher-level entities may not belong to any lower-level entity set.
+
+One limitation of the E-R model is that it cannot express relationships among relation-  
+ships.
+
+The best way to model a situation such as the one just described is to use **aggregation**. Aggregation is an abstraction through which relationships are treated as higherlevel entities.
+![[Screenshot 2024-09-28 at 3.02.04 PM.jpg | 300]] ---> ![[Screenshot 2024-09-28 at 3.02.21 PM.jpg | 300]]
+
+#### Common Issues
+
+![[Screenshot 2024-09-28 at 3.06.57 PM.jpg | 400]]
+![[Screenshot 2024-09-28 at 3.07.27 PM.jpg | 500]]
+##### Primary Key as an Attribute of Another Entity
+A common mistake when creating E-R models is the use of the primary key of an entity set as an attribute of another entity set, instead of using a relationship.
+
+For example, in our university E-R model, it is incorrect to have dept name as an attribute of student even though it is present as an attribute in the relation schema for student. (a)
+
+The relationship stud dept is the correct way to represent this information in the E-R model, since it makes the relationship between student and department explicit, rather than implicit via an attribute.
+
+##### Primary Key Attributes in Relationship Sets
+
+Another related mistake that people sometimes make is to designate the primary key attributes of the related entity sets as attributes of the relationship set. 
+
+For example, ID (the primary-key attributes of student) and ID (the primary key of instructor) should not appear as attributes of the relationship advisor. This should not be done since the primary-key attributes are already implicit in the relationship set.
+
+##### Forgetting Multivalued Attributes
+
+A third common mistake is to use a relationship with a single-valued attribute in a situation that requires a multivalued attribute. 
+
+For example, suppose we decided to represent the marks that a student gets in different assignments of a course offering (section). 
+
+A wrong way of doing this would be to add two attributes assignment and marks to the relationship takes (B). 
+
+The problem with this design is that we can only represent a single assignment for a given student-section pair, since relationship instances must be uniquely identified by the participating entities, student and section.
+
+##### Making Attributes into Entity Sets
+
+![[Screenshot 2024-09-28 at 3.26.42 PM.jpg | 500]]
+
+Treating a phone as an attribute phone number implies that instructors have precisely one phone number each. Treating a phone as an entity phone permits instructors to have several phone numbers (including zero) associated with them. However, we could instead easily define phone number as a multivalued attribute to allow multiple phones per instructor.  
+
+The main difference then is that treating a phone as an entity *better models a situation where one may want to keep extra information about a phone*, such as its location, or its type (mobile, IP phone, or plain old phone), or all who share the phone. Thus, treating phone as an entity is more general than treating it as an attribute and is appropriate when the generality may be useful.  
+
+In contrast, it would not be appropriate to treat the attribute name (of an instructor) as an entity; it is difficult to argue that name is an entity in its own right (in contrast to the phone). Thus, it is appropriate to have name as an attribute of the instructor entity set.
+
+##### Use of Entity Sets versus Relationship Sets
+
+It is not always clear whether an object is best expressed by an entity set or a relationship  
+set.
+
+
+#### Notation
 ## Lectures
 
 Review the notation for upper and lower bound notations for ER model diagrams.
