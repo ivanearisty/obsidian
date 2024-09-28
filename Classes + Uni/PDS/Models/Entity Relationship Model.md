@@ -107,7 +107,16 @@ The line between advisor and student has a cardinality constraint of 1..1, meani
 
 The choice of the primary key for a binary relationship set depends on the mapping cardinality of the relationship set.
 
-- **many-to-many**: the preceding union of the primary keys is a minimal superkey and is chosen as the primary key.
+- **many-to-many**: the union of the primary keys is a minimal superkey and is chosen as the primary key.
+- **one-to-many and many-to-one**: the primary key of the “many” side is a minimal superkey and is used as the primary key
+- **one-to-one**: the primary key of either one of the participating entity sets forms a minimal superkey, and either one can be chosen as the primary key of the relationship set.
+
+#### Weak Entity Sets
+
+A **weak entity set** is one whose existence is *dependent* on another *entity set*, called its **identifying entity set**.
+
+Instead of associating a primary key with a weak entity, we use the primary key of the identifying entity, along with extra attributes, called discriminator attributes to uniquely identify a weak entity.
+
 ## Lectures
 
 Review the notation for upper and lower bound notations for ER model diagrams.
