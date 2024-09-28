@@ -62,8 +62,7 @@ A relationship may also have attributes called **descriptive attributes**. An at
 ![[Screenshot 2024-09-28 at 12.10.02 AM.jpg | 400]]
 
 The number of entity sets that participate in a relationship set is the **degree of the** **relationship set**. A **binary relationship set** is of degree 2; a **ternary relationship set** is of degree 3.
-
-### Complex Attributes
+#### Complex Attributes
 
 For each attribute, there is a set of *permitted values*, called the **domain**, or value set, of  
 that attribute.
@@ -79,7 +78,7 @@ An attribute takes a **null value** when an entity does not have a value for it.
 | Entity Set                                          | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![[Screenshot 2024-09-28 at 1.30.24 AM.jpg \| 200]] | *Composite attribute* **name** with component attributes *first name, middle initial, and last name* replaces the simple attribute name of instructor. <br><br>Address can be defined as the **composite attribute address** with the attributes *street, city, state, and postal code*. The attribute **street** is itself a composite attribute whose component attributes are *street number, street name, and apartment number*. <br><br>The figure also illustrates a *multivalued attribute* phone number, denoted by “**{phone number}**”<br><br>**Derived attribute age** depicted by “ age ( )” from *date of birth* |
-### Mapping Cardinalities
+#### Mapping Cardinalities
 
 **Mapping cardinalities**, or cardinality ratios, express the *number of entities to which*  
 *another entity can be associated via a relationship set*. 
@@ -100,8 +99,15 @@ We indicate **total participation** of an entity in a relationship set **using d
 >![[Screenshot 2024-09-28 at 2.11.19 AM.jpg | 500]]
 >Example of the advisor relationship set where the double line indicates that a student must have an advisor.
 
-ER diagrams also provide a way to indicate more complex constraints on the number of times each entity participates in relationships in a relationship set. A line may have an associated minimum and maximum cardinality, shown in the form l..h, where l is the minimum and h the maximum cardinality. A minimum value of 1 indicates total participation of the entity set in the relationship set; that is, each entity in the entity set occurs in at least one relationship in that relationship set. A maximum value of 1 indicates that the entity participates in at most one relationship, while a maximum value ∗ indicates no limit. For example, consider Figure 6.13. The line between advisor and student has a cardinality constraint of 1..1, meaning the minimum and the maximum cardinality are both 1. That is, each student must have exactly one advisor. The limit 0..∗ on the line between advisor and instructor indicates that an instructor can have zero or more students. Thus, the relationship advisor is one-to-many from instructor to student, and further the participation of student in advisor is total, implying that a student must have an advisor.
+ER diagrams also provide a way to indicate more complex constraints on the number of times each entity participates in relationships in a relationship set. A line may have an associated minimum and maximum cardinality, shown in the form l..h, where l is the minimum and h the maximum cardinality. A minimum value of 1 indicates total participation of the entity set in the relationship set; that is, each entity in the entity set occurs in at least one relationship in that relationship set. A maximum value of 1 indicates that the entity participates in at most one relationship, while a maximum value ∗ indicates no limit. 
 
+![[Screenshot 2024-09-28 at 3.34.41 AM.jpg|500]]
+The line between advisor and student has a cardinality constraint of 1..1, meaning the minimum and the maximum cardinality are both 1. That is, each student must have exactly one advisor. The limit 0..∗ on the line between advisor and instructor indicates that an instructor can have zero or more students. Thus, the relationship advisor is one-to-many from instructor to student, and further the participation of student in advisor is total, implying that a student must have an advisor.
+#### Primary Key
+
+The choice of the primary key for a binary relationship set depends on the mapping cardinality of the relationship set.
+
+- **many-to-many**: the preceding union of the primary keys is a minimal superkey and is chosen as the primary key.
 ## Lectures
 
 Review the notation for upper and lower bound notations for ER model diagrams.
