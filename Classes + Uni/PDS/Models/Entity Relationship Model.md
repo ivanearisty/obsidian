@@ -307,8 +307,45 @@ In contrast, it would not be appropriate to treat the attribute name (of an inst
 It is not always clear whether an object is best expressed by an entity set or a relationship  
 set.
 
+Re-consider: ![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|400]]
+
+Here we modelled the takes relationship set to model the situation where student takes a (section of a) course.
+
+An alternative is to imagine that there is a course registration record for each course that each student takes.
+
+Then, we have an entity set to represent the course-registration record. Let us call that entity set registration. Each registration entity is related to exactly one student and to exactly one section, so we have *two relationship sets*, one to relate course-registration records to students and one to relate course-registration records to sections.
+
+![[Screenshot 2024-09-28 at 3.30.08 PM.jpg | 500]]
+Note that we use double lines to indicate total participation by registration entities.
+
+Both the approach of Figure 6.15 and that of Figure 6.24 accurately represent the university’s information, but the use of takes is more compact and probably preferable. However, if the registrar’s office associates other information with a course-registration record, it might be best to make it an entity in its own right.
+
+> One possible guideline in determining whether to use an entity set or a relationship set is to designate a relationship set to describe an action that occurs between entities. This approach can also be useful in deciding whether certain attributes may be more appropriately expressed as relationships.
+
+Hence, it is advisable to use an entity set vs a relationship set if we might want to keep more information on the registration.
+
+##### Binary vs N-ary Relationship Sets
+
+Relationships in databases are often binary.
+
+It is always possible to replace a nonbinary (n-ary, for n >2) relationship set by a number of distinct binary relationship sets.
+
+Conceptually, we can restrict the E-R model to include only binary relationship sets. However, this restriction is not always desirable:
+
+![[Screenshot 2024-09-28 at 3.35.52 PM.jpg | 500]]
+
+Consider: 
+- An identifying attribute may have to be created for the entity set created to represent the relationship set. This attribute, along with the extra relationship sets required, increases the complexity of the design and overall storage requirements.  
+- An n-ary relationship set shows more clearly that several entities participate in a single relationship.  
+- There may not be a way to translate constraints on the ternary relationship into constraints on the binary relationships. For example, consider a constraint that says that R is many-to-one from A, B to C; that is, each pair of entities from A and B is associated with at most one C entity. This constraint cannot be expressed by using cardinality constraints on the relationship sets RA, RB, and R
 
 #### Notation
+
+![[Screenshot 2024-09-28 at 3.37.50 PM.jpg | 600]]
+
+Alternative Notations:
+![[Screenshot 2024-09-28 at 3.38.11 PM.jpg | 500]]
+
 ## Lectures
 
 Review the notation for upper and lower bound notations for ER model diagrams.
