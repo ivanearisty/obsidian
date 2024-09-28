@@ -62,6 +62,7 @@ A relationship may also have attributes called **descriptive attributes**. An at
 ![[Screenshot 2024-09-28 at 12.10.02 AM.jpg | 400]]
 
 The number of entity sets that participate in a relationship set is the **degree of the** **relationship set**. A **binary relationship set** is of degree 2; a **ternary relationship set** is of degree 3.
+
 #### Complex Attributes
 
 For each attribute, there is a set of *permitted values*, called the **domain**, or value set, of  
@@ -78,6 +79,7 @@ An attribute takes a **null value** when an entity does not have a value for it.
 | Entity Set                                          | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![[Screenshot 2024-09-28 at 1.30.24 AM.jpg \| 200]] | *Composite attribute* **name** with component attributes *first name, middle initial, and last name* replaces the simple attribute name of instructor. <br><br>Address can be defined as the **composite attribute address** with the attributes *street, city, state, and postal code*. The attribute **street** is itself a composite attribute whose component attributes are *street number, street name, and apartment number*. <br><br>The figure also illustrates a *multivalued attribute* phone number, denoted by “**{phone number}**”<br><br>**Derived attribute age** depicted by “ age ( )” from *date of birth* |
+
 #### Mapping Cardinalities
 
 **Mapping cardinalities**, or cardinality ratios, express the *number of entities to which*  
@@ -103,6 +105,7 @@ ER diagrams also provide a way to indicate more complex constraints on the numbe
 
 ![[Screenshot 2024-09-28 at 3.34.41 AM.jpg|500]]
 The line between advisor and student has a cardinality constraint of 1..1, meaning the minimum and the maximum cardinality are both 1. That is, each student must have exactly one advisor. The limit 0..∗ on the line between advisor and instructor indicates that an instructor can have zero or more students. Thus, the relationship advisor is one-to-many from instructor to student, and further the participation of student in advisor is total, implying that a student must have an advisor.
+
 #### Primary Key
 
 The choice of the primary key for a binary relationship set depends on the mapping cardinality of the relationship set.
@@ -146,7 +149,55 @@ The weak entity set section depends on the strong entity set course via the rela
 
 A weak entity set must have a total participation in its identifying relationship set.
 
+It is also possible to have a weak entity set with more than one identifying entity set. A particular weak entity would then be *identified by a combination of entities, one from each identifying entity set*.
 
+#### Removing Redundant Attributes in Entity Sets
+
+##### Example 1
+
+*Identifying Entities*
+When we design a database using the E-R model, we usually start by identifying those entity sets that should be included. For example, in the university organization we have discussed thus far, we decided to include such entity sets as *student and instructor*. 
+
+*Identifying Attributes*
+Once the entity sets are decided upon, we must choose the appropriate attributes. These attributes are supposed to represent the various values we want to capture in the database. In the university organization, we decided that for the instructor entity set, we will include the attributes *ID, name, dept. name, and salary*. 
+
+*Forming relationship sets*
+Once the entities and their corresponding attributes are chosen, the relationship sets among the various entities are formed. These relationship sets may result in a situation where attributes in the various entity sets are redundant and need to be removed from the original entity sets. To illustrate, consider the entity sets instructor and department:  
+• The entity set instructor includes the attributes ID, name, dept name, and salary,  
+with **ID** forming the primary key.  
+• The entity set department includes the attributes dept name, building, and budget,  
+with **dept name** forming the primary key.
+
+We model the fact that each instructor has an associated department using a relationship set inst_dept relating instructor and department.  
+
+The attribute **dept name** appears in both entity sets. *Since it is the primary key for the entity set department, it is redundant in the entity set instructor and needs to be removed.*
+
+Treating the connection between instructors and departments uniformly as a relationship, rather than as an attribute of instructor, makes the logical relationship explicit, and it helps avoid a premature assumption that each instructor is associated with only one department.
+
+Similarly, the student entity set is related to the department entity set through the relationship set student dept and thus there is no need for a dept name attribute in student.
+
+##### Example 2 
+
+Consider course offerings (**sections**) along with the time slots of the offerings. Each time slot is identified by a time slot id, and has associated with it a set of weekly meetings, each identified by a day of the week, start time, and end time.
+
+- The entity set **section** includes the attributes course id, sec id, semester, year, building, room number, and time slot id, with ( course id, sec id, year, semester) forming the primary key.  
+- The entity set time slot includes the attributes time slot id, which is the primary key, and a multivalued composite attribute {(day, start time, end time)}.
+
+These entities are related through the *relationship set sec_time_slot*. The attribute time slot id appears in both entity sets. Since it is the primary key for the entity set time slot, it is redundant in the entity set section and needs to be removed. 
+
+##### Example 3
+
+Suppose we have an entity set **classroom**, with attributes building, room number, and capacity, with building and room number forming the primary key.  
+
+Suppose also that we have a relationship set **sec_class** that relates section to classroom.  
+
+Then the attributes {building, room number} are redundant in the entity set section.  
+
+##### Synopsis
+
+A good entity-relationship design does not contain redundant attributes. 
+
+You need to verify that none of the entity sets has any attribute that is made redundant by one of the relationship sets.
 
 
 ## Lectures
