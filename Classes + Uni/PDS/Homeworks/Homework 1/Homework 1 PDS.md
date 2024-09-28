@@ -38,13 +38,22 @@ Assumptions:
 Preliminary answer:
 ![[P1Sa.svg | 400]]
 
-We realize that in this configuration we are saying that an award can only be won a single time ever.
+We realize that in this configuration we are saying that an award can only be won a single time ever. We need to tweak this to get the correct answer.
 
-We need to tweak this to get the correct answer.
+We can just add awardyear as a PK, and this would solve the issue. But I don't like that solution because an award might not change year over year.
 
-S
+Maybe the grant changes, but, if it does, we can move that into some data structure that holds historical award data. I don't think that just that issue is enough to argue that we would not be making a bunch of redundant award copies.
+
+Hence, maybe a weak entity set to uniquely identify an instance of an award is reasonable. Like in the book, we have a specific course, but students don't take courses, they take sections. I think we can employ something similar here.
 #### Answer
 
+![[P1Sa v2.svg | 600]]
+
+This looks better because now a show can be nominated for none of multiple of these award instances. The award instances are just the awards, but we use the year discriminant to specify what year what show won something.
+
+This way we allow an award to be won multiple times over, but still only once on a particular year.
+
+Plus, now the people nominated for an award are implicitly associated to the year they were nominated in.
 ### Section B
 
 #### Question

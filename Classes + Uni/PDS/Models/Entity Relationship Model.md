@@ -145,6 +145,8 @@ such attributes can instead be associated with the weak entity set.
 A weak entity set is depicted via a **double rectangle** with the *discriminator being underlined with a dashed line.*
 
 ![[Screenshot 2024-09-28 at 1.26.41 PM.jpg|500]]
+Note: The primary key of section is formed by the primary key of the identifying entity set (that is, course), plus the discriminator of the weak entity set (that is, section). Thus, the primary key is {course id, sec id, year, semester}.
+
 The weak entity set section depends on the strong entity set course via the relationship set sec course.
 
 A weak entity set must have a total participation in its identifying relationship set.
