@@ -65,6 +65,12 @@ The number of entity sets that participate in a relationship set is the **degree
 
 ### Complex Attributes
 
+For each attribute, there is a set of *permitted values*, called the **domain**, or value set, of  
+that attribute.
+
+![[Screenshot 2024-09-28 at 12.51.43 AM.jpg | 500]]
+
+Composite attributes, on can be divided into subparts (i.e., other attributes). For example, an attribute name could be structured as a composite attribute consisting of first name, middle initial, and last name.
 
 
 ## Lectures
