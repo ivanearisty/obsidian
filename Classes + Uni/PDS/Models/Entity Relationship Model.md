@@ -107,15 +107,47 @@ The line between advisor and student has a cardinality constraint of 1..1, meani
 
 The choice of the primary key for a binary relationship set depends on the mapping cardinality of the relationship set.
 
+$Superkey = primarykey(E_{1}) ∪ primarykey(E_{2}) ∪ ⋯∪ primarykey(E_{n})$
+
+**Minimal superkeys** take a subset of the above.
+
 - **many-to-many**: the union of the primary keys is a minimal superkey and is chosen as the primary key.
 - **one-to-many and many-to-one**: the primary key of the “many” side is a minimal superkey and is used as the primary key
 - **one-to-one**: the primary key of either one of the participating entity sets forms a minimal superkey, and either one can be chosen as the primary key of the relationship set.
+##### Non-Binary Issues
+
+For nonbinary relationships, **if** no cardinality constraints are present, **then** the superkey formed as described earlier in this section is the only candidate key, and it is chosen as the primary key.
+
+This is because an E-R diagram with two or more arrows out of a nonbinary relationship set can be interpreted in the two ways:
+
+Suppose there is a relationship set R between entity sets E1, E2, E3, E4, and the only arrows are on the edges to entity sets E3 and E4. Then, the two possible interpretations are:  
+1. A particular combination of entities from *E1, E2* can be associated with at most one combination of entities from *E3, E4*. Thus, the primary key for the relationship R can be constructed by the union of the primary keys of E1 and E2.  
+2. A particular combination of entities from *E1, E2, E3* can be associated with at most one combination of entities from E4, and further a particular combination of entities from E1, E2, E4 can be associated with at most one combination of entities from E3, Then the union of the primary keys of *E1, E2, and E3* forms a candidate key, as does the union of the primary keys of *E1, E2, and E4*.
+
+To avoid confusion, **we permit only one arrow out of a nonbinary relationship set**, in which case the two interpretations are equivalent.
+
+In order to represent a situation where one of the multiple-arrow situations holds, the E-R design can be modified by replacing the non-binary relationship set with an entity set.
 
 #### Weak Entity Sets
 
 A **weak entity set** is one whose existence is *dependent* on another *entity set*, called its **identifying entity set**.
 
-Instead of associating a primary key with a weak entity, we use the primary key of the identifying entity, along with extra attributes, called discriminator attributes to uniquely identify a weak entity.
+Instead of associating a primary key with a weak entity, we use the primary key of the identifying entity, along with extra attributes, called **discriminator attributes** to uniquely identify a weak entity.
+
+Every weak entity **must be associated** with an identifying entity; that is, the weak entity set is said to be **existence dependent** on the identifying entity set.
+
+The identifying relationship set *should not have any descriptive attributes*, since any  
+such attributes can instead be associated with the weak entity set.
+
+A weak entity set is depicted via a **double rectangle** with the *discriminator being underlined with a dashed line.*
+
+![[Screenshot 2024-09-28 at 1.26.41 PM.jpg|500]]
+The weak entity set section depends on the strong entity set course via the relationship set sec course.
+
+A weak entity set must have a total participation in its identifying relationship set.
+
+
+
 
 ## Lectures
 
