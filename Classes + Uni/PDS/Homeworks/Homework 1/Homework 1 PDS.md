@@ -241,6 +241,15 @@ Singles match takes place between two players enrolled in the same event in a pa
 
 Score recorded with description of highlights
 
+So I think that we can just have some intricate cardinality constraints on the matches and make them a weak entity set.
+
+If you think about it, just like real life, the only thing we care about in a tennis event are the actual matches. 
+
+We want to have minimal duplicate data, and weak entity constraints work great because it allows us to bind the abstract concept of a match to the others.
+An event is a thing that exists in a timeless fashion. A court is a physical object. And time is time. However, a match depends on all of these two exist. Hence, making it a weak entity set will simplify our lives greatly I think. This statement really sold me the idea "\[About matches] same event in a particular time slot on a particular court"
+
+##### Different train of thought I didnt go with: 
+
 So, first of all, i think that there is going to be some inheritance here.
 
 We know that we have some abstract thing called an event, but no event actually ever happens without it's children single match, singlematch male, or singlematch female, etc... being preceded.
@@ -250,14 +259,35 @@ So I think I want to make players able to participate in events but add inherita
 
 - In **Total specialization** or generalization. Each higher-level entity must belong to a lower-level entity set.  
 - In **Partial specialization** or generalization. Some higher-level entities may not belong to any lower-level entity set."
-
-I don't really understand how seeding works, but I am going to assume it is kept in the relation between a player and a particular event.
-
-
+- 
 #### Answer
 ![[P3Sa.svg]]
 
 
 ### Section B
 
-Would you look at that, I already solved it!
+#### Question
+
+Doubles anyone? The tournament also includes doubles events, in which two-player teams play one another (e.g. men’s doubles, women’s doubles, mixed doubles) . Augment your ER diagram to model doubles events and their matches. (You do not have to show all of the details for entity sets and relationship sets from part b) unless they’re relevant here. Highlight the parts that are new.) There are several reasonable ways to approach this. In addition to designing the ER, comment on which aspects of doubles events and matches are or are not represented by your diagram.
+
+#### Reasoning
+
+Would you look at that, I think this works very well with what we did earlier.
+
+The only issue we could've had is that a SinglesMatch is perfectly described by the two players that play it; however, a double's match requires an additional component to say what players play on what teams.
+
+First of all we can increase the minimum cardinality to 4 for any particular doubles match, and then we have to look through the book to see how to set a constraint on the number of players that can enroll for any particular team...
+
+Ok, I didn't find anything in particular.
+
+That would be the most elegant solution 100%, but we can also add a new entity called two-person-team and get creative like that. 
+
+#### Answer
+
+The only problem here is that we have no way to enforce that the same team cannot play against themselves, but I think it's assumed that they wont need that clarification
+![[P3Sb.svg]]
+
+## Question 4
+### Section A
+#### Question
+
