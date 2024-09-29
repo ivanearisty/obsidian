@@ -261,6 +261,7 @@ So I think I want to make players able to participate in events but add inherita
 - In **Partial specialization** or generalization. Some higher-level entities may not belong to any lower-level entity set."
 - 
 #### Answer
+**Assume underlined are discriminants inside WES**
 ![[P3Sa.svg]]
 
 
@@ -285,9 +286,23 @@ That would be the most elegant solution 100%, but we can also add a new entity c
 #### Answer
 
 The only problem here is that we have no way to enforce that the same team cannot play against themselves, but I think it's assumed that they wont need that clarification
+**Assume underlined are discriminants inside WES**
 ![[P3Sb.svg]]
 
 ## Question 4
+
+The United States Congress consists of two houses, the Senate and the House of Representatives: 
+- Each state elects two senators. 
+- Each state is divided into Congressional Districts and each Congressional District elects one representative (also called a Member of Congress). 
+The number of Districts in a state is based on the state's population (as of the most recent US Census). Each congressional district has a district number and a population. A congressional district is uniquely identified by its number along with its state. For example, New York 2, New York 39, Pennsylvania 2, etc. (See link for more info about Congressional Districts.)
 ### Section A
 #### Question
-
+![[Screenshot 2024-09-28 at 10.04.09 PM.jpg]]
+Which of the following aspects of the data are represented in this model? 
+1. Each district has exactly one representative 
+2. Each state has exactly two senators 
+3. Each state has at least one senator 
+4. A person cannot be senator of two different states 
+5. A person cannot be congressperson of two different districts 
+6. A person can be the congressperson of two different districts, as long as they're in different states 
+7. A person can be the congressperson of two different districts, as long as they have different numbers.
