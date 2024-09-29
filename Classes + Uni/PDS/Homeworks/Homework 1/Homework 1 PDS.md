@@ -204,3 +204,51 @@ Since customers can order from any location, orders can be directly tied to inve
 
 For home address, let's just create a simple relationship that shows customer has the home address. 
 #### Answer
+
+![[P2Sd.drawio.svg]]
+
+## Problem 3
+### Section A
+
+Design an ER diagram to model this situation: A tennis league has hired you to design a database for their upcoming tournament. In part (a), you will only consider singles events, where one individual player plays against another individual player.There are a large number of players, each with a unique playerID and a few other attributes (your choice.) Each player is enrolled in one or more Events (for example women’s singles, men’s singles, juniors, etc. – you don’t need to know the specific events to design the model.) Each Event has a unique eventID, a description, and some other attributes (again, your choice). Each player is enrolled in at least one event; some of the enrolled players are seeded, i.e. assigned a number indicating that they have a high ranking among all players in a given event. (Seeding is used in tournaments to arrange the schedule so the top players are unlikely to meet one another in early rounds.) The club has multiple Courts, each with a unique courtNumber and some other attributes. There are multiple timeSlots at which matches are played, each of which has a unique date and startTime. A SinglesMatch takes place between two players enrolled in the same event in a particular time slot on a particular court; at the end the score is recorded along with a description of the highlights.
+
+#### Reasoning
+
+Players
+- Player ID
+- + other attributes
+
+Players are enrolled in one or more Events
+
+Events
+- event ID
+- description
+- + other attributes
+
+Constraints:
+- Each player is enrolled in at least one event
+
+Courts
+- courtNumber
+- + other attributes
+
+Timeslots at which matches are played, each timeslot has a unique date and starttime.
+
+Singles match takes place between two players enrolled in the same event in a particular timeslot on a particular court. 
+
+Score recorded with description of highlights
+
+So, first of all, i think that there is going to be some inheritance here.
+
+We know that we have some abstract thing called an event, but no event actually ever happens without it's children single match, singlematch male, or singlematch female, etc... being preceded.
+
+So I think I want to make players able to participate in events but add inheritance so that we're good. After all, if my notes don't fail me: 
+"**Completeness constraint**, specify whether or not an entity in the higher-level entity set must belong to at least one of the lower-level entity sets within the generalization / specialization.
+
+- In **Total specialization** or generalization. Each higher-level entity must belong to a lower-level entity set.  
+- In **Partial specialization** or generalization. Some higher-level entities may not belong to any lower-level entity set."
+
+From what I gather, if I connect player to event, and enforce total specialization, then I implicitly take care of this problem. I think.
+### Section B
+
+Would you look at that, I already solved it! I'll take the extra credit please thank you.
