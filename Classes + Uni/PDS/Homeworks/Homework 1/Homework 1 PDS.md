@@ -178,4 +178,29 @@ Now the manager realizes that in addition to storing the prices customers paid, 
 
 So both of the abstractions we have to concrete require that we ignore the identifying size and color 
 
-The favorite type is tricky. Initially one would think that a simple relationship set that links a customer with shoe is all good. But, we explicitly are mentioned that their favourite should not involve size or color. Let's just make a subcategory 
+The favorite type is tricky. Initially one would think that a simple relationship set that links a customer with shoe is all good. But, we explicitly are mentioned that their favourite should not involve size or color.
+
+Thinking a bit outside of the box, we can downgrade inventory to become a weak entity set, and then relate the two important things (brand and style ID) as the identifiers for it. The strong entity set would be Shoe, and contain the other important details we are asked to include.
+
+You still would order from inventory, that makes a lot of sense, but then the price per shoe would come implicitly from Shoe.
+
+#### Answer
+
+![[P2Sc.drawio.svg]]
+
+Very pretty
+
+### Section D
+
+#### Question
+
+The store is so successful that they’ve opened multiple locations. Modify the ER diagram to keep track of the inventories and orders at different locations. Customers can order from any location. Each Customer has a home location.
+
+#### Reasoning
+
+I think that we can keep things almost the same here we can just add a location entity and make inventory also depend on that to identify itself.
+
+Since customers can order from any location, orders can be directly tied to inventory, no problem there. If we had such a constraint, then we might have to route orders through a home address.
+
+For home address, let's just create a simple relationship that shows customer has the home address. 
+#### Answer
