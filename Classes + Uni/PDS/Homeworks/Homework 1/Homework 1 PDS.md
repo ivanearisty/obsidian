@@ -228,6 +228,9 @@ Events
 Constraints:
 - Each player is enrolled in at least one event
 
+Assumption:
+- *Event's need to have at least 10 enrolled players*
+
 Courts
 - courtNumber
 - + other attributes
@@ -248,7 +251,13 @@ So I think I want to make players able to participate in events but add inherita
 - In **Total specialization** or generalization. Each higher-level entity must belong to a lower-level entity set.  
 - In **Partial specialization** or generalization. Some higher-level entities may not belong to any lower-level entity set."
 
-From what I gather, if I connect player to event, and enforce total specialization, then I implicitly take care of this problem. I think.
+I don't really understand how seeding works, but I am going to assume it is kept in the relation between a player and a particular event.
+
+
+#### Answer
+![[P3Sa.svg]]
+
+
 ### Section B
 
-Would you look at that, I already solved it! I'll take the extra credit please thank you.
+Would you look at that, I already solved it!

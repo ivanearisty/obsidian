@@ -248,6 +248,8 @@ The former case (multiple sets permitted) is called **overlapping specialization
 
 For a **disjoint specialization** (as is the case for instructor and secretary as specializations of employee), a single arrow is used. 
 
+For an overlapping specialization (as is the case for student and employee as specializations of person), two separate arrows are used. For a disjoint specialization (as is the case for instructor and secretary as specializations of employee), a single arrow is used.
+
 The specialization relationship may also be referred to as a superclass-subclass relationship.
 
 ![[Screenshot 2024-09-28 at 2.53.25 PM.jpg]]
