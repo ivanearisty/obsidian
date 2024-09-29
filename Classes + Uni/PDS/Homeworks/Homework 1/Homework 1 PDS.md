@@ -299,10 +299,23 @@ The number of Districts in a state is based on the state's population (as of the
 #### Question
 ![[Screenshot 2024-09-28 at 10.04.09 PM.jpg]]
 Which of the following aspects of the data are represented in this model? 
-1. Each district has exactly one representative 
-2. Each state has exactly two senators 
-3. Each state has at least one senator 
-4. A person cannot be senator of two different states 
-5. A person cannot be congressperson of two different districts 
-6. A person can be the congressperson of two different districts, as long as they're in different states 
-7. A person can be the congressperson of two different districts, as long as they have different numbers.
+1. Each district has exactly one representative. **True.** 
+2. Each state has exactly two senators. **False.**
+3. Each state has at least one senator. **True**
+4. A person cannot be senator of two different states. **True**
+5. A person cannot be congressperson of two different districts. **True**
+6. A person can be the congressperson of two different districts, as long as they're in different states **False**
+7. A person can be the congressperson of two different districts, as long as they have different numbers. **False**
+
+### Section B
+
+Derive a relational database schema from this ER diagram. You may either show it as a schema diagram or in a textual format. Clearly indicate all primary key and foreign key constraints.
+
+> Please treat bolding as underlining for pk purposes:
+
+- Person(**lname, DOB,** fname, gender, url, email)
+- Email(**lname, DOB, email**)
+- State(**sname**, nickname, flag)
+- District(**num**, **sname**, population)
+- RepOf(lname, districtNum)
+- SenatorOf(lname, sname, termEndDate)
