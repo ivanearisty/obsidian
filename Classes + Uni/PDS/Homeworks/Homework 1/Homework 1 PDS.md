@@ -2,7 +2,7 @@
 tags:
   - PDS
 cssclasses:
-  - academic-pdf-export
+  - academic-pdf-export2
 ---
 # Ivan Aristy - iae225
 
@@ -317,5 +317,6 @@ Derive a relational database schema from this ER diagram. You may either show it
 - Email(**lname, DOB, email**)
 - State(**sname**, nickname, flag)
 - District(**num**, **sname**, population)
-- RepOf(lname, districtNum)
-- SenatorOf(lname, sname, termEndDate)
+- SenatorOf(**lname**, **DOB**, sname, termEndDate)
+- RepOf(**lname**, **DOB**, **num**)
+- In(**sname**, **num**)
