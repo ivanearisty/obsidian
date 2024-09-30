@@ -9,6 +9,7 @@ kanban-plugin: board
 - [ ] #Tasks   Setup folder and info for preparing interview prep and career services
 - [ ] Review notes for career development and wasserman stuff #Tasks
 - [ ] Start Group Project Prep for PDS #PDS
+- [ ] go to office hours [[OH 1]] #PDS
 
 
 ## Pre-Flight
