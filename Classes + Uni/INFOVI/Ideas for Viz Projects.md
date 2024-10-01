@@ -9,3 +9,5 @@ Network data: [ideation](https://chatgpt.com/c/86bcb3ce-cc92-41e2-9dbd-80f18820a
 Government fines per bank tied to revenue as time goes on. Insidious data for corruption. Insider information trading info like stock moves depending on bets, maybe look at the exact hedge fund holdings.
 
 Trading data and sales done on a particular stock, big transactions show pressure under and above the graph
+
+Listening history analyzer for spotify. Explore your tastes and areas of music that you haven't listened to. Create network of genres and show a graph of your explored universe in comparison to the real universe of music.
