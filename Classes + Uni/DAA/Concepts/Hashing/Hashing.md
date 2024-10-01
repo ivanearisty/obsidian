@@ -139,3 +139,7 @@ In double hashing, we use two separate hash functions: h1(k) and h2(k).
 The first function is used to find the first position in the table, and the second function is used to provide the offset by which we jump in the table to find the next free spot. 
 
 For example, if h1(25) = 3 and h2(25) = 2, then we first try to insert at position 3 and if it’s full, we jump next to position 3 + 2 = 5, then to position 3 + 2 ∗ 2 = 7 etc until we find a free spot. As above, if we hit the end of the table, we bounce back to the top.
+
+#### Performance
+
+![[Screenshot 2024-09-30 at 9.10.01 PM.jpg]]
