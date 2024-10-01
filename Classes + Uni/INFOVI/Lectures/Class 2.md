@@ -95,7 +95,7 @@ Trees:
 
 - Does not have an implicit ordering
 - Also called nominal data
-- Can still be a number, but doesn’t make sense to aggregate
+- *Can still be a number, but doesn’t make sense to aggregate*
 - Examples:
 	- Dog breeds (hierarchical!)
 	- Song genres
@@ -106,14 +106,37 @@ Trees:
 Ordered data has an implicit ordering
 
 - Ordinal
-	- Has an order but differences between categories may not be equal/measurable
+	- *Has an order but differences between categories may not be equal/measurable*
 	- Example: 
 		- Likert scale (questionnaire responses)
 
 - Quantitative
-	- Supports arithmetic, differences between values are measurable
-	- Interval data: We can derive the gap between data values, and it has meaning
-	- Ratio data: Similar to interval data, but has a true zero that has meaning. Allows math operations
+	- *Supports arithmetic, differences between values are measurable*
+	- **Interval data**: We can derive the gap between data values, and it has meaning
+	- **Ratio data**: Similar to interval data, but has a true zero that has meaning. Allows math operations
 	- Example:
 		- 1, 2, 3, 4, 5.4, 345.2221, 17366105.23872, 1000000000000
+
+### Ordering Direction
+
+- Data may have different types of ordering
+- **Sequential**: Values have a minimum and a maximum
+	- Example: Person’s height
+- **Diverging**: Values can be divided into 2 sequences pointing in opposite directions, meeting at a common zero point
+	- Example: Terrain elevation (sea level = 0)
+- **Cyclic**: Values wrap around back to a starting point
+	- Example: Hour of the day
+
+Attributes can often be grouped hierarchically
+Interesting patterns may emerge at different hierarchy levels
+
+![[Pasted image 20241001015005.png]]
+
+Also makes sense to group into **dependent** and **independent**
+- **Independent attributes**:
+	- Way of describing the data
+	- Usually discrete (i.e., categorical)
+- **Dependent attributes**:
+	- Their value is a function of one or more independent variables
+	- Numerical data that can be analyzed, manipulated, and aggregated
 

@@ -3,6 +3,7 @@ tags:
   - INFOVI
 ---
 ## Goals
+
 - How and why visualizations work
 	- Visual perception system
 	- Effective encoding channels for types of data
@@ -16,6 +17,7 @@ tags:
 - Hands on projects
 
 ## Pre-reqs
+
 - Python (Matplotlib and Bokeh)
 - Javascript (Use at your own risk!)
 	- [D3.JS](https://d3js.org/)
@@ -82,6 +84,7 @@ Main question: How can you transform your data into something that people can un
 | Week 14 (12/5)  | Modern topics: deep learning/VR/AR/interaction       |                                          |
 | Week 15 (12/12) | Final project presentations                          |                                          |
 ## Why
+
 Why do we have a user in the loop?
 	We want to communicate a message
 		Messages are useless without a recipient
