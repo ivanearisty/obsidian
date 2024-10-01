@@ -110,6 +110,8 @@ The hash function gives a list of positions in the table to "try".
 
 ![[Screenshot 2024-09-30 at 7.53.40 PM.jpg | 400]]
 
+#### Deleting in Probe Sequences
+
 #### Linear Probe Sequence
 
 The sequence just tries the next available spot.
@@ -132,3 +134,8 @@ They just end up making things jump around much more, so we get
 
 #### Double Hashing
 
+In double hashing, we use two separate hash functions: h1(k) and h2(k). 
+
+The first function is used to find the first position in the table, and the second function is used to provide the offset by which we jump in the table to find the next free spot. 
+
+For example, if h1(25) = 3 and h2(25) = 2, then we first try to insert at position 3 and if it’s full, we jump next to position 3 + 2 = 5, then to position 3 + 2 ∗ 2 = 7 etc until we find a free spot. As above, if we hit the end of the table, we bounce back to the top.
