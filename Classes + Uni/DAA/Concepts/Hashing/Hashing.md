@@ -1,6 +1,6 @@
 ---
 tags:
-  - DAA
+  - DAA/Week2
 ---
 # Concept
 ## Needs
@@ -90,8 +90,45 @@ $\frac{13}{6} = 2.16 \text{ Load Factor}$
 
 **Simple Uniform Hash Function**: h(k) is equally likely to hash to any of the m slots, in which case each chain is expected to have length $\frac{n}{m}$
 
-|                         | Insert | Delete | Search |
-| ----------------------- | ------ | ------ | ------ |
-| HashTable with Chaining | O(1)   | O(n)   | O(1)   |
+|                         | Insert | Delete                                          | Search                                          |
+| ----------------------- | ------ | ----------------------------------------------- | ----------------------------------------------- |
+| HashTable with Chaining | O(1)   | O(n) Worst <br>$O\left( \frac{n}{m} + 1\right)$ | O(n) Worst <br>$O\left( \frac{n}{m} + 1\right)$ |
 
-Open Addressing and Probe Sequences
+What size table to use? If $\frac{n}{m}$ is a constant we get O(1), so pick a corresponding table size so that your load factor is constant.
+
+### Open Addressing and Probe Sequences
+
+When a collision occurs, we "probe" the table for an empty slot. 
+
+![[Screenshot 2024-09-30 at 7.50.27 PM.jpg | 400]]
+
+Each key has a **probe sequence**
+
+The hash function gives a list of positions in the table to "try".
+
+![[Screenshot 2024-09-30 at 7.52.28 PM.jpg]]
+
+![[Screenshot 2024-09-30 at 7.53.40 PM.jpg | 400]]
+
+#### Linear Probe Sequence
+
+The sequence just tries the next available spot.
+
+Use an initial hash function h(k) and try this spot first.
+
+![[Screenshot 2024-09-30 at 7.55.51 PM.jpg | 400]]
+
+> Problem: Creates clusters
+
+#### Quadratic Probe Sequence
+
+The probe sequence consists of a quadratic function: 
+$$
+h(k,i) = h(k) + ai + bi^{2}
+$$
+a and b can be any constants...
+
+They just end up making things jump around much more, so we get 
+
+#### Double Hashing
+
