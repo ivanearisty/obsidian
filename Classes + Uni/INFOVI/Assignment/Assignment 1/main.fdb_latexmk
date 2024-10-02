@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727890018.09156 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727891798.64467 0
   "/usr/local/texlive/2024basic/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,10 +7,13 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1727890017.85897 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727890018.09166 0
-  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727890017.53075 2268 3748da0b5d92f76134845e38f1a6eb1c ""
+["pdflatex"] 1727891798.42883 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727891798.64476 0
+  "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1727891694.54228 11524 65ec78d2ae5ac70a7d18758695d94101 ""
+  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727891798.25109 3128 8c7aa5b834c99f1744dccc29705c4dce ""
+  "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
+  "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -23,6 +26,7 @@
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -70,6 +74,7 @@
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty" 1665067230 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1708463273 30006 3d512c0edd558928ddea1690180ef77e ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
+  "/usr/local/texlive/2024basic/texmf-dist/tex/latex/parskip/parskip.sty" 1615762720 4288 94714aa7f535440f33181fec52a31963 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
@@ -77,10 +82,10 @@
   "/usr/local/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1724354627.63072 79187 3707ba1a1c2304ab6bb6cb291e5e6f79 ""
   "/usr/local/texlive/2024basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1724354607 7536483 71f126674c653d5afa7117136f6b6381 ""
   "/usr/local/texlive/2024basic/texmf.cnf" 1710011638 628 8b896f7d9d41b43f4346b9091e52171f ""
-  "main.aux" 1727890018.05755 535 5a9f3ddf4d453d0262d2e13b37709ea2 "pdflatex"
+  "main.aux" 1727891798.60574 1558 9c51b19b9957f948d3ee93fbdef45e31 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1727890018.0578 316 fa8f6df4cdfe75a8705cfe03472e4a34 "pdflatex"
-  "main.tex" 1727890017.53075 2268 3748da0b5d92f76134845e38f1a6eb1c ""
+  "main.out" 1727891798.60624 1903 b21ddb490ea79bd0b603237f4e2666a7 "pdflatex"
+  "main.tex" 1727891798.25109 3128 8c7aa5b834c99f1744dccc29705c4dce ""
   (generated)
   "main.aux"
   "main.log"
