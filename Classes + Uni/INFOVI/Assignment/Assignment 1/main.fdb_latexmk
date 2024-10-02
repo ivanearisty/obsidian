@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727898373.5732 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727902006.41422 0
   "/usr/local/texlive/2024basic/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,9 +7,9 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1727898373.35788 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727898373.57331 0
+["pdflatex"] 1727902006.16394 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727902006.41432 0
   "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1727891694.54228 11524 65ec78d2ae5ac70a7d18758695d94101 ""
-  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727898373.1726 3609 c99adb89e3cec1c5cabcf3bcfa48f2dc ""
+  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727902005.89377 3793 7c9b2b1f60a579a1b67115365486105c ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -58,11 +58,14 @@
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/base/size10.clo" 1705352648 8448 dbc0dbf4156c0bb9ba01a1c685d3bad0 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
+  "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics-def/pdftex.def" 1663965824 19448 1e988b341dda20961a6b931bcde55519 ""
+  "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/color.sty" 1654720880 7233 e46ce9241d2b2ca2a78155475fdd557a ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/graphics.sty" 1654720880 18387 8f900a490197ebaf93c02ae9476d4b09 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/graphicx.sty" 1654720880 8010 a8d949cbdbc5c983593827c9eec252e1 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/keyval.sty" 1654720880 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
+  "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1667332637 2885 9c645d672ae17285bba324998918efd8 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/trig.sty" 1654720880 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/hycolor/hycolor.sty" 1580250785 17914 4c28a13fc3d975e6e81c9bea1d697276 ""
   "/usr/local/texlive/2024basic/texmf-dist/tex/latex/hyperref/hpdftex.def" 1705871765 48154 e46bf8adeb936500541441171d61726d ""
@@ -82,10 +85,11 @@
   "/usr/local/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1724354627.63072 79187 3707ba1a1c2304ab6bb6cb291e5e6f79 ""
   "/usr/local/texlive/2024basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1724354607 7536483 71f126674c653d5afa7117136f6b6381 ""
   "/usr/local/texlive/2024basic/texmf.cnf" 1710011638 628 8b896f7d9d41b43f4346b9091e52171f ""
-  "main.aux" 1727898373.53498 1430 3f49cbb5d2c85ed7344eefa1b54776f8 "pdflatex"
+  "main.aux" 1727902006.37665 1735 62cfdfbeec2afba0202a881cb574c791 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1727898373.53816 1829 65aff157863c6762f44236fb2d8df9ec "pdflatex"
-  "main.tex" 1727898373.1726 3609 c99adb89e3cec1c5cabcf3bcfa48f2dc ""
+  "main.out" 1727902006.37699 1829 65aff157863c6762f44236fb2d8df9ec "pdflatex"
+  "main.tex" 1727902005.89377 3793 7c9b2b1f60a579a1b67115365486105c ""
+  "map.jpg" 1727901788.9742 176687 1f78c73b762e655dbda4844b960c8af6 ""
   (generated)
   "main.aux"
   "main.log"

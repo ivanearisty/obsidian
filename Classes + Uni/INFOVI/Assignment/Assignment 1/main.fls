@@ -108,6 +108,14 @@ INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-ba
 INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT ./main.out
 INPUT ./main.out
 INPUT main.out
@@ -135,6 +143,11 @@ INPUT /usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
+INPUT ./map.jpg
+INPUT ./map.jpg
+INPUT ./map.jpg
+INPUT ./map.jpg
+INPUT ./map.jpg
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

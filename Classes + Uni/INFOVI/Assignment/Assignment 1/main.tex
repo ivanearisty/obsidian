@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{hyperref}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=red]{hyperref}
 \usepackage{parskip}
 
 \title{Assignment 1}
@@ -34,8 +34,7 @@ Note, the text for this document is under a standard word page when excluding th
 
 This is the question we aim to answer in this paper. In a more nuanced sense,
 the question can be interpreted as \textquotedblleft What cities are between the 72 and 84°F
-range, while maximizing for sunshine hours?\textquotedblright The question assumes only temperatures during daytime, since this 
-is when most people are awake and active.
+range, while maximizing for sunshine hours?\textquotedblright
 
 The reason for this question is that the 72-84°F range is considered the most comfortable for most people. 
 The audience would be looking for the two best cities climate-wise for a vacation, to move to, or maybe a second house.
@@ -44,7 +43,14 @@ The audience would be looking for the two best cities climate-wise for a vacatio
 
 We first need to consider if we have all the elements necessary to answer this question.
 In particular, we already have sunshine hours per month, and the particular cities we want to analyze.
-However, we do not have the temperature data for each city. We will need to find this data from an external source.
+However, we do not have the temperature data for each city. Hence, we can retrieve this data from \href{https://www.weather.gov/wrh/Climate}{weather.gov}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{map.jpg}
+    \caption{Map showing the best cities for nice weather and lots of sunshine each month.}
+    \label{fig:map}
+\end{figure}
 
 \subsection{Iterations}
 
