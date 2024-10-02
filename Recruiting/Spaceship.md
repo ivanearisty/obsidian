@@ -10,6 +10,8 @@ kanban-plugin: board
 - [ ] [[Binary Search]] #LC
 - [ ] Setup [[Big Interview]] #Recruiting
 - [ ] Evaluate data from [[OpenData.NYU]] search #Recruiting
+- [ ] Reach out to the people from NYU's Career discovery #Recruiting
+- [ ] Do leetcode assignments
 
 
 ## Pre-Flight
