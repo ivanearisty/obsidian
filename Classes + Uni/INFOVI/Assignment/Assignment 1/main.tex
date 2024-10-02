@@ -31,14 +31,13 @@ Note, the text for this document is under a standard word page when excluding th
 
 \subsection{Intended Visualization \& Question}
 
-\textbf{What are the best cities for nice weather and lots of sunshine each month?}
+\textbf{During which months are cities between the 68 and 80°F range, 
+while maximizing for sunshine hours?}
 
-This is the question we aim to answer in this paper. In a more nuanced sense,
-the question can be interpreted as \textquotedblleft What cities are between the 68 and 80°F
-range, while maximizing for sunshine hours?\textquotedblright
-
-The reason for this question is that the 68-80°F range is considered the most comfortable for most people. 
-The audience would be looking for the two best cities climate-wise for a vacation, to move to, or maybe a second house.
+This is the question we aim to answer in this assignment.
+The reason for this question is that the 68-80°F range is considered the most comfortable for most people, 
+and sunshine during this time will make living there a better experience. 
+The audience would be looking for the best cities climate-wise for a vacation, to move to, or maybe a second house.
 
 \subsection{Data Cleaning \& Gathering}
 
@@ -85,7 +84,22 @@ Adding a highlighted section for the 68-80°F range:
     \includegraphics[scale=0.2]{scatter2.png}
 \end{center}
 
-This is a better visualization, but we are (a) not highlighting information of months, which is crucial for the audience, and (b) it feels cluttered.
+This shows more information, but we have (a) non-clarification of months, which is crucial for the audience, and (b) it feels cluttered.
+
+The major issue is that we are trying to represent 4 variables in a 2D space.
+I also considered a bubble chart, where the x-axis represents months, 
+the y-axis represents the cities, 
+the size of each bubble represents sunshine hours, 
+and the color of the bubbles represents the temperature.
+This would no doubt feel cluttered, and the audience would have a hard time 
+interpreting the data.
+
+Hence, the two best approaches are to either filter the data to only 
+show cities in the 68-80°F range in a line chart,
+or to add two panels for the dependent vars:
+
+
+
 
 \subsection{Final Visualization}
 \subsubsection{Does this answer the question?}
