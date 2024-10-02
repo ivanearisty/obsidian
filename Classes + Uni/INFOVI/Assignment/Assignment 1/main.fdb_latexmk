@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727892529.67487 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727895308.31124 0
   "/usr/local/texlive/2024basic/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,9 +7,9 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1727892529.4646 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727892529.67496 0
+["pdflatex"] 1727895308.07044 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727895308.31133 0
   "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1727891694.54228 11524 65ec78d2ae5ac70a7d18758695d94101 ""
-  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727892529.27344 3800 aa49ae74b90a38ae73bf6acd1ae0a82b ""
+  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727895307.87264 3671 88411d360761364a991e84d5be5e0a39 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -82,10 +82,10 @@
   "/usr/local/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1724354627.63072 79187 3707ba1a1c2304ab6bb6cb291e5e6f79 ""
   "/usr/local/texlive/2024basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1724354607 7536483 71f126674c653d5afa7117136f6b6381 ""
   "/usr/local/texlive/2024basic/texmf.cnf" 1710011638 628 8b896f7d9d41b43f4346b9091e52171f ""
-  "main.aux" 1727892529.6396 1698 f3df5534a46a14e959e2bc504d4078a3 "pdflatex"
+  "main.aux" 1727895308.2751 1430 3f49cbb5d2c85ed7344eefa1b54776f8 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1727892529.64004 2138 1a2378e20cc10cbdc280b3ae1c0b68b6 "pdflatex"
-  "main.tex" 1727892529.27344 3800 aa49ae74b90a38ae73bf6acd1ae0a82b ""
+  "main.out" 1727895308.2754 1829 65aff157863c6762f44236fb2d8df9ec "pdflatex"
+  "main.tex" 1727895307.87264 3671 88411d360761364a991e84d5be5e0a39 ""
   (generated)
   "main.aux"
   "main.log"
