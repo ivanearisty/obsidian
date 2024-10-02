@@ -38,6 +38,7 @@ Your report should explain the rationale behind your design decisions. You shoul
 - identifying a question about the data that you would like your visualization to answer
 - design a visualization to answer that question
 - use that question as the title of your visualization
+- You should also provide comments on which aspects of the data set are obscured by your visualization design
 
 ## Grading 
 
