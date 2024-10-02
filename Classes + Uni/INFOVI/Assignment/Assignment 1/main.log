@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.22)  2 OCT 2024 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.22)  2 OCT 2024 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -330,19 +330,30 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 58.
 See the caption package documentation for explanation.
 
-<filter.png, id=62, 1349.04pt x 867.24pt>
+[3 <./datarequest.jpg> <./table.jpg>]
+<filter.png, id=68, 1349.04pt x 867.24pt>
 File: filter.png Graphic file (type png)
 <use filter.png>
-Package pdftex.def Info: filter.png  used on input line 67.
+Package pdftex.def Info: filter.png  used on input line 70.
 (pdftex.def)             Requested size: 345.0pt x 221.78508pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 68.
-See the caption package documentation for explanation.
-
-[3 <./datarequest.jpg> <./table.jpg>]
+<scatter.png, id=70, 1349.04pt x 943.525pt>
+File: scatter.png Graphic file (type png)
+<use scatter.png>
+Package pdftex.def Info: scatter.png  used on input line 77.
+(pdftex.def)             Requested size: 269.80322pt x 188.70164pt.
+ [4 <./filter.png> <./scatter.png>]
+<scatter2.png, id=77, 1349.04pt x 943.525pt>
+File: scatter2.png Graphic file (type png)
+<use scatter2.png>
+Package pdftex.def Info: scatter2.png  used on input line 85.
+(pdftex.def)             Requested size: 269.80322pt x 188.70164pt.
+File: filter.png Graphic file (type png)
+<use filter.png>
+Package pdftex.def Info: filter.png  used on input line 89.
+(pdftex.def)             Requested size: 345.0pt x 221.78508pt.
+ [5 <./scatter2.png>]
 No file main.bbl.
-[4 <./filter.png>] (./main.aux)
+[6] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -351,18 +362,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2A7B6A96E44B89BC5AE9E70C4A1B29BB;1748.
  ) 
 Here is how much of TeX's memory you used:
- 10520 strings out of 475567
- 168501 string characters out of 5777889
+ 10535 strings out of 475567
+ 168762 string characters out of 5777889
  1935187 words of memory out of 5000000
- 32545 multiletter control sequences out of 15000+600000
+ 32559 multiletter control sequences out of 15000+600000
  563940 words of font info for 56 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,6n,79p,811b,648s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on main.pdf (4 pages, 490625 bytes).
+Output written on main.pdf (6 pages, 597706 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

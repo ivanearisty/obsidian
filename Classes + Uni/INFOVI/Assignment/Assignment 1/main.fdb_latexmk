@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727907646.13741 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727909166.90985 0
   "/usr/local/texlive/2024basic/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,9 +7,9 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1727907645.71635 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727907646.13755 0
+["pdflatex"] 1727909166.31208 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727909166.91002 0
   "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1727891694.54228 11524 65ec78d2ae5ac70a7d18758695d94101 ""
-  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727907645.08854 5101 9e27b00d91941ff418fa075101a92a75 ""
+  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727909165.47475 5621 f4fb055c478781bd66d801f00e97f7b6 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -93,11 +93,13 @@
   "/usr/local/texlive/2024basic/texmf.cnf" 1710011638 628 8b896f7d9d41b43f4346b9091e52171f ""
   "datarequest.jpg" 1727901816.97609 104731 268ad73e8d1e607a26dd27ffc64f8c8a ""
   "filter.png" 1727907632.9257 76916 61a05ab0f486c56ffcc3b6e4fae5a760 ""
-  "main.aux" 1727907646.07503 1996 1348b55073285e3bf399b075e00668f3 "pdflatex"
+  "main.aux" 1727909166.84433 1854 a8084963df7eccd92cd07e39c0cb4ce8 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1727907646.07584 1748 2a7b6a96e44b89bc5ae9e70c4a1b29bb "pdflatex"
-  "main.tex" 1727907645.08854 5101 9e27b00d91941ff418fa075101a92a75 ""
+  "main.out" 1727909166.84486 1748 2a7b6a96e44b89bc5ae9e70c4a1b29bb "pdflatex"
+  "main.tex" 1727909165.47475 5621 f4fb055c478781bd66d801f00e97f7b6 ""
   "map.jpg" 1727901788.9742 176687 1f78c73b762e655dbda4844b960c8af6 ""
+  "scatter.png" 1727909084.86899 98734 36d842e1063c9ab4a90579aebfdcb2be ""
+  "scatter2.png" 1727909088.38791 99694 30f570b6fc3b0bfb810f4f375b8b9a8a ""
   "table.jpg" 1727901799.56471 66587 72eb7d062f08de22a047327b2e1143cb ""
   (generated)
   "main.aux"

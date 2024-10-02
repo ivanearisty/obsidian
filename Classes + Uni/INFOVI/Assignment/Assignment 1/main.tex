@@ -61,11 +61,32 @@ However, we do not have the temperature data for each city. Hence, we can retrie
 
 Also, we do not need to consider latitude and longitude for our visualization, so we can remove or ignorethese columns.
 
+\pagebreak
+
 \subsection{Iterations}
-First I tried to filter the data to only show cities with a temperature between 68 and 80°F:
+First I tried to filter the data to only show cities with a temperature between 68 and 80°F: 
+
 \begin{center}
     \includegraphics[width=\textwidth]{filter.png}
-    \captionof{figure}{Filtering data for temperature.}
+\end{center}
+
+Ignore, that there's no visual encoding, this is just testing. However, I think this approach is not effective
+in communicating the data. We could instead try to encode the data using a scatter plot, with temperature on the x-axis, and sunshine hours on the y-axis.
+
+\begin{center}
+    \includegraphics[scale=0.2]{scatter.png}
+\end{center}
+
+\pagebreak
+
+Adding a highlighted section for the 68-80°F range:
+
+\begin{center}
+    \includegraphics[scale=0.2]{scatter2.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=\textwidth]{filter.png}
 \end{center}
 
 \subsection{Final Visualization}
