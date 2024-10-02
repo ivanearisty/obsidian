@@ -164,6 +164,11 @@ INPUT ./table.jpg
 INPUT ./table.jpg
 INPUT ./table.jpg
 INPUT ./table.jpg
+INPUT ./filter.png
+INPUT ./filter.png
+INPUT ./filter.png
+INPUT ./filter.png
+INPUT ./filter.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

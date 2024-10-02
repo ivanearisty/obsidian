@@ -45,6 +45,7 @@ The audience would be looking for the two best cities climate-wise for a vacatio
 We first need to consider if we have all the elements necessary to answer this question.
 In particular, we already have sunshine hours per month, and the particular cities we want to analyze.
 However, we do not have the temperature data for each city. Hence, we can retrieve this data from \href{https://www.weather.gov/wrh/Climate}{weather.gov} 
+
 \begin{center}
     \vspace{0.25cm}
     \includegraphics[width=\textwidth]{map.jpg}
@@ -61,6 +62,11 @@ However, we do not have the temperature data for each city. Hence, we can retrie
 Also, we do not need to consider latitude and longitude for our visualization, so we can remove or ignorethese columns.
 
 \subsection{Iterations}
+First I tried to filter the data to only show cities with a temperature between 68 and 80°F:
+\begin{center}
+    \includegraphics[width=\textwidth]{filter.png}
+    \captionof{figure}{Filtering data for temperature.}
+\end{center}
 
 \subsection{Final Visualization}
 \subsubsection{Does this answer the question?}
