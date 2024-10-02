@@ -179,10 +179,6 @@ INPUT ./scatter2.png
 INPUT ./scatter2.png
 INPUT ./scatter2.png
 INPUT ./scatter2.png
-INPUT ./filter.png
-INPUT ./filter.png
-INPUT ./filter.png
-INPUT ./filter.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
