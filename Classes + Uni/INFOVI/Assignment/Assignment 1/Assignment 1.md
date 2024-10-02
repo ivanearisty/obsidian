@@ -26,13 +26,18 @@ Your task for this assignment is to design a static visualization that you belie
 
 You are required to use the given data set, but you are free to transform the data in any way that you wish. That is, you can manipulate the data using transformations such as a log transformation, computing percentages or averages, grouping elements into categories, or removing unnecessary variables. You are also allowed to incorporate additional data from external sources, but if you do so, you need to make a note of it in your submission.
 
-Remember that different visualizations can emphasize different aspects of a data set, so your writeup should include details about which components of the data you intended to communicate. You should also provide comments on which aspects of the data set are obscured by your visualization design.
+**Remember that different visualizations can emphasize different aspects of a data set, so your writeup should include details about which components of the data you intended to communicate. You should also provide comments on which aspects of the data set are obscured by your visualization design.**
 
 Your report should explain the rationale behind your design decisions. You should document the visual encodings you used and why they are effective for communicating your intended message. These decisions include things like the choice of visualization type, size, color, scale, and other visual elements (which we will learn more about during Week #3 and Week #4’s lectures).
 
 ### Synopsis
 
-
+- static visualization
+- effectively communicates an idea or message about the sunshine data
+- at least one image of your visualization in your report
+- identifying a question about the data that you would like your visualization to answer
+- design a visualization to answer that question
+- use that question as the title of your visualization
 
 ## Grading 
 
