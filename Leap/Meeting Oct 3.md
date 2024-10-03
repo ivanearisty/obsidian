@@ -1,0 +1,1 @@
+Get info on the emails regarding how the web portal would look like.
