@@ -15,8 +15,6 @@ kanban-plugin: board
 ## Pre-Flight
 
 - [ ] Catch up with PDS #PDS
-- [ ] [[Assignment 1 DAA]] #DAA
-- [ ] [[Assignment 1 PDS]] #PDS
 
 
 ## Cruise
@@ -33,6 +31,9 @@ kanban-plugin: board
 
 **Complete**
 - [x] Attend [[Intro Class]] for Infovi #INFOVI
+- [x] Assignment 1 InfoVi #INFOVI
+- [x] [[Assignment 1 PDS]] #PDS
+- [x] [[Assignment 1 DAA]] #DAA
 - [x] #DAA Review [[Week 0]]
 - [x] Review and respond to Email from professor #INFOVI
 - [x] #DAA #INFOVI #PDS Read and Import Syllabi
@@ -50,6 +51,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,true],"tag-colors":[{"tagKey":"#DAA","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 87, 51, 1)"},{"tagKey":"#INFOVI","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(0, 123, 255, 1)"},{"tagKey":"#PDS","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 215, 0, 1)"},{"tagKey":"#MissionControl","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(50, 205, 50, 1)"},{"tagKey":"#Tasks","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 105, 180, 1)"},{"tagKey":"#Misc","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(245, 245, 245, 1)"}]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"tag-colors":[{"tagKey":"#DAA","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 87, 51, 1)"},{"tagKey":"#INFOVI","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(0, 123, 255, 1)"},{"tagKey":"#PDS","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 215, 0, 1)"},{"tagKey":"#MissionControl","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(50, 205, 50, 1)"},{"tagKey":"#Tasks","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 105, 180, 1)"},{"tagKey":"#Misc","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(245, 245, 245, 1)"}]}
 ```
 %%
