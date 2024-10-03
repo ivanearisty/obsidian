@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727912916.29493 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1727914717.22942 0
   "/usr/local/texlive/2024basic/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,11 +7,13 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1727912915.70579 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727912916.2951 0
+["pdflatex"] 1727914716.48047 "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" "main.pdf" "main" 1727914717.22963 0
   "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1000.600pk" 1727911937.06136 12100 af7575ef87d4e85a99b491a34bc8c65e ""
+  "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk" 1727914108.75147 10448 871c66cc34f20d5becfab7d678b37772 ""
   "/Users/suape/Library/texlive/2024basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1727891694.54228 11524 65ec78d2ae5ac70a7d18758695d94101 ""
-  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727912915.51901 6163 16e92cf7b09055d0eaa62c20322f12b0 ""
+  "/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 1/main.tex" 1727914716.23298 5828 b2eebac92212f345b91423a413a83756 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm" 1136768653 1536 30fde759286ded71559881bfa2623939 ""
+  "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm0900.tfm" 1136768653 1536 c4f439db76ef96a9c53bc437f35ffe20 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -95,10 +97,11 @@
   "/usr/local/texlive/2024basic/texmf.cnf" 1710011638 628 8b896f7d9d41b43f4346b9091e52171f ""
   "datarequest.jpg" 1727901816.97609 104731 268ad73e8d1e607a26dd27ffc64f8c8a ""
   "filter.png" 1727907632.9257 76916 61a05ab0f486c56ffcc3b6e4fae5a760 ""
-  "main.aux" 1727912916.23225 1854 c06cac1d5c55e2082914ae88f8b56c48 "pdflatex"
+  "line3.png" 1727914049.15206 69979 ef34985d1f772e3700ba6f72d747ecba ""
+  "main.aux" 1727914717.13268 1993 f657ff96ecbee96987f62cf1ac428f59 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1727912916.23302 1748 2a7b6a96e44b89bc5ae9e70c4a1b29bb "pdflatex"
-  "main.tex" 1727912915.51901 6163 16e92cf7b09055d0eaa62c20322f12b0 ""
+  "main.out" 1727914717.13338 1748 2a7b6a96e44b89bc5ae9e70c4a1b29bb "pdflatex"
+  "main.tex" 1727914716.23298 5828 b2eebac92212f345b91423a413a83756 ""
   "map.jpg" 1727901788.9742 176687 1f78c73b762e655dbda4844b960c8af6 ""
   "scatter.png" 1727909084.86899 98734 36d842e1063c9ab4a90579aebfdcb2be ""
   "scatter2.png" 1727909088.38791 99694 30f570b6fc3b0bfb810f4f375b8b9a8a ""
