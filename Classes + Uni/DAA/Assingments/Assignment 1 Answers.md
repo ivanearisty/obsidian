@@ -40,7 +40,6 @@ True. The exponential function will grow larger asymptotically than the polynomi
 3. $\text{If} f(n) \text{ is } \mathcal{O}(n^{2}), \text{ does this imply that } f(n) \text{ is also } \mathcal{O}(n) \text{?}$
 
 False. $f(n)$ being $\mathcal{O}(n^{2})$ does not necessarily imply that it is also $\mathcal{O}(n)$. Since big O describes an upper bound, it asserts that there exists some constant c, such that after a certain threshold, k, $f(n) \leq c * n^{2}:\forall n \geq k$ However, this is not a strict upper bound. Our function could actually be $\Theta(n)$ and the above would still be valid, but it would be $\mathcal{O}(n)$ as well—this being the tighter lower bound. In that scenario, $f(n)\leq c_{2}*n \leq c_{1} * n^2$ for all n after a large enough n.
-
 ### Question C (16 points)
 
 For each of the following $f(n)$, show that $f (n)$ is $\Theta(g(n))$ for the correct function $g(n)$. Prove your result using the definitions from class, justifying your statement is true for all n ≥ k. (provide the value of k).
