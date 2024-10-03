@@ -31,8 +31,7 @@ Note, the text for this document is under a standard word page when excluding th
 
 \subsection{Intended Visualization \& Question}
 
-\textbf{During which months are cities between the 68 and 80°F range, 
-while maximizing for sunshine hours?}
+\textbf{What are the cities with the highest sunshine and a temperature in the 68-80°F range?}
 
 This is the question we aim to answer in this assignment.
 The reason for this question is that the 68-80°F range is considered the most comfortable for most people, 
@@ -63,7 +62,7 @@ Also, we do not need to consider latitude and longitude for our visualization, s
 \pagebreak
 
 \subsection{Iterations}
-First I tried to filter the data to only show cities with a temperature between 68 and 80°F: 
+First, I tried to filter the data to only show cities with a temperature between 68 and 80°F: 
 
 \begin{center}
     \includegraphics[width=\textwidth]{filter.png}
@@ -103,28 +102,26 @@ If we filter we get:
 
 \subsection{Final Visualization}
 
+\begin{center}
+    \includegraphics[width=\textwidth]{final.png}
+\end{center}
 
+\textbf{Does this answer the question?}
 
-\subsubsection{Does this answer the question?}
+We do answer the question, effectively showing the highest city sunshine hours for the 68-80°F range.
 
 \textbf{Design decisions:}
 \begin{itemize}
-    \item \textbf{Visualization Type} lorem ipsum dolor sit amet  
-    \item \textbf{Bubble Size} lorem ipsum dolor sit amet
-    \item \textbf{Color} lorem ipsum dolor sit amet
+    \item \textbf{Visualization Type:} Bubble chart allows us to encode 4 variables in a 2D space. Great for our static visualization constraint. 
+    \item \textbf{Bubble Size:} We use size for temperature since it's the least important to the audience (something is either in the range, or not in the range), but we can still show relatives thanks to it.
+    \item \textbf{Color:} We use the set2 Observable color palette, and it was checked with \href{https://observablehq.com/@mjbo/color-schemes-under-color-vision-deficiency}{colorblindness simulators}.
+    \item \textbf{Stroke:} We add a gray stroke to differentiate the bubbles from the background and from each other (especially for encapsulated bubbles).
+    \item \textbf{Redundancy:} Thanks to our iterations, none of the data was repeated.
 \end{itemize}
 
-\subsubsection{Encoding (Marks/Channels, Redundancy, Color/Accessibilty)}
-\subsubsection{Highlighted \& Obscured Data}
+\pagebreak
 
 \textbf{Obscured Data:}
-\begin{itemize}
-    \item \textbf{Visualization Type} lorem ipsum dolor sit amet  
-    \item \textbf{Bubble Size} lorem ipsum dolor sit amet
-    \item \textbf{Color} lorem ipsum dolor sit amet
-\end{itemize}
-
-\textbf{Highlighted Data:}
 \begin{itemize}
     \item \textbf{Preference:} The visualization is not dynamic, hence we cannot allow the user to select their desired temperature range.
     \item \textbf{Lat-Long:} Our visualization assumes that the audience is familiar with the cities in the dataset, and doesn't provide a map for reference.

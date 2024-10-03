@@ -191,6 +191,11 @@ INPUT ./bubble.png
 INPUT ./bubble.png
 INPUT ./bubble.png
 INPUT ./bubble.png
+INPUT ./final.png
+INPUT ./final.png
+INPUT ./final.png
+INPUT ./final.png
+INPUT ./final.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
