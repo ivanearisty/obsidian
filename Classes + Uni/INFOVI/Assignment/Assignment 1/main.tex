@@ -87,31 +87,49 @@ Adding a highlighted section for the 68-80°F range:
 This shows more information, but we have (a) non-clarification of months, which is crucial for the audience, and (b) it feels cluttered.
 
 The major issue is that we are trying to represent 4 variables in a 2D space. 
-Some other approaches:
+If we filter we get:
 
 \begin{center}
     \includegraphics[scale=0.2]{line3.png}
     \captionof{figure}{Filtering for 68-80°F range}
 \end{center}
 
+\begin{center}
+    \includegraphics[scale=0.2]{bubble.png}
+    \captionof{figure}{Bubble encoding for some temperature info}
+\end{center}
+
+\pagebreak
 
 \subsection{Final Visualization}
+
+
+
 \subsubsection{Does this answer the question?}
 
-\textbf{We highlight some key data:}
+\textbf{Design decisions:}
 \begin{itemize}
-    \item \textbf{Sunshine} lorem ipsum dolor sit amet  
-    \item \textbf{Temperature} lorem ipsum dolor sit amet
-    \item \textbf{City} lorem ipsum dolor sit amet
+    \item \textbf{Visualization Type} lorem ipsum dolor sit amet  
+    \item \textbf{Bubble Size} lorem ipsum dolor sit amet
+    \item \textbf{Color} lorem ipsum dolor sit amet
 \end{itemize}
 
 \subsubsection{Encoding (Marks/Channels, Redundancy, Color/Accessibilty)}
-\subsubsection{Obscured Data}
-    \begin{itemize}
-        \item \textbf{Preference:} The visualization is not dynamic, hence we cannot allow the user to select their desired temperature range.
-        \item \textbf{Lat-Long:} Our visualization assumes that the audience is familiar with the cities in the dataset, and doesn't provide a map for reference.
-        \item \textbf{Humidity:} We do not consider humidity in our visualization, which could be a factor in the comfort of the weather.
-    \end{itemize}
+\subsubsection{Highlighted \& Obscured Data}
+
+\textbf{Obscured Data:}
+\begin{itemize}
+    \item \textbf{Visualization Type} lorem ipsum dolor sit amet  
+    \item \textbf{Bubble Size} lorem ipsum dolor sit amet
+    \item \textbf{Color} lorem ipsum dolor sit amet
+\end{itemize}
+
+\textbf{Highlighted Data:}
+\begin{itemize}
+    \item \textbf{Preference:} The visualization is not dynamic, hence we cannot allow the user to select their desired temperature range.
+    \item \textbf{Lat-Long:} Our visualization assumes that the audience is familiar with the cities in the dataset, and doesn't provide a map for reference.
+    \item \textbf{Humidity:} We do not consider humidity in our visualization, which could be a factor in the comfort of the weather.
+\end{itemize}
 
 \bibliographystyle{plain}
 \bibliography{references}
