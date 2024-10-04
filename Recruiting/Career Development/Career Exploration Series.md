@@ -29,10 +29,11 @@ Cover letters are like having a conversation with people. *People reading it wil
 
 I think that AI/ML applications can be super interesting, in fact, Farwa I know you mentioned you've used RAGs, I personally have a RAG project for my mother's book that I am working on, but what has always interested me has been more of the backend and infrastructure. Something about building the data delivery infrastructure, being that middle layer between apps and the db interests me a lot. WIll AI/ML replace those backend engineers, are those engineers dying, etc?
 
+Hi Mary! It's Ivan from Tuesday's Tandon Career Exploration zoom call. Would love to connect!
+Hi Farwa! It's Ivan from Tuesday's Tandon Career Exploration zoom call. Would love to connect!
+Hi Spriha! It's Ivan from Tuesday's Tandon Career Exploration zoom call. Would love to connect!
 ### Mary
 https://www.linkedin.com/in/mkarroqe/
-
-Hi Mary! It's Ivan from Tuesday's Tandon Career Exploration zoom call. 
 
 https://www.linkedin.com/in/ranikubersky/ -> Chief of Staff (Stern)
 https://www.linkedin.com/in/joeyparsons/ -> CEO 
