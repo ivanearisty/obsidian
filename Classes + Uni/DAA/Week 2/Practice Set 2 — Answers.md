@@ -4,7 +4,8 @@ tags:
 ---
 # Notes
 
-## Problem 1
+- Problem 1
+	- **Assert:** **IF** $T(n)$ is $1\times T\left( \frac{n}{3} \right) + cn$, **THEN** the *one* is because we do the recursive step *once*
 
 
 # Practice Set 2
@@ -53,6 +54,31 @@ base case.
 Output: 
 5, 6, 7, 8, 9, 10, 11, 12, 3, 4, 2, 1
 
-$T(n) = 1\times T\left( \frac{n}{3} \right) + \frac{n}{2}$
+$T(n) = 1\times T\left( \frac{n}{3} \right) + \frac{2n}{3}$ **WRONG**
 
-**Reasoning:** We recursively iterate over a third of the array, we only do this one time in the loop. 
+I forgot the **C**:
+
+$T(n) = 1\times T\left( \frac{n}{3} \right) + \frac{c\times2n}{3}$
+
+Since the latter part is in terms of some n, we can simplify to:
+
+$T(n) = 1\times T\left( \frac{n}{3} \right) + cn$
+
+**Reasoning:** We recursively iterate over a third of the array, we only do this one time in the loop. At the level, we execute stuff for 2 thirds of the array
+
+Master Method:
+$$
+\begin{gather}
+T(n) = 1\times T\left( \frac{n}{3} \right) + cn\\
+f(n) = cn \\
+\\
+k = \log_{b}(a) \\
+a = 1 \\
+b = 3 \\
+k = \log_{3}(1) = 0 \\
+n^{k} = n^{0} = \mathcal{O}(1) \\
+\\
+f(n) \gg n^{k} \rightarrow T(n) = f(n) = \Theta(n)
+\end{gather}
+$$
+

@@ -10,26 +10,35 @@ kanban-plugin: board
 - [ ] Review notes for career development and wasserman stuff #Tasks
 - [ ] Start Group Project Prep for PDS #PDS
 - [ ] go to office hours [[OH 1]] #PDS
+- [ ] go to office hours #DAA
+- [ ] Finish [[Practice Set 5 — Answers]] #DAA
+- [ ] Finish [[Relational Model]] #PDS
+- [ ] Finish [[Relational Query Languages]] #PDS
+- [ ] Finish [[SQL]] #PDS
+- [ ] Find group for #PDS
 
 
 ## Pre-Flight
 
 - [ ] Catch up with PDS #PDS
+- [ ] Finish [[Practice Set 3 — Answers]] #DAA
+- [ ] Finish [[Practice Set 4 — Answers]] #DAA
 
 
 ## Cruise
 
-- [ ] [[Entity Relationship Model]]
+- [ ] Finish [[Classes + Uni/DAA/Week 2/Practice Set 2 — Answers]] #DAA
 
 
 ## Orbiting
 
-- [ ] Fill [[Ideas for Viz Projects]] as stuff goes #INFOVI
 
 
 ## Landed
 
 **Complete**
+- [x] Fill [[Ideas for Viz Projects]] as stuff goes #INFOVI
+- [x] [[Entity Relationship Model]]
 - [x] Attend [[Intro Class]] for Infovi #INFOVI
 - [x] Assignment 1 InfoVi #INFOVI
 - [x] [[Assignment 1 PDS]] #PDS
