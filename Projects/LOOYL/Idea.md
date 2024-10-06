@@ -1,1 +1,0 @@
-People wanna feel smart and they want to have deep conversations about books, hence it could be a good idea to have a workspace

@@ -6,8 +6,9 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] go to office hours #DAA
 - [ ] Finish [[Practice Set 5 — Answers]] #DAA
+- [ ] Review [[Selection Algorithms]] #DAA
+- [ ] Review [[Heaps]] #DAA
 
 
 ## Pre-Flight
@@ -29,9 +30,13 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
-- [x] [[Assignment 1 DAA]] #DAA
 - [x] #DAA Review [[Week 0]]
+- [x] Review [[Preliminary Stuff]] #DAA
 - [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
+- [x] Hand in [[Assignment 1 Answers]] #DAA
+- [x] Review [[Notes Week 1|Notes Week 1]]
+- [x] Review [[Notes Week 2|Notes Week 2]]
+- [x] Finish [[Practice 1 Answers]]
 
 
 ## Aborted
