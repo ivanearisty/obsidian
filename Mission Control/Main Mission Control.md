@@ -11,7 +11,8 @@ Projects --> [[Projects/Spaceship|Spaceship]]
 Recruiting --> [[Recruiting/Spaceship|Spaceship]]
 ## Control Stations
 
-Recruiting --> LeetCode [[Recruiting/Leetcode/Mission Control]]
+Classes --> [[Classes + Uni/Mission Control|Mission Control]]
+Recruiting --> LeetCode --> [[Recruiting/Leetcode/Mission Control]]
 ## Ports
 <p align="left">
 <a href="https://www.linkedin.com/in/aristy/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="aristy" height="30" width="40" /></a>

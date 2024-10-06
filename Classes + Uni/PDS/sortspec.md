@@ -1,7 +1,7 @@
 ---
 sorting-spec: |-
-  Mission Control
-  Spaceship
+  PDS Mission Control
+  PDS Spaceship
   sortspec
   order-asc: a-z
 ---

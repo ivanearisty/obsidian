@@ -1,7 +1,7 @@
 ---
 sorting-spec: |-
-  Mission Control
-  Spaceship
+  INFOVI Mission Control
+  INFOVI Spaceship
   sortspec
   order-asc: a-z
 ---

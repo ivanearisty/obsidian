@@ -7,9 +7,6 @@ tags:
 
 ```dataview
 task
-from "Classes + Uni/Spaceship"
+from "Classes + Uni/PDS/PDS Spaceship"
 where !completed
-and contains(tags, "#PDS")
 ```
-
-

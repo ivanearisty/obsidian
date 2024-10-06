@@ -2,10 +2,8 @@
 tags:
   - mission-control
 ---
-
 ```dataview
 task
-from "Classes + Uni/Spaceship"
+from "Classes + Uni/DAA/DAA Spaceship"
 where !completed
-and contains(tags, "#DAA")
 ```

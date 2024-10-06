@@ -1,7 +1,7 @@
 ---
 sorting-spec: |-
-  Mission Control
-  Spaceship
+  DAA Mission Control
+  DAA Spaceship
   sortspec
   order-asc: a-z
 ---
