@@ -7,7 +7,9 @@ tags:
 - Problem 1
 	- **Assert:** **IF** $T(n)$ is $1\times T\left( \frac{n}{3} \right) + cn$, **THEN** the *one* is because we do the recursive step *once*
 - Problem 2:
-	- I need 
+	- I need a review of substution method, can we do binary search, mergesort, and a backtracking question with something n^3 or n^2 time?
+- Problem 3:
+	- 
 
 # Practice Set 2
 ## Problem 1
@@ -87,7 +89,7 @@ $$
 ### Question
 
 ![[Screenshot 2024-10-05 at 11.34.58 PM.jpg]]
-
+### Answer
 ```java
 BSearch(A, s, f, k):
 	if( s < f):
@@ -103,4 +105,34 @@ BSearch(A, s, f, k):
 ```
 
 The T(n) is as such because we are performing constant amount of actions, non-dependent on the input size, at every step, and perfoming a single recursive call on half of the array as we look for the k element, shrinking the subarray size by its half on each consecutive step
+
+## Problem 3
+
+### Question
+
+Update the pseudo-code above so that if element k is in the array A\[s, . . . , f ], then the procedure returns the index of the element k. Otherwise the procedure returns NIL.
+
+### Answer
+
+```java
+BSearch(A, s, f, k):
+	if( s < f):
+		q = (s + f) / 2 // get the midpoint
+		if A[q] == k:
+			return q
+		else if A[q] < k:
+			return BSearch(A, q+1, f, k)
+		else:
+			return BSearch(A, s, q-1, k)
+	else if A[s] == k return s
+	else return NIL
+```
+
+## Problem 4
+
+### Question
+
+![[Screenshot 2024-10-06 at 12.29.29 AM.jpg]]
+
+### Answer
 
