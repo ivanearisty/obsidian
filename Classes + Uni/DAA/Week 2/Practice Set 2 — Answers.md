@@ -18,7 +18,7 @@ tags:
 	- Ask about algorithms and their acceptance
 	- Are ternary operators allowed in pseudocode?
 	- Would've it been fine to do selection of max.
-- Problem 9: What does O(2-e) and $\Omega$n+e mean? 
+- Problem 9: What does O(2-e) and $\Omega$n+e mean?
 ![[Screenshot 2024-10-06 at 3.19.32 AM.jpg]]
 # Practice Set 2
 ## Problem 1
