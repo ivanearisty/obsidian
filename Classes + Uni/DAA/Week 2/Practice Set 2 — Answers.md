@@ -7,9 +7,9 @@ tags:
 - Problem 1
 	- **Assert:** **IF** $T(n)$ is $1\times T\left( \frac{n}{3} \right) + cn$, **THEN** the *one* is because we do the recursive step *once*
 - Problem 2:
-	- I need a review of substution method, can we do binary search, mergesort, and a backtracking question with something n^3 or n^2 time?
-- Problem 3:
-	- 
+	- I need a review of substitution method, can we do binary search, mergesort, and a backtracking question with something n^3 or n^2 time?
+- Problem 6:
+	- Substitution practice
 
 # Practice Set 2
 ## Problem 1
@@ -156,8 +156,38 @@ b = 2 \\
 f(n) = c \\
 \\
 k = \log_{b}(a) = \log_{2}(2) = 1 \\
-n^{k} = n^1 = n \\
-
-f(n) \ll n^{k}
+n^{k} = n^{1} = n \\
+\\
+f(n) \ll n^{k} \\
+T(n) = \Theta(n^{k}) = \Theta(n) 
 \end{gather}
 $$
+Cant do master method on b because it is not of the form $n/b$
+
+## Problem 6
+
+![[Screenshot 2024-10-06 at 1.08.57 AM.jpg]]
+
+$T(n) = T(n/2) + c \times \log n$
+$T(n) = T(n-1) + c\times \log n$
+
+## Problem 7 
+
+### Question
+
+![[Screenshot 2024-10-06 at 1.15.34 AM.jpg]]
+
+### Problem
+
+```java
+BubbleSort(A, s, f):
+	for i = f - 1 down to s + 1:
+		for s = j to i:
+			if A[j] > A[j+1]
+				swap A[j] and A[j+1]
+```
+
+```java
+BubbleSort(A, s, f):
+	
+```
