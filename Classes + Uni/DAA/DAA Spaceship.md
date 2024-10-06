@@ -7,18 +7,21 @@ kanban-plugin: board
 ## Hangar
 
 - [ ] Finish [[Practice Set 5 — Answers]] #DAA
-- [ ] Review [[Selection Algorithms]] #DAA
-- [ ] Review [[Heaps]] #DAA
+- [ ] Finish [[Assignment 2 DAA Answers]]
+- [ ] Finish [[Decision Trees]]
+- [ ] Finish [[Linear Time Sorting]]
 
 
 ## Pre-Flight
 
 - [ ] Finish [[Practice Set 4 — Answers]] #DAA
+- [ ] Review [[Heaps]] #DAA
 
 
 ## Cruise
 
 - [ ] Finish [[Practice Set 3 — Answers]] #DAA
+- [ ] Review [[Selection Algorithms]] #DAA
 
 
 ## Orbiting
@@ -33,7 +36,7 @@ kanban-plugin: board
 - [x] #DAA Review [[Week 0]]
 - [x] Review [[Preliminary Stuff]] #DAA
 - [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
-- [x] Hand in [[Assignment 1 Answers]] #DAA
+- [x] Hand in [[Assignment 1 DAA Answers]] #DAA
 - [x] Review [[Notes Week 1|Notes Week 1]]
 - [x] Review [[Notes Week 2|Notes Week 2]]
 - [x] Finish [[Practice 1 Answers]]
