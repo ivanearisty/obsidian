@@ -6,12 +6,17 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Tasks   Setup folder and info for preparing interview prep and career services
-- [ ] Review notes for career development and wasserman stuff #Tasks
+- [ ] Start Group Project Prep for PDS #PDS
+- [ ] go to office hours [[OH 1]] #PDS
+- [ ] Finish [[Relational Model]] #PDS
+- [ ] Finish [[Relational Query Languages]] #PDS
+- [ ] Finish [[SQL]] #PDS
+- [ ] Find group for #PDS
 
 
 ## Pre-Flight
 
+- [ ] Catch up with PDS #PDS
 
 
 ## Cruise
@@ -25,8 +30,8 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
-- [x] #DAA #INFOVI #PDS Read and Import Syllabi
-- [x] #Tasks  Sort all Photos
+- [x] [[Entity Relationship Model]] #PDS
+- [x] [[Assignment 1 PDS]] #PDS
 
 
 ## Aborted

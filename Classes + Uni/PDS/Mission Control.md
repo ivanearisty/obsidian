@@ -6,8 +6,10 @@ tags:
 [Ed Discussion](https://edstem.org/us/courses/66610/discussion/)
 
 ```dataview
-TASK
-WHERE !completed
-FROM "Classes + Uni/Spaceship"
+task
+from "Classes + Uni/Spaceship"
+where !completed
+and contains(tags, "#PDS")
 ```
+
 

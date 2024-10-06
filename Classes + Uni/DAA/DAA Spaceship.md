@@ -6,32 +6,38 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Tasks   Setup folder and info for preparing interview prep and career services
-- [ ] Review notes for career development and wasserman stuff #Tasks
+- [ ] go to office hours #DAA
+- [ ] Finish [[Practice Set 5 — Answers]] #DAA
 
 
 ## Pre-Flight
 
+- [ ] Finish [[Practice Set 4 — Answers]] #DAA
 
 
 ## Cruise
 
+- [ ] Finish [[Practice Set 3 — Answers]] #DAA
 
 
 ## Orbiting
 
+- [ ] Finish [[Practice Set 2 — Answers]] #DAA
+- [ ] Finish [[Hashing]] to finish [[Practice Set 2 — Answers]] #DAA
 
 
 ## Landed
 
 **Complete**
-- [x] #DAA #INFOVI #PDS Read and Import Syllabi
-- [x] #Tasks  Sort all Photos
+- [x] [[Assignment 1 DAA]] #DAA
+- [x] #DAA Review [[Week 0]]
+- [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
 
 
 ## Aborted
 
 **Complete**
+- [x] Tell the professor to add you to Poll Anywhere #DAA
 
 
 

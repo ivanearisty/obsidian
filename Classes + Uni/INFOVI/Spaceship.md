@@ -6,8 +6,6 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Tasks   Setup folder and info for preparing interview prep and career services
-- [ ] Review notes for career development and wasserman stuff #Tasks
 
 
 ## Pre-Flight
@@ -25,13 +23,23 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] Fill [[Ideas for Viz Projects]] as stuff goes #INFOVI
+- [x] [[Entity Relationship Model]]
+- [x] Attend [[Intro Class]] for Infovi #INFOVI
+- [x] Assignment 1 InfoVi #INFOVI
+- [x] [[Assignment 1 PDS]] #PDS
+- [x] [[Assignment 1 DAA]] #DAA
+- [x] #DAA Review [[Week 0]]
+- [x] Review and respond to Email from professor #INFOVI
 - [x] #DAA #INFOVI #PDS Read and Import Syllabi
 - [x] #Tasks  Sort all Photos
+- [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
 
 
 ## Aborted
 
 **Complete**
+- [x] Tell the professor to add you to Poll Anywhere #DAA
 
 
 
