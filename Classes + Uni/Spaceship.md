@@ -21,17 +21,18 @@ kanban-plugin: board
 ## Pre-Flight
 
 - [ ] Catch up with PDS #PDS
-- [ ] Finish [[Practice Set 3 — Answers]] #DAA
 - [ ] Finish [[Practice Set 4 — Answers]] #DAA
 
 
 ## Cruise
 
-- [ ] Finish [[Classes + Uni/DAA/Week 2/Practice Set 2 — Answers]] #DAA
+- [ ] Finish [[Practice Set 3 — Answers]] #DAA
 
 
 ## Orbiting
 
+- [ ] Finish [[Practice Set 2 — Answers]] #DAA
+- [ ] Finish [[Hashing]] to finish [[Practice Set 2 — Answers]] #DAA
 
 
 ## Landed

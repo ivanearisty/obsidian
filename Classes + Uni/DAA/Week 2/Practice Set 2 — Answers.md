@@ -16,7 +16,10 @@ tags:
 - Problem 8:
 	- Substitution practice
 	- Ask about algorithms and their acceptance
-
+	- Are ternary operators allowed in pseudocode?
+	- Would've it been fine to do selection of max.
+- Problem 9: What does O(2-e) and $\Omega$n+e mean? 
+![[Screenshot 2024-10-06 at 3.19.32 AM.jpg]]
 # Practice Set 2
 ## Problem 1
 ### Question
@@ -216,8 +219,11 @@ SelectionSort(A,s,f):
 	if s == f
 		return
 	currMax = i
-	for i = s + 1 to f:
-		currMax A[i]
-
+	for i = s + 1 toz f:
+		currMax = index of max(A[i], A[i+1])
+	swap A[f] and A[i]
 	SelectionSort(A,s,f-1)
 ```
+
+## Problem 10
+
