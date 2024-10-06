@@ -191,7 +191,7 @@ $T(n) = T(n-1) + c\times \log n$
 ```java
 BubbleSort(A, s, f):
 	for i = f - 1 down to s + 1:
-		for j = s to i - 1
+		for j = s to i - 1:
 			if A[j] > A[j+1]
 				swap A[j] and A[j+1]
 ```
@@ -219,8 +219,9 @@ SelectionSort(A,s,f):
 	if s == f
 		return
 	currMax = i
+	actualNumber =  //fix this
 	for i = s + 1 toz f:
-		currMax = index of max(A[i], A[i+1])
+		currMax = index of max(A[i], A[i+1]) // writing index of is not legal
 	swap A[f] and A[i]
 	SelectionSort(A,s,f-1)
 ```
