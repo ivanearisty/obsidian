@@ -10,6 +10,12 @@ tags:
 	- I need a review of substitution method, can we do binary search, mergesort, and a backtracking question with something n^3 or n^2 time?
 - Problem 6:
 	- Substitution practice
+- Problem 7: 
+	- Ask about out of bounds errors in code and how serious they are
+	- How many points would've my questions gotten?
+- Problem 8:
+	- Substitution practice
+	- Ask about algorithms and their acceptance
 
 # Practice Set 2
 ## Problem 1
@@ -177,17 +183,41 @@ $T(n) = T(n-1) + c\times \log n$
 
 ![[Screenshot 2024-10-06 at 1.15.34 AM.jpg]]
 
-### Problem
+### Answer
 
 ```java
 BubbleSort(A, s, f):
 	for i = f - 1 down to s + 1:
-		for s = j to i:
+		for j = s to i - 1
 			if A[j] > A[j+1]
 				swap A[j] and A[j+1]
 ```
 
 ```java
 BubbleSort(A, s, f):
-	
+	if(f == s)
+		return
+	for i = s to f - 1:
+		if A[i] > A[i+1]
+			swap A[i] and A[i+1]
+	BubbleSort(A, s, f-1)
+```
+
+## Problem 8
+
+### Question
+
+![[Screenshot 2024-10-06 at 1.40.29 AM.jpg]]
+
+### Answer
+
+```java
+SelectionSort(A,s,f):
+	if s == f
+		return
+	currMax = i
+	for i = s + 1 to f:
+		currMax A[i]
+
+	SelectionSort(A,s,f-1)
 ```
