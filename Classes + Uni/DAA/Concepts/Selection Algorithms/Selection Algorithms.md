@@ -51,3 +51,8 @@ With the geometric formula we have:
 ![[Screenshot 2024-10-06 at 1.54.13 PM.jpg | 400]]
 
 So we have expect $\Theta (n)$ time
+
+## Select Algorithm
+
+![[Screenshot 2024-10-06 at 1.59.09 PM.jpg]]
+
