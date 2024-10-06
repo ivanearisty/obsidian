@@ -136,3 +136,28 @@ BSearch(A, s, f, k):
 
 ### Answer
 
+T(n) = T(n/2) + c \* log(n/2) = T(n/2) + c \* log(n)
+
+## Problem 5
+
+### Question
+
+![[Screenshot 2024-10-06 at 12.51.24 AM.jpg]]
+
+Algorithm a is $T(n) = 2T(n/2) + c$
+Algorithm b is T(n) = T(n-1) + c
+
+$$
+\begin{gather}
+\text{Master Method} \\
+\text{A: } T(n) = 2T(n/2) + c \\
+a = 2 \\
+b = 2 \\
+f(n) = c \\
+\\
+k = \log_{b}(a) = \log_{2}(2) = 1 \\
+n^{k} = n^1 = n \\
+
+f(n) \ll n^{k}
+\end{gather}
+$$
