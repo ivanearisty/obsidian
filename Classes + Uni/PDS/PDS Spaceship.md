@@ -9,8 +9,10 @@ kanban-plugin: board
 - [ ] Start Group Project Prep for PDS #PDS
 - [ ] go to office hours [[OH 1]] #PDS
 - [ ] Finish [[Relational Query Languages]] #PDS
-- [ ] Finish [[SQL]] #PDS
-- [ ] Find group for #PDS
+- [ ] Finish [[Elementary SQL]] #PDS
+- [ ] Finish [[Intermediate SQL]] #PDS
+- [ ] Finish [[Advanced SQL]] #PDS
+- [ ] Finish [[PDS Project Part 1]]
 
 
 ## Pre-Flight
@@ -37,6 +39,7 @@ kanban-plugin: board
 ## Aborted
 
 **Complete**
+- [x] Find group for #PDS
 
 
 
