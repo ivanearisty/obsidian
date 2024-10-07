@@ -8,7 +8,6 @@ kanban-plugin: board
 
 - [ ] Start Group Project Prep for PDS #PDS
 - [ ] go to office hours [[OH 1]] #PDS
-- [ ] Finish [[Relational Model]] #PDS
 - [ ] Finish [[Relational Query Languages]] #PDS
 - [ ] Finish [[SQL]] #PDS
 - [ ] Find group for #PDS
@@ -16,11 +15,12 @@ kanban-plugin: board
 
 ## Pre-Flight
 
-- [ ] Catch up with PDS #PDS
 
 
 ## Cruise
 
+- [ ] Catch up with PDS #PDS
+- [ ] Finish [[Relational Model]] #PDS
 
 
 ## Orbiting
