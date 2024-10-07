@@ -4,7 +4,12 @@ tags:
 ---
 ## Leetcode Bootcamp
 
+[Syllabus](https://docs.google.com/document/d/1GXI7y7FBEd3jYNx_QyjlXFrM881LFx34o1OxzweVTjM/edit#heading=h.v2426a1xgwhc)
 [Assignment Submission](https://docs.google.com/forms/d/e/1FAIpQLSdUUgb-G4rkFdqyRMegO4_h3nIiyKRhVKUPGXn6SYqnyG6nHQ/viewform?fbzx=-4535659911026620957)
+[Teaching Session Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSdwxR17oO2S8qm3-m3CfF-G-87IFhR-HZCCMuFOZ2kpFrdbtQ/viewform)
+[Coaching](https://calendly.com/ka3535-nyu/30min)
+[Github Take Home](https://github.com/Kumuda123/NYU-Tandon-LeetCode-Bootcamp-Fall-2024?tab=readme-ov-file)
+
 
 
 ## Rundown
