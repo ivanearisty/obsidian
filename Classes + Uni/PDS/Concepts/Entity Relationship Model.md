@@ -3,8 +3,7 @@ tags:
   - PDS
 cssclasses: []
 ---
-# Notes
-## Book
+# Book
 ### The ER Model
 #### Entities and Entity Sets
 
@@ -354,7 +353,7 @@ Consider:
 Alternative Notations:
 ![[Screenshot 2024-09-28 at 3.38.11 PM.jpg | 500]]
 
-## Lectures
+# Lectures
 
 Review the notation for upper and lower bound notations for ER model diagrams.
 Review partial vs total participation

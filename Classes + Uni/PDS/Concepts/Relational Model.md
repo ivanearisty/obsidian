@@ -2,7 +2,10 @@
 tags:
   - PDS
 ---
-# The Relational Model
+# Book
+
+
+# Lectures
 - Relation schema — like a type definition
 - Relation — like a variable
 - Relation instance — like a particular “snapshot” of a variable, it’s value at some point in - time
