@@ -11,7 +11,7 @@ kanban-plugin: board
 - [ ] Setup [[Big Interview]] #Recruiting
 - [ ] Evaluate data from [[OpenData.NYU]] search #Recruiting
 - [ ] Reach out to the people from NYU's Career discovery #Recruiting
-- [ ] Do leetcode assignments
+- [ ] Week 1: LC assignments [[167. Two Sum II - Input Array Is Sorted]] [[238. Product of Array Except Self]] [[75. Sort Colors]]
 
 
 ## Pre-Flight
