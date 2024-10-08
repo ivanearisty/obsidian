@@ -62,3 +62,6 @@ Hence:
 
 ![[Screenshot 2024-10-08 at 8.47.08 AM.jpg | 500]]
 
+## Note the weird behaviour in leaves:
+
+![[Screenshot 2024-10-08 at 2.26.00 PM.jpg]]
