@@ -228,3 +228,26 @@ SelectionSort(A,s,f):
 
 ## Problem 10
 
+## Problem 11
+
+Suppose we have a hash table of size 13, where collisions are resolved with chaining. We insert 2, 23, 14, 27, 16, 20, 21, 29, 37, 65, 39 using the hash function h(k) = k mod 13. Show the result of these insertions. Now repeat the process using linear probing. Repeat for quadratic probing using a = 1 and b = 2. Repeat for double hashing, where h1(k) = k mod 13 and h2(k) = (k + 1)2 mod 13.
+
+### Chaining
+
+```code
+[
+0 -> 
+1 -> 
+2 -> 
+3 -> 
+4 -> 
+5 -> 
+6 -> 
+7 -> 
+8 -> 
+9 -> 
+10 -> 
+11 -> 
+12 -> 
+]
+```
