@@ -1,6 +1,11 @@
 ---
 tags:
-  - LC
+  - Array
+  - TwoPointers
+  - Sorting
+difficulty: medium
+completed: true
+number: 75
 ---
 ```java
 class Solution {

@@ -1,7 +1,9 @@
 ---
 tags:
-  - LC
   - TwoPointers
+difficulty: medium
+completed: true
+number: 167
 ---
 
 ```java

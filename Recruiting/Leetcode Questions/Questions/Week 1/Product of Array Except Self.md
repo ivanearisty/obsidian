@@ -1,7 +1,9 @@
 ---
 tags:
-  - LC
   - Array
+difficulty: medium
+completed: true
+number: 238
 ---
 ```java
 class Solution {

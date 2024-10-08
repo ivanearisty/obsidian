@@ -10,20 +10,18 @@ tags:
 [Coaching](https://calendly.com/ka3535-nyu/30min)
 [Github Take Home](https://github.com/Kumuda123/NYU-Tandon-LeetCode-Bootcamp-Fall-2024?tab=readme-ov-file)
 
-
-
 ## Rundown
 ### Questions
 ```dataview
 TABLE tags AS "Tags", difficulty AS "Difficulty", completed AS "completed?"
-FROM "Recruiting/Leetcode/Questions"
+FROM "Recruiting/Leetcode Questions/Questions"
 WHERE file.name != "sortspec"
 SORT tags ASC
 ```
 ### Tag Incidence
 ```dataviewjs
 let tagsCount = {};
-for (let page of dv.pages('"Recruiting/Leetcode/Questions"').where(p => p.file.name != "sortspec")) {
+for (let page of dv.pages('"Recruiting/Leetcode Questions/Questions"').where(p => p.file.name != "sortspec")) {
     for (let tag of page.tags) {
         if (!tagsCount[tag]) {
             tagsCount[tag] = 0;
@@ -38,7 +36,7 @@ dv.table(["Tag", "Count"], Object.entries(tagsCount).sort((a, b) => b[1] - a[1])
 ```dataviewjs
 let stats = {};
 
-for (let page of dv.pages('"Recruiting/Leetcode/Questions"').where(p => p.file.name != "sortspec")) {
+for (let page of dv.pages('"Recruiting/Leetcode Questions/Questions"').where(p => p.file.name != "sortspec")) {
     let status = page.completed ? "Completed" : "Not Completed";
     let difficulty = page.difficulty || "Unknown";
 
