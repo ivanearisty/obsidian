@@ -6,17 +6,16 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] Start Group Project Prep for PDS #PDS
 - [ ] go to office hours [[OH 1]] #PDS
 - [ ] Finish [[Relational Query Languages]] #PDS
-- [ ] Finish [[Elementary SQL]] #PDS
-- [ ] Finish [[Intermediate SQL]] #PDS
 - [ ] Finish [[Advanced SQL]] #PDS
 - [ ] Finish [[PDS Project Part 1]]
 
 
 ## Pre-Flight
 
+- [ ] Finish [[Elementary SQL]] #PDS
+- [ ] Finish [[Intermediate SQL]] #PDS
 
 
 ## Cruise
@@ -32,6 +31,7 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] Start Group Project Prep for PDS #PDS
 - [x] [[Entity Relationship Model]] #PDS
 - [x] [[Assignment 1 PDS]] #PDS
 
