@@ -4,7 +4,45 @@ tags:
 ---
 # Book
 
+## Structure of Relational Database
 
+### Introduction
+
+A **relational database** consists of a collection of **tables**, each of which is assigned a  
+*unique name*.
+
+![[Screenshot 2024-10-09 at 5.34.14 PM.jpg | 400]]
+
+Note that each instructor is identified by the value of the *column ID*.
+
+![[Screenshot 2024-10-09 at 5.36.28 PM.jpg | 450]]![[Screenshot 2024-10-09 at 5.37.04 PM.jpg | 200]]
+
+Here, courses are identified by *course_id*, and the prereq table identifies the prereq by listing two variables that refer to course_id.
+
+In general, a row in a table represents a relationship among a set of values.
+
+Since a table is a collection of such relationships, there is a close correspondence between the concept of *table* and the mathematical concept of *relation*, from which the relational data model takes its name.
+
+In mathematical terminology, a **tuple** is simply a sequence (or list) of values. 
+A relationship between n values is represented mathematically by an **n-tuple of values**, that is, a tuple with n values, *which corresponds to a row in a table*.
+
+Thus, in the relational model the term *relation* is used to refer to a *table*, while the term *tuple* is used to refer to a *row*. Similarly, the term *attribute* refers to a *column* of a table.
+
+We use the term **relation instance** to refer to a specific *instance* of a *relation*, that  
+is, containing a specific set of rows.
+
+For each **attribute** of a relation, there is a set of permitted values, called the **domain**  
+of that attribute.
+
+We require that, for all relations r, the domains of all attributes of r be **atomic**. A domain is atomic if elements of the domain are considered to be *indivisible units*.
+
+> For example, suppose the table instructor had an attribute phone number, which can store a set of phone numbers corresponding to the instructor. Then the domain of phone number would not be atomic, since an element of the domain is a set of phone numbers, and it has subparts, namely, the individual phone numbers in the set.
+
+The **null value** is a special value that signifies that the value is unknown or does not exist.
+
+## Database Schema
+
+A relation schema consists of a list of attributes and their corresponding domains
 # Lectures
 - Relation schema — like a type definition
 - Relation — like a variable
