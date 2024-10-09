@@ -140,6 +140,15 @@ In the schema diagram for our university organization, each relation appears as 
 
 - Primary-key attributes are shown **underlined**. 
 - Foreign-key constraints appear as arrows ***from** the foreign-key attributes of the referencing relation* ***to** the primary key of the referenced relation*.
+- A referential integrity constraint that is not a foreign-key constraint appears as a *two-headed arrow*, instead of a single-headed arrow.
+
+![[Screenshot 2024-10-09 at 7.02.20 PM.jpg]]
+
+## Relational Query Languages
+
+A **query language** is a language in which a user requests information from the database.
+
+
 # Lectures
 - Relation schema — like a type definition
 - Relation — like a variable
