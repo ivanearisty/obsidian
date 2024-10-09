@@ -39,10 +39,80 @@ We require that, for all relations r, the domains of all attributes of r be **at
 > For example, suppose the table instructor had an attribute phone number, which can store a set of phone numbers corresponding to the instructor. Then the domain of phone number would not be atomic, since an element of the domain is a set of phone numbers, and it has subparts, namely, the individual phone numbers in the set.
 
 The **null value** is a special value that signifies that the value is unknown or does not exist.
-
 ## Database Schema
 
-A relation schema consists of a list of attributes and their corresponding domains
+A **relation schema** consists of a list of attributes and their corresponding domains.
+
+Consider the department relation:
+![[Screenshot 2024-10-09 at 5.59.13 PM.jpg|300]]
+
+The relation schema would be:
+	*department (dept name, building, budget)*
+
+As another example, each course in a university may be offered multiple times, across different semesters, or even within a semester. We need a relation to describe each individual offering, or section, of the class. The schema is:
+	*section (course id, sec id, semester, year, building, room number, time slot id)*
+
+And the relation instance:
+![[Screenshot 2024-10-09 at 6.01.25 PM.jpg | 600]]
+
+We then might need a relation to describe the association between instructors and the class sections that they teach. The relation schema to describe this association is:
+	*teaches (ID, course id, sec id, semester, year)*
+
+And here's an instance:
+![[Screenshot 2024-10-09 at 6.05.22 PM.jpg | 400]]
+
+## Keys
+
+We must have a way to specify how tuples within a given relation are distinguished.
+### Superkey
+
+That is, the values of the attribute values of a tuple must be such that they can *uniquely identify* the tuple. In other words, no two tuples in a relation are allowed to have exactly the same value for all attributes.
+
+A **superkey** is a set of *one or more attributes* that, taken collectively, allow us to identify uniquely a tuple in the relation.
+
+Formally, let $R$ denote the set of attributes in the schema of relation $r$. If we say that subset $K$ of $R$ is a superkey for $r$, we are restricting consideration to instances of relations $r$ in which no two distinct tuples have the same values on all attributes in $K$. That is, it $t_{1}$ and $t_{2}$ are in $r$ and $t_{1} \neq t_{2}$, then $t_{1}K \neq t_{2}K$
+
+### Candidate Key
+
+A superkey may contain extraneous attributes. For example, the combination of ID and name is a superkey for the relation instructor. *If K is a superkey, then so is any superset of K.* We are often interested in superkeys for *which no proper subset is a superkey*. Such minimal superkeys are called **candidate keys**.
+
+Suppose that a combination of name and dept name is sufficient to distinguish among members of the instructor relation. Then, both {ID} and {name, dept name} are candidate keys. 
+
+> Although the attributes ID and name together can distinguish instructor tuples, their combination, {ID, name}, does not form a candidate key, since the attribute ID alone is a candidate key.
+### Primary Key
+
+We shall use the term **primary key** to denote a *candidate key* that is *chosen* by the *database designer* as the principal means of identifying tuples within a relation.
+
+The designation of a primary key represents a constraint in the real-world enterprise being modeled. Thus, primary keys are also referred to as *primary key constraints*.
+
+Underline and list first primary keys:
+
+classroom (building, room number, capacity)
+time slot (time slot id, day, start time, end time) \[Here Id is a letter]
+
+Here, the assumption is that neither attribute by itself can uniquely identify a classroom or timeslot. 
+
+### Choosing Primary Keys
+
+Primary keys must be chosen with care. 
+
+The name of a person is insufficient, because there may be many people with the same name. 
+
+In the United States, the social security number attribute of a person would be a candidate key. 
+
+Since non-U.S. residents usually do not have social security numbers, international enterprises need to use a combination of other things.
+
+Additionally, the primary key should be chosen such that its attribute values **are never, or are very rarely, changed**
+
+> For instance, the address field of a person should not be part of the primary key, since it is likely to change. Social security numbers, on the other hand, are guaranteed never to change.
+
+### Foreign Key
+
+Consider the attribute dept name of the instructor relation. It would not make sense for a tuple in instructor to have a value for dept name that does not correspond to a department in the department relation. 
+
+Thus, in any database instance, given any tuple, say $t_{a}$, from the instructor relation, there must be some tuple, say $t_{b}$, in the department relation such that the value of the dept name attribute of $t_{a}$ is the same as the value of the primary key, dept name, of $t_{b}$.
+
+
 # Lectures
 - Relation schema — like a type definition
 - Relation — like a variable
