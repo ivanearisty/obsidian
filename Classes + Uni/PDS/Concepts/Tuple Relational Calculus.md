@@ -53,37 +53,60 @@ tags:
 | 76543 |
 | 83821 |
 | 98345 |
+- **Find IDs and names**
+
+$$
+{t \mid \exists s \in instructor (t[ID] = s[ID] \land t[name] = s[name]  \land s[salary] > 80000)}
+$$
+Notice how the attributes we set equal in t and s, we receive them in the output.
+
+| ID    | Name     |
+| ----- | -------- |
+| 12121 | Wu       |
+| 22222 | Einstein |
+| 33456 | Gold     |
+| 76543 | Singh    |
+| 83821 | Bandt    |
+| 98345 | Kim      |
 
 ---
 
 - **Find the names of all instructors whose department is in the Watson building**:
 $$
 \begin{gather}
-\{ \mid \exists s \in instructor(t[name] = s[name]) \\
+\{t \mid \exists s \in instructor(t[name] = s[name]) \\
 \land \exists u \in department (u[dept\_name] = s[dept\_name] \\
 \land u[building] = \text{``Watson''}) \}
 \end{gather}
 $$
+English: There is a row in the instructor table such that the name of s and t match. And there is a row in the department table such that department name in s and u match, and lastly we want that building to be in the Watson building.
 
 - **Find the set of all courses taught in the Fall 2009 semester, or in the Spring 2010 semester, or both**:
-  $$\begin{gather}
-\{t \mid \exists s \in section (t[course\_id] = s[course\_id] \\ \land s[semester] = "Fall" \land s[year] = 2009) \\ \lor \exists u \in section (t[course\_id] = u[course\_id] \\ \land u[semester] = "Spring" \land u[year] = 2010)\}
-\end{gather}$$
+
+![[Screenshot 2024-10-10 at 1.55.15 AM.jpg]]
+
+![[Screenshot 2024-10-10 at 1.51.00 AM.jpg | 200]]
 
 ---
 
 - **Find the set of all courses taught in the Fall 2009 semester, and in the Spring 2010 semester**:
-  $${t \mid \exists s \in section (t[course\_id] = s[course\_id] \land s[semester] = "Fall" \land s[year] = 2009) \land \exists u \in section (t[course\_id] = u[course\_id] \land u[semester] = "Spring" \land u[year] = 2010)}$$
+
+![[Screenshot 2024-10-10 at 1.57.06 AM.jpg]]
 
 - **Find the set of all courses taught in the Fall 2009 semester, but not in the Spring 2010 semester**:
-  $${t \mid \exists s \in section (t[course\_id] = s[course\_id] \land s[semester] = "Fall" \land s[year] = 2009) \land \neg \exists u \in section (t[course\_id] = u[course\_id] \land u[semester] = "Spring" \land u[year] = 2010)}$$
+
+![[Screenshot 2024-10-10 at 1.57.29 AM.jpg]]
 
 ---
 
 ### Universal Quantification
 
-- **Find all students who have taken all courses offered in the Biology department**:
-  $${t \mid \exists r \in student (t[ID] = r[ID]) \land (\forall u \in course (u[dept\_name] = "Biology" \Rightarrow \exists s \in takes (t[ID] = s[ID] \land s[course\_id] = u[course\_id])))}$$
+- **Find all students who have taken *all courses* offered in the Biology department**:
+
+So far predicates have been looking row by row, but sometimes we have questions that involve looking at a whole bunch of rows together to find a set and then find if that subset of some other set.
+  ![[Screenshot 2024-10-10 at 1.59.18 AM.jpg]]
+
+If u is a biology course, then student r took course u.
 
 ---
 
