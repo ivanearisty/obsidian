@@ -11,3 +11,7 @@ How to make cardinality constraints show in sql er diagram?
 Are Tuple Relational Calculus outputs not relations?
 
 Do we have to learn domain relational calculus?
+
+Key differences between rl and erl 
+
+Go over HW questions inside the latex
