@@ -253,10 +253,81 @@ and
 
 13. Find the productCode, productName and productLine of each product ordered by any customer who lives in the USA that has status “shipped”
 
-
+```sql
+select 
+	#customers.customerName,
+    #customers.country,
+    products.productCode,
+    products.productName,
+    products.productLine
+from orders
+inner join customers on orders.customerNumber = customers.customerNumber
+inner join orderdetails on orders.orderNumber = orderdetails.orderNumber
+inner join products on orderdetails.productCode = products.productCode
+where
+	customers.country = "USA"
+and
+	orders.status = "shipped"
+;
+```
 
 14. Find the total payments made by each customer who lives in the USA. The result should include the customer’s customerNumber, customerName, and their total payments
 
-
+```sql
+select
+	customers.customerNumber,
+    customers.customerName,
+    sum(payments.amount) as totalPayments
+from
+	payments
+inner join customers on payments.customerNumber = customers.customerNumber
+where
+	customers.country = "USA"
+group by
+	customers.customerNumber,
+    customers.customerName
+;
+```
 
 15. For each productCode, list the productCode, productName, and the maximum profit on that product, i.e. the maximum difference between the buyPrice and the priceEach paid for ordered items of that product. You don’t need to list products for which there were no orders.
+
+```sql
+select
+    products.productCode as id,
+    products.productName as product,
+    max(orderdetails.priceEach - products.buyPrice) as maxProfit
+from
+    orderdetails
+inner join
+    products on orderdetails.productCode = products.productCode
+group by
+    products.productCode,
+    products.productName
+;
+
+#previous iteration:
+create temporary table productsales as
+select
+	orderdetails.productCode as id,
+    products.productName as product,
+    orderdetails.priceEach as pricePaid,
+    products.buyPrice as basePrice
+from 
+	orderdetails
+inner join
+	products on orderdetails.productCode = products.productCode
+;
+
+select * from productsales;
+	
+select
+	id,
+    product,
+    max(pricePaid - basePrice) as maxProfit
+from
+	productsales
+group by
+	id,
+    product
+;
+```
