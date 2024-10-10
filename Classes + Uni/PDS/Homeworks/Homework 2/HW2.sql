@@ -115,6 +115,52 @@ and
 
 # retailer db
 
+use retailerDB;
+
+# Question 13: 
+# Find the productCode, productName and productLine of each product 
+# ordered by any customer who lives in the USA 
+# that has status “shipped”
+
+select 
+	#customers.customerName,
+    #customers.country,
+    products.productCode,
+    products.productName,
+    products.productLine
+from orders
+inner join customers on orders.customerNumber = customers.customerNumber
+inner join orderdetails on orders.orderNumber = orderdetails.orderNumber
+inner join products on orderdetails.productCode = products.productCode
+where
+	customers.country = "USA"
+and
+	orders.status = "shipped"
+;
+
+# Question 14: Find the total payments made by each customer who lives in the USA. 
+# The result should include the customer’s customerNumber, customerName, and their total payments
+
+select
+	customer.customerNumber,
+    customer.customerName,
+    sum(payments.amount)
+from
+	payments
+inner join customers on payments.customerNumber = customers.customerNumber
+where
+	customer.country = "USA"
+group by
+	customers.customerName
+;
+
+# Question 15: For each productCode, list the productCode, productName, and the maximum profit on that product, i.e. 
+# the maximum difference between the buyPrice and the priceEach paid for ordered items of that product. You don’t need to list products for which there were no orders.
+
+
+
+
+
 
 
 
