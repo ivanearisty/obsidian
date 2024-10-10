@@ -95,8 +95,9 @@ $$
 6. SQL:
 ```sql
 select 
-ID,
-cs101courses.title as Title
+	ID,
+	cs101courses.title as Title,
+	year
 from teaches
 inner join (select * from course where course.course_id = "CS-101") as cs101courses
 on teaches.course_id = cs101courses.course_id;
@@ -146,6 +147,20 @@ $$
 \end{gather}
 $$
 
+9. SQL
+```sql
+select 
+    teaches.ID,
+    instructor.name as name,
+    course.title as Title,
+    teaches.year as year
+from teaches
+inner join section on teaches.course_id = section.course_id 
+    and teaches.sec_id = section.sec_id
+inner join course on section.course_id = course.course_id
+inner join instructor on teaches.ID = instructor.ID
+where course.course_id = 'CS-101';
+```
 
 ## Lecture 4 Material
 
