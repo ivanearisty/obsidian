@@ -31,7 +31,11 @@ $$
 \Pi_{\text{ ID, name}}(\sigma_{\text{dept\_name="Comp. Sci."}}(\text{student}))
 \end{gather}
 $$
-
+3. SQL
+```sql
+select ID, name from student 
+where dept_name = "Comp. Sci.";
+```
 ## Problem 2
 
 *Question: since teaches has course id, can we just join it directly with courses?*
@@ -88,6 +92,15 @@ $$
 \Pi_{\text{ID, year}} (\bowtie_{\text{ teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
 \end{gather}
 $$
+6. SQL:
+```sql
+select 
+ID,
+cs101courses.title as Title
+from teaches
+inner join (select * from course where course.course_id = "CS-101") as cs101courses
+on teaches.course_id = cs101courses.course_id;
+```
 ## Problem 3 
 
 7. Write a TRC query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
@@ -122,7 +135,18 @@ c[\text{title}] = \text{``CS-101"} \land
 \end{gather}
 $$
 
-8. 
+8. Write a RA query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
+
+$$
+\begin{gather}
+\text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
+\text{instructor-teaches} \space \leftarrow \space \bowtie_{\text{ instructor.ID = teaches.ID}}(\text{teaches})
+\\
+\Pi_{\text{ID, year}} (\bowtie_{\text{ instructor-teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
+\end{gather}
+$$
+
+
 ## Lecture 4 Material
 
 ## Retailer Database
