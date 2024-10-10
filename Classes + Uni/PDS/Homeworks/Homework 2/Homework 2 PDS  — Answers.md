@@ -5,7 +5,7 @@ tags:
 # Ivan Aristy - iae225
 ## ER Diagram
 
-![[Screenshot 2024-10-10 at 11.12.14 AM.jpg]]
+![[Screenshot 2024-10-10 at 11.28.20 AM.jpg]]
 ## Problem 1
 
 1. Write a tuple relational calculus (TRC) query to find the ID and name of each student in the Comp. Sci. department
@@ -30,11 +30,19 @@ $$
 
 $$
 \begin{gather}
-\{
+\{ t | 
+\exists 
+e \in \text{teaches} , 
+s \in \text{section} , 
+c \in \text{course}( \\
 
-t | \\ 
-\exists s \in \text{instructor} (t[\text{ID}] = s[\text{ID}]) \land \\
-\exists u \in 
-\}
+t[\text{ID}] = r[\text{ID}] \land \\
+t[\text{year}] = r[\text{year}] \land \\
+e[\text{course\_id}] = s[\text{course\_id}] \land \\
+t[\text{year}] = r[\text{year}] \land \\
+t[\text{year}] = r[\text{year}] \land \\
+t[\text{year}] = r[\text{year}] \land 
+\\
+)\}
 \end{gather}
 $$
