@@ -21,7 +21,7 @@ kanban-plugin: board
 ## Cruise
 
 - [ ] Catch up with PDS #PDS
-- [ ] Finish [[Homework 2 PDS]]
+- [ ] Finish [[Homework 2 PDS  — Answers]]
 
 
 ## Orbiting
