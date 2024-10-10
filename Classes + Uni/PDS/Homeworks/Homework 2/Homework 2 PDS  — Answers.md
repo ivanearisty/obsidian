@@ -66,21 +66,28 @@ $$
 
 5. Write an RA query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
 
-*No direct joining*
+*No Direct Joining*
 $$
 \begin{gather} \\
-\text{CS-101-sections} \leftarrow \Pi_{\text{}}
+\text{expanded-sections} \space \leftarrow \space \bowtie_{\text{ course.course\_id = section.course\_id}}(\text{section}) 
 \\
-\Pi_{\text{ teaches.id, teaches.year}} (
-\bowtie_{} 
+\text{CS-101-sections} \space \leftarrow \space \Pi_{\text{ course\_id, sec\_id, semester, year, title}}(\sigma_{\text{title = ``CS-101"}} (\text{expanded-sections})) \\
+\\
+\text{final-relation} \space \leftarrow \space \\ \bowtie_{\text{CS-101-sections.course\_id = teaches.course\_id, CS-101-sections.sec\_id = teaches.sec\_id, }} \\ _{\text{CS-101-sections.semester = teaches.semester, CS-101-sections.year = teaches.year}}
+\\ \\
+\Pi_{\text{ ID, year}} (
+\text{final-relation}
 )
 \end{gather}
 $$
 
 *Direct Joining*
-
-
-
+$$
+\begin{gather}
+\text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
+\Pi_{\text{ID, year}} (\bowtie_{\text{ teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
+\end{gather}
+$$
 ## Problem 3 
 
 7. Write a TRC query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
