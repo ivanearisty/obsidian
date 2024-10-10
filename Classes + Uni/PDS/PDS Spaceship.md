@@ -21,7 +21,7 @@ kanban-plugin: board
 ## Cruise
 
 - [ ] Catch up with PDS #PDS
-- [ ] Finish [[Relational Model]] #PDS
+- [ ] Finish [[Homework 2 PDS]]
 
 
 ## Orbiting
@@ -32,8 +32,9 @@ kanban-plugin: board
 
 **Complete**
 - [x] Start Group Project Prep for PDS #PDS
+- [x] Finish [[Relational Model]] #PDS
 - [x] [[Entity Relationship Model]] #PDS
-- [x] [[Assignment 1 PDS]] #PDS
+- [x] [[Homework 1 PDS — Answers]] #PDS
 
 
 ## Aborted

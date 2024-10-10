@@ -193,7 +193,7 @@ $$
 
 ### Project (Unary)
 
-The project operation allows us to produce a relation from the parent, with certain attributes left out.
+The project operation allows us to **produce a relation from the parent, with certain attributes left out.**
 
 $$
 \Pi_{\text{ id, name, salary}}(\text{instructor})
@@ -245,13 +245,64 @@ courses that they taught.
 
 If something does not have a relation, it does not appear.
 
-The Join and Cartesian operations combined are usually written with the bowtie, $\bowtie$ , symbol.
+The Join and Cartesian operations combined are usually written with the **bowtie, $\bowtie$ , symbol.**
 
 Thus, the above is equivalent to $\bowtie_{\text{ instructor.ID = teaches.ID}}\text{teaches}$.
 
-### Set Operations
+### Set Operations (Binary)
 
+Consider a query to find the set of all courses taught in the Fall 2017 semester, the Spring 2018 semester, or both.
 
+We need both:
+$$
+\begin{gather}
+\Pi_{\text{ course.id}}(\sigma_{\text{ semester = "Fall"} \land \text{year=2017}}(\sec tion)) \\
+\text{and} \\
+\Pi_{\text{ course.id}}(\sigma_{\text{ semester = "Spring"} \land \text{year=2018}}(\sec tion)) \\
+\end{gather}
+$$
+
+We can use the set operation **Union** to accomplish the above:
+$$
+\begin{gather}
+\Pi_{\text{ course.id}}(\sigma_{\text{ semester = "Fall"} \land \text{year=2017}}(\sec tion)) \cup
+\Pi_{\text{ course.id}}(\sigma_{\text{ semester = "Spring"} \land \text{year=2018}}(\sec tion))
+\end{gather}
+$$
+
+In general, for a union operation to make sense:  
+
+1. Both input relations to the union operation have the same number of attributes; the number of attributes of a relation is referred to as its **arity**.  
+2. When the attributes have associated types, the types of the ith attributes of both input relations must be the same, for each i.
+
+Such relations are referred to as **compatible relations**.
+
+For example, it would not make sense to take the union of the instructor and section relations, since they have different numbers of attributes...
+
+The **intersection** operation, denoted by $\cap$, allows us to find tuples that are in both the input relations.
+
+The **set-difference** operation, denoted by $-$, allows us to find tuples that are in one  
+relation but are not in another.
+
+![[Screenshot 2024-10-09 at 10.45.48 PM.jpg| 500]]
+![[Screenshot 2024-10-09 at 10.46.29 PM.jpg|500]]
+
+### Assignment
+
+It is convenient at times to write a relational-algebra expression by assigning parts of it to temporary relation variables. The assignment operation, denoted by $\leftarrow$, works like assignment in a programming language. To illustrate this operation, consider the query to find courses that run in Fall 2017 as well as Spring 2018, which we saw earlier. We could write it as:
+
+![[Screenshot 2024-10-09 at 10.48.55 PM.jpg | 100]]
+
+We can combine and take use of this as such:
+![[Screenshot 2024-10-09 at 10.49.21 PM.jpg | 500]]
+
+With the assignment operation, a query can be written as a sequential program consisting of a series of assignments followed by an expression whose value is displayed as the result of the query
+
+### Rename
+
+Unlike relations in the database, the results of relational-algebra expressions do not have a name that we can use to refer to them. It is useful in some cases to give them names; the rename operator, denoted by the lowercase Greek letter rho $\rho$, lets us do this. Given a relational-algebra expression E, the expression $\rho_{x}(E)$ returns the result of expression E under the name x.
+
+A second form of the rename operation is as follows: Assume that a relational-algebra expression E has arity n. Then, the expression: $\rho_{x(A_{1},A_{2},\dots A_{n})}(E)$ returns the result of expression E under the name x, and with the attributes renamed to A1, A2, ... , An.
 # Lectures
 - Relation schema — like a type definition
 - Relation — like a variable
