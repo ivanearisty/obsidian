@@ -164,4 +164,12 @@ where course.course_id = 'CS-101';
 
 ## Lecture 4 Material
 
+ 10. Write an SQL query to find the total number of credits the student with ID 12345 has taken in Fall 2009. (Do not worry about whether they have a passing grade for the course.)
+ 11. Write an SQL query to find the ID and total number of credits taken by each student in Fall 2009. (Do not worry about whether they have a passing grade for the course.)
+ 12. Make up another question about the university data, write it in English, and write an SQL query to answer it. It should involve a join of at least two tables.
+
 ## Retailer Database
+
+13. Find the productCode, productName and productLine of each product ordered by any customer who lives in the USA that has status “shipped”
+14. Find the total payments made by each customer who lives in the USA. The result should include the customer’s customerNumber, customerName, and their total payments
+15. For each productCode, list the productCode, productName, and the maximum profit on that product, i.e. the maximum difference between the buyPrice and the priceEach paid for ordered items of that product. You don’t need to list products for which there were no orders.
