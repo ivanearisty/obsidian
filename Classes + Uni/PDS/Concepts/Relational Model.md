@@ -148,6 +148,55 @@ In the schema diagram for our university organization, each relation appears as 
 
 A **query language** is a language in which a user requests information from the database.
 
+Query languages can be categorized as imperative, functional, or declarative.
+
+In an **imperative query language**, the user instructs the system to perform a specific sequence of operations on the database to compute the desired result; such languages usually have a notion of state variables, which are updated in the course of the computation.
+
+In a **functional query language**, the computation is expressed as the evaluation of functions that may operate on data in the database or on the results of other functions; functions are side-effect free, and they do not update the program state.
+
+In a **declarative query language**, the user describes the desired information without giving a specific sequence of steps or function calls for obtaining that information; the desired information is typically described using some form of mathematical logic. It is the job of the database system to figure out how to obtain the desired information.
+
+There are a number of “pure” query languages. Like relational algebra and relational calculus.
+
+Query languages used in practice, such as the SQL query language, include elements of the imperative, functional, and declarative approaches. 
+
+
+## Relational Algebra
+
+The **relational algebra** consists of a *set of operations* that take *one or two relations as input* and *produce a new relation* as their result.
+
+- **Unary operations**: Involve operations on one relation (select, project, rename)
+- **Binary operations**: Involve operations on pairs of relation (union, cartesain product, set difference)
+
+We usually prohibit duplicates, but we can extend relational algebra to include them. 
+
+### Select
+
+The **select** operation selects tuples that satisfy a given predicate.
+
+Thus, to select those tuples of the instructor relation where the instructor is in the “Physics” department, we write:
+$$
+\sigma_{\text{dept\_name = "Physics"}}(\text{"instructor"})
+$$
+
+We can find all instructors with salary greater than $90,000:
+$$
+\sigma_{\text{salary > 90,000}}(\text{"instructor"})
+$$
+
+And we also allow comparisons using $=, \neq, <, \le, >, \text{ and }\ge$.
+
+Further, we can use logical operators $\land, \lor, \neg$:
+$$
+\sigma_{\text{salary > 90,000} \land \text{dept\_name = "Physics"}}(\text{"instructor"})
+$$
+
+### Project
+
+The project operation allows us to produce a relation from the parent, with certain attributes left out.
+
+
+
 
 # Lectures
 - Relation schema — like a type definition
