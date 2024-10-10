@@ -249,6 +249,14 @@ and
 
 ## Retailer Database
 
+![[Screenshot 2024-10-10 at 4.50.04 PM.jpg]]
+
 13. Find the productCode, productName and productLine of each product ordered by any customer who lives in the USA that has status “shipped”
+
+
+
 14. Find the total payments made by each customer who lives in the USA. The result should include the customer’s customerNumber, customerName, and their total payments
+
+
+
 15. For each productCode, list the productCode, productName, and the maximum profit on that product, i.e. the maximum difference between the buyPrice and the priceEach paid for ordered items of that product. You don’t need to list products for which there were no orders.
