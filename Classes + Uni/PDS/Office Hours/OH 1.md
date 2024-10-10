@@ -12,6 +12,8 @@ Are Tuple Relational Calculus outputs not relations?
 
 Do we have to learn domain relational calculus?
 
-Key differences between rl and erl 
+Key differences between RM and ERM?
 
 Go over HW questions inside the latex
+
+I need help understanding the difference between the assignment and rename RA operators and when should they be used.

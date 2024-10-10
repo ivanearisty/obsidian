@@ -23,8 +23,18 @@ s[\text{dept\_name}] = \text{``Comp. Sci."}
 \}
 \end{gather}
 $$
-2. 
+
+2. Write a relational algebra (RA) query to find the ID and name of each student in the Comp. Sci. department
+
+$$
+\begin{gather}
+\Pi_{\text{ ID, name}}(\sigma_{\text{dept\_name="Comp. Sci."}}(\text{student}))
+\end{gather}
+$$
+
 ## Problem 2
+
+*Question: since teaches has course id, can we just join it directly with courses?*
 
 4. Write a TRC query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
 
@@ -53,7 +63,24 @@ c[\text{title}] = \text{``CS-101"} \land
 )\}
 \end{gather}
 $$
-5. 
+
+5. Write an RA query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
+
+*No direct joining*
+$$
+\begin{gather} \\
+\text{CS-101-sections} \leftarrow \Pi_{\text{}}
+\\
+\Pi_{\text{ teaches.id, teaches.year}} (
+\bowtie_{} 
+)
+\end{gather}
+$$
+
+*Direct Joining*
+
+
+
 ## Problem 3 
 
 7. Write a TRC query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
