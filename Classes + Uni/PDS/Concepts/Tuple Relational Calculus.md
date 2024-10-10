@@ -110,7 +110,7 @@ If u is a biology course, then student r took course u.
 
 ---
 
-### Safety of Expressions
+### Safety of Expressions (We don't care)
 
 - It is possible to write tuple calculus expressions that generate infinite relations.
 
