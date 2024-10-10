@@ -110,31 +110,6 @@ If u is a biology course, then student r took course u.
 
 ---
 
-### Safety of Expressions (We don't care)
-
-- It is possible to write tuple calculus expressions that generate infinite relations.
-
-- For example, ${t \mid \neg t \in r}$ results in an infinite relation if the domain of any attribute of relation $r$ is infinite.
-
-- To guard against the problem, we restrict the set of allowable expressions to **safe expressions**.
-
-- An expression ${t \mid P(t)}$ in the tuple relational calculus is **safe** if every component of $t$ appears in one of the relations, tuples, or constants that appear in $P$.
-
-  - **Note:** this is more than just a syntax condition.
-
-  - Example: ${t \mid t[A] = 5 \lor true}$ is **not safe** — it defines an infinite set with attribute values that do not appear in any relation or tuples or constants in $P$.
-
----
-
-### Safety of Expressions (Cont.)
-
-- Consider again that query to find all students who have taken all courses offered in the Biology department:
-  $${t \mid \exists r \in student (t[ID] = r[ID]) \land (\forall u \in course (u[dept\_name] = "Biology" \Rightarrow \exists s \in takes (t[ID] = s[ID] \land s[course\_id] = u[course\_id])))}$$
-
-- Without the existential quantification on student, the above query would be unsafe if the Biology department has not offered any courses.
-
----
-
 Questions:
 - Are Tuple Relational Calculus outputs not 
 - Do we have to learn domain relational calculus?
