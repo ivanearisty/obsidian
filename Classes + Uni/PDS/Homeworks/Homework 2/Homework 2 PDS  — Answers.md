@@ -4,7 +4,6 @@ tags:
 ---
 # Ivan Aristy - iae225
 ## ER Diagram
-
 ![[Screenshot 2024-10-10 at 11.28.20 AM.jpg]]
 ## Problem 1
 
