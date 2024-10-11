@@ -79,7 +79,7 @@ Going only from teaches:
 
 $$
 \begin{gather}
-\Pi_{ID, year}(\sigma_{\text{course\_id = "CS-101"}}(teaches)) 
+\Pi_{ID, year}(\sigma_{\text{course\_id = "CS-101"}}(teaches))
 \end{gather}
 $$
 
@@ -129,6 +129,7 @@ $$
 
 8. Write a RA query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
 
+Assuming that title is cs101:
 $$
 \begin{gather}
 \text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
@@ -137,6 +138,7 @@ $$
 \Pi_{\text{ID, year}} (\bowtie_{\text{ instructor-teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
 \end{gather}
 $$
+Edit assuming that it's an id and *not* a title:
 
 9. SQL
 ```sql
@@ -198,14 +200,12 @@ from
 	course
 left join prereq on course.course_id = prereq.course_id;
 
-select * from temp_courseWP;
-
 select distinct 
 	temp_courseWP.course_id, 
 	temp_courseWP.title
 from 
 	temp_courseWP
-where 
+where
 	temp_courseWP.course_id not in (
     select takes.course_id 
     from takes 
