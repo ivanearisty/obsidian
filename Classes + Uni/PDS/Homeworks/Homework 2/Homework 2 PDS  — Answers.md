@@ -37,7 +37,7 @@ where dept_name = "Comp. Sci.";
 ```
 ## Problem 2
 
-*Question: since teaches has course id, can we just join it directly with courses?*
+> I went to OH and the professor made me realize that ID is cs-101 but I assumed it was title. So for this question I was told to not change it and just leave the assumption as is. After all, it kinda made the questions more complicated, so she said it was ok. 
 
 4. Write a TRC query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
 
@@ -68,14 +68,16 @@ c[\text{title}] = \text{``CS-101"} \land
 $$
 
 5. Write an RA query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
+
 Assuming that the titile is cs101
 $$
 \begin{gather}
 \text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
-\Pi_{\text{ID, year}} (\text{teaches}\bowtie_{\text{ teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
+\Pi_{\text{ID, year}} (\text{(teaches)}\bowtie_{\text{ teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
 \end{gather}
 $$
-Going only from teaches:
+
+Office hours edit, going only from teaches:
 
 $$
 \begin{gather}
@@ -94,6 +96,8 @@ inner join (select * from course where course.course_id = "CS-101") as cs101cour
 on teaches.course_id = cs101courses.course_id;
 ```
 ## Problem 3 
+
+> I went to OH and the professor made me realize that ID is cs-101 but I assumed it was title. So for this question I was told to not change it and just leave the assumption as is. After all, it kinda made the questions more complicated, so she said it was ok. 
 
 7. Write a TRC query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
 
@@ -129,16 +133,15 @@ $$
 
 8. Write a RA query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
 
-Assuming that title is cs101:
 $$
 \begin{gather}
 \text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
-\text{instructor-teaches} \space \leftarrow \space \bowtie_{\text{ instructor.ID = teaches.ID}}(\text{teaches})
+\text{instructor-teaches} \space \leftarrow \space \text{(instructor)} \bowtie_{\text{ instructor.ID = teaches.ID}}(\text{teaches})
 \\
-\Pi_{\text{ID, year}} (\bowtie_{\text{ instructor-teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
+\Pi_{\text{ID, year}} ((\text{instructor-teaches}) \bowtie_{\text{ instructor-teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
 \end{gather}
 $$
-Edit assuming that it's an id and *not* a title:
+
 
 9. SQL
 ```sql
