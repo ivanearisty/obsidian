@@ -36,7 +36,7 @@ kanban-plugin: board
 - [x] #DAA Review [[Week 0]]
 - [x] Review [[Preliminary Stuff]] #DAA
 - [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
-- [x] Hand in [[Assignment 1 DAA Answers]] #DAA
+- [x] Hand in [[Assignment 1 DAA — Answers]] #DAA
 - [x] Review [[Notes Week 1|Notes Week 1]]
 - [x] Review [[Notes Week 2|Notes Week 2]]
 - [x] Finish [[Practice 1 Answers]]
