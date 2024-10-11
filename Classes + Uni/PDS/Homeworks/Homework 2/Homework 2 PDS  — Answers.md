@@ -68,29 +68,21 @@ c[\text{title}] = \text{``CS-101"} \land
 $$
 
 5. Write an RA query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
-
-*No Direct Joining*
-$$
-\begin{gather} \\
-\text{expanded-sections} \space \leftarrow \space \bowtie_{\text{ course.course\_id = section.course\_id}}(\text{section}) 
-\\
-\text{CS-101-sections} \space \leftarrow \space \Pi_{\text{ course\_id, sec\_id, semester, year, title}}(\sigma_{\text{title = ``CS-101"}} (\text{expanded-sections})) \\
-\\
-\text{final-relation} \space \leftarrow \space \\ \bowtie_{\text{CS-101-sections.course\_id = teaches.course\_id, CS-101-sections.sec\_id = teaches.sec\_id, }} \\ _{\text{CS-101-sections.semester = teaches.semester, CS-101-sections.year = teaches.year}}
-\\ \\
-\Pi_{\text{ ID, year}} (
-\text{final-relation}
-)
-\end{gather}
-$$
-
-*Direct Joining*
+Assuming that the titile is cs101
 $$
 \begin{gather}
 \text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
-\Pi_{\text{ID, year}} (\bowtie_{\text{ teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
+\Pi_{\text{ID, year}} (\text{teaches}\bowtie_{\text{ teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
 \end{gather}
 $$
+Going only from teaches:
+
+$$
+\begin{gather}
+\Pi_{ID, year}(\sigma_{\text{course\_id = "CS-101"}}(teaches)) 
+\end{gather}
+$$
+
 6. SQL:
 ```sql
 select 

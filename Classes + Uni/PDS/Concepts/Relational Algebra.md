@@ -88,7 +88,10 @@ If something does not have a relation, it does not appear.
 
 The Join and Cartesian operations combined are usually written with the **bowtie, $\bowtie$ , symbol.**
 
-Thus, the above is equivalent to $\bowtie_{\text{ instructor.ID = teaches.ID}}\text{teaches}$.
+Thus, the above is equivalent to $(\text{instructor})\bowtie_{\text{ instructor.ID = teaches.ID}}(\text{teaches})$.
+
+- No need for parenthesis.
+- No need to have a subscript on bowtie if we have a natural join. Meaning, that both tables have an ID column, and that is the only thing they have in common. You would only need to indicate the subscript if we are doing anything that's not a natural join, like the attribute has different names on the two tables.
 
 ### Set Operations (Binary)
 
