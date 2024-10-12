@@ -67,6 +67,20 @@ c[\text{title}] = \text{``CS-101"} \land
 \end{gather}
 $$
 
+Office hours edit:
+$$
+\begin{gather}
+\{
+t | \exists s \in \text{teaches} (
+\\
+t[ID] = s[ID] \land \\
+t[year] = s[year] \land \\
+s[\text{course\_id}] = \text{CS-101}
+)\}
+\end{gather}
+$$
+
+
 5. Write an RA query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
 
 Assuming that the titile is cs101
