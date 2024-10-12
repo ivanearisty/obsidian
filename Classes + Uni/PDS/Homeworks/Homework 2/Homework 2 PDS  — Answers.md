@@ -3,8 +3,6 @@ tags:
   - PDS
 ---
 # Ivan Aristy - iae225
-## ER Diagram
-![[Screenshot 2024-10-10 at 11.28.20 AM.jpg]]
 ## Problem 1
 
 1. Write a tuple relational calculus (TRC) query to find the ID and name of each student in the Comp. Sci. department
@@ -258,8 +256,6 @@ and
 
 ## Retailer Database
 
-![[Screenshot 2024-10-10 at 4.50.04 PM.jpg]]
-
 13. Find the productCode, productName and productLine of each product ordered by any customer who lives in the USA that has status “shipped”
 
 ```sql
@@ -340,3 +336,4 @@ group by
     product
 ;
 ```
+

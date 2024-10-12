@@ -7,15 +7,15 @@ kanban-plugin: board
 ## Hangar
 
 - [ ] Finish [[Practice Set 5 — Answers]] #DAA
-- [ ] Finish [[Assignment 2 DAA Answers]]
-- [ ] Finish [[Decision Trees]]
-- [ ] Finish [[Linear Time Sorting]]
 
 
 ## Pre-Flight
 
 - [ ] Finish [[Practice Set 4 — Answers]] #DAA
-- [ ] Review [[Heaps]] #DAA
+- [ ] Finish [[Assignment 2 DAA Answers]]
+- [ ] Finish [[Decision Trees]]
+- [ ] Finish [[Heaps]]
+- [ ] Finish [[Linear Time Sorting]]
 
 
 ## Cruise
