@@ -37,7 +37,7 @@ where dept_name = "Comp. Sci.";
 ```
 ## Problem 2
 
-> I went to OH and the professor made me realize that ID is cs-101 but I assumed it was title. So for this question I was told to not change it and just leave the assumption as is. After all, it kinda made the questions more complicated, so she said it was ok. 
+> I went to OH and the professor made me realize that ID is cs-101 but I assumed it was title. So for these questions onwards I was told to not change it and just leave the assumption as is. After all, it kinda made the questions more complicated, so she said it was ok. 
 
 4. Write a TRC query to find the ID of each instructor who has taught CS-101 along with the year in which they taught it.
 
@@ -111,7 +111,7 @@ on teaches.course_id = cs101courses.course_id;
 ```
 ## Problem 3 
 
-> I went to OH and the professor made me realize that ID is cs-101 but I assumed it was title. So for this question I was told to not change it and just leave the assumption as is. After all, it kinda made the questions more complicated, so she said it was ok. 
+> I went to OH and the professor made me realize that ID is cs-101 but I assumed it was title. So for these questions onwards I was told to not change it and just leave the assumption as is. After all, it kinda made the questions more complicated, so she said it was ok. 
 
 7. Write a TRC query to find the ID and name of each instructor who has taught CS-101 along with the year in which they taught it.
 
@@ -152,17 +152,17 @@ $$
 \text{cs-101-courses} \space \leftarrow \space \sigma_{\text{title = ``CS-101"}}(course) \\
 \text{instructor-teaches} \space \leftarrow \space \text{(instructor)} \bowtie_{\text{ instructor.ID = teaches.ID}}(\text{teaches})
 \\
-\Pi_{\text{ID, year}} ((\text{instructor-teaches}) \bowtie_{\text{ instructor-teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
+\Pi_{\text{id, year, name}} ((\text{instructor-teaches}) \bowtie_{\text{ instructor-teaches.course\_id = cs-101-courses.course\_id}}(\text{cs-101-courses}))
 \end{gather}
 $$
-
+^ For the projection above pls assume the table names since I ran out of space to include them (ie. id = intructor-teaches.ID)
 
 9. SQL
 ```sql
 select 
     teaches.ID,
     instructor.name as name,
-    course.title as Title,
+    course.title as Title, # this is extra I know
     teaches.year as year
 from teaches
 inner join section on teaches.course_id = section.course_id 
