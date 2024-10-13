@@ -279,12 +279,36 @@ Step 4: Median
 ![[Screenshot 2024-10-13 at 12.30.56 AM.jpg]]
 
 Method 1:
-We call on an array with a heap size of n.
-Make heap first calls with size of n.
-bubbles up the last value.
-and It then progressively calls itself on a size 1 less than itself.
+We call on an array with a heap size of n
+Make heap first calls with size of n
+Bubbles up the last value
+And It then progressively calls itself on a size 1 less than itself
+Since calling bubble up on a valid heap doesn't break heap properties,
+this method will work.
 
-```
+Method 2:
+We call on the last element like before
+We bubble down on every element
+since the input array is sorted, 
+bubble down can perform properly
+if it wasn't we'd get issues, 
+but by sorting we guarantee that the lowest values are bubbled down to their correct positions at the end of execution
+
+Method 3:
+This method will work perfectly, 
+since we can just think of this as bubbling up elements
+that are continuously inserted into a new array.
+they do happen to be sorted here, 
+but this is just regular bubble up insertion.
+
+### Problem B
+
+![[Screenshot 2024-10-13 at 2.55.03 AM.jpg]]
+
+```java
+MinMaxInsert(A, k):
+	A[A.heapsize++] = k
+	
 ```
 ## Question 4: Lower Bounds and Linear time Sorting
 
