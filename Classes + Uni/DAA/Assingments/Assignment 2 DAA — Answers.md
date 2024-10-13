@@ -492,7 +492,25 @@ Asymptotically, both have the same runtime complexity; however, student 2 is tec
 
 ### Problem A
 
+Option 1:
+Select will run in O(n)
+Storing items will take O(n)
+At this point we have sqrt(n) items
+Quicksorting will take O(sqrt(n) log(sqrt(n))), 
+which, unless im missing some algebra magic,
+is still O(nlogn)
 
+Option 2: 
+This depends...
+It will run in O(n) due to using bucketsort,
+but we are not necessarily guaranteed that our first bucket will only contain 10 elements.
+Sure, we say it's an uniform distribution, but I doubt that we can take it for granted that bucket 1 will always hold 10 elements...
+
+Option 3: 
+This doesn't work.
+We said "Let A[] be an array of n real (decimal) numbers"
+Counting sort doesn't work on the reals.
+It would be Theta of (infinity) 
 ### Problem B
 ### Problem C
 
