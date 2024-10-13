@@ -143,3 +143,13 @@ For example, if h1(25) = 3 and h2(25) = 2, then we first try to insert at positi
 #### Performance
 
 ![[Screenshot 2024-09-30 at 9.10.01 PM.jpg]]
+
+
+Quadratic hashing
+- spreads out numbers more
+- might be less probes
+- doesnt try everything
+Double hashing if number is relatively prime:
+- might produce a 0 and lead to boing
+- checks entire table if not
+
