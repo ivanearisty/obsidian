@@ -308,9 +308,13 @@ but this is just regular bubble up insertion.
 ```java
 MinMaxInsert(A, k):
 	A[A.heapsize++] = k
-	
+
+MinInsert():
+
+MaxInsert():
+
+getgrandparent(A, k)
 ```
 ## Question 4: Lower Bounds and Linear time Sorting
 
 ## Notes for self
-What happens if we have even number of groups in select algorithm.
