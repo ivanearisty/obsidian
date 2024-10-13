@@ -274,6 +274,10 @@ Step 4: Median
 
 ## Question 3:  Heaps
 
+### Problem A
+
+![[Screenshot 2024-10-13 at 12.30.56 AM.jpg]]
+
 ## Question 4: Lower Bounds and Linear time Sorting
 
 ## Notes for self
