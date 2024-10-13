@@ -358,14 +358,41 @@ Base case reached, we only have 29 and 30 left. Return 30.
 ```
 
 ### Problem B
+![[Screenshot 2024-10-13 at 7.12.15 AM.jpg]]
 
+```
+array pablo = 25, 37, 52, 14, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 22, 2, 8, 90, 30, 68, 21, 17, 84, 29, 77, 45, 33, 41, 19, 53, 42, 93, 23, 18, 91
 
+RandomizedSelect(k = 14, Arr = pablo)
+
+Step 1: 25
+
+```
 ### Problem C
 
 $$
 \begin{gather}
 \text{Step 1: Divide n elements into n groups of 6} = \mathcal{O}(n)\\
 \text{Step 2: } \text{Sort groups of size 6 } = \mathcal{O}(n) \\
+\text{insertion sort, } c \times \frac{n}{6} \\
+\text{Step 3: } \text{Find medians} = T\left( \frac{n}{6} \right) \\
+\text{Step 4: } \text{Partition} = \mathcal{O}(n) \\
+\text{Step 5 } \text{Recursive call through rank} \\
+\text{When k < r, on the green section we at most go through } \frac{1}{2} \times \frac{n}{6} + \frac{1}{2}\times \frac{3n}{6} \geq \frac{4n}{12} = \frac{1n}{3}\\
+\therefore \text{larger elements are } T\left( \frac{2n}{3} \right) \\ \\
+T(n) = T\left( \frac{n}{6} \right) + T\left( \frac{2n}{3} \right) + \mathcal{O}(n) \\
+T(n) = T\left( \frac{n}{6} \right) + T\left( \frac{2n}{3} \right) + dn \\
+\left( \frac{n}{6} \right) + T\left( \frac{2n}{3} \right) + dn \le cn \\
+\text{Inductive Hypothesis:} \\
+T\left( \frac{n}{6} \right) = \frac{cn}{6} \land T\left( \frac{2n}{3} \right) = \frac{c2n}{3} \\
+T(n) = T\left( \frac{n}{6} \right) + T\left( \frac{2n}{3} \right) + dn \le 
+\frac{cn}{6} + \frac{c2n}{3} + dn \\
+\le \frac{cn}{6} + \frac{c2n}{3} + dn \\
+\le \frac{cn}{6} + \frac{c4n}{6} + dn \\
+\le  \frac{c5n}{6} + dn \\
+\le  \frac{c5n}{6} + dn \\
+\le n \times (\frac{5c}{6} + dn) \\ 
+\text{So this is only true when c is >= to 6d}\\
 \end{gather}
 $$
 
@@ -413,5 +440,11 @@ MaxInsert():
 getgrandparent(A, k)
 ```
 ## Question 4: Lower Bounds and Linear time Sorting
+
+### Problem A
+
+
+### Problem B
+### Problem C
 
 ## Notes for self
