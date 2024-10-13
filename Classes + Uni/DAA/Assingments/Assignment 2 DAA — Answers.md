@@ -219,4 +219,62 @@ h2(15) = k^2 + 1 mod 17 = 5
 
 ![[Screenshot 2024-10-12 at 11.39.52 PM.jpg]]
 
-	
+We should do 17 attempts because 17 is prime and our table size is also 17, which... is prime. For bad double hashing, we'd need a secondary hash function with a step size that leads to cycling, but, in our case, due to the prime table size, and the mod 17 with a +1 inside the function, we can be fairly certain that we're ok.
+
+## Question 2: Selection
+
+### Problem A
+
+![[Screenshot 2024-10-12 at 11.48.21 PM.jpg]]
+
+```
+array pablo = 25, 37, 52, 14, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 22, 2, 8, 90, 30, 68, 21, 17, 84, 29, 77, 45, 33, 41, 19, 53, 42, 93, 23, 18, 91
+
+Select(k = 14, Arr = pablo)
+
+Step 1:
+25, 37, 52, 14, 89, 
+35, 83, 53, 31, 86, 
+99, 46, 66, 34, 22, 
+ 2,  8, 90, 30, 68, 
+21, 17, 84, 29, 77, 
+45, 33, 41, 19, 53, 
+42, 93, 23, 18, 91,
+
+Step 2: Sort
+14, 25, 37, 52, 89, 
+31, 35, 53, 83, 86, 
+22, 34, 46, 66, 99, 
+ 2,  8, 30, 68, 90, 
+17, 21, 29, 77, 84, 
+19, 33, 41, 45, 53, 
+18, 23, 42, 91, 93,
+
+Step 3: Median
+17, 21, 29, 77, 84, 
+ 2,  8, 30, 68, 90, 
+14, 25, 37, 52, 89, 
+19, 33, 41, 45, 53, 
+18, 23, 42, 91, 93,
+22, 34, 46, 66, 99, 
+31, 35, 53, 83, 86, 
+
+41
+
+Step 4: Median
+17, 21, 29, 77, 84, 
+ 2,  8, 30, 68, 90, 
+14, 25, 37, 52, 89, 
+19, 33, 41, 45, 53, 
+18, 23, 42, 91, 93,
+22, 34, 46, 66, 99, 
+31, 35, 53, 83, 86, 
+
+```
+
+## Question 3:  Heaps
+
+## Question 4: Lower Bounds and Linear time Sorting
+
+## Notes for self
+What happens if we have even number of groups in select algorithm.
