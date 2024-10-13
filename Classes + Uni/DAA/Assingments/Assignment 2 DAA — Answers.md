@@ -278,6 +278,14 @@ Step 4: Median
 
 ![[Screenshot 2024-10-13 at 12.30.56 AM.jpg]]
 
+Method 1:
+We call on an array with a heap size of n.
+Make heap first calls with size of n.
+bubbles up the last value.
+and It then progressively calls itself on a size 1 less than itself.
+
+```
+```
 ## Question 4: Lower Bounds and Linear time Sorting
 
 ## Notes for self
