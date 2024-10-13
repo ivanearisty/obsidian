@@ -365,8 +365,36 @@ array pablo = 25, 37, 52, 14, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 22, 2, 8, 
 
 RandomizedSelect(k = 14, Arr = pablo)
 
-Step 1: 25
+Recur 1: 25 k = 14
+Smaller = [14, 22, 2, 8, 21, 17, 19, 23, 18]
+Bigger = [37, 52, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 90, 30, 68, 84, 29, 77, 45, 33, 41, 53, 42, 93, 91]
 
+Ranks is 10, 
+r < k, go on bigger, offset to 4
+
+Recur 2: 37 k = 4
+[37, 52, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 90, 30, 68, 84, 29, 77, 45, 33, 41, 53, 42, 93, 91]
+Smaller = [35, 31, 34, 30, 29, 33]
+Bigger = [52, 89, 83, 53, 86, 99, 45, 66, 90, 68, 84, 77, 45, 41, ....]
+
+Rank is 7
+r > k, go on smaller
+
+Recur 3: 35 k = 4
+[35, 31, 34, 30, 29, 33]
+Smaller = [31, 34, 30, 29, 33]
+Bigger = 
+r > k, go on smaller
+
+Recur 4: 31 k = 4
+[31, 34, 30, 29, 33]
+Smaller = [29,30]
+Bigger = [33, 34]
+r = 3
+r < k, go on bigger, k - r = 1 
+
+Recur 5: k
+2 elements left, return 33... Looks like we made a mistake on Problem A...
 ```
 ### Problem C
 
@@ -424,21 +452,42 @@ since we can just think of this as bubbling up elements
 that are continuously inserted into a new array.
 they do happen to be sorted here, 
 but this is just regular bubble up insertion.
-
 ### Problem B
 
 ![[Screenshot 2024-10-13 at 2.55.03 AM.jpg]]
 
 ```java
 MinMaxInsert(A, k):
-	A[A.heapsize++] = k
-
+	// Insert at the top
+	A[A.heapsize] = k 
+	A.heapsize++;
+	
 MinInsert():
 
 MaxInsert():
 
 getgrandparent(A, k)
 ```
+
+### Problem C
+
+![[Screenshot 2024-10-13 at 7.26.55 AM.jpg]]
+
+Student 1:
+Adding all elements to the new array is just O(n).
+Building the heap using bottom up method is O(n) as well.
+Heapsort is the bottleneck at O(nlogn)
+Complexity is O(nlogn)
+
+Student 2:
+Comparisons run in O(1)
+We do O(n) comparisons for all the elements in A and B.
+removing from A is O(1)
+delete max is O(logn)
+Assume A is empty and B is not, 
+our bottleneck is O(nlogn) on the worst case.
+
+Asymptotically, both have the same runtime complexity; however, student 2 is technically correct, which is the best kind of correct. Student 2's approach is more efficient since it only touches elements once, preventing lots of O(n) operations which are hidden by the O(nlogn) upper bound. Additionally, on the best case, where A is full and B is empty, student 2 will run the algo in O(n)
 ## Question 4: Lower Bounds and Linear time Sorting
 
 ### Problem A
