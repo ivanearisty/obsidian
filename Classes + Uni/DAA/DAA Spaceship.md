@@ -12,23 +12,23 @@ kanban-plugin: board
 
 - [ ] Finish [[Practice Set 5 — Answers]] #DAA
 - [ ] Finish [[Practice Set 4 — Answers]] #DAA
-- [ ] Finish [[Quicksort]]
+- [ ] Finish [[Decision Trees]]
 - [ ] Setup [[Growth of Functions]]
+- [ ] Review Substitution Method in [[Recursive Algorithm Analysis]]
 
 
 ## Cruise
 
 - [ ] Finish [[Practice Set 3 — Answers]] #DAA
-- [ ] Finish [[Selection Algorithms]]
-- [ ] Finish [[Linear Time Sorting]]
-- [ ] Finish [[Heaps]]
-- [ ] Finish [[Decision Trees]]
 
 
 ## Orbiting
 
 - [ ] Finish [[Practice Set 2 — Answers]] #DAA
-- [ ] Finish [[Hashing]] to finish [[Practice Set 2 — Answers]] #DAA
+- [ ] Finish [[Quicksort]]
+- [ ] Finish [[Heaps]]
+- [ ] Finish [[Selection Algorithms]]
+- [ ] Finish [[Linear Time Sorting]]
 
 
 ## Landed
@@ -36,10 +36,11 @@ kanban-plugin: board
 **Complete**
 - [x] #DAA Review [[Week 0]]
 - [x] Review [[Preliminary Stuff]] #DAA
+- [x] Finish [[Hashing]] to finish [[Practice Set 2 — Answers]] #DAA
 - [x] [[Classes + Uni/DAA/Week 1/Class 1]] #DAA
 - [x] Hand in [[Assignment 1 DAA — Answers]] #DAA
 - [x] Review [[Notes Week 1|Notes Week 1]]
-- [x] Review [[Notes Week 2|Notes Week 2]]
+- [x] Review [[Recursive Algorithm Analysis|Recursive Algorithm Analysis]]
 - [x] Finish [[Practice 1 Answers]]
 
 
