@@ -8,7 +8,9 @@ tags:
 
 ![[Screenshot 2024-10-06 at 1.37.58 PM.jpg]]
 
+Partition Algorithm:
 
+![[Screenshot 2024-10-14 at 1.04.04 AM.jpg]]
 ### Recursive Call:
 
 ![[Screenshot 2024-10-06 at 1.39.32 PM.jpg]]

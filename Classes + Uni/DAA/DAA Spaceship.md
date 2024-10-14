@@ -6,22 +6,23 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] Finish [[Practice Set 5 — Answers]] #DAA
 
 
 ## Pre-Flight
 
+- [ ] Finish [[Practice Set 5 — Answers]] #DAA
 - [ ] Finish [[Practice Set 4 — Answers]] #DAA
-- [ ] Finish [[Assignment 2 DAA Answers]]
-- [ ] Finish [[Decision Trees]]
-- [ ] Finish [[Heaps]]
-- [ ] Finish [[Linear Time Sorting]]
+- [ ] Finish [[Quicksort]]
+- [ ] Setup [[Growth of Functions]]
 
 
 ## Cruise
 
 - [ ] Finish [[Practice Set 3 — Answers]] #DAA
-- [ ] Review [[Selection Algorithms]] #DAA
+- [ ] Finish [[Selection Algorithms]]
+- [ ] Finish [[Linear Time Sorting]]
+- [ ] Finish [[Heaps]]
+- [ ] Finish [[Decision Trees]]
 
 
 ## Orbiting
@@ -46,6 +47,7 @@ kanban-plugin: board
 
 **Complete**
 - [x] Tell the professor to add you to Poll Anywhere #DAA
+- [x] Finish [[Assignment 2 DAA — Answers]]
 
 
 
