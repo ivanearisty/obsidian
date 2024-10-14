@@ -23,6 +23,21 @@ Height of a Heap with n nodes is $\log_{2}n$ rounded down.
 ## Bottom Up
 
 Bubble Down:
+![[Screenshot 2024-10-13 at 9.08.59 PM.jpg]]
 
 Only works on situations where the other subtrees are already heaps.
 
+![[Screenshot 2024-10-13 at 9.08.42 PM.jpg]]
+
+Runtime:
+
+![[Screenshot 2024-10-13 at 9.48.27 PM.jpg]]
+
+Blue is how many nodes there are.
+Yellow is how long each one of them take.
+We make the some infinity since it's obviously bigger.
+The term inside the sum is now a geometric sum equal to the constant 2.
+
+Insert and Delete, both logn.
+
+![[Screenshot 2024-10-13 at 9.50.33 PM.jpg]]
