@@ -8,6 +8,7 @@ tags:
 
 ![[Screenshot 2024-10-06 at 1.37.58 PM.jpg]]
 
+
 ### Recursive Call:
 
 ![[Screenshot 2024-10-06 at 1.39.32 PM.jpg]]
@@ -55,4 +56,10 @@ So we have expect $\Theta (n)$ time
 ## Select Algorithm
 
 ![[Screenshot 2024-10-06 at 1.59.09 PM.jpg]]
+
+## Overview
+
+Time complexities:
+
+![[Screenshot 2024-10-14 at 12.46.53 AM.jpg]]
 
