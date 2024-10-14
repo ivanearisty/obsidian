@@ -50,3 +50,8 @@ Insert and Delete, both logn.
 
 Heap Delete
 ![[Screenshot 2024-10-13 at 11.35.58 PM.jpg]]
+
+Best vs worst case : iterative vs bottom up 
+
+![[Screenshot 2024-10-14 at 12.27.40 AM.jpg]]
+
