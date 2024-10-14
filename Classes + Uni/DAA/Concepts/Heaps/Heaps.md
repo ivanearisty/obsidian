@@ -47,3 +47,6 @@ The term inside the sum is now a geometric sum equal to the constant 2.
 Insert and Delete, both logn.
 
 ![[Screenshot 2024-10-13 at 9.50.33 PM.jpg]]
+
+Heap Delete
+![[Screenshot 2024-10-13 at 11.35.58 PM.jpg]]
