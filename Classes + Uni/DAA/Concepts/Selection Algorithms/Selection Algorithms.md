@@ -16,6 +16,9 @@ Partition Algorithm:
 ![[Screenshot 2024-10-06 at 1.39.32 PM.jpg]]
 *On case 3 we would have to update our rank since.*
 
+Randomized select pseudocode:
+
+![[Screenshot 2024-10-14 at 4.56.08 PM.jpg]]
 ### Worst Case:
 When we pick the largest element every single time.
 ![[Screenshot 2024-10-06 at 1.41.17 PM.jpg]]
@@ -56,6 +59,8 @@ With the geometric formula we have:
 So we have expect $\Theta (n)$ time
 
 ## Select Algorithm
+
+Select algorithm pseudocode:
 
 ![[Screenshot 2024-10-06 at 1.59.09 PM.jpg]]
 
