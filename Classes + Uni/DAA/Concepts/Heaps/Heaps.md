@@ -18,12 +18,18 @@ Height of a Heap with n nodes is $\log_{2}n$ rounded down.
 
 ## Iterative Heap Building
 
+Bubble Up:
+![[Screenshot 2024-10-13 at 10.35.30 PM.jpg]]
+
+List of num
 ![[Screenshot 2024-10-13 at 8.53.31 PM.jpg]]
 
 ## Bottom Up
 
 Bubble Down:
 ![[Screenshot 2024-10-13 at 9.08.59 PM.jpg]]
+
+![[Screenshot 2024-10-13 at 10.33.01 PM.jpg]]
 
 Only works on situations where the other subtrees are already heaps.
 
