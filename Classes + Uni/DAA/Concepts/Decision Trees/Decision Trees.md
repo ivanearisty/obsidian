@@ -43,6 +43,8 @@ n = 4 takes 3
 
 ## Decision Tree Merge Sort
 
+n! leaves = nlogn
+
 ## Decision Tree Quick Sort
 
 
