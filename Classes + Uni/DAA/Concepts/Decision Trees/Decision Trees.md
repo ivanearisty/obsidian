@@ -16,3 +16,10 @@ A **path in a tree** represents the questions that lead to a particular answer.
 
 ## Decision Tree for Sorting
 
+![[Screenshot 2024-10-15 at 1.06.28 AM.jpg]]
+
+![[Screenshot 2024-10-15 at 1.08.50 AM.jpg]]
+
+## Selection Sort Decision Tree
+
+![[Screenshot 2024-10-15 at 1.17.31 AM.jpg]]
