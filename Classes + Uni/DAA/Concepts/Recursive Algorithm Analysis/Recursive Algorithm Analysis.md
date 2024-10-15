@@ -1,6 +1,6 @@
 ---
 tags:
-  - DAA
+  - DAA/Week2
 ---
 ### Divide and Conquer
 
