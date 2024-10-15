@@ -1,10 +1,8 @@
 ---
-tags:
-  - HashTable
-  - SlidingWindow
+tags: []
 difficulty: medium
 completed: false
-number: 438
+number: 151
 ---
 ```java
 
