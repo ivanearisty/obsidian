@@ -19,13 +19,27 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{borderCrossingEntryData}{misc}{}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2023-10-01}
+      \field{title}{Border Crossing Entry Data}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://catalog.data.gov/dataset/border-crossing-entry-data-683ae
+      \endverb
+      \verb{url}
+      \verb https://catalog.data.gov/dataset/border-crossing-entry-data-683ae
+      \endverb
+    \endentry
     \entry{drugOverdoseDeathRates}{misc}{}{}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labeltitlesource}{title}
       \field{note}{Accessed: 2023-10-01}
       \field{title}{Drug Overdose Death Rates by Drug Type, Sex, Age, Race, and Hispanic Origin: United States}
-      \field{year}{2021}
+      \field{year}{2024}
       \verb{urlraw}
       \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
       \endverb
@@ -61,13 +75,27 @@
     \endentry
   \enddatalist
   \datalist[entry]{nty/global//global/global/global}
+    \entry{borderCrossingEntryData}{misc}{}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2023-10-01}
+      \field{title}{Border Crossing Entry Data}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://catalog.data.gov/dataset/border-crossing-entry-data-683ae
+      \endverb
+      \verb{url}
+      \verb https://catalog.data.gov/dataset/border-crossing-entry-data-683ae
+      \endverb
+    \endentry
     \entry{drugOverdoseDeathRates}{misc}{}{}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labeltitlesource}{title}
       \field{note}{Accessed: 2023-10-01}
       \field{title}{Drug Overdose Death Rates by Drug Type, Sex, Age, Race, and Hispanic Origin: United States}
-      \field{year}{2021}
+      \field{year}{2024}
       \verb{urlraw}
       \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
       \endverb

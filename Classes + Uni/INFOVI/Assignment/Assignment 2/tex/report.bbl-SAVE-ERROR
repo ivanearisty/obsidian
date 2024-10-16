@@ -19,6 +19,20 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{drugOverdoseDeathRates}{misc}{}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2023-10-01}
+      \field{title}{Drug Overdose Death Rates by Drug Type, Sex, Age, Race, and Hispanic Origin: United States}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
+      \endverb
+      \verb{url}
+      \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
+      \endverb
+    \endentry
     \entry{munzner2014visualization}{book}{}{}
       \name{author}{1}{}{%
         {{hash=f49068235c8a94e721f5ac15b17aed2c}{%
@@ -47,6 +61,20 @@
     \endentry
   \enddatalist
   \datalist[entry]{nty/global//global/global/global}
+    \entry{drugOverdoseDeathRates}{misc}{}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2023-10-01}
+      \field{title}{Drug Overdose Death Rates by Drug Type, Sex, Age, Race, and Hispanic Origin: United States}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
+      \endverb
+      \verb{url}
+      \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
+      \endverb
+    \endentry
     \entry{munzner2014visualization}{book}{}{}
       \name{author}{1}{}{%
         {{hash=f49068235c8a94e721f5ac15b17aed2c}{%
