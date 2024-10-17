@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  16 OCT 2024 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  17 OCT 2024 02:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -771,7 +771,7 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 173
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [3] [4]
-Overfull \hbox (5.92957pt too wide) in paragraph at lines 266--266
+Overfull \hbox (5.92957pt too wide) in paragraph at lines 264--264
 []\T1/ptm/m/it/10 Border Cross-ing En-try Data\T1/ptm/m/n/10 . Ac-cessed: 2023-10-01. 2024. \T1/ptm/m/sc/10 url\T1/ptm/m/n/10 : []$\T1/pcr/m/n/10 https : / / catalog . data . gov / dataset /
  []
 
