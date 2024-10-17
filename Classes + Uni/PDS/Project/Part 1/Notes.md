@@ -75,3 +75,9 @@ note
 *each item can be in at most one order*
 
 On a separate page, indicate any assumptions you are making about any ambiguous requirements. Also indicate briefly what each (strong or weak) entity set and each relationship set in your design corresponds to from the textual description, above.
+
+There are also various relations between Persons, Orders, Items, etc. We’d like to track which donor donated which Item, which client made each order, which volunteers or staff delivered each order, and which individual staff member supervised each order. At this point, you are not required to consider the different roles of people and who does what (i.e. staff supervises, donor donates); Later, we may require that the application code enforces such constraints.
+
+Notes:
+
+Location: I think that Locations require a facility realtion in case we have multiple storage locations. That's why I added a storage facility entity set and related it
