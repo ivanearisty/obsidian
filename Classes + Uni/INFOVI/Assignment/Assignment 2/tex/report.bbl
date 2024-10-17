@@ -47,32 +47,6 @@
       \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
       \endverb
     \endentry
-    \entry{munzner2014visualization}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=f49068235c8a94e721f5ac15b17aed2c}{%
-           family={Munzner},
-           familyi={M\bibinitperiod},
-           given={Tamara},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {CRC press}%
-      }
-      \strng{namehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{fullhash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{fullhashraw}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{bibnamehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authorbibnamehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authornamehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authorfullhash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authorfullhashraw}{f49068235c8a94e721f5ac15b17aed2c}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Visualization analysis and design}
-      \field{year}{2014}
-    \endentry
   \enddatalist
   \datalist[entry]{nty/global//global/global/global}
     \entry{borderCrossingEntryData}{misc}{}{}
@@ -102,32 +76,6 @@
       \verb{url}
       \verb https://catalog.data.gov/dataset/drug-overdose-death-rates-by-drug-type-sex-age-race-and-hispanic-origin-united-states-3f72f
       \endverb
-    \endentry
-    \entry{munzner2014visualization}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=f49068235c8a94e721f5ac15b17aed2c}{%
-           family={Munzner},
-           familyi={M\bibinitperiod},
-           given={Tamara},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {CRC press}%
-      }
-      \strng{namehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{fullhash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{fullhashraw}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{bibnamehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authorbibnamehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authornamehash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authorfullhash}{f49068235c8a94e721f5ac15b17aed2c}
-      \strng{authorfullhashraw}{f49068235c8a94e721f5ac15b17aed2c}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Visualization analysis and design}
-      \field{year}{2014}
     \endentry
   \enddatalist
 \endrefsection
