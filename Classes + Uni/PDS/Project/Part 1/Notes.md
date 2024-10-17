@@ -86,3 +86,6 @@ Stored: I am making the assumption that a storage location can have multiple ite
 
 Specialization/Generalization: Even though it was not required, I applied specialization to the person superclass, and also attempted to look at how the different specializations interact with the areas.
 
+Delivered: I think that multiple people can deliver an order; to illustrate this constraint I created a delivery team that is composed of at least 1 member from volunteer and staff and then this team delivers orders. Teams can be re-used and service multiple orders; however, an order can only be serviced by one team
+
+Supervises: I think that an order must have a supervisor and also at most one supervisor. However, a staff member can supervise many orders
