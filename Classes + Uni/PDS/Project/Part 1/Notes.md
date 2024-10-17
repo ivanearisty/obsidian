@@ -81,3 +81,8 @@ There are also various relations between Persons, Orders, Items, etc. We’d lik
 Notes:
 
 Location: I think that Locations require a facility realtion in case we have multiple storage locations. That's why I added a storage facility entity set and related it
+
+Stored: I am making the assumption that a storage location can have multiple items without a limit (like the 4 legs of a chair stored on the same location, or maybe 4 legs of one chair and 4 of another)
+
+Specialization/Generalization: Even though it was not required, I applied specialization to the person superclass, and also attempted to look at how the different specializations interact with the areas.
+
