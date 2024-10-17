@@ -84,7 +84,7 @@ Location: I think that Locations require a facility realtion in case we have mul
 
 Stored: I am making the assumption that a storage location can have multiple items without a limit (like the 4 legs of a chair stored on the same location, or maybe 4 legs of one chair and 4 of another)
 
-Specialization/Generalization: Even though it was not required, I applied specialization to the person superclass, and also attempted to look at how the different specializations interact with the areas.
+Specialization/Generalization: Even though it was not required, I applied specialization to the person superclass, and also attempted to look at how the different specializations interact[[Project 1 — Write Up]] with the areas.
 
 Delivered: I think that multiple people can deliver an order; to illustrate this constraint I created a delivery team that is composed of at least 1 member from volunteer and staff and then this team delivers orders. Teams can be re-used and service multiple orders; however, an order can only be serviced by one team
 
