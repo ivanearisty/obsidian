@@ -167,68 +167,71 @@ All data was obtained from the Federal Reserve Economic Data (FRED) database.
 Here is a summary of the specific datasets aquired:
 
 \begin{itemize} 
-  \item \textbf{Nominal Median Household Income} 
     
+    \item \textbf{Mean Family Income} 
+    \begin{itemize} 
+      \item \textbf{Series ID}: \texttt{MAFAINUSA646N} 
+      \item \textbf{Units}: Current dollars 
+    \end{itemize}
+  
+    \item \textbf{Nominal Median Household Income} 
     \begin{itemize} 
       \item \textbf{Series ID}: \texttt{MEHOINUSA646N} 
       \item \textbf{Units}: Current dollars 
-      \item \textbf{Description}: Median household income in current dollars, not adjusted for inflation. 
     \end{itemize}
 
     \item \textbf{Real Median Household Income}
     \begin{itemize}
         \item \textbf{Series ID}: \texttt{MEHOINUSA672N}
         \item \textbf{Units}: Constant dollars (adjusted for inflation)
-        \item \textbf{Description}: Median household income in the United States, adjusted for inflation.
+    \end{itemize}
+
+    \item \textbf{Average Sales Price of Houses Sold}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{ASPUS}
+        \item \textbf{Units}: Current Dollars
+    \end{itemize}
+
+    \item \textbf{Median Sales Price of Houses Sold}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{MSPUS}
+        \item \textbf{Units}: Current Dollars
     \end{itemize}
 
     \item \textbf{Real Residential Property Prices}
     \begin{itemize}
-        \item \textbf{Series ID}: \texttt{QUSRHPIQISMEI}
-        \item \textbf{Units}: Constant dollars (adjusted for inflation)
-        \item \textbf{Description}: Real residential property prices for the United States, adjusted for inflation.
-    \end{itemize}
-    
-    \item \textbf{Median Sales Price of Houses Sold for the United States}
-    \begin{itemize}
-        \item \textbf{Series ID}: \texttt{MSPUS}
-        \item \textbf{Units}: Current dollars (requires adjustment for inflation)
-        \item \textbf{Description}: Median sales price of new houses sold in the United States.
+        \item \textbf{Series ID}: \texttt{QUSR628BIS}
+        \item \textbf{Units}: Index 2010=100
     \end{itemize}
     
     \item \textbf{Housing Affordability Index}
     \begin{itemize}
-        \item \textbf{Series ID}: \texttt{HOAFF}
+        \item \textbf{Series ID}: \texttt{FIXHAI}
         \item \textbf{Units}: Index
-        \item \textbf{Description}: Indicates the affordability of housing in the United States based on median incomes and prevailing mortgage rates.
     \end{itemize}
     
     \item \textbf{Real Personal Consumption Expenditures}
     \begin{itemize}
-        \item \textbf{Series ID}: \texttt{PCECC96}
-        \item \textbf{Units}: Billions of chained 2012 dollars (constant dollars)
-        \item \textbf{Description}: Measures consumer spending on goods and services, adjusted for inflation.
+        \item \textbf{Series ID}: \texttt{PCEC96}
+        \item \textbf{Units}: Billions of Chained 2017 Dollars
     \end{itemize}
 
     \item \textbf{Personal Consumption Expenditures}
     \begin{itemize}
-        \item \textbf{Series ID}: \texttt{PCEC}
-        \item \textbf{Units}: Current dollars
-        \item \textbf{Description}: Measures consumer spending on goods and services in the United States.
+        \item \textbf{Series ID}: \texttt{PCE}
+        \item \textbf{Units}: Billions of Current Dollars
     \end{itemize}
     
     \item \textbf{Retail Sales}
     \begin{itemize}
         \item \textbf{Series ID}: \texttt{RSAFS}
         \item \textbf{Units}: Current dollars
-        \item \textbf{Description}: Retail sales excluding food services; an indicator of consumer spending.
     \end{itemize}
 
     \item \textbf{Real Retail Sales}
     \begin{itemize}
         \item \textbf{Series ID}: \texttt{RRSFS}
         \item \textbf{Units}: Millions of chained 2012 dollars (constant dollars)
-        \item \textbf{Description}: Retail sales excluding food services, adjusted for inflation.
     \end{itemize}
 
 \end{itemize}    
@@ -236,20 +239,22 @@ Here is a summary of the specific datasets aquired:
 \subsection{Earnest Visualization: Iterative Improvement}
 \subsubsection{Understanding The Data}
 
-For the earnest visualization, I wan to accurately show whether or not it has become
+For the earnest visualization, I want to accurately show whether or not it has become
 more difficult for the average american to own a home. 
 
 We have all the necessary data to answer this question, specifically, for plotting the
 real wages of the average american against the real home prices.
 
 To eliminate all possible bias, we will use the Real Median Household Income 
-and the Real Residential Property Prices datasets. By using the median of household income
-we can avoid the bias of outliers, and more accurately show the average american, 
-and by using the real residential property prices we can avoid the bias of inflation,
+and the Real Residential Property Prices datasets. By using the median of household income,
+we can avoid the bias of outliers, more accurately showing the average american, 
+and, by using the real prices, we can avoid the bias of inflation. 
 
-\subsubsection{Communicating The Data}
-\subsubsection{Visual Encodings}
+
+
 \subsubsection{Iterative Improvement}
+
+\subsubsection{Visual Encodings}
 
 \subsection{Missleading Visualization: Iterative Deceit}
 \subsubsection{Data Obfuscation}
