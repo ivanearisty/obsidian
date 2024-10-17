@@ -72,6 +72,6 @@ orderid
 start date
 delivery date
 note
-each item can be in
+*each item can be in at most one order*
 
 On a separate page, indicate any assumptions you are making about any ambiguous requirements. Also indicate briefly what each (strong or weak) entity set and each relationship set in your design corresponds to from the textual description, above.
