@@ -128,22 +128,24 @@ For the Misleading visualization I had a few ideas:
 
 I decided to go with the "The Cost of Living vs Inflation" topic.
 
-The reason why is because cost of living and economic statistics lend themselves to 
+The reason why is because cost of living and income statistics lend themselves to 
 both areas of the spectrum of honesty. We can sample and transform numbers 
 in multiple ways, incorrecly scale items, and/or dramatize the effects of 
-certain politcal movements and policies to create missleading narratives 
+specific economic factors to create missleading narratives 
 on the issues americans care most about. This topic also facilities my secondary goal
 for this assignment: Showing how changes in data selection and visualization techniques
 affect the perception of the viewer.
 
-The question I will be answering is: 
-\textit{Has the increase in home prices prevented the average American from buying a home?}
+The question to answer is: 
+\textit{Has the increase in home prices made it harder for the average American to own a home?}
 
 I believe that this question will be perfect for evaluating both ends of the spectrum.
+
 We will first try to generate the correct visualization of the data, answering the question
-in the most clear and attentive way possible and try to generate a
-visualization that creates confusion; downplays, exaggerates, or eliminates inflation,
-and/or misrepresents the increase in home prices.
+in the most clear and attentive way possible. Then, I aim to generate a visualization 
+that creates confusion through various mediums. For example, the missleading visualization 
+downplays, exaggerates, or eliminates important considerations like inflation,
+and/or misrepresents the increase in home prices through incorrect sampling.
 
 \subsection{Data}
 \subsubsection{Required Data}
@@ -152,14 +154,99 @@ We will focus on the analysis of yearly data.
 The goal was to aquire data regarding:
 \begin{itemize}
   \item Home Prices: Real Home Prices, Non-Inflation Adjusted Home Prices, Home Price
-  Index data, 
-  \item 
+  Index data, Rental Prices, Mortgage Prices, or Mortgage Rates.
+  \item Income: Real Income, Non-Inflation Adjusted Income, Income Index data, or 
+  household earnings.
+  \item Miscelaneous: American spending habits and/or miscelaneous expenditures.
 \end{itemize}
 
 \subsubsection{Data Gathering}
 
+All data was obtained from the Federal Reserve Economic Data (FRED) database. 
+
+Here is a summary of the specific datasets aquired:
+
+\begin{itemize} 
+  \item \textbf{Nominal Median Household Income} 
+    
+    \begin{itemize} 
+      \item \textbf{Series ID}: \texttt{MEHOINUSA646N} 
+      \item \textbf{Units}: Current dollars 
+      \item \textbf{Description}: Median household income in current dollars, not adjusted for inflation. 
+    \end{itemize}
+
+    \item \textbf{Real Median Household Income}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{MEHOINUSA672N}
+        \item \textbf{Units}: Constant dollars (adjusted for inflation)
+        \item \textbf{Description}: Median household income in the United States, adjusted for inflation.
+    \end{itemize}
+
+    \item \textbf{Real Residential Property Prices}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{QUSRHPIQISMEI}
+        \item \textbf{Units}: Constant dollars (adjusted for inflation)
+        \item \textbf{Description}: Real residential property prices for the United States, adjusted for inflation.
+    \end{itemize}
+    
+    \item \textbf{Median Sales Price of Houses Sold for the United States}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{MSPUS}
+        \item \textbf{Units}: Current dollars (requires adjustment for inflation)
+        \item \textbf{Description}: Median sales price of new houses sold in the United States.
+    \end{itemize}
+    
+    \item \textbf{Housing Affordability Index}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{HOAFF}
+        \item \textbf{Units}: Index
+        \item \textbf{Description}: Indicates the affordability of housing in the United States based on median incomes and prevailing mortgage rates.
+    \end{itemize}
+    
+    \item \textbf{Real Personal Consumption Expenditures}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{PCECC96}
+        \item \textbf{Units}: Billions of chained 2012 dollars (constant dollars)
+        \item \textbf{Description}: Measures consumer spending on goods and services, adjusted for inflation.
+    \end{itemize}
+
+    \item \textbf{Personal Consumption Expenditures}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{PCEC}
+        \item \textbf{Units}: Current dollars
+        \item \textbf{Description}: Measures consumer spending on goods and services in the United States.
+    \end{itemize}
+    
+    \item \textbf{Retail Sales}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{RSAFS}
+        \item \textbf{Units}: Current dollars
+        \item \textbf{Description}: Retail sales excluding food services; an indicator of consumer spending.
+    \end{itemize}
+
+    \item \textbf{Real Retail Sales}
+    \begin{itemize}
+        \item \textbf{Series ID}: \texttt{RRSFS}
+        \item \textbf{Units}: Millions of chained 2012 dollars (constant dollars)
+        \item \textbf{Description}: Retail sales excluding food services, adjusted for inflation.
+    \end{itemize}
+
+\end{itemize}    
+
 \subsection{Earnest Visualization: Iterative Improvement}
 \subsubsection{Understanding The Data}
+
+For the earnest visualization, I wan to accurately show whether or not it has become
+more difficult for the average american to own a home. 
+
+We have all the necessary data to answer this question, specifically, for plotting the
+real wages of the average american against the real home prices.
+
+To eliminate all possible bias, we will use the Real Median Household Income 
+and the Real Residential Property Prices datasets. By using the median of household income
+we can avoid the bias of outliers, and more accurately show the average american, 
+and by using the real residential property prices we can avoid the bias of inflation,
+
 \subsubsection{Communicating The Data}
 \subsubsection{Visual Encodings}
 \subsubsection{Iterative Improvement}
