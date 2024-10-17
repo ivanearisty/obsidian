@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  17 OCT 2024 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  17 OCT 2024 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -771,7 +771,7 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 173
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [3] [4]
-Overfull \hbox (5.92957pt too wide) in paragraph at lines 264--264
+Overfull \hbox (5.92957pt too wide) in paragraph at lines 272--272
 []\T1/ptm/m/it/10 Border Cross-ing En-try Data\T1/ptm/m/n/10 . Ac-cessed: 2023-10-01. 2024. \T1/ptm/m/sc/10 url\T1/ptm/m/n/10 : []$\T1/pcr/m/n/10 https : / / catalog . data . gov / dataset /
  []
 
@@ -793,13 +793,13 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 Here is how much of TeX's memory you used:
  23137 strings out of 475230
  393126 string characters out of 5763677
- 1937187 words of memory out of 5000000
+ 1938187 words of memory out of 5000000
  45023 multiletter control sequences out of 15000+600000
  590110 words of font info for 69 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  69i,5n,81p,919b,1296s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 72888 bytes).
+Output written on report.pdf (5 pages, 73529 bytes).
 PDF statistics:
  142 PDF objects out of 1000 (max. 8388607)
  125 compressed objects within 2 object streams
