@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  17 OCT 2024 23:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  17 OCT 2024 23:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 2/tex/report"
-(/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 2/tex/report.tex
+**"/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 2/tex2/report"
+(/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 2/tex2/report.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024basic/texmf-dist/tex/latex/base/article.cls
@@ -649,30 +649,30 @@ Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
 \@quotelevel=\count431
 \@quotereset=\count432
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 51.
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -728,16 +728,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
  (/Users/suape/Library/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (/Users/suape/Library/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.39998pt on input line 52.
-Package hyperref Info: Link coloring OFF on input line 52.
+Package xypdf Info: Line width: 0.39998pt on input line 51.
+Package hyperref Info: Link coloring OFF on input line 51.
  (./report.out) (./report.out)
 \@outlinefile=\write6
 \openout6 = `report.out'.
@@ -758,89 +758,50 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
-Package biblatex Info: Reference section=0 on input line 52.
-Package biblatex Info: Reference segment=0 on input line 52.
-<figs/iter4.png, id=64, 1670.24pt x 1043.9pt>
-File: figs/iter4.png Graphic file (type png)
-<use figs/iter4.png>
-Package pdftex.def Info: figs/iter4.png  used on input line 62.
-(pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-<figs/missleading.png, id=66, 1252.68pt x 748.29562pt>
-File: figs/missleading.png Graphic file (type png)
-<use figs/missleading.png>
-Package pdftex.def Info: figs/missleading.png  used on input line 64.
-(pdftex.def)             Requested size: 352.31625pt x 210.45763pt.
- [1
-
-{/Users/suape/Library/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024basic/texmf-dist/fonts/enc/dvips/base/8r.enc} <./figs/iter4.png> <./figs/missleading.png>]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 79.
- (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [2]
-<figs/income.png, id=86, 1670.24pt x 943.525pt>
-File: figs/income.png Graphic file (type png)
-<use figs/income.png>
-Package pdftex.def Info: figs/income.png  used on input line 170.
-(pdftex.def)             Requested size: 422.77664pt x 238.81766pt.
-<figs/iter1.png, id=87, 1409.265pt x 813.0375pt>
-File: figs/iter1.png Graphic file (type png)
-<use figs/iter1.png>
-Package pdftex.def Info: figs/iter1.png  used on input line 184.
-(pdftex.def)             Requested size: 422.77664pt x 243.90073pt.
- [3 <./figs/income.png>]
-<figs/iter2.png, id=96, 1670.24pt x 943.525pt>
-File: figs/iter2.png Graphic file (type png)
-<use figs/iter2.png>
-Package pdftex.def Info: figs/iter2.png  used on input line 202.
-(pdftex.def)             Requested size: 352.31625pt x 199.0243pt.
-<figs/iter3.png, id=99, 1670.24pt x 943.525pt>
-File: figs/iter3.png Graphic file (type png)
-<use figs/iter3.png>
-Package pdftex.def Info: figs/iter3.png  used on input line 217.
-(pdftex.def)             Requested size: 352.31625pt x 199.0243pt.
- [4 <./figs/iter1.png> <./figs/iter2.png>]
-File: figs/iter4.png Graphic file (type png)
-<use figs/iter4.png>
-Package pdftex.def Info: figs/iter4.png  used on input line 232.
-(pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
- [5 <./figs/iter3.png>]
-File: figs/missleading.png Graphic file (type png)
-<use figs/missleading.png>
-Package pdftex.def Info: figs/missleading.png  used on input line 260.
-(pdftex.def)             Requested size: 352.31625pt x 210.45763pt.
- [6]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 288.
+Package biblatex Info: Reference section=0 on input line 51.
+Package biblatex Info: Reference segment=0 on input line 51.
+<figs/Trump Chart.png, id=8, 2308.625pt x 1781.65625pt>
+File: figs/Trump Chart.png Graphic file (type png)
+<use figs/Trump Chart.png>
+Package pdftex.def Info: figs/Trump Chart.png  used on input line 61.
+(pdftex.def)             Requested size: 352.31625pt x 271.88568pt.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 96.
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [7] [8]
-Overfull \hbox (5.92957pt too wide) in paragraph at lines 365--365
-[]\T1/ptm/m/it/10 Border Cross-ing En-try Data\T1/ptm/m/n/10 . Ac-cessed: 2023-10-01. 2024. \T1/ptm/m/sc/10 url\T1/ptm/m/n/10 : []$\T1/pcr/m/n/10 https : / / catalog . data . gov / dataset /
+)
+Overfull \hbox (169.24498pt too wide) in paragraph at lines 96--97
+[][]$\T1/pcr/m/n/10 https : / / www . washingtonpost . com / politics / 2024 / 05 / 23 / look-[]trumps-[]misleading-[]inaccurate-[]graph-[]us-[]immigration/$[] 
  []
 
-[9] (./report.aux)
+
+LaTeX Warning: Empty bibliography on input line 99.
+
+[1
+
+{/Users/suape/Library/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024basic/texmf-dist/fonts/enc/dvips/base/8r.enc} <./figs/Trump Chart.png (PNG copy)>] (./report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: F8FCEFBC90F647897B53B772E2F395DB;2224.
+(rerunfilecheck)             Checksum: 235780E7BDAEA16291DB7B78F08FDCC4;106.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23198 strings out of 475230
- 394267 string characters out of 5763677
+ 22863 strings out of 475230
+ 387507 string characters out of 5763677
  1937187 words of memory out of 5000000
- 45077 multiletter control sequences out of 15000+600000
- 594602 words of font info for 72 fonts, out of 8000000 for 9000
+ 44777 multiletter control sequences out of 15000+600000
+ 581822 words of font info for 64 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 69i,6n,81p,919b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,6n,81p,920b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (9 pages, 492726 bytes).
+Output written on report.pdf (1 page, 1198190 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 47 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
+ 14 words of extra memory for PDF output out of 10000 (max. 10000000)
 
