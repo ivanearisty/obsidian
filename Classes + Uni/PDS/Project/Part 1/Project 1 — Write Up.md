@@ -2,6 +2,9 @@
 tags:
   - PDS
 ---
+# Diagram
+
+![[Project 1 — ER Diagram.svg]]
 # Assumptions
 
 Location: I think that Locations require a specific facility in case we have multiple storage locations in different geographical locations. That's why I added a storage facility entity set and related it.
