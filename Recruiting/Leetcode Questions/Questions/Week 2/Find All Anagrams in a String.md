@@ -3,7 +3,7 @@ tags:
   - HashTable
   - SlidingWindow
 difficulty: medium
-completed: false
+completed: true
 number: 438
 ---
 ```java

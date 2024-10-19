@@ -1,7 +1,7 @@
 ---
-tags: []
+tags: 
 difficulty: medium
-completed: false
+completed: true
 number: 151
 ---
 ```java
