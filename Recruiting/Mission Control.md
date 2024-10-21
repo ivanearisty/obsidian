@@ -21,7 +21,8 @@ SORT tags ASC
 ### Tag Incidence
 ```dataviewjs
 let tagsCount = {};
-for (let page of dv.pages('"Recruiting/Leetcode Questions/Questions"').where(p => p.file.name != "sortspec")) {
+let totalCount = 0;
+for (let page of dv.pages('"Recruiting/Leetcode Questions/Questions"').where(p => p.file.name != "sortspec" && p.tags != null)) {
     for (let tag of page.tags) {
         if (!tagsCount[tag]) {
             tagsCount[tag] = 0;
@@ -29,8 +30,9 @@ for (let page of dv.pages('"Recruiting/Leetcode Questions/Questions"').where(p =
         tagsCount[tag]++;
     }
 }
-
+for (let count of Object.values(tagsCount)) { totalCount += count; }
 dv.table(["Tag", "Count"], Object.entries(tagsCount).sort((a, b) => b[1] - a[1]));
+dv.el("b", "Total " + totalCount);
 ```
 ### Completions
 ```dataviewjs
