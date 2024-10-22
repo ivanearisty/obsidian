@@ -40,4 +40,30 @@ Runtime is $\mathcal{O}(h)$ where h is the height of the tree
 
 
 ![[Screenshot 2024-10-21 at 10.58.10 PM.jpg | 400]]
-![[Screenshot 2024-10-21 at 10.58.20 PM.jpg]]
+
+Assuming we get a pointer to the node through search:
+![[Screenshot 2024-10-21 at 10.58.20 PM.jpg | 400]]
+![[Screenshot 2024-10-21 at 10.59.00 PM.jpg | 400]]
+ ![[Screenshot 2024-10-21 at 11.00.08 PM.jpg | 300]] ![[Screenshot 2024-10-21 at 10.59.52 PM.jpg | 300]]
+
+## Height of a BST
+ 
+ ![[Screenshot 2024-10-21 at 11.01.31 PM.jpg]]
+
+We can mess up and make a height of n-1 making everything wrong.
+
+### Random Insertions
+
+![[Screenshot 2024-10-21 at 11.02.17 PM.jpg]]
+
+Important to know that the expected height from above
+
+### Runtime of Building a Random BST
+
+![[Screenshot 2024-10-21 at 11.03.41 PM.jpg]]
+
+![[Screenshot 2024-10-21 at 11.04.17 PM.jpg | 300]]
+
+The number of comparisons would be the same as in quicksort.
+
+![[Screenshot 2024-10-21 at 11.05.33 PM.jpg | 500]]
