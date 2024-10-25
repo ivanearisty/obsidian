@@ -64,3 +64,25 @@ dv.table(["Completed?", "Difficulty", "Count"], result);
 ```
 ## Ships
 Recruiting --> [[Recruiting/Spaceship|Spaceship]]
+
+
+## Thoughts
+
+
+- Legislative Dashboard: View recent bills and implement advanced search options with filters like date range, bill status, and keyword.
+    
+- Member Profiles: Profiles for Congress members with their bill sponsorship and voting records.
+    
+- User Accounts: Basic account creation and user authentication using [Firebase](https://firebase.google.com/docs/auth/web/start).
+    
+- Notifications: Alerts for updates on tracked bills or members.
+    
+- Data Visualization: Simple graphs for legislative data.
+    
+- Community Engagement: Implement a feature for users to comment on and discuss bills.
+
+1. User authentication and login - Eli
+2. Connect to the congress server and implement the key endpoints that we want (aka bill, senator, law, amendment) - Ivan
+3. Figure out database to keep information, how and when to update the information without redundancy - Ian
+4. Develop functions to access the info - Ivan 
+5. Business logic (follow a senator, follow a bill, aka business functionality and what our users want to do) Chun-Ju
