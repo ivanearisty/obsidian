@@ -157,3 +157,69 @@ where
 Find ID, name, course_id of each student and each course they took in Fall 2009. 
 Students who did not take any courses that semester should be listed with NULL as the course_id.
 
+```sql
+select
+	student.ID,
+    student.name,
+    case
+		when takes.semester = 'Fall' and takes.year = '2009' then takes.course_id
+        else null
+	end as courseID
+from
+	student
+left join takes on student.ID = takes.ID and takes.semester = 'Fall' and takes.year = '2009'
+;
+```
+
+## Problem 6
+
+### Question A
+
+Find the ID, name, and Fall 2009 GPA for each student. Students who didn’t take any courses in Fall 2009 should be listed with GPA either NULL or zero.
+
+```sql
+select
+	student.ID,
+    student.name,
+    case
+		when avg(Gradepoint.points) is not null then round(avg(Gradepoint.points),2)
+        else null
+	end as Fall2009GPA
+from
+	student
+left join takes on student.ID = takes.ID 
+	and takes.semester = 'Fall' 
+    and takes.year = '2009'
+left join Gradepoint on takes.grade = Gradepoint.grade
+group by
+	student.ID,
+    student.name
+;
+```
+
+## Problem 7
+
+Find the ID and name of each student who has taken every course taught by the instructor whose ID is 10101. 
+a. Write an SQL query using checks for empty set differences 
+b. Write an SQL query using comparison of sizes of sets 
+c. Write a TRC (tuple relational calculus) query. Hint: it should involve universal quantification.
+
+## Problem 8
+Retailer DB:
+
+Let’s define the “profitability” of a product to be the sum of the difference between priceEach and basePrice for all items ordered (taking quantity into account) divided by the total number of items of that product ordered. 
+Write an SQL query to find the product name and product code of the product that has the highest profitability. 
+(If there are ties, all such products should be listed. Do not use sorting.) 
+Your solution should include WITH, VIEW, or TEMPORARY TABLE creations with comments to make them readable.
+
+## Problem 9
+
+Consider the posted solution to the tennis tournament problem from HW 1. 
+Derive schemas and CREATE TABLE definitions for relevant tables and write constraints expressing the following: 
+
+a. A player cannot play a match against themself 
+b. No more than one match can be played on a given court during a given time slot 
+c. A player cannot play in more than one match during the same time slot 
+
+Try to determine whether your DBMS allows you to write those constraints in SQL and, if so, whether they are enforced by the DBMS. Briefly explain how you investigated this and your findings.
+
