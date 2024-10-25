@@ -276,6 +276,19 @@ WHERE
 
 ```
 
+### Problem C
+
+Find the ID and name of each student who has taken every course taught by the instructor whose ID is 10101.  Hint universal quantification
+
+$$
+\begin{gather}
+\{ \\
+t | \exists s \in \text{student}  
+\\
+\}
+\end{gather}
+$$
+
 ## Problem 8
 Retailer DB:
 
