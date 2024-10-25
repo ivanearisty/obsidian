@@ -12,7 +12,7 @@ kanban-plugin: board
 
 ## Pre-Flight
 
-- [ ] Finish [[Elementary SQL]]
+- [ ] Finish [[SQL]]
 - [ ] Finish [[Intermediate SQL]] #PDS
 
 
