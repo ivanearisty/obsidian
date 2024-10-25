@@ -88,11 +88,14 @@ drop view if exists GradePointAvg;
 create view GradePointAvg as 
 select
 	takes.id,
-    round(avg(Gradepoint.points), 2) as GPA
+    course.dept_name,
+    (sum(course.credits * Gradepoint.points)/sum(course.credits)) as GPA
 from takes
 join Gradepoint on takes.grade = Gradepoint.grade
+join course on course.course_id = takes.course_id
 group by
-	takes.id;
+	takes.id,
+    course.dept_name;
     
 select * from GradePointAvg;
 ```
@@ -107,32 +110,25 @@ sum of (credits \* points)/ sum of credits
 Find the name, ID, and GPA of the Comp. Sci. student who has the highest GPA among all Comp. Sci. students. If several students are tied for the highest, your query should return them all. Do not sort students by GPA.
 
 ```sql
-drop view if exists GradePointAvgName;
- 
-create view GradePointAvgName as 
-select 
-	student.name as StudentName,
-    takes.id as StudentID,
-    avg(Gradepoint.points) as StudentGPA
-from
-	takes
-join 
-	student on takes.ID = student.ID
-join 
-	Gradepoint on takes.grade = Gradepoint.grade
-where
-	student.dept_name = 'Comp. Sci.'
-group by
-	student.name,
-    takes.id -- when do we not have to group by student name as well?
-;
-select * from GradepointAvgName;
+drop view if exists GPACompSci;
+create view GPACompSci as
 select
+	student.name,
+    student.ID,
+    GradePointAvg.GPA
+from student
+join GradePointAvg on student.ID = GradePointAvg.id
+where 
+	student.dept_name = 'Comp. Sci.'
+;
+select * from GPACompSci;
+select 
 	*
 from
-	GradePointAvgName
+	GPACompSci
 where 
-	StudentGPA = (select max(GradePointAvgName.StudentGPA) from GradePointAvgName);
+	GPACompSci.GPA = (select max(GPACompSci.GPA) from GPACompSci)
+;
 ```
 
 ## Problem 4
