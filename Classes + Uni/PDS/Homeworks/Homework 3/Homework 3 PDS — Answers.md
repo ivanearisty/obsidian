@@ -61,6 +61,7 @@ insert into Gradepoint (grade, points) values
 ('F', 0.0);
 ```
 
+We are skipping the constraint that prevents two point values servicing the same grade, but the question did not ask about this.
 ### Question B
 Add a foreign key constraint to another table, referencing the Gradepoint table. 
 
@@ -68,7 +69,7 @@ Note which table, write the constraint, including “on delete” and “on upda
 
 ```sql
 alter table takes
-add constraint
+add constraint 
 foreign key (grade) references Gradepoint(grade)
 on delete set null
 on update cascade;
@@ -79,7 +80,7 @@ On deletion of a grade, something fundamental has changed, and we want to set it
 On update it's ok, we might just be changing the way letter grades are represented, or the position of the minus/plus sign.
 ### Question C 
 
-Define a VIEW GradePointAvg(ID, GPA) that lists each student’s ID and gradepoint average.
+Define a VIEW GradePointAvg(ID, GPA) that lists each student’s ID and gradepoint average. 
 
 ```sql
 drop view if exists GradePointAvg;
@@ -96,6 +97,7 @@ group by
 select * from GradePointAvg;
 ```
 
+sum of (credits \* points)/ sum of credits
 ## Problem 3
 
 ### Question A
