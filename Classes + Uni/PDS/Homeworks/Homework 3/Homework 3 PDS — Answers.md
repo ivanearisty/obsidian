@@ -76,7 +76,64 @@ on update cascade;
 
 We want to update the takes table to force it to use the grades that we allow.
 On deletion of a grade, something fundamental has changed, and we want to set it to null or some other special value.
-On update it's ok, 
+On update it's ok, we might just be changing the way letter grades are represented, or the position of the minus/plus sign.
 ### Question C 
 
 Define a VIEW GradePointAvg(ID, GPA) that lists each student’s ID and gradepoint average.
+
+```sql
+drop view if exists GradePointAvg;
+
+create view GradePointAvg as 
+select
+	takes.id,
+    round(avg(Gradepoint.points), 2) as GPA
+from takes
+join Gradepoint on takes.grade = Gradepoint.grade
+group by
+	takes.id;
+    
+select * from GradePointAvg;
+```
+
+## Problem 3
+
+### Question A
+
+Find the name, ID, and GPA of the Comp. Sci. student who has the highest GPA among all Comp. Sci. students. If several students are tied for the highest, your query should return them all. Do not sort students by GPA.
+
+```sql
+drop view if exists GradePointAvgName;
+ 
+create view GradePointAvgName as 
+select 
+	student.name as StudentName,
+    takes.id as StudentID,
+    avg(Gradepoint.points) as StudentGPA
+from
+	takes
+join 
+	student on takes.ID = student.ID
+join 
+	Gradepoint on takes.grade = Gradepoint.grade
+where
+	student.dept_name = 'Comp. Sci.'
+group by
+	student.name,
+    takes.id -- when do we not have to group by student name as well?
+;
+select * from GradepointAvgName;
+select
+	*
+from
+	GradePointAvgName
+where 
+	StudentGPA = (select max(GradePointAvgName.StudentGPA) from GradePointAvgName);
+```
+
+## Problem 4
+
+### Question A
+
+Find the ID and name of each Comp. Sci. student who has not taken any courses offered by the Math department.
+
