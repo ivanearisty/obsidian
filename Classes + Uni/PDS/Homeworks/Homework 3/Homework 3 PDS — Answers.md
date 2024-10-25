@@ -204,6 +204,78 @@ a. Write an SQL query using checks for empty set differences
 b. Write an SQL query using comparison of sizes of sets 
 c. Write a TRC (tuple relational calculus) query. Hint: it should involve universal quantification.
 
+### Problem A
+
+```sql
+
+-- creating the set of courses taught
+drop view if exists courses_taught_by_instructor_10101;
+create view courses_taught_by_instructor_10101 as
+select 
+	teaches.ID as InstructorID,
+    teaches.course_id as CourseID
+from
+	teaches
+where 
+	teaches.ID = '10101'
+;
+select * from courses_taught_by_instructor_10101;
+
+
+select -- get every single student
+	student.ID as StudentID,
+    student.name as StudentName
+from 
+	student
+where not exists ( -- check if any course exists that the student has not taken and return false if true
+	select -- select every courseID
+		CourseID
+	from courses_taught_by_instructor_10101 
+    where 
+		courses_taught_by_instructor_10101.CourseID -- where that course id
+        not in( -- is not found
+			select takes.course_id -- in the list of courses that this student has taken
+            from takes
+            where takes.ID = student.ID
+		)
+)
+```
+
+### Problem B
+
+#### Ignore
+
+![[Screenshot 2024-10-25 at 7.19.23 PM.jpg]]
+
+```sql
+SELECT
+    s.sid,
+    s.sname
+FROM
+    Student s
+WHERE
+    s.sid <> 12345
+    AND (
+        -- Number of clubs Bob is in during Fall 2023
+        (SELECT COUNT(*)
+         FROM Membership
+         WHERE semester = 'Fall'
+           AND year = 2023
+           AND sid = 12345)
+    ) = (
+        -- Number of clubs Bob and the current student are both in during Fall 2023
+        SELECT COUNT(*)
+        FROM Membership AS m1
+        JOIN Membership AS m2
+        USING (cid, semester, year)
+        WHERE semester = 'Fall'
+          AND year = 2023
+          AND m1.sid = 12345
+          AND m2.sid = s.sid
+    );
+
+```
+
 ## Problem 8
 Retailer DB:
 
