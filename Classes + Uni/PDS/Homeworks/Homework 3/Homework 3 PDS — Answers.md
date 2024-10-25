@@ -98,6 +98,8 @@ select * from GradePointAvg;
 ```
 
 sum of (credits \* points)/ sum of credits
+
+**Assumption: We assume that null courses are not counted towards the GPA**
 ## Problem 3
 
 ### Question A
