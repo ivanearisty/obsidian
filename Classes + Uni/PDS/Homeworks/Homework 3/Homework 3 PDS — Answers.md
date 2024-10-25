@@ -137,3 +137,23 @@ where
 
 Find the ID and name of each Comp. Sci. student who has not taken any courses offered by the Math department.
 
+```sql
+select distinct
+	student.ID,
+    student.name
+from
+	student
+left join takes on student.ID = takes.ID
+left join section on takes.course_id = section.course_id
+left join course on section.course_id = course.course_id
+where
+	course.dept_name != 'Math' or course.dept_name is null -- keep in mind how != still skips null values
+;
+```
+## Problem 5
+
+### Question A
+
+Find ID, name, course_id of each student and each course they took in Fall 2009. 
+Students who did not take any courses that semester should be listed with NULL as the course_id.
+
