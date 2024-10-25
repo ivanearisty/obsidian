@@ -66,7 +66,7 @@ Add a foreign key constraint to another table, referencing the Gradepoint table.
 
 Note which table, write the constraint, including “on delete” and “on update” clauses and briefly justify your choices for those clauses. 
 
-```
+```sql
 alter table takes
 add constraint
 foreign key (grade) references Gradepoint(grade)
