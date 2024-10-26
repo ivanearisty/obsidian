@@ -329,3 +329,9 @@ c. A player cannot play in more than one match during the same time slot
 
 Try to determine whether your DBMS allows you to write those constraints in SQL and, if so, whether they are enforced by the DBMS. Briefly explain how you investigated this and your findings.
 
+### Question A
+
+
+I was already aware of these capabilities because of using mysql wb for personal projects before.
+
+The only new and interesting thing was having to figure out how to translate the ER model to sql correctly, which I only utilized my lecture notes for.
