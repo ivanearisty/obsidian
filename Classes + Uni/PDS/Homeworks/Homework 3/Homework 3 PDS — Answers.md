@@ -293,6 +293,31 @@ Write an SQL query to find the product name and product code of the product that
 (If there are ties, all such products should be listed. Do not use sorting.) 
 Your solution should include WITH, VIEW, or TEMPORARY TABLE creations with comments to make them readable.
 
+```sql
+use retailerDB;
+drop view if exists profits;
+create view profits as (
+	select
+		products.productName, 
+        products.productCode,
+		round((sum(orderdetails.priceEach * orderdetails.quantityOrdered) - sum(products.buyPrice * orderdetails.quantityOrdered)) / sum(orderdetails.quantityOrdered),2) as avgProfit -- rounding for style
+	from products 
+	join orderdetails on products.productCode = orderdetails.productCode
+	group by 
+		products.productName,
+        products.productCode
+);
+select * from profits; -- just listing everything to check
+select 
+	* 
+from 
+	profits
+where 
+	avgProfit = (
+		select max(avgProfit) -- this could also be made into a variable to be honest
+		from profits
+		);
+```
 ## Problem 9
 
 Consider the posted solution to the tennis tournament problem from HW 1. 
