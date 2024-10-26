@@ -278,15 +278,11 @@ WHERE
 
 ### Problem C
 
-Find the ID and name of each student who has taken every course taught by the instructor whose ID is 10101.  Hint universal quantification
-
 $$
-\begin{gather}
-\{ \\
-t | \exists s \in \text{student}  
-\\
-\}
-\end{gather}
+\begin{gather} \{ t \space | \\ 
+\exists s \in \text{student} \ (t[ID] = s[ID]) \ \land \\ 
+( \ \forall c \in \{ u[\text{course\_id}] \ | \ u \in \text{teaches} \land u[ID] = 10101 \} \\ 
+\rightarrow \ \exists k \in \text{takes} \ (k[ID] = s[ID] \land k[\text{course\_id}] = c) \ ) \} \end{gather}
 $$
 
 ## Problem 8
