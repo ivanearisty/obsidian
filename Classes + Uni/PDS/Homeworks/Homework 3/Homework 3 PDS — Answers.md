@@ -1,12 +1,14 @@
 ---
 tags:
   - PDS
+cssclasses:
+  - academic-pdf-export
 ---
 # Ivan Aristy - iae225
 
 ## Assignment
 
-In HW2, you should hand this in via two GradeScope assignments: 
+In HW3, you should hand this in via two GradeScope assignments: 
 - HW 3A: a plain text file with the SQL queries from which we can copy/paste/execute your queries. Use the SQLcomment delimiter -- to comment out everything other than the queries. Label which query is which with -- Problem X.y 
 - HW 3B: a pdf with all problems (marking which is which with GradeScope)
 
@@ -243,6 +245,33 @@ where not exists ( -- check if any course exists that the student has not taken 
 
 ### Problem B
 
+```sql
+-- cardinality of courses taught by 10101
+set @num_courses_10101 = (
+    select count(distinct course_id)
+    from teaches
+    where teaches.ID = '10101'
+);
+
+select -- select every student
+	student.ID, 
+    student.name
+from 
+	student
+where
+	@num_courses_10101 -- the amount of courses 10101 teaches
+    = ( -- is equal to
+    select -- the amount of courses the student took from the prof
+		count(distinct  takes.course_id)
+    from 
+		takes 
+	join teaches on takes.course_id = teaches.course_id
+    where 
+		teaches.ID = '10101' AND takes.ID = student.ID
+	)
+;
+```
+
 #### Ignore
 
 ![[Screenshot 2024-10-25 at 7.19.23 PM.jpg]]
@@ -331,7 +360,76 @@ Try to determine whether your DBMS allows you to write those constraints in SQL 
 
 ### Question A
 
+```sql
+CREATE SCHEMA IF NOT EXISTS TennisTournament;
+use TennisTournament;
+
+create table Player
+	(playerID 		integer primary key,
+	 name 			varchar(255),
+     nationality	varchar(255),
+	 WorldRanking	integer
+	);
+
+create table Event
+	(eventID 		integer primary key,
+	 description 	varchar(255),
+	 prizeMoney 	float
+	);
+
+create table Enrolled
+	(eventID 		integer,
+	 playerID 		integer,
+	 seedNum 		integer,
+	 primary key (eventID, playerID)
+	);
+
+create table Court
+	(courtNum 		integer primary key,
+	 maxCapacity 	integer,
+	 location 		varchar(255)
+	);
+
+create table TimeSlot (
+	date 			date,
+	time   			time,
+	primary key (date, time)
+);
+
+create table SinglesMatch (
+	matchID  		integer primary key,
+	eventID 		integer,
+	player1_ID 		integer,
+	player2_ID 		integer,
+	courtNum 		integer,
+	matchDate 		date,
+	matchTimeSlot 	time,
+	score 			varchar(255),
+	highlights 		varchar(255)
+);
+
+alter table Enrolled add constraint foreign key (eventID) references Event(eventID);
+alter table Enrolled add constraint foreign key (playerID) references Player(playerID);
+alter table SinglesMatch add constraint foreign key (eventID) references Event(eventID);
+alter table SinglesMatch add constraint foreign key (player1_ID) references Player(playerID);
+alter table SinglesMatch add constraint foreign key (player2_ID) references Player(playerID);
+alter table SinglesMatch add constraint foreign key (courtNum) references Court(courtNum);
+alter table SinglesMatch add constraint foreign key (matchDate, matchTimeSlot) references TimeSlot(date, time);
+
+-- a 
+alter table SinglesMatch add constraint check (player1_id != player2_id);
+
+-- b
+alter table SinglesMatch add constraint unique (courtNum, matchDate, matchTimeSlot);
+
+-- c
+create unique index uniquep1 on SinglesMatch (player1_ID, matchDate, matchTimeSlot);
+-- have to deal with both players
+create unique index uniquep2 on SinglesMatch (player2_ID, matchDate, matchTimeSlot);
+```
 
 I was already aware of these capabilities because of using mysql wb for personal projects before.
 
-The only new and interesting thing was having to figure out how to translate the ER model to sql correctly, which I only utilized my lecture notes for.
+The only new and interesting thing was having to figure out how to translate the ER model to sql correctly, which I only utilized my lecture notes for.\
+
+For syntax and refreshers i referenced: https://www.w3schools.com/mysql/mysql_constraints.asp
