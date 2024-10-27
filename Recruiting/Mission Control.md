@@ -81,6 +81,7 @@ Recruiting --> [[Recruiting/Spaceship|Spaceship]]
     
 - Community Engagement: Implement a feature for users to comment on and discuss bills.
 
+Congress Project
 1. User authentication and login - Eli
 2. Connect to the congress server and implement the key endpoints that we want (aka bill, senator, law, amendment) - Ivan
 3. Figure out database to keep information, how and when to update the information without redundancy - Ian
