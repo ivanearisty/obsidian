@@ -4,6 +4,8 @@ tags:
 ---
 # Lecture
 
+## GO OVER AGGREGATING, COUNTING, AND EMPTY SET SHIIIIII
+
 ## SQL DDL
 
 The SQL data-definition language (DDL) allows the specification of
@@ -57,4 +59,5 @@ The select clause lists the attributes desired in the result of a query
 
 ## Order
 ![[Screenshot 2024-10-25 at 11.24.02 AM.jpg]]
+
 
