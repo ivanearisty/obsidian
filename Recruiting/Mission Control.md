@@ -87,3 +87,5 @@ Congress Project
 3. Figure out database to keep information, how and when to update the information without redundancy - Ian
 4. Develop functions to access the info - Ivan 
 5. Business logic (follow a senator, follow a bill, aka business functionality and what our users want to do) Chun-Ju
+
+[Congress Api ](https://api.congress.gov/)
