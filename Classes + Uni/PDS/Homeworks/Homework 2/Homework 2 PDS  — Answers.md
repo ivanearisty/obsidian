@@ -337,3 +337,8 @@ group by
 ;
 ```
 
+\dashboard 
+\stocks=?quer{APPLS}
+\fund=?quer{APPLS}
+\industry=?quer{APPLS}
+
