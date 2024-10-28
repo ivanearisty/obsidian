@@ -21,3 +21,18 @@ Big obstacles is evaluating the multidimensional parts of league comps.
 We could have a set of things and define data points for them.
 
 For example we could have dive, counterdive, engage, disengage, and assign scores, this could be nice.
+
+# Email
+
+Hello Professor Frankl,
+
+You mentioned that you wanted me to send you an email concerning the tool I wanted to use for the online exam.
+
+The tool is called "Obsidian" and it's my primary note-taker. The key features that make
+
+## Question 1 
+
+### Problem 1
+
+$\exists x \in X$ 
+### Problem 2
