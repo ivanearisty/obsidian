@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  29 OCT 2024 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  29 OCT 2024 19:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,9 +760,12 @@ Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
 Package biblatex Info: Reference section=0 on input line 51.
 Package biblatex Info: Reference segment=0 on input line 51.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 98.
+ (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 
-
-LaTeX Warning: Empty bibliography on input line 109.
+LaTeX Warning: Empty bibliography on input line 115.
 
 
 Package caption Warning: Unused \captionsetup[figure] on input line 27.
@@ -776,24 +779,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: F1A7661BD902CEDD16287F8AF8F80F7F;478.
+(rerunfilecheck)             Checksum: FD11DF137FE0DA555C0990A8813941DE;618.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22825 strings out of 475230
- 386805 string characters out of 5763677
- 1936187 words of memory out of 5000000
- 44738 multiletter control sequences out of 15000+600000
- 583959 words of font info for 64 fonts, out of 8000000 for 9000
+ 22864 strings out of 475230
+ 387400 string characters out of 5763677
+ 1937187 words of memory out of 5000000
+ 44771 multiletter control sequences out of 15000+600000
+ 584580 words of font info for 66 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  69i,5n,81p,919b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (1 page, 44768 bytes).
+</usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (1 page, 54349 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 65 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
