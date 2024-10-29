@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  29 OCT 2024 01:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  29 OCT 2024 11:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -762,7 +762,7 @@ Package biblatex Info: Reference section=0 on input line 51.
 Package biblatex Info: Reference segment=0 on input line 51.
 
 
-LaTeX Warning: Empty bibliography on input line 72.
+LaTeX Warning: Empty bibliography on input line 79.
 
 
 Package caption Warning: Unused \captionsetup[figure] on input line 27.
@@ -776,24 +776,24 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 235780E7BDAEA16291DB7B78F08FDCC4;106.
+(rerunfilecheck)             Checksum: B127E9342895BB0A978547EB32F10F57;276.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22803 strings out of 475230
- 386518 string characters out of 5763677
- 1928187 words of memory out of 5000000
- 44728 multiletter control sequences out of 15000+600000
- 575631 words of font info for 58 fonts, out of 8000000 for 9000
+ 22812 strings out of 475230
+ 386621 string characters out of 5763677
+ 1929187 words of memory out of 5000000
+ 44733 multiletter control sequences out of 15000+600000
+ 583959 words of font info for 64 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  69i,5n,81p,919b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (1 page, 23611 bytes).
+</Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (1 page, 36137 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
