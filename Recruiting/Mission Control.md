@@ -70,7 +70,7 @@ Recruiting --> [[Recruiting/Spaceship|Spaceship]]
 
 
 - Legislative Dashboard: View recent bills and implement advanced search options with filters like date range, bill status, and keyword.
-    BAr\[abortian ban pt 2  ]
+    
 - Member Profiles: Profiles for Congress members with their bill sponsorship and voting records.
     
 - User Accounts: Basic account creation and user authentication using [Firebase](https://firebase.google.com/docs/auth/web/start).
