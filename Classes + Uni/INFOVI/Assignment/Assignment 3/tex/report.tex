@@ -59,9 +59,39 @@
 \subsection{Question }
 \label{subsec:subsec1}
 
-\textbf{How has my champion's win rate changed over time?}
+\textbf{How has my champion's win rate changed over time? Is my champion still strong in the current meta?}
 
-I want to answer the question of whether
+I want the user to easily see the win rate of their champion over time. 
+Winrate is a key metric in League of Legends, as it is a good indicator of how strong a champion is in the current meta.
+This would allow the user to see how their champion has been impacted in recent patches.
+
+Winrate is not a direct representation of power, since some champions are harder to play than others.
+Easy champions usually have high winrates, while hard champions have lower winrates.
+Additionally, hyper-specific champions have really high winrates, since they are only played in specific situations.
+
+Nevertheless, patterns in winrates can be indicative of power. For example, a 2\% growth in winrates
+over a patch can be indicative of a very strong relating buff, while a 2\% decrease can be indicative of a strong relative nerf.
+Additionally, a winrate that is consistently above 50\% can show that a champion has and is strong in the current meta.
+
+\subsection{Data}
+\label{subsec:subsec2}
+
+\subsubsection{Data Source}
+
+Riot's Developer API is very hard to use. In my opinion, is not well documented, and it is very hard to get the data you want.
+Hence, I wll scrape some data off the internet to get the winrate of a champion over time.
+
+Particularly I need:
+\begin{enumerate}
+  \item The winrate of a champions over time.
+  \item The tier of the champion over time.
+  \item Current highest winrate build of the champion.
+  \item Visual Assets of the champion.
+  \item Visual Assets of items.
+  \item Patch history.
+\end{enumerate}
+
+
 
 % \begin{figure}[ht] % Change the position of your figure https://www.overleaf.com/learn/latex/Positioning_images_and_tables
 %   \centering

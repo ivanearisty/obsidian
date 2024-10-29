@@ -6,26 +6,16 @@ Assignment #3: Interactive Visualization
 
 CS-GY 6313 B: Information Visualization
 
-  
-
 In this assignment, you will gain experience with creating an interactive visualization. Interactive visualizations allow you to create more complex visualizations that are able to handle intricate and large-scale data more easily. 
-
-  
-
 # Assignment (10 points)
 
 The goal of this assignment is to gain familiarity with implementing different interaction techniques and strengthen your understanding of when interaction techniques are effective or ineffective. For example, [zipdecode](https://benfry.com/zipdecode/) and [NameVoyager](https://web.archive.org/web/20211107232302/https://www.babynamewizard.com/namevoyager-expert) are visualizations that allow you to interact with the data to explore it in different ways. You will create an interactive visualization for this assignment.
 
-  
-
 To make sure that the project is manageable, you should focus on creating a limited but compelling visualization that allows users to interactively explore the data along dimensions of the data that you believe are important. A visualization with a clear focus and a user-friendly implementation is much preferred over a sprawling design that tries to do too much all at once. The [NameVoyager](https://web.archive.org/web/20211107232302/https://www.babynamewizard.com/namevoyager-expert) visualization is a good example of the level of complexity/scope we expect.
-
-  
 
 The written report should explain the question(s) you wanted to answer about your dataset, explain the design decisions and rationale in your visualization, and provide details on all of the interaction methods you implemented. Details on interaction methods should include how to use the interaction and a description of what the interaction does (i.e., how it modifies the data and/or visualization). Your report should discuss both the strengths and weaknesses of your visualization design. Note that there is no page limit.
 
-  
-
+ 
 # Data sources
 
 You will pick your own dataset for this assignment. You are allowed to use the same dataset from Assignment #2, but you must create a different kind of visualization if you do. You should make sure that your data is complex enough to support the implementation of meaningful interactions (e.g., filtering, sorting, highlighting, etc.) to provide new views of the dataset or make specific aspects of the data more readily apparent. You can find data sources in Assignment #2 and in this resources document, but you are also allowed to use a dataset from another source.
