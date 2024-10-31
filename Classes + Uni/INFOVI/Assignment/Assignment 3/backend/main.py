@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from api import api
+from models.models import ChampionInstance
 
 app = FastAPI()
 
@@ -13,3 +15,8 @@ def read_item(item_id: int, q: str = None):
 @app.get("/champion/{champion_name}")
 def read_item(champion_name: int, q: str = None):
     return 
+
+@app.get("/test")
+def test():
+    testChampion = api.get_champion_data("corki", "14.19")
+    return ChampionInstance().model_dump(mode='json')
