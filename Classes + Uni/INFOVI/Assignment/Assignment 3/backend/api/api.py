@@ -134,37 +134,25 @@ async def get_champion_data(champion_name: str, patch: Optional[str] = None) -> 
     print(row_1_data)
     print(row_2_data)
 
-    return sample_champion_data
-
     return ChampionInstance(
         name=champion_name,
-        patch=(f"?patch={patch}" if patch else latest_patch),
-        win_rate=row_1_data[0],
-        win_rate_delta=row_1_data[1],
-        modified_winrate=row_1_data[2],
-        pick_rate=row_1_data[3],
-        tier=row_2_data[0],
-        rank=row_2_data[1][:row_2_data[1].find('/')],
-        ban_rate=row_2_data[2],
-        games=row_2_data[3]
+        patch=float(latest_patch if not patch else patch),
+        win_rate=parse_percentage(row_1_data[0]),
+        win_rate_delta=parse_percentage(row_1_data[1]),
+        modified_winrate=parse_percentage(row_1_data[2]),
+        pick_rate=parse_percentage(row_1_data[3]),
+        tier=row_2_data[0], 
+        rank=int(row_2_data[1].split('/')[0]),
+        ban_rate=parse_percentage(row_2_data[2]),
+        games=parse_integer(row_2_data[3])
     )
+
         
+def parse_percentage(value: str) -> float:
+    return float(value.strip('%'))
 
-
-# async def get_champion_data(champion_name: str, patch: Optional[str] = None):
-#     nUrl = url + champion_name.lower() + "/build/" + (f"?patch={patch}" if patch else "")
-    
-#     print(nUrl)
-
-#     async with httpx.AsyncClient() as client:
-#         response = await client.get(nUrl)
-
-#     if response.status_code != 200:
-#         return f"Error: Received status code {response.status_code}"
-    
-#     soup = BeautifulSoup(response.text, 'html.parser')
-
-#     return soup.prettify() 
+def parse_integer(value: str) -> int:
+    return int(value.replace(',', ''))
 
 if __name__ == "__main__":
     asyncio.run(main())
