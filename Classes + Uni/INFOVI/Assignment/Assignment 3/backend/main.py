@@ -17,6 +17,6 @@ def read_item(champion_name: int, q: str = None):
     return 
 
 @app.get("/test")
-def test():
-    testChampion = api.get_champion_data("corki", "14.19")
-    return ChampionInstance().model_dump(mode='json')
+async def test():
+    testChampion = await api.get_champion_data("corki", "14.19")
+    return testChampion

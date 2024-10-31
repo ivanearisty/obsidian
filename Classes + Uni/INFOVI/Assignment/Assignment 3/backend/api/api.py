@@ -3,10 +3,25 @@ from bs4 import BeautifulSoup
 import httpx
 import asyncio
 from models.models import ChampionInstance
+import logging
+logger = logging.getLogger(__name__)
 
 url = 'https://lolalytics.com/lol/'
-state = 1
+state = 2
 latest_patch = "14.21"
+
+sample_champion_data = {
+    "name": "Corki",
+    "patch": "14.19",
+    "win_rate": "50.5%",
+    "win_rate_delta": "+0.5%",
+    "modified_winrate": "50.5%",
+    "pick_rate": "1.1%",
+    "tier": "A",
+    "rank": "2",
+    "ban_rate": "0.1%",
+    "games": "1000"
+}
 
 async def main():
     if state == 0 :
@@ -79,10 +94,15 @@ async def get_champion_data(champion_name: str, patch: Optional[str] = None) -> 
     async with httpx.AsyncClient() as client:
         response = await client.get(nUrl)
 
+    print(response.status_code)
+
     if response.status_code != 200:
         return f"Error: Received status code {response.status_code}"
     
     soup = BeautifulSoup(response.text, 'html.parser')
+
+    with open('/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 3/backend/api/test.html', 'w') as file:
+            file.write(soup.prettify())
 
     row_1_data = []
     row_2_data = []
@@ -111,20 +131,23 @@ async def get_champion_data(champion_name: str, patch: Optional[str] = None) -> 
                 value = value_div.get_text(strip=True)
                 row_2_data.append(value)
 
-    return None
+    print(row_1_data)
+    print(row_2_data)
 
-    # return ChampionInstance(
-    #     name=champion_name,
-    #     patch=(f"?patch={patch}" if patch else latest_patch),
-    #     win_rate=row_1_data[0],
-    #     win_rate_delta=row_1_data[1],
-    #     modified_winrate=row_1_data[2],
-    #     pick_rate=row_1_data[3],
-    #     tier=row_2_data[0],
-    #     rank=row_2_data[1][:row_2_data[1].find('/')],
-    #     ban_rate=row_2_data[2],
-    #     games=row_2_data[3]
-    # )
+    return sample_champion_data
+
+    return ChampionInstance(
+        name=champion_name,
+        patch=(f"?patch={patch}" if patch else latest_patch),
+        win_rate=row_1_data[0],
+        win_rate_delta=row_1_data[1],
+        modified_winrate=row_1_data[2],
+        pick_rate=row_1_data[3],
+        tier=row_2_data[0],
+        rank=row_2_data[1][:row_2_data[1].find('/')],
+        ban_rate=row_2_data[2],
+        games=row_2_data[3]
+    )
         
 
 
