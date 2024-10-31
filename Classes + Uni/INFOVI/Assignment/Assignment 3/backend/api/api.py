@@ -24,21 +24,42 @@ async def main():
 async def testing(data):
     soup = BeautifulSoup(data, 'html.parser')
     
-    container_div = soup.find('div', class_='flex justify-around border border-[#333333] p-2 text-center')
+    row_1_data = []
+    row_2_data = []
 
+    container_div = soup.find('div', class_='flex justify-around border border-[#333333] p-2 text-center')
     if container_div:
-        win_rate_div = container_div.find('div', class_='mb-1 font-bold')
-        if win_rate_div:
-            win_rate: float = win_rate_div.get_text(strip=True)
-            print(win_rate)
+        # Find all the individual sections within this container
+        sections = container_div.find_all('div', recursive=False)  # Only immediate children divs
         
+        for section in sections:
+            # Find the value (the number or letter) within the div with class "font-bold"
+            value_div = section.find('div', class_='mb-1 font-bold')
+            if value_div:
+                value = value_div.get_text(strip=True)
+                row_1_data.append(value)
+    print(row_1_data)
+
+    container_div = soup.find('div', class_='mt-2 flex justify-around border border-[#333333] p-2 text-center')
+    if container_div:
+        # Find all the individual sections within this container
+        sections = container_div.find_all('div', recursive=False)  # Only immediate children divs
+        
+        for section in sections:
+            # Find the value (the number or letter) within the div with class "font-bold"
+            value_div = section.find('div', class_='mb-1 font-bold')
+            if value_div:
+                value = value_div.get_text(strip=True)
+                row_2_data.append(value)
+    print(row_2_data)
+
     return
 
 async def transform_data(data):
 
     pass
 
-async def get_champion_data(champion_name: str, patch: Optional[str] = None):
+async def get_champion_data(champion_name: str, patch: Optional[str] = None) -> ChampionInstance:
     nUrl = url + champion_name.lower() + "/build/" + (f"?patch={patch}" if patch else "")
     
     print(nUrl)
@@ -51,7 +72,30 @@ async def get_champion_data(champion_name: str, patch: Optional[str] = None):
     
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    return soup.prettify() 
+    container_div = soup.find('div', class_='flex justify-around border border-[#333333] p-2 text-center')
+
+    if container_div:
+        win_rate_div = container_div.find('div', class_='mb-1 font-bold')
+        if win_rate_div:
+            win_rate: float = win_rate_div.get_text(strip=True)
+            print(win_rate)
+        win_rate_delta_div = container_div.find('div', class_='mb-1 font-bold')
+
+
+# async def get_champion_data(champion_name: str, patch: Optional[str] = None):
+#     nUrl = url + champion_name.lower() + "/build/" + (f"?patch={patch}" if patch else "")
+    
+#     print(nUrl)
+
+#     async with httpx.AsyncClient() as client:
+#         response = await client.get(nUrl)
+
+#     if response.status_code != 200:
+#         return f"Error: Received status code {response.status_code}"
+    
+#     soup = BeautifulSoup(response.text, 'html.parser')
+
+#     return soup.prettify() 
 
 if __name__ == "__main__":
     asyncio.run(main())
