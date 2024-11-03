@@ -15,7 +15,7 @@ To make sure that the project is manageable, you should focus on creating a limi
 
 The written report should explain the question(s) you wanted to answer about your dataset, explain the design decisions and rationale in your visualization, and provide details on all of the interaction methods you implemented. Details on interaction methods should include how to use the interaction and a description of what the interaction does (i.e., how it modifies the data and/or visualization). Your report should discuss both the strengths and weaknesses of your visualization design. Note that there is no page limit.
 
- 
+
 # Data sources
 
 You will pick your own dataset for this assignment. You are allowed to use the same dataset from Assignment #2, but you must create a different kind of visualization if you do. You should make sure that your data is complex enough to support the implementation of meaningful interactions (e.g., filtering, sorting, highlighting, etc.) to provide new views of the dataset or make specific aspects of the data more readily apparent. You can find data sources in Assignment #2 and in this resources document, but you are also allowed to use a dataset from another source.

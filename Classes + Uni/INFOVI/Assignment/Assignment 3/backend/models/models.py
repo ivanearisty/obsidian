@@ -12,6 +12,7 @@ class ChampionInstance(BaseModel):
     ban_rate: float
     games: int
 
+#ended up not using this
 tier_mapping = {
     "S+": 1,
     "S": 2,

@@ -25,7 +25,7 @@ sample_champion_data = {
 
 async def main():
     if state == 0 :
-        # Send a GET request to the URL asynchronously
+        # Testing
         res = await get_champion_data("corki", "14.19")
         with open('/Users/suape/WorkDir/Main Vault/Classes + Uni/INFOVI/Assignment/Assignment 3/backend/api/champion_data.html', 'w') as file:
             file.write(res)
@@ -68,10 +68,6 @@ async def testing(data):
     print(row_2_data)
 
     return
-
-async def transform_data(data):
-
-    pass
 
 async def save_champion_data(champion_name: str, patch: Optional[str] = None) -> ChampionInstance:
     nUrl = url + champion_name.lower() + "/build/" + (f"?patch={patch}" if patch else "")

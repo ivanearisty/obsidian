@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# Expose all origins
 origins = ["*"]
 
 app.add_middleware(
