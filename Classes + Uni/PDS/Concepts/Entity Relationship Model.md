@@ -4,8 +4,8 @@ tags:
 cssclasses: []
 ---
 # Book
-### The ER Model
-#### Entities and Entity Sets
+## The ER Model
+### Entities and Entity Sets
 
 An **entity** is a “*thing*” or “*object*” in the real world that is distinguishable from all other  
 objects.
@@ -28,7 +28,7 @@ into two parts:
 
 ![[Screenshot 2024-09-27 at 11.28.23 PM.jpg|350]]
 
-#### Relationship Sets
+### Relationship Sets
 
 A **relationship** is an association among several entities.
 
@@ -61,7 +61,7 @@ A relationship may also have attributes called **descriptive attributes**. An at
 
 The number of entity sets that participate in a relationship set is the **degree of the** **relationship set**. A **binary relationship set** is of degree 2; a **ternary relationship set** is of degree 3.
 
-#### Complex Attributes
+### Complex Attributes
 
 For each attribute, there is a set of *permitted values*, called the **domain**, or value set, of  
 that attribute.
@@ -78,7 +78,7 @@ An attribute takes a **null value** when an entity does not have a value for it.
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![[Screenshot 2024-09-28 at 1.30.24 AM.jpg \| 200]] | *Composite attribute* **name** with component attributes *first name, middle initial, and last name* replaces the simple attribute name of instructor. <br><br>Address can be defined as the **composite attribute address** with the attributes *street, city, state, and postal code*. The attribute **street** is itself a composite attribute whose component attributes are *street number, street name, and apartment number*. <br><br>The figure also illustrates a *multivalued attribute* phone number, denoted by “**{phone number}**”<br><br>**Derived attribute age** depicted by “ age ( )” from *date of birth* |
 
-#### Mapping Cardinalities
+### Mapping Cardinalities
 
 **Mapping cardinalities**, or cardinality ratios, express the *number of entities to which*  
 *another entity can be associated via a relationship set*. 
@@ -109,7 +109,7 @@ ER diagrams also provide a way to indicate more complex constraints on the numbe
 ![[Screenshot 2024-09-28 at 3.34.41 AM.jpg|500]]
 The line between advisor and student has a cardinality constraint of 1..1, meaning the minimum and the maximum cardinality are both 1. That is, each student must have exactly one advisor. The limit 0..∗ on the line between advisor and instructor indicates that an instructor can have zero or more students. Thus, the relationship advisor is one-to-many from instructor to student, and further the participation of student in advisor is total, implying that a student must have an advisor.
 
-#### Primary Key
+### Primary Key
 
 The choice of the primary key for a binary relationship set depends on the mapping cardinality of the relationship set.
 
@@ -120,7 +120,7 @@ $Superkey = primarykey(E_{1}) ∪ primarykey(E_{2}) ∪ ⋯∪ primarykey(E_{n})
 - **many-to-many**: the union of the primary keys is a minimal superkey and is chosen as the primary key.
 - **one-to-many and many-to-one**: the primary key of the “many” side is a minimal superkey and is used as the primary key
 - **one-to-one**: the primary key of either one of the participating entity sets forms a minimal superkey, and either one can be chosen as the primary key of the relationship set.
-##### Non-Binary Issues
+#### Non-Binary Issues
 
 For nonbinary relationships, **if** no cardinality constraints are present, **then** the superkey formed as described earlier in this section is the only candidate key, and it is chosen as the primary key.
 
@@ -134,7 +134,7 @@ To avoid confusion, **we permit only one arrow out of a nonbinary relationship s
 
 In order to represent a situation where one of the multiple-arrow situations holds, the E-R design can be modified by replacing the non-binary relationship set with an entity set.
 
-#### Weak Entity Sets
+### Weak Entity Sets
 
 A **weak entity set** is one whose existence is *dependent* on another *entity set*, called its **identifying entity set**.
 
@@ -156,9 +156,9 @@ A weak entity set must have a total participation in its identifying relationshi
 
 It is also possible to have a weak entity set with more than one identifying entity set. A particular weak entity would then be *identified by a combination of entities, one from each identifying entity set*.
 
-#### Removing Redundant Attributes in Entity Sets
+### Removing Redundant Attributes in Entity Sets
 
-##### Example 1
+#### Example 1
 
 *Identifying Entities*
 When we design a database using the E-R model, we usually start by identifying those entity sets that should be included. For example, in the university organization we have discussed thus far, we decided to include such entity sets as *student and instructor*. 
@@ -181,7 +181,7 @@ Treating the connection between instructors and departments uniformly as a relat
 
 Similarly, the student entity set is related to the department entity set through the relationship set student dept and thus there is no need for a dept name attribute in student.
 
-##### Example 2 
+#### Example 2 
 
 Consider course offerings (**sections**) along with the time slots of the offerings. Each time slot is identified by a time slot id, and has associated with it a set of weekly meetings, each identified by a day of the week, start time, and end time.
 
@@ -190,7 +190,7 @@ Consider course offerings (**sections**) along with the time slots of the offeri
 
 These entities are related through the *relationship set sec_time_slot*. The attribute time slot id appears in both entity sets. Since it is the primary key for the entity set time slot, it is redundant in the entity set section and needs to be removed. 
 
-##### Example 3
+#### Example 3
 
 Suppose we have an entity set **classroom**, with attributes building, room number, and capacity, with building and room number forming the primary key.  
 
@@ -207,11 +207,9 @@ You need to verify that none of the entity sets has any attribute that is made r
 ![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
 ![[Pasted image 20240928140552.png | 400]]
 
-#### Reducing E-R to Relationship Schemas
+### Reducing E-R to Relationship Schemas
 
-Both the E-R model and the relational database model are abstract, logical representations of real-world enterprises.
-
-##### Strong Entity Sets
+#### Strong Entity Sets
 
 Let *E be a strong entity set* with only simple descriptive attributes a1, a2, ... , an. We represent this entity with a schema called E with n distinct attributes. Each tuple in a relation on this schema corresponds to one entity of the entity set E.  
 
@@ -226,16 +224,27 @@ When a strong entity set has *non-simple attributes*, things are a bit more comp
 
 ![[Screenshot 2024-09-28 at 2.15.08 PM.jpg| 400]]
 - For the composite attribute name, the schema generated for instructor contains the attributes that composed it.
-\
+
+#### Multivalued Attributes
+
 For a **multivalued attribute M** , we create a relation schema R with an attribute A that corresponds to M and attributes corresponding to the primary key of the entity set or relationship set of which M is an attribute.
 
 Relation Schema: ![[Screenshot 2024-09-28 at 2.17.26 PM.jpg | 300]]
 
+In addition, we create a foreign-key constraint on the relation schema created from  
+the multivalued attribute.
+
+##### Special Case
+
 In the case that an entity set consists of only two attributes—a single primary-key attribute B and a single multivalued attribute M—the relation schema for the entity set would contain only one attribute, namely, the primary-key attribute B. --> We can drop this relation, while retaining the relation schema with the attribute B and attribute A that corresponds to M .
 
-Consider the entity set time slot depicted in the ER. Here, time slot id is the primary key of the time slot entity set, and there is a single multivalued attribute that happens also to be composite. The entity set can be represented by just the following schema created from the multivalued composite attribute:
+![[Screenshot 2024-11-03 at 6.12.26 PM.jpg | 500]]
+![[Screenshot 2024-11-03 at 6.12.39 PM.jpg | 300]]
+#### Weak Entity Sets
 
-#### Extended Features
+If you have a weak entity set A, and a strong entity set B that identifies it, then you can represent A by a relation schema with one attribute of each:
+$\{ a_{1},a_{2},\dots,a_{m} \} \cup $
+### Extended Features
 
 The process of designating subgroupings within an entity set is called **specialization**.
 
