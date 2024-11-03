@@ -199,12 +199,10 @@ function App() {
   const cleanChampionName = selectedChampion.toLowerCase().replace(/[\s_']/g, '');
   const [imageUrl, setImageUrl] = useState(getChampionImageUrl(cleanChampionName, true));
 
-  // Function to generate image URL
   function getChampionImageUrl(name, includeZero) {
     return `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/${name.toLowerCase()}/skins/base/${name.toLowerCase()}loadscreen${includeZero ? '_0' : ''}.jpg`;
   }
 
-  // Handle image load error
   const handleImageError = () => {
     if (imageUrl.includes('_0')) {
       setImageUrl(getChampionImageUrl(cleanChampionName, false));
@@ -286,7 +284,13 @@ function App() {
         Start Patch:
         <select
           value={startPatch}
-          onChange={(e) => setStartPatch(e.target.value)}
+          onChange={(e) => {
+            const newStartPatch = e.target.value;
+            if (patches.indexOf(newStartPatch) > patches.indexOf(endPatch)) {
+              setEndPatch(newStartPatch);
+            }
+            setStartPatch(newStartPatch);
+          }}
         >
           {patches.map((patch) => (
             <option key={patch} value={patch}>
@@ -298,7 +302,16 @@ function App() {
 
       <label>
         End Patch:
-        <select value={endPatch} onChange={(e) => setEndPatch(e.target.value)}>
+        <select
+          value={endPatch}
+          onChange={(e) => {
+            const newEndPatch = e.target.value;
+            if (patches.indexOf(newEndPatch) < patches.indexOf(startPatch)) {
+              setStartPatch(newEndPatch);
+            }
+            setEndPatch(newEndPatch);
+          }}
+        >
           {patches.map((patch) => (
             <option key={patch} value={patch}>
               {patch}

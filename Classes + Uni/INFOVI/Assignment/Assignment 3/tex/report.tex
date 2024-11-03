@@ -4,19 +4,31 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{fancyhdr} 
 \usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{keywordcolor}{rgb}{0.4, 0.7, 1.0} % Light blue for keywords
+\definecolor{ndkeywordcolor}{rgb}{0.8, 0.5, 0.0} % Orange for non-default keywords
+\definecolor{stringcolor}{rgb}{0.8, 0.2, 0.2} % Red for strings
+\definecolor{commentcolor}{rgb}{0.6, 0.6, 0.6} % Gray for comments
+\definecolor{bracecolor}{rgb}{0.6, 0.6, 1.0} % Custom color for braces
+
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
-  keywordstyle=\color{blue}\bfseries,
+  keywordstyle=\color{keywordcolor}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
+  ndkeywordstyle=\color{ndkeywordcolor}\bfseries,
   identifierstyle=\color{black},
   sensitive=false,
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{commentcolor}\itshape,
+  stringstyle=\color{stringcolor}\ttfamily,
   morestring=[b]',
-  morestring=[b]"
+  morestring=[b]",
+  literate={\{}{{\textcolor{bracecolor}{\{}}}1
+           {\}}{{\textcolor{bracecolor}{\}}}}1
+           {<}{{\textcolor{bracecolor}{<}}}1
+           {>}{{\textcolor{bracecolor}{>}}}1,
 }
 \lstdefinelanguage{Python3}{
   keywords={False, async, class, finally, is, return, None, continue, for, lambda, try, True, def, from, nonlocal, while, and, del, global, not, with, as, elif, if, or, yield, assert, else, import, pass, break, except, in, raise},
@@ -86,9 +98,13 @@
 \section{Interactive Visualization}
 \label{sec:sec1}
 
-Note: For the puposes of page limits,
+Note 1: For the puposes of page limits,
 I am treating code blocks as figures; 
 hence, they should not be considered.
+
+Note 2: The typesetting for the code blocks (lstdefinelanguage classes) 
+was made with AI, since this is not at all core to the assignment,
+I believe this usage is within the course guidelines.
 
 \subsection{Question }
 \label{subsec:subsec1}
@@ -262,10 +278,36 @@ useEffect(() => {
   }, [selectedChampion, selectedMetric, startPatch, endPatch]);
 \end{lstlisting}
 
-\subsubsection{Visualization Logic}
+\subsubsection{Interactivity Logic}
 \label{subsubsec:Visualization Logic}
 
+To allow for interactivity, we create a few drop down labels that allow the user
+to select the data that they want to plot. For example, here is the code
+for the "Champion" Label:
 
+\begin{lstlisting}[language=JavaScript]
+  <label>
+    Champion:
+    <select
+      value={selectedChampion}
+      onChange={(e) => setSelectedChampion(e.target.value)}
+    >
+      {champions.map((champ) => (
+        <option key={champ} value={champ}>
+          {champ}
+        </option>
+      ))}
+    </select>
+  </label>
+\end{lstlisting}
+
+This also allows you to type out the champion name 
+instead of going through every single champion in the dropdown.
+
+Additionally, I implemented another QoL feature that deals with situations
+where the user selects a patch range that is not valid. 
+For example, if the user sets start patch to 14.20 and end patch is at 14.10,
+the code will automatically adjust the end patch to 14.20.
 
 \begin{refcontext}[sorting=nyt]
 \printbibliography
