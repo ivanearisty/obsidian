@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  2 NOV 2024 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  2 NOV 2024 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -652,7 +652,14 @@ Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 93.
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-) (./report.aux)
+) (./report.aux
+
+LaTeX Warning: Label `fig:fig3' multiply defined.
+
+
+LaTeX Warning: Label `fig:fig3' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
@@ -786,15 +793,40 @@ File: figs/two.jpg Graphic file (type jpg)
 <use figs/two.jpg>
 Package pdftex.def Info: figs/two.jpg  used on input line 368.
 (pdftex.def)             Requested size: 352.31625pt x 177.48592pt.
- [4]
+ [4] [5 <./figs/one.jpg> <./figs/two.jpg>]
+<figs/corki1.jpg, id=185, 1111.15125pt x 662.475pt>
+File: figs/corki1.jpg Graphic file (type jpg)
+<use figs/corki1.jpg>
+Package pdftex.def Info: figs/corki1.jpg  used on input line 408.
+(pdftex.def)             Requested size: 352.31625pt x 210.0555pt.
+<figs/corki2.jpg, id=186, 1076.02pt x 658.46pt>
+File: figs/corki2.jpg Graphic file (type jpg)
+<use figs/corki2.jpg>
+Package pdftex.def Info: figs/corki2.jpg  used on input line 416.
+(pdftex.def)             Requested size: 352.31625pt x 215.59448pt.
+<figs/corki3.jpg, id=187, 1093.08376pt x 659.46375pt>
+File: figs/corki3.jpg Graphic file (type jpg)
+<use figs/corki3.jpg>
+Package pdftex.def Info: figs/corki3.jpg  used on input line 424.
+(pdftex.def)             Requested size: 352.31625pt x 212.55215pt.
+<figs/corki4.jpg, id=188, 1167.36125pt x 693.59125pt>
+File: figs/corki4.jpg Graphic file (type jpg)
+<use figs/corki4.jpg>
+Package pdftex.def Info: figs/corki4.jpg  used on input line 433.
+(pdftex.def)             Requested size: 352.31625pt x 209.3278pt.
 
-LaTeX Warning: Empty bibliography on input line 398.
 
-[5 <./figs/one.jpg> <./figs/two.jpg>] (./report.aux)
+LaTeX Warning: Empty bibliography on input line 441.
+
+[6 <./figs/corki1.jpg> <./figs/corki2.jpg>] [7 <./figs/corki3.jpg> <./figs/corki4.jpg>] (./report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 5602068084504A9AD131D718E457370C;2244.
 Package logreq Info: Writing requests to 'report.run.xml'.
@@ -802,18 +834,18 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23591 strings out of 475230
- 395538 string characters out of 5763677
+ 23627 strings out of 475230
+ 396238 string characters out of 5763677
  1969187 words of memory out of 5000000
- 45399 multiletter control sequences out of 15000+600000
+ 45427 multiletter control sequences out of 15000+600000
  589386 words of font info for 70 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  69i,6n,81p,919b,1990s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 828888 bytes).
+Output written on report.pdf (7 pages, 1188016 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 107 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 223 compressed objects within 3 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
 
