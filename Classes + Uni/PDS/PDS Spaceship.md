@@ -14,21 +14,23 @@ kanban-plugin: board
 
 - [ ] Finish [[SQL]]
 - [ ] Finish [[Intermediate SQL]] #PDS
+- [ ] Attempt [[PDS Practice Midterm]]
 
 
 ## Cruise
 
+- [ ] Finish Reviewing for FInal
 
 
 ## Orbiting
 
-- [ ] Catch up with PDS #PDS
 
 
 ## Landed
 
 **Complete**
 - [x] go to office hours [[OH 1]] #PDS
+- [x] Catch up with PDS #PDS
 - [x] Start Group Project Prep for PDS #PDS
 - [x] Finish [[Relational Algebra]]
 - [x] Finish [[Relational Model]] #PDS
