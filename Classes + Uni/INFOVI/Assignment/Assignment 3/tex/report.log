@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  2 NOV 2024 21:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  2 NOV 2024 21:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -649,30 +649,30 @@ Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
 \@quotelevel=\count431
 \@quotereset=\count432
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 80.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 81.
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -728,16 +728,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
  (/Users/suape/Library/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
  (/Users/suape/Library/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.39998pt on input line 80.
-Package hyperref Info: Link coloring OFF on input line 80.
+Package xypdf Info: Line width: 0.39998pt on input line 81.
+Package hyperref Info: Link coloring OFF on input line 81.
  (./report.out) (./report.out)
 \@outlinefile=\write6
 \openout6 = `report.out'.
@@ -758,47 +758,51 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
-Package biblatex Info: Reference section=0 on input line 80.
-Package biblatex Info: Reference segment=0 on input line 80.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 124.
+Package biblatex Info: Reference section=0 on input line 81.
+Package biblatex Info: Reference segment=0 on input line 81.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 129.
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<figs/website.jpg, id=29, 1517.67pt x 1078.0275pt>
+<figs/website.jpg, id=41, 1517.67pt x 1078.0275pt>
 File: figs/website.jpg Graphic file (type jpg)
 <use figs/website.jpg>
-Package pdftex.def Info: figs/website.jpg  used on input line 132.
+Package pdftex.def Info: figs/website.jpg  used on input line 137.
 (pdftex.def)             Requested size: 352.31625pt x 250.24402pt.
  [1
 
-{/Users/suape/Library/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024basic/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+{/Users/suape/Library/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024basic/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2 <./figs/website.jpg>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 222.
+ (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 
-LaTeX Warning: Empty bibliography on input line 204.
+LaTeX Warning: Empty bibliography on input line 271.
 
-[2 <./figs/website.jpg>] (./report.aux)
+[3] (./report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: BA1D1D77F3567F8F640705117FA4C71D;801.
+(rerunfilecheck)             Checksum: 4EE468D3F5DCF5DA070B6E5C232A597B;1228.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23319 strings out of 475230
- 391907 string characters out of 5763677
- 1962187 words of memory out of 5000000
- 45194 multiletter control sequences out of 15000+600000
- 589072 words of font info for 69 fonts, out of 8000000 for 9000
+ 23514 strings out of 475230
+ 394457 string characters out of 5763677
+ 1967187 words of memory out of 5000000
+ 45346 multiletter control sequences out of 15000+600000
+ 589386 words of font info for 70 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 69i,6n,81p,919b,1202s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,6n,81p,919b,1986s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (2 pages, 404259 bytes).
+Output written on report.pdf (3 pages, 412439 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 44 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 170 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

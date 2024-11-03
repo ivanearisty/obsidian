@@ -19,7 +19,7 @@
   morestring=[b]"
 }
 \lstdefinelanguage{Python3}{
-  keywords={False, class, finally, is, return, None, continue, for, lambda, try, True, def, from, nonlocal, while, and, del, global, not, with, as, elif, if, or, yield, assert, else, import, pass, break, except, in, raise},
+  keywords={False, async, class, finally, is, return, None, continue, for, lambda, try, True, def, from, nonlocal, while, and, del, global, not, with, as, elif, if, or, yield, assert, else, import, pass, break, except, in, raise},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={self},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -30,7 +30,9 @@
   commentstyle=\color{purple}\ttfamily,
   stringstyle=\color{red}\ttfamily,
   morestring=[b]',
-  morestring=[b]"
+  morestring=[b]",
+  emph={print, len, range, int, str, float, list, dict, set, tuple},
+  emphstyle={\color{teal}}
 }
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage{amsthm}
@@ -51,7 +53,6 @@
 \usepackage{booktabs}
 \usepackage{wrapfig}
 \usepackage{times}
-\usepackage{listings}
 
 \captionsetup[figure]{font={small,it}}
 
@@ -84,6 +85,10 @@
 
 \section{Interactive Visualization}
 \label{sec:sec1}
+
+Note: For the puposes of page limits,
+I am treating code blocks as figures; 
+hence, they should not be considered.
 
 \subsection{Question }
 \label{subsec:subsec1}
@@ -185,8 +190,11 @@ async def test(champion_name: str, patch_version: str):
   return testChampion
 \end{lstlisting}
 
-All the functions used were asynchronous, since load times were a complaint 
-I received from my peers while showing them the assignment.
+All the functions used were made asynchronous, since load times were a complaint 
+I received from my peers while showing them the assignment. 
+
+The benefit of using live data is that, whenever a new patch is released, the user can see how their champion has been impacted by the patch.
+Additionally, for the current patch, changes in data are reflected in real time.
 
 % \begin{figure}[ht] % Change the position of your figure https://www.overleaf.com/learn/latex/Positioning_images_and_tables
 %   \centering
@@ -197,6 +205,65 @@ I received from my peers while showing them the assignment.
 %   \label{fig:fig1}
 % \end{figure}
 
+\subsection{Visualization}
+\label{subsec:Visualization}
+
+\subsubsection{Frontend Setup}
+\label{subsubsec:Frontend}
+
+The frontend is a simple React application that uses the 
+\texttt{D3} library to create the chart, and react hooks to update 
+and keep track of state (dynamic reloading of data depending on user
+selected parameters).
+
+For the main App component, we define a useEffect hook that will achieve
+multiple "Quality of Life" improvements for the user:
+\begin{itemize}
+  \item Updating the chart whenever the user selects a new champion, metric, or patch range.
+  \item Displaying a loading spinner while the data is being fetched.
+  \item Asynchronous fetching of data to speed up the loading process.
+  \item Invalidate erroneous data but keep plotting the chart.
+\end{itemize}
+
+\begin{lstlisting}[language=Javascript]
+useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+
+      const patchRange = patches.slice(
+        patches.indexOf(startPatch),
+        patches.indexOf(endPatch) + 1
+      );
+
+      try {
+        const results = await Promise.all(
+          patchRange.map(async (patch) => {
+            const response = await fetch(
+              `http://127.0.0.1:8000/test/${selectedChampion}&${patch}`
+            );
+            if (!response.ok)
+              throw new Error(`Failed to fetch data for patch ${patch}`);
+
+            const result = await response.json();
+            return { patch, value: result[selectedMetric] };
+          })
+        );
+
+        setData(results);
+      } catch (error) {
+        console.error("An error occurred while fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    setData(null);
+    fetchData();
+  }, [selectedChampion, selectedMetric, startPatch, endPatch]);
+\end{lstlisting}
+
+\subsubsection{Visualization Logic}
+\label{subsubsec:Visualization Logic}
 
 
 
