@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  29 OCT 2024 19:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  2 NOV 2024 05:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,12 +760,12 @@ Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
 Package biblatex Info: Reference section=0 on input line 51.
 Package biblatex Info: Reference segment=0 on input line 51.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 98.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 95.
  (/usr/local/texlive/2024basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
-LaTeX Warning: Empty bibliography on input line 115.
+LaTeX Warning: Empty bibliography on input line 113.
 
 
 Package caption Warning: Unused \captionsetup[figure] on input line 27.
@@ -785,18 +785,18 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22864 strings out of 475230
- 387400 string characters out of 5763677
- 1937187 words of memory out of 5000000
+ 22861 strings out of 475230
+ 387382 string characters out of 5763677
+ 1936187 words of memory out of 5000000
  44771 multiletter control sequences out of 15000+600000
  584580 words of font info for 66 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  69i,5n,81p,919b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (1 page, 54349 bytes).
+Output written on report.pdf (1 page, 53932 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
+ 61 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
