@@ -116,9 +116,12 @@ export default function Graph({ data, metric, width = 960, height = 600 }) {
       .ticks(6)
       .tickSize(-chartWidth)
       .tickPadding(10)
-      .tickFormat(metric.includes("rate") ? (d) => `${d}%` : null);;
+      .tickFormat(metric.includes("rate") ? (d) => `${d}%` : null);
 
-    chartGroup.append("g").call(yAxis).style("font-size", "14px");
+    chartGroup
+      .append("g")
+      .call(yAxis)
+      .style("font-size", "14px");
 
     // Draw Labels
     svg

@@ -148,7 +148,7 @@ After analyzing the beautiful soup output, the relevant information for a champi
 is contained in a div with the class \texttt{flex justify-around border border-[\#333333] p-2 text-center}.
 For the next div, we will skip the explanation, but it uses a similar process to the code below.
 
-\begin{figure}[ht] % Change the position of your figure https://www.overleaf.com/learn/latex/Positioning_images_and_tables
+\begin{figure}[ht] 
   \centering
   \includegraphics[width=0.75\textwidth]{figs/website.jpg}
   \caption{
@@ -279,7 +279,7 @@ useEffect(() => {
 \end{lstlisting}
 
 \subsubsection{Interactivity Logic}
-\label{subsubsec:Visualization Logic}
+\label{subsubsec:Interactivity Logic}
 
 To allow for interactivity, we create a few drop down labels that allow the user
 to select the data that they want to plot. For example, here is the code
@@ -308,6 +308,91 @@ Additionally, I implemented another QoL feature that deals with situations
 where the user selects a patch range that is not valid. 
 For example, if the user sets start patch to 14.20 and end patch is at 14.10,
 the code will automatically adjust the end patch to 14.20.
+
+\subsubsection{Visualization Logic}
+\label{subsubsec:Visualization Logic}
+
+As mentioned previously, I used D3 to create the chart. For my previous 
+assignments I have used D3's sister library, Plot, which 
+is a wrapper around D3 that makes it easier to create charts. 
+Using D3 directly was a lot more challenging, and I concluded on using
+Plot for future projects with D3 on a case-by-case basis.
+
+Nevertheless, D3 made me consider the components of a chart in a more
+explicit manner:
+\begin{itemize}
+  \item Margins: Focused on creating ample space for the chart.
+  \item Scales: Dynamically mapped the changing domain of the data to the range of the chart, 
+        and accounted for "edge" metrics. (For example, rank is plotted inversley, since
+        a lower rank is better... Rank 1 > Rank 2).
+  \item Line: Simple mapping of values received by the backend to the chart.
+  \item Tooltip \& Circles: Created dynamic circles that would show the value of the data
+        when hovered over, as well as grow slightly. Also considered circle size and color 
+        for visibility.
+  \item Axes: Created axes, gridlines, and basic labels for 
+  intuitive and fast understanding by the user.
+\end{itemize}
+
+\subsection{Improvements}
+\label{subsec:Improvements}
+
+\subsubsection{Champion Image}
+\label{subsubsec:Champion Image}
+
+A major piece of feedback was to include the champion image in the visualization.
+This would allow the user to quickly identify the champion they are looking at,
+not having to rely on the champion name alone, which could be pretty small on 
+some devices.
+
+This was actually added.
+
+\subsubsection{Small Patch Ranges}
+\label{subsubsec:Small Patch Ranges}
+
+We have a degenerate case where the user selects a patch range that is so small
+that visualizing it in a line chart is not very useful.
+
+See \autoref{fig:fig2} and \autoref{fig:fig3} for an example of this.
+
+\begin{figure}[ht] 
+  \centering
+  \includegraphics[width=0.75\textwidth]{figs/one.jpg}
+  \caption{
+      Solo patch range.
+  }
+  \label{fig:fig2}
+\end{figure}
+
+\begin{figure}[ht] 
+  \centering
+  \includegraphics[width=0.75\textwidth]{figs/two.jpg}
+  \caption{
+      Size 2 patch range.
+  }
+  \label{fig:fig3}
+\end{figure}
+
+I did not create a fix for this specific situation, since the Visualization is 
+for users to see how their champion has been impacted over time.
+
+\subsubsection{Lane Specific Data}
+\label{subsubsec:Lane Specific Data}
+
+Another piece of feedback was to include lane specific data.
+
+Why? Well, a botlane champion will have a different winrate if they are played toplane. 
+In layman's terms, the best pizza is not a very good burger. 
+Also, some champions are played in multiple lanes, so it would be interesting to see
+how their winrate changes depending on the lane.
+
+I deemed this to be beyond the scope of the assignment, but it is a good idea.
+
+\subsection{Conclusion: Do we answer the question?}
+\label{subsec:Conclusion}
+
+I believe for both:
+
+
 
 \begin{refcontext}[sorting=nyt]
 \printbibliography
