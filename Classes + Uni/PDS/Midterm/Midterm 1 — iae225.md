@@ -27,3 +27,29 @@ Comment: given the question, I assume that apples being ripe has nothing to do w
 
 Write an SQL query to find the orchID and zip of every orchard that has ripe 'Gala' apples _and_ ripe 'Mac' apples in week 5.
 
+```sql
+create temporary table t as
+select
+	*
+from
+	Ripe
+where weekNum = 5 and aName = 'Gala'
+	and orchID in (
+		select
+			orchID
+		from
+			Ripe
+		where weekNum = 5 and aName = 'Mac'
+	)
+;
+select
+	t.orchID as OrchardID,
+	Orchard.zip as Zip
+from
+	t
+natural join Orchard;
+```
+
+### Part 3
+
+Write an SQL query to find the orchID and zip of orchards that **do not** have ripe 'Golden' apples during week 3.
