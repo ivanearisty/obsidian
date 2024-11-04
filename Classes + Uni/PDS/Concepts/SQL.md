@@ -104,8 +104,28 @@ where title = 'lw' and release = 2019
 	)
 ```
 
+### Correlated Subqueries
 
-### Sizes of Sets
+A correlated subquery is a subquery that refers to a column from the outer query. The subquery is executed repeatedly for each row of the outer query, using the values from the current row to perform the subquery. The result of the subquery is then used in the evaluation of the outer query.
+
+![[Screenshot 2024-11-04 at 1.32.26 AM.jpg]]
+
+```sql
+SELECT column1, column2, ….
+FROM table1 outer
+WHERE column1 operator(
+	SELECT column1, column2
+	FROM table2
+	WHERE expr1 = outer.expr2
+	);
+```
+
+Useful for looking for pairs of tuples, t1, t2 where there is some relationship between the value of attribute in t1 and in t2:
+
+`Find people who gave a higher rating to movie X than to movie Y`
+
+Nesting in `where, having, and select` clauses things will be applied to each row.
+
 
 ## Aggregate Functions
 
@@ -130,3 +150,6 @@ Used to select values that are not in another relation:
 (Select distinct cID From Rental Natural Join Car Where carModel = ‘Toyota’) 
 **Except** 
 	(Select distinct cID From Rental Natural Join Car Where carModel = ‘Audi
+
+## Def
+Scalar subqueries: Query that is guaranteed to return a single row
