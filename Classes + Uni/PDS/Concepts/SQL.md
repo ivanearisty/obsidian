@@ -158,7 +158,10 @@ Aggregation queries are in the form:
 ### Deletion
 ![[Screenshot 2024-11-04 at 2.09.24 AM.jpg]]
 ### Insertion
-
+![[Screenshot 2024-11-04 at 2.40.58 AM.jpg]]
+### Updates
+![[Screenshot 2024-11-04 at 2.41.18 AM.jpg]]
+![[Screenshot 2024-11-04 at 2.42.54 AM.jpg]]
 ## Ephemeral Relations
 ### With
 ![[Screenshot 2024-11-04 at 1.54.29 AM.jpg]]
