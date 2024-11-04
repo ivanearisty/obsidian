@@ -4,8 +4,6 @@ tags:
 ---
 # Lecture
 
-## GO OVER AGGREGATING, COUNTING, AND EMPTY SET SHIIIIII
-
 ## SQL DDL
 
 The SQL data-definition language (DDL) allows the specification of
@@ -62,6 +60,52 @@ The select clause lists the attributes desired in the result of a query
 ## Set Operations
 
 ![[Screenshot 2024-11-04 at 12.24.05 AM.jpg]]
+![[Screenshot 2024-11-04 at 12.49.09 AM.jpg]]
+### Nested Queries
+
+![[Screenshot 2024-11-04 at 12.35.00 AM.jpg]]
+
+![[Screenshot 2024-11-04 at 12.35.46 AM.jpg]]
+
+![[Screenshot 2024-11-04 at 12.47.33 AM.jpg]]
+
+### Set Difference
+
+Find people who saw little women 2019 and finding dory 2016
+
+```sql
+select 
+	userID
+from
+	saw
+where title = 'lw' and release = 2019
+	and userID IN(
+		select
+			id
+		from
+			saw
+		where title = 'fd' and release = 2016
+	)
+```
+
+Find people who saw little women 2019 and **did not see** finding dory 2016 is simple as pie, we just have to change `in` to `not in` 
+```sql
+select 
+	userID
+from
+	saw
+where title = 'lw' and release = 2019
+	and userID NOT IN(
+		select
+			id
+		from
+			saw
+		where title = 'fd' and release = 2016
+	)
+```
+
+
+### Sizes of Sets
 
 ## Aggregate Functions
 
@@ -78,13 +122,6 @@ Aggregation queries are in the form:
 ### Null Aggregating
 
 ![[Screenshot 2024-11-04 at 12.32.21 AM.jpg]]
-
-## Nested Queries
-
-![[Screenshot 2024-11-04 at 12.35.00 AM.jpg]]
-
-![[Screenshot 2024-11-04 at 12.35.46 AM.jpg]]
-
 
 ## Except
 
