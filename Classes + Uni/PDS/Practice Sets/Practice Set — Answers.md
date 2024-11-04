@@ -108,17 +108,24 @@ $$
 
 ### Problem 2
 
-Customer(**customerID**,name, phoneNumber, creditCardNumber)
+For each customer, output their ID, name, and the total amount of money they spend on shipments during 2017.
 
-Location(**locationID**, name, streetAddress, city, state, zip, country)
-	name references Customer(name)
+```sql
+select
+	cID as customerID,
+	cName as customerName,
+	sum(cost)
+from
+	Customer
+join Shipment on Customer.cID = Shipment.payerID
+where year(Shipment.sDateTime) = 2017
+group by
+	cID,
+	cName
+;
+```
 
-Parcel(**parcelID**, senderID, receiverID, payerID, source, destination, cost)
-	source references Location(locationID)
-	destination references Location(locationID)
-	senderID references Customer(customerID)
-	receiverID references Customer(customerID)
-	payerID references Customer(customerID)
+Output the IDs of any packages that were last scanned with label “Arrival scan, Miami airport” more than 5 days ago, and that were never scanned afterwards. (In other words, look for packages that were last scanned at the Miami airport but then got lost for the next 5+ days.)
 
-
+![[Screenshot 2024-11-03 at 11.04.55 PM.jpg | 500]]
 
