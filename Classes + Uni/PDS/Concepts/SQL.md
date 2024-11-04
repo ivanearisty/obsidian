@@ -59,6 +59,32 @@ The select clause lists the attributes desired in the result of a query
 
 ## Order
 ![[Screenshot 2024-10-25 at 11.24.02 AM.jpg]]
+## Set Operations
+
+![[Screenshot 2024-11-04 at 12.24.05 AM.jpg]]
+
+## Aggregate Functions
+
+![[Screenshot 2024-11-04 at 12.25.16 AM.jpg]]
+
+![[Screenshot 2024-11-04 at 12.26.07 AM.jpg]]
+
+Having clause vs where clause
+![[Screenshot 2024-11-04 at 12.30.10 AM.jpg]]
+
+Aggregation queries are in the form:
+
+**SELECT ... FROM ... WHERE ... GROUP BY ... HAVING**
+### Null Aggregating
+
+![[Screenshot 2024-11-04 at 12.32.21 AM.jpg]]
+
+## Nested Queries
+
+![[Screenshot 2024-11-04 at 12.35.00 AM.jpg]]
+
+![[Screenshot 2024-11-04 at 12.35.46 AM.jpg]]
+
 
 ## Except
 
