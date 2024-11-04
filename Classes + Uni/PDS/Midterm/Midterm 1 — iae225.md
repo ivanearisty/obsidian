@@ -27,6 +27,7 @@ Comment: given the question, I assume that apples being ripe has nothing to do w
 
 Write an SQL query to find the orchID and zip of every orchard that has ripe 'Gala' apples _and_ ripe 'Mac' apples in week 5.
 
+Assuming no distinct is needed since ripe relation should not contain duplicate entries:
 ```sql
 create temporary table t as
 select
@@ -53,3 +54,24 @@ natural join Orchard;
 ### Part 3
 
 Write an SQL query to find the orchID and zip of orchards that **do not** have ripe 'Golden' apples during week 3.
+
+Assuming no distinct is needed since ripe relation should not contain duplicate entries:
+```sql
+select
+	Ripe.orchID as OrcharchID,
+	Orchard.zip as Zip
+from 
+	Ripe
+natural join Orchard
+where
+	weekNum != 3 and aName != 'Golden'
+;
+```
+
+### Part 4
+
+Write an SQL query to find the orchID and bagPrice for each Orchard that has at least 10 trees of every kind of apple. (Here "every kind of apple" means every kind that's listed in the Apple table.) Hint: You might find it helpful to draw a Venn diagram.
+
+```sql
+
+```
