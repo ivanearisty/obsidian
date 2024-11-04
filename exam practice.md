@@ -69,3 +69,12 @@ from
 	v
 where total > 50 and orderDate > Date(2023-03-25);
 ```
+
+Person(**id**, fname, lname, gender)
+Phones(**personID, phonenumber**)
+	personID references Person(id)
+Division(**dnum**, dname)
+Team(**tname, dnum,** color)
+	dnum references Division(dnum)
+PlaysOn(**id, tname, dnum**, position)
+	

@@ -266,6 +266,8 @@ Hence, in general, the schema for the relationship set linking a weak entity set
 
 #### Combining Schemas
 
+Only works for total participation
+
 ![[Screenshot 2024-11-03 at 7.25.47 PM.jpg | 500]]
 
 In the case of one-to-one relationships, the relation schema for the relationship set can be combined with the schemas for either of the entity sets.
