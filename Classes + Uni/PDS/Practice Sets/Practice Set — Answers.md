@@ -41,3 +41,57 @@ Order_item(**item_id**, **ISBN**, **order_id**, price_per_item)
 **WRONG**, realize that we don't have to make the when removing redundancy of many to one sets, we don't have to include them in the primary key
 ![[Screenshot 2024-11-03 at 8.17.19 PM.jpg | 512]]
 
+### Problem 3
+
+Card(pid) references Passanger(pid)
+Addtime(cid) references Card(cid)
+Addvalue(cid) references Card(cid)
+Ride(sid) referenes Station(sid)
+Ride(cid) references Card(cid)
+AddTime(mday) references TimePrice(mday)
+
+Passenger (pid, pname); 
+Card (cid, cexpireday, cbalance); 
+HasCard(cid, pid)
+TimePrice (mday, mprice); 
+Station (sid, sname, saddress); 
+AddTime (cid, attime, mday, moneypaid); 
+AddValue (cid, avtime, money); 
+Ride (cid, sid, rtime, rprice);
+
+Passenger (pid, pname); 
+Card (cid, pid, cexpireday, cbalance); 
+TimePrice (mday, mprice); 
+Station (sid, sname, saddress); 
+AddTime (cid, attime, mday, moneypaid); 
+AddValue (cid, avtime, money); 
+Prices(departuresid, arrivalsid, price)
+Ride (cid, departuresid, arrivalsid, **departuretime**, arrivaltime);
+
+Pricetable.departuresid and Pricetable.arrivalsid are foreign keys referencing Station.sid; 
+Ride.(departuresid, arrivalsid) is a foreign key referencing Pricetable. (departuresid, arrivalsid).
+
+## Set 2
+### Problem 1
+#### Question 1
+
+Car(carMake, carModel, carModelNum) reference Cartype(carMake, carModel, carModelNum)
+Rental(cID) references Customer(cID)
+Rental(carID) references Car(carID)
+Rental(pickupBid) references Branch(bid)
+Rental(returnBid) references Branch(bid)
+
+#### SQL
+
+##### 1
+```sql
+select 
+	cID,
+	name
+from
+	customer
+join rental on rental.cID = customer.cID
+join car on car.carID = rental.carID
+where 
+	car 
+```
