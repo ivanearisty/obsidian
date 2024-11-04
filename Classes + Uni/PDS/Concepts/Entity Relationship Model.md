@@ -243,7 +243,20 @@ In the case that an entity set consists of only two attributes—a single primar
 #### Weak Entity Sets
 
 If you have a weak entity set A, and a strong entity set B that identifies it, then you can represent A by a relation schema with one attribute of each:
-$\{ a_{1},a_{2},\dots,a_{m} \} \cup $
+$\{ a_{1},a_{2},\dots,a_{m} \} \cup \{ b_{1},b_{2},\dots, b_{n} \}$
+
+The combination of the **primary key of the strong entity set** and the **discriminator of the weak entity set** serves as the primary key of the schema.
+
+In addition to creating a primary key, we also create a **foreign-key constraint on the relation A**, specifying that the attributes $b_{1}, b_{2},\dots , b_{n}$ reference the primary key of the relation B.
+#### Relationship Sets
+
+The primary key attributes of the relationship set are also used as the primary key  
+attributes of the relational schema.
+
+![[Screenshot 2024-11-03 at 7.13.55 PM.jpg]]
+
+
+
 ### Extended Features
 
 The process of designating subgroupings within an entity set is called **specialization**.
