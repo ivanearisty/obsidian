@@ -83,11 +83,7 @@ Rental(returnBid) references Branch(bid)
 
 #### SQL
 
-##### 2
 ```sql
-select distinct
-	cID
-from
-	customer
-natural join
+create temporary table t1
+
 ```

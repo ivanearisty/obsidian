@@ -60,4 +60,10 @@ The select clause lists the attributes desired in the result of a query
 ## Order
 ![[Screenshot 2024-10-25 at 11.24.02 AM.jpg]]
 
+## Except
 
+Used to select values that are not in another relation:
+
+(Select distinct cID From Rental Natural Join Car Where carModel = ‘Toyota’) 
+**Except** 
+	(Select distinct cID From Rental Natural Join Car Where carModel = ‘Audi
