@@ -183,3 +183,5 @@ Aggregation queries are in the form:
 
 ## Def
 Scalar subqueries: Query that is guaranteed to return a single row
+
+[[exam practice]]
