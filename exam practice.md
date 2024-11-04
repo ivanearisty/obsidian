@@ -31,3 +31,41 @@ $$
 \Pi_{\text{bldNums, street}} (\sigma_{\text{status = ``ready"}}(CustomerOrders))
 \end{gather}
 $$
+
+*Write an Domain Relational Calculus query to find to find the bldgNums and streets of customers who have orders with status = "ready".*
+
+$$
+\begin{gather}
+\{ \\
+t | \\
+\exists c \in \text{Customer}, \exists o \in \text{Order} ( \\
+c[bldgNum] = t[bldgNum] \\
+c[street] = t[street] \\
+o[status] = \text{``ready"}
+\\)\}
+\end{gather}
+$$
+
+*Write an SQL query to find the total bill (sum of price times quantity for all the food in the order) for each order on orderDate = '2023-03-25', including only those bills that come to over $50. The result should have attributes orderNum and total.*
+
+```sql
+create view v as 
+select 
+	orderNum,
+	sum(DishSize.price * OrderItems.Quantity) as total,
+	orderDate
+from
+	OrderItems
+join DishSize on OrderItems.(item,size) = DishSize.(item,size)
+natural join Orderr 
+group by
+	orderNum,
+	orderDate
+;
+select
+	orderNum,
+	total
+from
+	v
+where total > 50 and orderDate > Date(2023-03-25);
+```
