@@ -83,15 +83,11 @@ Rental(returnBid) references Branch(bid)
 
 #### SQL
 
-##### 1
+##### 2
 ```sql
-select 
-	cID,
-	name
+select distinct
+	cID
 from
 	customer
-join rental on rental.cID = customer.cID
-join car on car.carID = rental.carID
-where 
-	car 
+natural join
 ```
