@@ -31,9 +31,8 @@ Used to select values that are not in another relation:
 	(Select distinct cID From Rental Natural Join Car Where carModel = ‘Audi
 
 ## Joins
-
+![[Screenshot 2024-11-04 at 3.43.46 AM.jpg]]
 ### Natural
-
 ![[Screenshot 2024-10-25 at 11.19.15 AM.jpg]]
 
 ![[Screenshot 2024-10-25 at 11.20.03 AM.jpg]]
@@ -167,6 +166,20 @@ Aggregation queries are in the form:
 ![[Screenshot 2024-11-04 at 1.54.29 AM.jpg]]
 ### Temporary Tables
 ### Views
+![[Screenshot 2024-11-04 at 3.45.49 AM.jpg]]
+![[Screenshot 2024-11-04 at 3.46.15 AM.jpg]]
+![[Screenshot 2024-11-04 at 3.47.30 AM.jpg]]
+## Integrity Constraints
+
+- not null
+- primary key
+- unique 
+- check (P), where P is a predicate
+- referential integrity (foreign keys)
+
+![[Screenshot 2024-11-04 at 3.52.44 AM.jpg]]
+![[Screenshot 2024-11-04 at 3.53.09 AM.jpg]]
+![[Screenshot 2024-11-04 at 3.53.59 AM.jpg]]
 
 ## Def
 Scalar subqueries: Query that is guaranteed to return a single row
