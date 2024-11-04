@@ -83,7 +83,42 @@ Rental(returnBid) references Branch(bid)
 
 #### SQL
 
-```sql
-create temporary table t1
+$$
+\begin{gather}
+\{ 
+\\
+t| \\
+\exists c \in \text{Customer}, \exists a \in \text{Car}, 
+\exists r \in \text{Rental} \exists y \in \text{CarType} (  \\
+c[cID] = t[cID] \land \\
+c[cName] = t[cName] \land \\
+c[cID] = r[cID] \land \\
+a[carID] = r[carID] \land \\
+a[carMake] = y[carMake] \land \\
+a[carModel] = y[carModel] \land \\
+a[carModelNum] = y[carModelNum] \land \\
+y[carSeats] = 7 \land \\
+c[carMake] = \text{Toyota} \land \\
+c[carColor] = \text{Blue} \land \\
+r[pickupTD].year = 2017
+\\ ) 
+\}
+\end{gather}
+$$
 
-```
+### Problem 2
+
+Customer(**customerID**,name, phoneNumber, creditCardNumber)
+
+Location(**locationID**, name, streetAddress, city, state, zip, country)
+	name references Customer(name)
+
+Parcel(**parcelID**, senderID, receiverID, payerID, source, destination, cost)
+	source references Location(locationID)
+	destination references Location(locationID)
+	senderID references Customer(customerID)
+	receiverID references Customer(customerID)
+	payerID references Customer(customerID)
+
+
+
