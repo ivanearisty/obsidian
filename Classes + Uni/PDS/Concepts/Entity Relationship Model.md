@@ -255,7 +255,22 @@ attributes of the relational schema.
 
 ![[Screenshot 2024-11-03 at 7.13.55 PM.jpg]]
 
+#### Weak Relationship Sets
 
+A relationship set linking a weak entity set to the corresponding strong entity set is  
+treated specially
+
+These relationships are many-to-one and have no descriptive attributes.
+
+Hence, in general, the schema for the relationship set linking a weak entity set to its corresponding strong entity set is redundant and does not need to be present in a relational database design based upon an E-R diagram.
+
+#### Combining Schemas
+
+![[Screenshot 2024-11-03 at 7.25.47 PM.jpg | 500]]
+
+In the case of one-to-one relationships, the relation schema for the relationship set can be combined with the schemas for either of the entity sets.
+
+Finally, we consider the foreign-key constraints that would have appeared in the schema representing the relationship set. There would have been foreign-key constraints referencing each of the entity sets participating in the relationship set. We drop the constraint referencing the entity set into whose schema the relationship set schema is merged, and add the other foreign-key constraints to the combined schema. For example, inst dept has a foreign key constraint of the attribute dept name referencing the department relation. This foreign constraint is enforced implicitly by the instructor relation when the schema for inst dept is merged into instructor.
 
 ### Extended Features
 
