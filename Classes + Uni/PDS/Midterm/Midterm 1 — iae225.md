@@ -20,3 +20,10 @@ Stock.orchID references Orchard.orchID
 Stock.aName references Apple.aName
 Ripe.orchID references Orchard.orchID
 Ripe.aName references Apple.aName
+
+Comment: given the question, I assume that apples being ripe has nothing to do with whether they have stock or not. We could have a week where 'Adams','gala' is ripe but still have no stock.
+
+### Part 2
+
+Write an SQL query to find the orchID and zip of every orchard that has ripe 'Gala' apples _and_ ripe 'Mac' apples in week 5.
+
