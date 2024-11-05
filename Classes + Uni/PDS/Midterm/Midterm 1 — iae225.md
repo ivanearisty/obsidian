@@ -58,7 +58,7 @@ Write an SQL query to find the orchID and zip of orchards that **do not** have r
 Assuming no distinct is needed since ripe relation should not contain duplicate entries:
 ```sql
 select
-	Ripe.orchID as OrcharchID,
+	Ripe.orchID as OrchardID,
 	Orchard.zip as Zip
 from 
 	Ripe
@@ -105,14 +105,14 @@ where -- We are doing this for every orchID
 	from
 		Apple
 ) 
-=
+= 
 (
 	select
 		t.num -- the number of apple varieties with greater than 10 numtrees
 	from
-		t -- the table we made above
+		t 
 	where
-		t.orchID = Orchard.orchID
+		t.orchID = Orchard.orchID -- for this specific orchard lookup
 );
 ```
 
