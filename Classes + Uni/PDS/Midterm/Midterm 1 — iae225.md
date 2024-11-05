@@ -121,5 +121,38 @@ where -- We are doing this for every orchID
 Write an SQL query to find the zip of the orchard that has the most kinds of ripe apples in week 5. If there more than one such orchard, the query should report all such zips.
 
 ```sql
+create temporary table orchardsRipeOnWeek5
+select
+	orchID, -- orchards in question
+	count(aName) as ripeCount -- again, i could add a distinct here, but I am assuming that there is no duplicates in the Ripe table
+from
+	Ripe
+where
+	weekNum = 5
+group by
+	orchID
+;
+
+-- we should now have something like:
+-- Orch1 14
+-- Orch2 15
+-- Orch3 12
+-- Orch4 11
+-- but this time the right column is the amount of apples ripe during this week.
+
+select
+	Orchard.zip as Zip
+from
+	orchardsRipeOnWeek5
+join Orchard on orchardsRipeOnWeek5.orchID = Orchard.orchID
+where
+	orchardsRipeOnWeek5.ripeCount = (select max(orchardsRipeOnWeek5.ripeCount) from orchardsRipeOnWeek5)
+```
+
+### Part 6
+
+Write a relational algebra query to find the orchID and distance of orchards that have ripe 'Mac' apples during week 5.
+
+```sql
 
 ```
