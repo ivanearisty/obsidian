@@ -6,29 +6,31 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] Finish [[Advanced SQL]] #PDS
-- [ ] Finish [[PDS Project Part 1]]
+- [ ] Finish [[Project 2 — Write Up]]
+- [ ] Finish [[Homework 4 PDS — Answers]]
 
 
 ## Pre-Flight
 
-- [ ] Finish [[SQL]]
-- [ ] Finish [[Intermediate SQL]] #PDS
-- [ ] Attempt [[PDS Practice Midterm]]
 
 
 ## Cruise
 
-- [ ] Finish Reviewing for FInal
 
 
 ## Orbiting
 
+- [ ] Finish [[Advanced SQL]] #PDS
 
 
 ## Landed
 
 **Complete**
+- [x] Finish [[PDS Project Part 1]]
+- [x] Finish [[SQL]]
+- [x] Finish Reviewing for FInal
+- [x] Attempt [[PDS Practice Midterm]]
+- [x] Finish [[Intermediate SQL]] #PDS
 - [x] go to office hours [[OH 1]] #PDS
 - [x] Catch up with PDS #PDS
 - [x] Start Group Project Prep for PDS #PDS

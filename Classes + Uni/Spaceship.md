@@ -6,8 +6,7 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Tasks   Setup folder and info for preparing interview prep and career services
-- [ ] Review notes for career development and wasserman stuff #Tasks
+- [ ] Check all handshake apps
 
 
 ## Pre-Flight
@@ -32,6 +31,8 @@ kanban-plugin: board
 ## Aborted
 
 **Complete**
+- [x] #Tasks   Setup folder and info for preparing interview prep and career services
+- [x] Review notes for career development and wasserman stuff #Tasks
 
 
 
