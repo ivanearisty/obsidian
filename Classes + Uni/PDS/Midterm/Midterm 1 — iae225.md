@@ -73,5 +73,53 @@ where
 Write an SQL query to find the orchID and bagPrice for each Orchard that has at least 10 trees of every kind of apple. (Here "every kind of apple" means every kind that's listed in the Apple table.) Hint: You might find it helpful to draw a Venn diagram.
 
 ```sql
+create temporary table t as 
+select -- make a table with
+	orchID, -- the specific orch ids
+	count(aName) as num -- counting the amount of apples
+from
+	Stock
+where numTrees >= 10 -- but only counting those that 
+					 -- are greater than or equal to 10
+group by
+	orchID -- and group by the orch IDs so we have all of them together
+;
+
+-- at the end we should get something like
+-- orchard | number of apple varieties with greater than 10 numtrees
+-- Orch1 14
+-- Orch2 15
+-- Orch3 12
+-- Orch4 11
+
+select
+	Orchard.orchID,
+	Orchard.bagPrice
+from
+	Orchard
+where -- We are doing this for every orchID
+(
+	-- Count how many apple varieties there are
+	select 
+		count(*) -- say 10
+	from
+		Apple
+) 
+=
+(
+	select
+		t.num -- the number of apple varieties with greater than 10 numtrees
+	from
+		t -- the table we made above
+	where
+		t.orchID = Orchard.orchID
+);
+```
+
+### Part 5
+
+Write an SQL query to find the zip of the orchard that has the most kinds of ripe apples in week 5. If there more than one such orchard, the query should report all such zips.
+
+```sql
 
 ```
