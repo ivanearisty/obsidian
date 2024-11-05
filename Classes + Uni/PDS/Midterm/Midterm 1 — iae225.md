@@ -153,6 +153,10 @@ where
 
 Write a relational algebra query to find the orchID and distance of orchards that have ripe 'Mac' apples during week 5.
 
-```sql
+$$
+\begin{gather}
+\Pi_{\text{orchID, distance}} ( \\
 
-```
+\\ )
+\end{gather}
+$$
