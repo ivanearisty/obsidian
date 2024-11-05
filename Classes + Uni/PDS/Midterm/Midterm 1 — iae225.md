@@ -155,8 +155,78 @@ Write a relational algebra query to find the orchID and distance of orchards tha
 
 $$
 \begin{gather}
-\Pi_{\text{orchID, distance}} ( \\
-
-\\ )
+\text{RipeXOrchard} \leftarrow (\text{Ripe})\bowtie_{\text{Ripe.orchID = Orchard.orchID}}(\text{Orchard}) \\ \\
+\Pi_{\text{orchID, distance}} 
+(\sigma_{\text{aName = ``Mac"} \land \space \text{weekNum = 5}}
+(\text{RipeXOrchard})
+)
 \end{gather}
 $$
+
+### Parth 7
+
+Write a tuple relational calculus (TRC) query to find the orchID and distance from NYC of orchards that have ripe 'Mac' apples during week 5.
+
+$$
+\begin{gather}
+\{ t | \\
+\exists r \in \text{Ripe}, \exists o \in \text{Orchard} ( \\
+r[\text{orchID}] = t[\text{orchID}] \land \\
+o[\text{distance}] = t[\text{distance}] \land \\
+r[\text{aName}] = \text{Mac} \land \\
+r[\text{weekNum}] = 5
+\\
+)
+\}
+\end{gather}
+$$
+
+## Question 3
+
+Every year, the NYC marathon inspires people to run competitively, or perhaps, to design databases for runners. A race club has the following ER diagram (shown in both notations we studied) for a database about their races this year. Events are identified by an eID and a division. Runners are identified by an rID. Each runner who enters an event has a bib number (bibNum) and their time to complete the event is recorded as eTime.
+
+![[runningclub2.drawio.png]]
+
+### Part 1
+
+An event can have more than one winner
+False
+Because we have cardinality of 1..1 on win to event
+### Part 2
+
+A runner can win more than one event
+True
+Because we have 0 to many from runner to winning
+
+### Part 3
+
+Two runners in the same event can have the same bib number
+True
+Because my notes saved me:
+![[Screenshot 2024-11-04 at 7.53.51 PM.jpg]]
+### Part 4
+
+A runner can have two entries in the same event with different bib numbers
+False
+The bib number is not what describes the relationship
+
+### Part 5
+
+Using the techniques we studied, derive a relational database schema from the ER diagram. Remember to indicate all primary key and foreign key constraints. You may either write your answer in text or draw a schema diagram and upload the file.
+
+Assume that text that is bolded (I think for you it looks like \*\*text\*\* are primary keys)
+
+Runner(**rID**, fname, lname, email)
+
+RunnerSponsors(**rID, sponsorNames**)
+	rID references Runner(rID)
+
+Event(**eID, division**, distance, price)
+
+Comment: Since entry will be many to many, it can only be identified by all the pks
+Entry(**rID, eID, division**, bibNum, eTime)
+	rID references Runner(rID)
+
+
+
+I think we don't need to add win since we can just do an optimization, but I added it just in case and that is my final answer.

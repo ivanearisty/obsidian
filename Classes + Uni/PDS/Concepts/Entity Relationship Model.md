@@ -250,8 +250,7 @@ The combination of the **primary key of the strong entity set** and the **discri
 In addition to creating a primary key, we also create a **foreign-key constraint on the relation A**, specifying that the attributes $b_{1}, b_{2},\dots , b_{n}$ reference the primary key of the relation B.
 #### Relationship Sets
 
-The primary key attributes of the relationship set are also used as the primary key  
-attributes of the relational schema.
+The primary key attributes of the relationship set are also used as the primary key attributes of the relational schema.
 
 ![[Screenshot 2024-11-03 at 7.13.55 PM.jpg]]
 
