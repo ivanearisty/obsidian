@@ -219,14 +219,38 @@ Assume that text that is bolded (I think for you it looks like \*\*text\*\* are 
 Runner(**rID**, fname, lname, email)
 
 RunnerSponsors(**rID, sponsorNames**)
-	rID references Runner(rID)
+	RunnerSponsors(rID) references Runner(rID)
 
-Event(**eID, division**, distance, price)
+Event(**eID, division**, distance, price, winner)
+	Event(winner) references Runner(rID) <- I think we don't need to add win since we can just do this as an optimization.
 
 Comment: Since entry will be many to many, it can only be identified by all the pks
 Entry(**rID, eID, division**, bibNum, eTime)
-	rID references Runner(rID)
+	Entry(rID) references Runner(rID)
+	Entry(eid, division) references Event(eID,division)
 
 
+## Question 4
 
-I think we don't need to add win since we can just do an optimization, but I added it just in case and that is my final answer.
+### Question
+
+The running club whose ER is shown in Question 3 has realized that they would like to store data about their races in other years, as well. **Each event should now be identified by its eID, division, and year**. Events with the same eID and division have the same distance, but the same event in the same division could have different prizes in different years, and of course, could have different entrants and winners in different years. In addition, each runner can sign-up for a "LifeMembership" in an event, which gives them free entrance to that event every year.
+
+Redraw the ER diagram to incorporate these changes. (If some entity set or relationship set from the previous diagram doesn't change at all, you may show its box or diamond and name, without filling in the list of attributes.)
+
+### Reasoning
+
+We want to identify an event with a year
+
+All events are primarily identified by the eID and division and so they have the same distance
+which means that this could be a strong entity set
+
+Depending on this strong entity set, an instantiation of the event in some year will be uniquely identified by the combo above and the year,
+this event would now include different prizes, different entrats, and different winners.
+
+Additionally we need to model life membership, which shows that the runner can sign up to all instantiations of that particular event for free. 
+So we can draw a relation from runners to the strong entity and that would trickle down to the instantiation later on in the db implementation
+
+### Answer
+
+![[iae225.q4.drawio.svg]]
