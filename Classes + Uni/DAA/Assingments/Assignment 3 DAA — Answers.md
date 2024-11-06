@@ -194,10 +194,22 @@ This can be done in 3 steps:
 3. build the rb tree from the sorted list. this is simple as pie, first take the middle as root, and recur on left and right subtrees, setting left or right child to the parent of the subtrees (return value). At the end, this algorithm will yield a tree where all nodes but the last ones can be marked as black, so, recolor if there are any issues there.
 ## Question 2
 ### Problem 1
-![[Screenshot 2024-11-06 at 1.46.53 PM.jpg]]
 #### Question
-
+![[Screenshot 2024-11-06 at 1.46.53 PM.jpg]]
 #### Answer
+(assuming that boolean values get converted to 0 or 1 as integers)
+```
+TrimTree(T):
+	if(T == null) return T;
+	int children = T.left + T.right;
+	if(children == 0) return T;
+	if(children == 1){
+	
+	}
+	if(children == 2){
+	}
+```
+
 ## Question 3
 ## Question 4
 ## Question 5
