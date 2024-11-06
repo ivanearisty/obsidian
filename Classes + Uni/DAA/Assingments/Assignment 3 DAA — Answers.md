@@ -99,7 +99,73 @@ Since we have n - 1 nodes, we can insert into n locations.
 
 #### Answer
 
+PrintTree1(T):
+if the left node is not null, print the value,
+recurse the left and right subtrees.
 
+In essence, we print out every node that has a left child.
+
+```
+Indents are recursive tree but also the bolds are the values we print, and, yes, we print immediately.
+
+**50**
+	**25**
+		**12**
+			**6**
+				1
+				8
+				9
+		**35**
+			**30**
+				28
+			**40**
+				38
+				42
+				43
+				44
+	**80**
+		**70**
+			**60**
+				56
+				62
+		75
+			78
+	90
+		**95**
+			92
+			99
+```
+![[Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
+PrintTree2(T):
+Now, to even go left or right, we have to first pass the has left tree check. So, it's similar to the above, but, if your ancestors are not leftchilds, we wont be hearing from you.
+
+```
+**50**
+	**25**
+		**12**
+			**6**
+				1
+				8 -> same as above where these guys break immediately
+		**35**
+			**30**
+				28
+			**40**
+				38
+				42
+	**80**
+		**70**
+			**60**
+				75 -> again note, that we go into this "recursion" but we 
+					dont go past just breaking
+		90
+```
+
+![[Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
+
+PrintTree3(T)
+
+if the node is null we return 0
+if we are not null, we set height 
 ## Question 2
 ## Question 3
 ## Question 4
