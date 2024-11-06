@@ -166,7 +166,38 @@ PrintTree3(T)
 
 if the node is null we return 0
 if we are not null, we set height 
+to whatever we got from below the left subtree, and + 1
+we print only when h is bigger than 4
+Here we go left from 50
+left from 25 
+from 12, 6 and 1...
+now we are at a null node
+so we go 
+0 
+1 for 1
+6 for 2
+12 for 3
+25 for 4 and print it 
+and 50 for 4 and print it.
+
+PrintTree4(T) is the same as above, and, im gonna cheat, we do the same as above but add 1 
+so 25 and 50 now print 4 and 5 respectively.
+
+### Problem 4
+#### Question
+![[Screenshot 2024-11-06 at 1.29.16 PM.jpg]]
+#### Answer
+
+This can be done in 3 steps: 
+1. perform an inorder traversal of the trees, which would give us the sorted order of the elements. O(n)
+2. merge the lists together, as we saw on mergesort, also O(n)
+3. build the rb tree from the sorted list. this is simple as pie, first take the middle as root, and recur on left and right subtrees, setting left or right child to the parent of the subtrees (return value). At the end, this algorithm will yield a tree where all nodes but the last ones can be marked as black, so, recolor if there are any issues there.
 ## Question 2
+### Problem 1
+![[Screenshot 2024-11-06 at 1.46.53 PM.jpg]]
+#### Question
+
+#### Answer
 ## Question 3
 ## Question 4
 ## Question 5
