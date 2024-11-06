@@ -213,3 +213,15 @@ TrimTree(T):
 ## Question 3
 ## Question 4
 ## Question 5
+
+All, thanks for the call today, and I greatly appreciate your thoughtful feedback.
+
+Glenn, please send over the recording of the last call we had with Tecnotree, I'd like to parse through the sections where we talked about the DOM and DMLD.
+
+Bryan, feel free to send over the list of security requirements whenever it's most convenient for you. 
+
+And, Bruce, here is a long-form version of our concerns, please feel free to modify as desired, and, Ronnie, feel free to add anything else if it was missed.
+
+In the domain of the web applications tecnotree provides, we want to evaluate to what extent, both, the buyflow's (DOM) and self-care portal (DMLD) have a prebuilt frontend. Is it the case that 1) both have a prebuilt frontend that only requires us to provide a uiKit for a fully functional solution, 2) we are provided prebuilt frontend components/modules, but must put together the actual webpage, or 3) we are not provided with any client facing frontend, and only api endpoints to customer journeys.   
+Given scenario 1, how would these be deployed? Are each of these their own web application, and, hence, can be mapped to something like selfcare.wavelinkinternet.com or buyflow.wavelinkinternet.com?
+Given scenario 3, we need the api documentation to start our build process for
