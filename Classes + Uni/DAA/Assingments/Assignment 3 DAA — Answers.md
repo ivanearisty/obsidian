@@ -32,6 +32,13 @@ Quicksort representation:
 
 1, 2, 3, 4, 5, 6, 7, 9 -> 2
 ```
+
+### Problem 2
+
+#### Question
+Suppose we build a BST on n elements, by first permuting the input sequence, and then inserting the elements in random order. After n − 1 elements are inserted, we have one element left to insert. How many possible positions are there for the last element to be positioned in the tree? Explain your answer.
+
+#### Answer
 ## Question 2
 ## Question 3
 ## Question 4
