@@ -201,14 +201,55 @@ This can be done in 3 steps:
 ```
 TrimTree(T):
 	if(T == null) return T;
-	int children = T.left + T.right;
-	if(children == 0) return T;
-	if(children == 1){
+
+	T.left = TrimTree(T.left) 
+	T.right = TrimTree(T.right)
 	
-	}
-	if(children == 2){
-	}
+	if (T.left and not T.right)
+		return T.right
+	if (not T.left and T.right)
+		return T.left
+
+	return T
 ```
+
+For any tree, the runtime is T(n) = T(k) + T(n-k-1) + cn where k is the amount of children in the left subtree.
+
+Since we make a recursive call to all k nodes on the left, and the remaining nodes on the right, we will end up processing all nodes, no matter what. 
+
+Since we perform constant work at each step, we perform constant work n times.
+
+So T(n) = O(n)
+
+### Problem 2
+#### Question
+![[Screenshot 2024-11-06 at 3.35.58 PM.jpg]]
+
+#### Answer
+
+```
+RecreateBST(A,i,n):
+	
+	if (s > n) return null;
+
+	root = New Tree node();
+	root.val = A[f];
+
+	int j = i;
+	while (j < n and A[j] < A[f]) j++;
+
+	root.left = RecreateBST(A, s, j - 1);
+	root.right = RecreateBST(A, j, n - 1);
+
+	return root
+```
+
+### Problem 3
+#### Question
+![[Screenshot 2024-11-06 at 3.50.28 PM.jpg]]
+
+#### Answer
+
 
 ## Question 3
 ## Question 4
