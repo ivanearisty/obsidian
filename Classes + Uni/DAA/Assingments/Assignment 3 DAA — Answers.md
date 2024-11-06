@@ -270,9 +270,38 @@ maxDepth(T):
 ![[Screenshot 2024-11-06 at 4.03.35 PM.jpg]]
 
 ```
-
+MyNeighbour(T,y):
+	\\degen case
+	if(y.parent.left == y) return y.parent.right;
+	
+	\\ init 
+	int yValue = y.val;
+	int steps = 0;
+	T = y;
+	
+	\\find the next node that includes the neighbour in the subtree
+	while(T.val <= yValue){
+		T = T.parent;
+		steps++;
+	}
+	\\move to the right subtree
+	T = T.right;
+	
+	while(--steps > 0) T = T.left;
+	return T;
 ```
+
+![[Screenshot 2024-11-06 at 5.11.36 PM.jpg]]
+
+We go up the tree once, and down the tree once, only going through a path that is at most H\*2, one H for each of the traversals, which is O(H).
 ## Question 3
+### Problem 1
+#### Question
+![[Screenshot 2024-11-06 at 5.14.41 PM.jpg]]
+
+#### Answer
+
+
 ## Question 4
 ## Question 5
 
