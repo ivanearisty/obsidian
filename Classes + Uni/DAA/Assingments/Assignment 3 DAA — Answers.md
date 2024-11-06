@@ -250,7 +250,28 @@ RecreateBST(A,i,n):
 
 #### Answer
 
+```
+PrintDeep(T):
+	PrintDeep(T, 0, maxDepth(T));
 
+PrintDeep(T, depth, maxDepth):
+	if(T == null) return;
+	if(depth == maxDepth) print(t.val);
+	PrintDeep(T.left, depth + 1, maxDepth);
+	PrintDeep(T.right, depth + 1, maxDepth);
+
+maxDepth(T):
+	if(T == null) return 0;
+	return max(maxDepth(T.left), maxDepth(T.right)) + 1;
+```
+
+### Problem 4
+
+![[Screenshot 2024-11-06 at 4.03.35 PM.jpg]]
+
+```
+
+```
 ## Question 3
 ## Question 4
 ## Question 5
