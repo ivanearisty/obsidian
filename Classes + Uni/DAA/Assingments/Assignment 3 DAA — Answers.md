@@ -224,4 +224,4 @@ And, Bruce, here is a long-form version of our concerns, please feel free to mod
 
 In the domain of the web applications tecnotree provides, we want to evaluate to what extent, both, the buyflow's (DOM) and self-care portal (DMLD) have a prebuilt frontend. Is it the case that 1) both have a prebuilt frontend that only requires us to provide a uiKit for a fully functional solution, 2) we are provided prebuilt frontend components/modules, but must put together the actual webpage, or 3) we are not provided with any client facing frontend, and only api endpoints to customer journeys.   
 Given scenario 1, how would these be deployed? Are each of these their own web application, and, hence, can be mapped to something like selfcare.wavelinkinternet.com or buyflow.wavelinkinternet.com?
-Given scenario 3, we need the api documentation to start our build process for
+Given scenario 3, we need the api documentation to start our build process for these.
