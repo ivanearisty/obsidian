@@ -11,26 +11,42 @@ I was unsure whether to do random insertions or not
 
 ![[BST.drawio.svg]]
 so for comparisons you can see that each insertion does:
-1, 2, 3, 1, 2, 4, and 2 comparisons when inserting. The exact same of qs.
+Compare 5 with 1: 1
+Compare 4 with 5, Compare 4 with 1: 2
+Compare 2 with 5, Compare 2 with 1, Compare 2 with 4: 3
+Compare 7 with 5: 1 
+Compare 9 with 5, Compare 9 with 7: 2 
+Compare 3 with 5, Compare 3 with 1, Compare 3 with 4, Compare 3 with 2: 4  
+Compare 6 with 5, Compare 6 with 7: 2
+15 total
 ```
 Quicksort representation:
 5, 1, 4, 2, 7, 9, 3, 6
 
-5 -> 0
+[5, 1, 4, 2, 7, 9, 3, 6]
+Partition: [1, 4, 2, 3, 5, 7, 9, 6]
+Comparisons: 7
+Left: [1, 4, 2, 3]
+Right [7, 9, 6]
 
-1, 5 -> 1
+[1, 4, 2, 3]
+Parition: [1, 2, 3, 4]
+Comparisons: 3
+Left: [1, 2, 3]
 
-1, 4, 5 -> 2
+[1,2,3]
+Parition: [1, 2, 3]
+Comparisons: 2
+Left: [1]
+Right [3]
 
-1, 2, 4, 5 -> 3
+[7, 9, 6]
+Partition: [6, 7, 9]
+Comparisons: 2
+Left: [6]
+Right: [9]
 
-1, 2, 4, 5, 7 -> 1
-
-1, 2, 4, 5, 7, 9 -> 2
-
-1, 2, 3, 4, 5, 7, 9 -> 4
-
-1, 2, 3, 4, 5, 6, 7, 9 -> 2
+7 + 3 + 2 + 2 = 14
 ```
 
 ### Problem 2
