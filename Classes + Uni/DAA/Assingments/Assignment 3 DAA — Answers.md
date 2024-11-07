@@ -422,6 +422,8 @@ As soon as we hit a null node, we return -1 to the parent, and then they can res
 #### Answer
 The first thing to realize, is that a tree being inserted will only impact it's ancestors, it will have no effect on the rest of the tree. So, at most we are going to have to change h nodes, where h is the height of the tree, making this O(h)
 
+We have tree insert is:
+
 ```
 TreeInsert(T, val):
 	y = null;
@@ -431,13 +433,50 @@ TreeInsert(T, val):
 			T = T.left;
 		else
 			T = T.right;
-	
+	if(val < y.val)
+		y.left = newNode(val);
+	else 
+		y.right = newNode(val);
 ```
+
+But after careful consideration, i just don't see a way to update the tree size in O(h) if we only have access to diff. 
+I assume we dont have access to height because we didnt have it either for the question above.
+I thought about setting a boolean flag to see if the diff had changed or not, and then re-running insert but updating the diff based on the new heights, but it's just no possible without having access to a height variable.
 ### Problem 3
 #### Question
 ![[Screenshot 2024-11-06 at 10.45.38 PM.jpg]]
 #### Answer
+1. Since 9,25 and 1,24 overlap with 15,16, we will always find those first.
+2. now we can insert something like 8,27 in the pink node, and it will be found since nothing to it's left will overlap.
 
+### Problem 4
+#### Question
+Rewrite the interval search algorithm so that it prints out all intervals that intersect with the input interval i. Call your procedure PrintAll(T, i), where T is a reference to the root node of an interval tree, and i is an interval object. The result is that ALL intervals in the tree that intersect with i are returned.
+#### Answer
+```
+INTERVAL-SEARCH(x,i) 
+	While x != NIL and i does not overlap with x.interval 
+		if x.left != NIL and x.left.max ≥ i.low 
+			x = x.left 
+		else 
+			x = x.right 
+	return x
+PrintAll(T,i) 
+	if(T == null)
+		return
+	if(T.left != null and T.left.max >= i.low)
+		PrintAll(T.left, i)
+	if(T.interval overlaps with i)
+		print(T.interval)
+	if(T.right != null and T.right.low <= i.high)
+		PrintAll(x.right, i)
+```
+
+### Problem 5
+#### Question
+How can you implement an interval tree so that deletions and insertions are carried out in time O(log n)?
+#### Answer
+We can make the bst a rb or avl tree, in this way, w
 
 ## Question 5
 
