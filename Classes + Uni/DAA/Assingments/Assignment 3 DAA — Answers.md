@@ -476,18 +476,79 @@ PrintAll(T,i)
 #### Question
 How can you implement an interval tree so that deletions and insertions are carried out in time O(log n)?
 #### Answer
-We can make the bst a rb or avl tree, in this way, w
-
+We can make the bst a rb or avl tree. 
+If we go with a RB tree, rb repair will maintain a balanced tree.
+We would have to modify it so that it updates the max values after each rotation;
+however, whenever we perform rotations, only the node we are perfoming a rotation on, and the sibling will need updating.
+From our lecture notes, we set their new max to max(T.left.max, T.right.max, T.int.high) respectively.
+At each step, we now perform 2 more constant operations; however, there are only performed at most H times, which is the worst case scenario for an RB tree, when we go all the way to the top and recolor the root. 
+Hence insertions and deletions will be O(logn) since h = log(n)
 ## Question 5
 
-All, thanks for the call today, and I greatly appreciate your thoughtful feedback.
+### Problem 1
+#### Question
+![[Screenshot 2024-11-06 at 11.29.30 PM.jpg]]
+#### Answer
 
-Glenn, please send over the recording of the last call we had with Tecnotree, I'd like to parse through the sections where we talked about the DOM and DMLD.
+The first thing is to realize that all the projects from some interval will be valuable to us, if it's start time is before the start time of our project; hence, in this scenario, we don't have to even check the left subtree, we just take btotal immediately.
 
-Bryan, feel free to send over the list of security requirements whenever it's most convenient for you. 
+The other scenario is that we are at a project which actually does have a start time after s. Here we can essentially ignore the current project, and everything to the right, since those will start later too.
 
-And, Bruce, here is a long-form version of our concerns, please feel free to modify as desired, and, Ronnie, feel free to add anything else if it was missed.
+```
+EarlyBudget(T,s):
+	if(T == null)
+		return 0;
+	if(T.start >= s)
+		return EarlyBudget(T.left,s);
+	else
+		leftTotal = T.left.btotal;
+		rightTotal = EarlyBudget(T.right, s);
+		return T.budget + leftTotal = rightTotal;
+```
 
-In the domain of the web applications tecnotree provides, we want to evaluate to what extent, both, the buyflow's (DOM) and self-care portal (DMLD) have a prebuilt frontend. Is it the case that 1) both have a prebuilt frontend that only requires us to provide a uiKit for a fully functional solution, 2) we are provided prebuilt frontend components/modules, but must put together the actual webpage, or 3) we are not provided with any client facing frontend, and only api endpoints to customer journeys.   
-Given scenario 1, how would these be deployed? Are each of these their own web application, and, hence, can be mapped to something like selfcare.wavelinkinternet.com or buyflow.wavelinkinternet.com?
-Given scenario 3, we need the api documentation to start our build process for these.
+The reason this algorithm is O(h) is because we only recurse into the right subtree ever.
+We never touch the left subtree, only getting the btotal. 
+Hence, on the worst case, we are going to go on a path straight down the rightmost, latest starting project.
+On this worst case, we traverse the height of this path, which, at most, is the height of the tree, H. 
+So, the algorithm is O(h)
+
+### Problem 2
+#### Question
+![[Screenshot 2024-11-06 at 11.38.56 PM.jpg]]
+#### Answer
+
+```
+ProjectsAfter(T,k):
+	if(T == null)
+		return 0;
+	if(T.start <= k.start)
+		return ProjectsAfter(T.right,k);
+	else
+		leftTotal = ProjectsAfter(T.left,k);
+		rightTotal = T.right.btotal;
+		return T.budget + leftTotal = rightTotal;
+```
+
+This is also O(h) since we again follow a path from a root to the leaf. 
+By knowing the exact end date of the project, we know what start date we are looking for.
+Looking by start dates (or the min) is O(h) for interval trees.
+
+### Problem 3
+#### Question
+![[Screenshot 2024-11-06 at 11.48.06 PM.jpg]]
+#### Answer
+```
+IntervalTotal(T,a,b):
+	if(T == null)
+		return 0;
+	if(T.start < a)
+		return IntervalTotal(T.right,a,b);
+	else if(T.start > b)
+		return IntervalTotal(T.left,a,b);
+	else
+		count = 1;
+		if(T.left.max >= a)
+			left = IntervalTotal(T.left,a,b);
+		else 
+			left = T.left.size
+```
