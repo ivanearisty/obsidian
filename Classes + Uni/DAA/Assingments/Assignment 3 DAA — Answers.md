@@ -300,7 +300,7 @@ We go up the tree once, and down the tree once, only going through a path that i
 ![[Screenshot 2024-11-06 at 5.14.41 PM.jpg]]
 
 #### Answer
-
+If we insert 17 we have the straight case and rb repair performs the rotation
 
 ## Question 4
 ## Question 5
