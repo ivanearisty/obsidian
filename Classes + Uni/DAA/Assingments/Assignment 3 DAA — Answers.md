@@ -300,8 +300,40 @@ We go up the tree once, and down the tree once, only going through a path that i
 ![[Screenshot 2024-11-06 at 5.14.41 PM.jpg]]
 
 #### Answer
-If we insert 17 we have the straight case and rb repair performs the rotation
+If we insert 17 we have the straight case and rb repair performs the rotation straight up.
 
+The uncle of 17 (node 15) is black, so we do a right rotation around 20 which fixes the violation after adjusting colors.
+
+```
+		       30 (Black)
+			      /                    \
+			   10 (Black)               40 (Black)
+		   /     \                       /     \
+	 5 (Black)  20 (Red)            35 (Black)  45 (Black)
+	 /     \        /     \
+2 (Red)  7 (Red) 15 (Black) 25 (Black)
+	             /       \
+	         12 (Red)   16 (Red)
+					         \
+						   17 (Red)
+Recolor 12 and 16 (the parent and uncle) to black
+		       30 (Black)
+			      /                    \
+			   10 (Black)               40 (Black)
+		   /     \                       /     \
+	 5 (Black)  20 (Red)            35 (Black)  45 (Black)
+	 /     \        /     \
+2 (Red)  7 (Red) 15 (red) 25 (Black)
+	             /       \
+	         12 (black)   16 (black)
+					         \
+						   17 (Red)
+after recursively recolloring we spot another problem 
+```
+
+Since we're not adding or removing any black nodes, the total count of black nodes on each path remains the same.
+
+An addition would only cause the black height to increase if it
 ## Question 4
 ## Question 5
 
