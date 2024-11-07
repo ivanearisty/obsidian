@@ -369,6 +369,14 @@ $$
 n = 2^{bh(x)} - 1
 $$
 and solve for bh
+$$
+bh(x) = \log_{2}(n+1)
+$$
+If we maximize the height of the tree to fit n nodes, we go back to the previous formula of alternating the nodes.
+So for a completely full rb tree with the most amount of nodes, the root is black, the children are red, and then we keep alternating as we fill in the n nodes. Also, imagine we run out of nodes midway through, we can still fix the rb property with re-coloring.
+Hence, the maximum height of an rb tree with n nodes, distills to our previous equation:
+$2^{bh(x)}-1 + 2(2^{bh(x)}-1)$ where every black node has 2 red children
+
 
 
 ## Question 4
