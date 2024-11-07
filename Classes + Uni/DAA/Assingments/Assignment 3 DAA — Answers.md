@@ -363,21 +363,25 @@ An addition would only cause the black height to increase if it
 ![[Screenshot 2024-11-06 at 8.26.15 PM.jpg]]
 #### Answer
 
-Initially I was thinking of another alternating tree, so with n nodes we could have a formula like the above, but, upon further revision, the maximum for n nodes is when all n nodes are black.
-In this case, the maximum black height = the height, so we can look at the formula from the notes:
+bh is upper bounder by 
 $$
-n = 2^{bh(x)} - 1
+\begin{gather}
+bh(x) \le \log(n+1)
+\end{gather}
 $$
-and solve for bh
+so we can have at most
 $$
-bh(x) = \log_{2}(n+1)
+\begin{gather}
+2^{bh(x)} - 1 = n
+\end{gather}
 $$
-If we maximize the height of the tree to fit n nodes, we go back to the previous formula of alternating the nodes.
-So for a completely full rb tree with the most amount of nodes, the root is black, the children are red, and then we keep alternating as we fill in the n nodes. Also, imagine we run out of nodes midway through, we can still fix the rb property with re-coloring.
-Hence, the maximum height of an rb tree with n nodes, distills to our previous equation:
-$2^{bh(x)}-1 + 2(2^{bh(x)}-1)$ where every black node has 2 red children
+since every black node can have two red children, we would multiply 
+
+### Problem 4
+#### Question
 
 
+#### Answer
 
 ## Question 4
 ## Question 5
