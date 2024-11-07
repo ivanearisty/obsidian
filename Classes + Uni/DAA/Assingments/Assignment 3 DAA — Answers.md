@@ -420,6 +420,23 @@ As soon as we hit a null node, we return -1 to the parent, and then they can res
 #### Question
 ![[Screenshot 2024-11-06 at 10.22.29 PM.jpg]]
 #### Answer
+The first thing to realize, is that a tree being inserted will only impact it's ancestors, it will have no effect on the rest of the tree. So, at most we are going to have to change h nodes, where h is the height of the tree, making this O(h)
+
+```
+TreeInsert(T, val):
+	y = null;
+	while T != null
+		y = T;
+		if(val < T.val)
+			T = T.left;
+		else
+			T = T.right;
+	
+```
+### Problem 3
+#### Question
+![[Screenshot 2024-11-06 at 10.45.38 PM.jpg]]
+#### Answer
 
 
 ## Question 5
