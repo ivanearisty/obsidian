@@ -346,7 +346,7 @@ Since we're not adding or removing any black nodes, the total count of black nod
 
 An addition would only cause the black height to increase if it
 
-### Problem 3 
+### Problem 2
 #### Question
 ![[Screenshot 2024-11-06 at 8.04.55 PM.jpg]]
 
@@ -355,7 +355,21 @@ An addition would only cause the black height to increase if it
 2. 4
 3. double the black height, so, 8.
 4. It's always possible for all nodes to be coloured black if inserted using our mergesortish technique.
-5. 
+5. I mean, we didn't specify if it was black height or just regular height, for height 2, we can color all leafs red or all leafs black.
+
+### Problem 3
+#### Question
+
+![[Screenshot 2024-11-06 at 8.26.15 PM.jpg]]
+#### Answer
+
+Initially I was thinking of another alternating tree, so with n nodes we could have a formula like the above, but, upon further revision, the maximum for n nodes is when all n nodes are black.
+In this case, the maximum black height = the height, so we can look at the formula from the notes:
+$$
+n = 2^{bh(x)} - 1
+$$
+and solve for bh
+
 
 ## Question 4
 ## Question 5
