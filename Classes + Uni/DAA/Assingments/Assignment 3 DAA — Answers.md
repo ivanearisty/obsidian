@@ -191,7 +191,9 @@ so 25 and 50 now print 4 and 5 respectively.
 This can be done in 3 steps: 
 1. perform an inorder traversal of the trees, which would give us the sorted order of the elements. O(n)
 2. merge the lists together, as we saw on mergesort, also O(n)
-3. build the rb tree from the sorted list. this is simple as pie, first take the middle as root, and recur on left and right subtrees, setting left or right child to the parent of the subtrees (return value). At the end, this algorithm will yield a tree where all nodes but the last ones can be marked as black, so, recolor if there are any issues there.
+3. build the rb tree from the sorted list. this is simple as pie, first take the middle as root, and recur on left and right subtrees, setting left or right child to the parent of the subtrees (return value). 
+4. At the end, this algorithm will yield a tree where all nodes but the last ones can be marked as black, so, recolor if there are any issues there.
+4. At the end, this algorithm will yield a tree where we can recolor. For the coloring strategy we can color even levels as black, and odd levels as red. If while coloring an even level we run out of nodes, we go back to the previous level, which is red, and iterate on all the neighbours (using the neighbour algorithm defined above) of this node's parent, coloring them black, and ensuring that black height was maintained. If we run out of nodes on an odd level, we just stop.
 ## Question 2
 ### Problem 1
 #### Question
@@ -379,11 +381,47 @@ since every black node can have two red children, we would multiply
 
 ### Problem 4
 #### Question
+Draw an example of a RBT on 16 nodes with black height 3 that has two different possible colorings. Show the different possible colorings.
+#### Answer
+![[Screenshot 2024-11-06 at 9.55.50 PM.jpg]]
+Node 30 can be recolored as black and 25 as red
+This is because we kept one side of the tree alternating, and on the other side kept the black height at 3. Adding the new red node to the leftmost node allows us the flexibility of recolloring however we want. We could have added to 25 or 81 in this case.
 
+### Problem 5
+#### Question
+![[Screenshot 2024-11-06 at 9.59.12 PM.jpg]]
 
 #### Answer
+It takes O(nlogn) because: Insertions to the tree take logn time and we have to insert n nodes. 
 
+Insertions take logn time because the height of the tree is guaranteed to be logn, and repairing a single node takes O(1), but we have to repair for every node up (the ancestors) which is log(n) or, in other words, the max height.
+
+To transform a BST to RBT in O(n) time we can get the inorder traversal of the BST, store it in an array, and rebuild the rb tree with the method we used in problem 4.
+
+We could store the nodes and remove and re attach all pointers, or just store values and make a new tree.
 ## Question 4
+
+### Problem 1
+#### Question
+![[Screenshot 2024-11-06 at 10.13.33 PM.jpg]]
+#### Answer
+
+```
+SetDiff(T):
+    if(T == null) return -1;
+    left = SetDiff(T.left);
+    right = SetDiff(T.right)l
+    T.diff = left - right;
+	return max(left,right) + 1;
+```
+
+As soon as we hit a null node, we return -1 to the parent, and then they can resume calculations. All calculations happen in O(1) and we do this for n nodes. Hence, this will run in O(n) because we visit every node at most once and perform constant calculations while there.
+### Problem 2
+#### Question
+![[Screenshot 2024-11-06 at 10.22.29 PM.jpg]]
+#### Answer
+
+
 ## Question 5
 
 All, thanks for the call today, and I greatly appreciate your thoughtful feedback.
