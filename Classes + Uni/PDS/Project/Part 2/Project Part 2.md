@@ -23,7 +23,7 @@ Item(**ItemID**,iDescription, photo, color, isNew?, hasPieces?, material, mainCa
 	mainCategory()
 
 ### Office hours questions:
-Assume all 
+All of the following are doubts I would like to confirm:
 1. Even though it says "diagram" we can write out the relational model.
 2. Verify Assertion: Since the itemCategory relationship is many to one from Item to Category, and Item has total participation in the relationship, we can coalesce the relationship set into Item, and make item:
 	```
@@ -31,4 +31,5 @@ Assume all
 		Item(mainCategory) references Category(mainCategory)
 		Item(subCategory) references Category(subCategory)
 	```
-	This same thing can be done with the sets for and supervised.
+	This same thing can be done with the relationship sets "for" and "supervised".
+	
