@@ -317,7 +317,7 @@ The uncle of 17 (node 15) is black, so we do a right rotation around 20 which fi
 					         \
 						   17 (Red)
 Recolor 12 and 16 (the parent and uncle) to black
-		       30 (Black)
+					    30 (Black)
 			      /                    \
 			   10 (Black)               40 (Black)
 		   /     \                       /     \
@@ -328,12 +328,35 @@ Recolor 12 and 16 (the parent and uncle) to black
 	         12 (black)   16 (black)
 					         \
 						   17 (Red)
-after recursively recolloring we spot another problem 
+After recursively recolloring we spot another problem  at 15 and 20
+					    30 (Black)
+			      /                    \
+			   10 (Black)               40 (Black)
+		   /     \                       /     \
+	 5 (Black)  20 (Red)            35 (Black)  45 (Black)
+	 /     \        /     \
+2 (Red)  7 (Red) 15 (red) 25 (Black)
+	             /       \
+	         12 (black)   16 (black)
+					         \
+						   17 (Red)
 ```
 
 Since we're not adding or removing any black nodes, the total count of black nodes on each path remains the same.
 
 An addition would only cause the black height to increase if it
+
+### Problem 3 
+#### Question
+![[Screenshot 2024-11-06 at 8.04.55 PM.jpg]]
+
+#### Answer
+1. For a rb tree thats all black, we know the max will be $n=2^{bh(x)}-1$ If for every black node, we assume that it has 2 red children, in alternating order. If we assume that every node has two red children, then the formula for a maxed out tree is $2^{bh(x)}-1 + 2(2^{bh(x)}-1)$ or 45
+2. 4
+3. double the black height, so, 8.
+4. It's always possible for all nodes to be coloured black if inserted using our mergesortish technique.
+5. 
+
 ## Question 4
 ## Question 5
 
