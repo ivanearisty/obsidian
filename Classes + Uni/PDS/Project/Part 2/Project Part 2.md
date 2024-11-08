@@ -58,6 +58,9 @@ ItemIn(**orderItem**, **orderID**, found)
 
 Record a new item that has been donated. It’s a two-piece yellow sofa (category ‘furniture’, subcategory ‘sofa’), donated by someone from your group. Their username should be their name as a single string, optionally with some numbers at the end. You may assign any itemID you’d like (or may look up how to use AutoIncrement). The pieces are the ‘sofa body’ and one ‘cushion’. It will be stored in Room 5, without a shelf designated.
 
+![[Screenshot 2024-11-08 at 3.11.52 AM.jpg]]
+
+
 ### Question B
 
 Produce a list of all of the (pieces) of items in order # 12345, along with their locations. This should have information that volunteers will find useful for locating the item when they’re assembling the order, including the item IDs, their categories and subcategories, and the room and shelf where each piece is located. Optionally, you may include the description and other data.
