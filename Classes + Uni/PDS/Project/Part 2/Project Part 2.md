@@ -54,7 +54,7 @@ ItemIn(**orderItem**, **orderID**, found)
 
 ## Part B
 
-
+take the additional insertions to be those made for the last question.
 ## Part C
 
 ### Question A
@@ -67,6 +67,7 @@ Record a new item that has been donated. It’s a two-piece yellow sofa (categor
 ![[Screenshot 2024-11-08 at 5.00.22 PM.jpg]]
 ![[Screenshot 2024-11-08 at 5.08.32 PM.jpg]]
 ![[Screenshot 2024-11-08 at 5.10.33 PM.jpg]]
+
 ```sql
 insert ignore into Category values ('furniture', 'sofa', 'Sofas for Living ROoms');
 insert ignore into Item values (1, 'Two-piece yellow sofa', null, 'yellow', true, false, 'fabric');
@@ -80,7 +81,13 @@ insert ignore into DonatedBy values ('iae225', 1, current_date);
 
 Produce a list of all of the (pieces) of items in order #12345, along with their locations. This should have information that volunteers will find useful for locating the item when they’re assembling the order, including the item IDs, their categories and subcategories, and the room and shelf where each piece is located. Optionally, you may include the description and other data.
 
+Since we want to get items that might not have a designated piece we are doing outerjoins for the location.
+
 ```sql
+insert ignore into Person values ('Someone', '321903210', 'some', 'person', 'anemail@nyu.edu');
+insert ignore into Orders values (12345, current_date, 'example', 'Someone', 'iae225');
+insert ignore into ItemIn values (1, 12345, 'found what?');
+
 select 
     Piece.pieceNum as pieceNumber,
     Item.itemID as itemID,
@@ -95,23 +102,22 @@ select
     Piece.plength as length,
     Piece.pwidth as width,
     Piece.pheight as height
-from 
+from
     Orders
-join 
+join
     ItemIn on Orders.orderID = ItemIn.orderID
-join 
+join
     Item on ItemIn.orderItem = Item.itemID
-join 
+join
     Piece on Item.itemID = Piece.itemID
-join 
+join
     ItemCategory on Item.itemID = ItemCategory.itemID
-join 
-    category on itemcategory.mainCategory = category.mainCategory and itemcategory.subCategory = category.subCategory
-left join 
-    location on piece.roomNumber = location.roomNumber and piece.shelfNumber = location.shelfNumber
-where 
-    orders.orderID = 12345
-order by 
-    item.itemID, piece.pieceNum;
-
+join
+    Category on ItemCategory.mainCategory = Category.mainCategory and ItemCategory.subCategory = Category.subCategory
+left join
+    Location on Piece.roomNumber = Location.roomNumber and Piece.shelfNumber = Location.shelfNumber
+where
+    Orders.orderID = 12345
+order by
+    Item.itemID;
 ```
