@@ -23,12 +23,12 @@ Item(**ItemID**,iDescription, photo, color, isNew?, hasPieces?, material, mainCa
 	Item(mainCategory) references Category(mainCategory)
 	Item(subCategory) references Category(subCategory)
 
-Location(**roomNumber**, **shelf**, shelfDescription)
+Location(**roomNumber**, **shelfNumber**, shelfDescription)
 
-Piece(**pieceNum**, **itemID**, pDescription, length, width, height, roomNumber, shelf, storageNotes)
+Piece(**pieceNum**, **itemID**, pDescription, length, width, height, roomNumber, shelfNumber, storageNotes)
 	Piece(itemID) references Item(itemID)
 	Piece(roomNum) references Location(roomNumber)
-	Piece(shelf) references Location(shelf)
+	Piece(shelfNumber) references Location(shelfNumber)
 
 Person(**userName**, password, name, fname, lname, email)
 
