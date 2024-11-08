@@ -16,6 +16,9 @@ After making item and category, do we need to include itemcategory?
 Well from the book: "in a many to one relationship set AB, from entity set A to entity set B, if the participation of A is total, then we can combine A and AB to form a signle schema consisting o the union of the attributes of both schemas"
 
 Here we have total participation from item to category, hence, we can combine itemcategory and item.
+
+Error Code: 6125. Failed to add the foreign key constraint. Missing unique key for constraint 'fkp2l' in the referenced table 'Location'
+
 ### Answer
 Category(**mainCategory**, **subCategory**, notes)
 
@@ -30,7 +33,7 @@ Piece(**pieceNum**, **itemID**, pDescription, length, width, height, roomNumber,
 	Piece(roomNum) references Location(roomNumber)
 	Piece(shelfNumber) references Location(shelfNumber)
 
-Person(**userName**, password, name, fname, lname, email)
+Person(**userName**, password, fname, lname, email)
 
 PersonPhones(**userName**,**phoneNumber**)
 	PersonPhones(username) references Person(username)
@@ -98,3 +101,4 @@ Item(**ItemID**,iDescription, photo, color, isNew?, hasPieces?, material, mainCa
 I'm trying to understand whether actually doing this is a valid approach to the problem.
 
 2: I kind of alluded to this previously, but, just to make sure, "on update" or "on delete" are also not necessary, correct?
+
