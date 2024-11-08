@@ -29,6 +29,33 @@ Piece(**pieceNum**, **itemID**, pDescription, length, width, height, roomNumber,
 	Piece(itemID) references Item(itemID)
 	Piece(roomNum) references Location(roomNumber)
 	Piece(shelf) references Location(shelf)
+
+Person(**userName**, password, name, fname, lname, email, role)
+
+PersonPhones(**userName**,**phoneNumber**)
+	PersonPhones(username) references Person(username)
+
+DonatedBy(**donator**,**donation**, donationDate)
+	DonatedBy(donator) references Person(userName)
+	DonatedBy(donation) references Item(itemID)
+
+Role(**roleID**, roleDescription)
+
+Act(**userName**,**roleID**)
+	Act(userName) references Person(userName)
+	Act(roleID) references Role(roleID)
+
+Order(**orderID**, orderDate, orderNotes, supervisor, recipient)
+	Order(supervisor) references Person(userName)
+	Order(recipient) references Person(userName)
+
+Delivered(**deliveredBy**, **deliveredOrder**, orderStatus, orderDate)
+	Delivered(deliveredBy) references Person(userName)
+	Delivered(deliveredOrder) references Order(orderID)
+
+ItemIn(**orderItem**, **orderID**, found)
+	ItemIn(orderItem) references Item(itemID)
+	ItemIn(orderID) references Order(orderID)
 ### Office hours questions:
 All of the following are doubts I would like to confirm:
 1. Even though it says "diagram" we can write out the relational model.
@@ -39,4 +66,6 @@ All of the following are doubts I would like to confirm:
 		Item(subCategory) references Category(subCategory)
 	```
 	This same thing can be done with the relationship sets "for", and "supervised" 
-3. Can "notes" from PieceIn x 
+3. "Notes" from PieceIn be moved into Piece due to total participation.
+4. How does the roleID table work if we have role in person? Shouldn't role be implied by the act relationship?
+5. Do we need to enforce integrity constraints in this database? We mention fk and pk constraints, but do we need to enforce that every order must have an item in our dbms for example?
