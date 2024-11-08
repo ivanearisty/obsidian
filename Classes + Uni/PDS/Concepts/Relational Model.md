@@ -8,8 +8,7 @@ tags:
 
 ### Introduction
 
-A **relational database** consists of a collection of **tables**, each of which is assigned a  
-*unique name*.
+A **relational database** consists of a collection of **tables**, each of which is assigned a  *unique name*.
 
 ![[Screenshot 2024-10-09 at 5.34.14 PM.jpg | 400]]
 

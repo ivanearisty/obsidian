@@ -20,7 +20,10 @@ Here we have total participation from item to category, hence, we can combine it
 Category(**mainCategory**, **subCategory**, notes)
 
 Item(**ItemID**,iDescription, photo, color, isNew?, hasPieces?, material, mainCategory, subCategory)
-	mainCategory()
+	Item(mainCategory) references Category(mainCategory)
+	Item(subCategory) references Category(subCategory)
+
+Location(**roomNumber**, **shelf**, shelfDescription)
 
 ### Office hours questions:
 All of the following are doubts I would like to confirm:
