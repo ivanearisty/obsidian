@@ -96,15 +96,15 @@ select
     Piece.pwidth as width,
     Piece.pheight as height
 from 
-    orders
+    Orders
 join 
-    itemIn on orders.orderID = itemin.orderID
+    ItemIn on Orders.orderID = ItemIn.orderID
 join 
-    item on itemin.orderItem = item.itemID
+    Item on ItemIn.orderItem = Item.itemID
 join 
-    piece on item.itemID = piece.itemID
+    Piece on Item.itemID = Piece.itemID
 join 
-    itemcategory on item.itemID = itemcategory.itemID
+    ItemCategory on Item.itemID = ItemCategory.itemID
 join 
     category on itemcategory.mainCategory = category.mainCategory and itemcategory.subCategory = category.subCategory
 left join 
