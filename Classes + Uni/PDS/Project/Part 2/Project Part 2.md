@@ -61,9 +61,57 @@ ItemIn(**orderItem**, **orderID**, found)
 
 Record a new item that has been donated. It’s a two-piece yellow sofa (category ‘furniture’, subcategory ‘sofa’), donated by someone from your group. Their username should be their name as a single string, optionally with some numbers at the end. You may assign any itemID you’d like (or may look up how to use AutoIncrement). The pieces are the ‘sofa body’ and one ‘cushion’. It will be stored in Room 5, without a shelf designated.
 
-![[Screenshot 2024-11-08 at 3.11.52 AM.jpg]]
-
-
+![[Screenshot 2024-11-08 at 4.54.11 PM.jpg]]
+![[Screenshot 2024-11-08 at 4.54.48 PM.jpg]]
+![[Screenshot 2024-11-08 at 4.56.03 PM.jpg]]
+![[Screenshot 2024-11-08 at 5.00.22 PM.jpg]]
+![[Screenshot 2024-11-08 at 5.08.32 PM.jpg]]
+![[Screenshot 2024-11-08 at 5.10.33 PM.jpg]]
+```sql
+insert ignore into Category values ('furniture', 'sofa', 'Sofas for Living ROoms');
+insert ignore into Item values (1, 'Two-piece yellow sofa', null, 'yellow', true, false, 'fabric');
+insert ignore into ItemCategory values ('furniture', 'sofa', 1);
+insert ignore into Piece values (1, 1, 'sofa body', 110.0, 35.0, 30.0, 5, NULL, 'Stored in Room 5 without a designated shelf');
+insert ignore into Piece values (2, 1, 'cushion', 33.00, 15.0, 5.0, 5, NULL, 'Stored in Room 5 without a designated shelf');
+insert ignore into Person values ('iae225', '12345', 'ivan', 'aristy', 'iae225@stern.nyu.edu');
+insert ignore into DonatedBy values ('iae225', 1, current_date);
+```
 ### Question B
 
-Produce a list of all of the (pieces) of items in order # 12345, along with their locations. This should have information that volunteers will find useful for locating the item when they’re assembling the order, including the item IDs, their categories and subcategories, and the room and shelf where each piece is located. Optionally, you may include the description and other data.
+Produce a list of all of the (pieces) of items in order #12345, along with their locations. This should have information that volunteers will find useful for locating the item when they’re assembling the order, including the item IDs, their categories and subcategories, and the room and shelf where each piece is located. Optionally, you may include the description and other data.
+
+```sql
+select 
+    Piece.pieceNum as pieceNumber,
+    Item.itemID as itemID,
+    Item.itemDescription as itemDescription,
+    Category.mainCategory as mainCategory,
+    Category.subCategory as subCategory,
+    Location.roomNumber as roomNumber,
+    Location.shelfNumber as shelfNumber,
+    Location.shelfDescription as shelfDescription,
+    Piece.storageNotes as storageNotes,
+    Piece.pDescription as pieceDescription,
+    Piece.plength as length,
+    Piece.pwidth as width,
+    Piece.pheight as height
+from 
+    orders
+join 
+    itemIn on orders.orderID = itemin.orderID
+join 
+    item on itemin.orderItem = item.itemID
+join 
+    piece on item.itemID = piece.itemID
+join 
+    itemcategory on item.itemID = itemcategory.itemID
+join 
+    category on itemcategory.mainCategory = category.mainCategory and itemcategory.subCategory = category.subCategory
+left join 
+    location on piece.roomNumber = location.roomNumber and piece.shelfNumber = location.shelfNumber
+where 
+    orders.orderID = 12345
+order by 
+    item.itemID, piece.pieceNum;
+
+```
