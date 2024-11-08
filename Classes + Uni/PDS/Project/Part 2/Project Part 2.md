@@ -25,6 +25,10 @@ Item(**ItemID**,iDescription, photo, color, isNew?, hasPieces?, material, mainCa
 
 Location(**roomNumber**, **shelf**, shelfDescription)
 
+Piece(**pieceNum**, **itemID**, pDescription, length, width, height, roomNumber, shelf, storageNotes)
+	Piece(itemID) references Item(itemID)
+	Piece(roomNum) references Location(roomNumber)
+	Piece(shelf) references Location(shelf)
 ### Office hours questions:
 All of the following are doubts I would like to confirm:
 1. Even though it says "diagram" we can write out the relational model.
@@ -34,5 +38,5 @@ All of the following are doubts I would like to confirm:
 		Item(mainCategory) references Category(mainCategory)
 		Item(subCategory) references Category(subCategory)
 	```
-	This same thing can be done with the relationship sets "for" and "supervised".
-	
+	This same thing can be done with the relationship sets "for", and "supervised" 
+3. Can "notes" from PieceIn x 
