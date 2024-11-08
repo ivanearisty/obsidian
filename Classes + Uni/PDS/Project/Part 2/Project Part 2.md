@@ -69,3 +69,4 @@ All of the following are doubts I would like to confirm:
 3. "Notes" from PieceIn be moved into Piece due to total participation.
 4. How does the roleID table work if we have role in person? Shouldn't role be implied by the act relationship?
 5. Do we need to enforce integrity constraints in this database? We mention fk and pk constraints, but do we need to enforce that every order must have an item in our dbms for example?
+6. To my knowledge, there is no way to optimize ItemIn. It has total participation but not the correct way to do so.
