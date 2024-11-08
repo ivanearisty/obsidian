@@ -12,8 +12,11 @@ Assume bold means pk
 Category(**mainCategory**, **subCategory**, notes)
 
 Item(**ItemID**,iDescription, photo, color, isNew?, hasPieces?, material, mainCategory, subCategory)
-	Item(mainCategory) references Category(mainCategory)
-	Item(subCategory) references Category(subCategory)
+
+ItemCategory(**itemID**, **mainCategory**, **subCategory**)
+	ItemCategory(mainCategory) references Category(mainCategory)
+	ItemCategory(subCategory) references Category(subCategory)
+	ItemCategory(itemID) references Item(itemID)
 
 Location(**roomNumber**, **shelfNumber**, shelfDescription)
 
