@@ -1,6 +1,8 @@
 ---
 tags:
   - PDS
+cssclasses:
+  - academic-pdf-export
 ---
 # iae225
 
@@ -54,6 +56,168 @@ ItemIn(**orderItem**, **orderID**, found)
 
 ## Part B
 
+```
+CREATE SCHEMA IF NOT EXISTS Project2;
+
+use Project2;
+
+drop table if exists Category;
+drop table if exists Item;
+drop table if exists Location;
+drop table if exists Piece;
+drop table if exists Person;
+drop table if exists PersonPhones;
+drop table if exists DonatedBy;
+drop table if exists Roles;
+drop table if exists Act;
+drop table if exists Orders;
+drop table if exists Delivered;
+drop table if exists ItemIn;
+```
+
+```
+create table if not exists Category(
+	mainCategory varchar(64),
+    subCategory varchar(64),
+    notes varchar(255),
+    primary key (mainCategory, subCategory)
+);
+```
+
+```
+create table if not exists Item(
+	itemID integer,
+    itemDescription varchar(255),
+    itemPhoto varbinary(8000),
+    itemColor varchar(16),
+    isNew boolean,
+    hasPieces boolean,
+    material varchar (128),
+    primary key (itemID)
+);
+```
+
+```
+create table if not exists ItemCategory(
+	mainCategory varchar(64),
+    subCategory varchar(64),
+    itemID integer,
+    primary key (mainCategory, subCategory, itemID),
+	foreign key (mainCategory, subCategory) references Category(mainCategory, subCategory),
+	foreign key (itemID) references Item(itemID)
+);
+```
+
+```
+create table if not exists Location(
+	roomNumber integer,
+    shelfNumber integer,
+    shelfDescription varchar(255),
+    primary key (roomNumber, shelfNumber)
+);
+```
+
+```
+create table if not exists Piece(
+	pieceNum integer,
+    itemID integer,
+    pDescription varchar(255),
+    plength float,
+    pwidth float,
+    pheight float,
+    roomNumber integer,
+    shelfNumber integer,
+    storageNotes varchar(255),
+    primary key (pieceNum, itemID),
+    foreign key (itemID) references Item(itemID),
+    foreign key (roomNumber, shelfNumber) references Location(roomNumber, shelfNumber)
+);
+```
+
+```
+create table if not exists Person(
+	userName varchar(64),
+    userPassword varchar(255),
+    fName varchar(128),
+    lName varchar(128),
+    email varchar(255),
+    primary key (userName)
+);
+```
+
+```
+create table if not exists PersonPhones(
+	userName varchar(64),
+    phoneNumber varchar(64),
+    primary key (userName, phoneNumber),
+    foreign key (userName) references Person(userName)
+);
+```
+
+```
+create table if not exists DonatedBy(
+	donator varchar(64),
+    donation integer,
+    donationDate date,
+    primary key (donator, donation),
+    foreign key (donator) references Person(userName),
+    foreign key (donation) references Item(itemID)
+);
+```
+
+```
+create table if not exists Roles(
+	roleID integer,
+    roleDescription varchar(255),
+    primary key (roleID)
+);
+```
+
+```
+create table if not exists Act(
+	userName varchar(64),
+    roleID integer,
+    primary key (userName, roleID),
+    foreign key (userName) references Person(userName),
+    foreign key (roleID) references Roles(roleID)
+);
+```
+
+```
+create table if not exists Orders(
+	orderID integer,
+    orderDate date,
+    orderNotes varchar(255),
+    supervisor varchar(64),
+    recipient varchar(64),
+    primary key (orderID),
+    foreign key (supervisor) references Person(userName),
+    foreign key (recipient) references Person(userName)
+);
+```
+
+```
+create table if not exists Delivered(
+	deliveredBy varchar(64),
+    deliveredOrder integer,
+    orderStatus varchar(16),
+    orderDate date,
+    primary key (deliveredBy, deliveredOrder),
+    foreign key (deliveredBy) references Person(userName),
+    foreign key (deliveredOrder) references Orders(orderID)
+); 
+```
+
+```
+create table if not exists ItemIn(
+	orderItem integer,
+    orderID integer,
+    itemFound varchar(255),
+    primary key (orderItem, orderID),
+    foreign key (orderItem) references Item(itemID),
+    foreign key (orderID) references Orders(orderID)
+); 
+```
 take the additional insertions to be those made for the last question.
 ## Part C
 
@@ -121,3 +285,5 @@ where
 order by
     Item.itemID;
 ```
+
+![[Screenshot 2024-11-08 at 6.58.54 PM.jpg]]
