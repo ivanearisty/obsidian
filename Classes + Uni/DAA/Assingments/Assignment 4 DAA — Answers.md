@@ -40,7 +40,9 @@ $$
 $$
 
 #### Recurrence Relation
+Consider every entry dp\[r]\[t]
 
+Case 1:  $t \ge r$ 
 
 #### Pseudo Code
 #### Runtime
