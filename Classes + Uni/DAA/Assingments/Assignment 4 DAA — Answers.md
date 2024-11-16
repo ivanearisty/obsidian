@@ -105,10 +105,7 @@ where i is the x coordinate
 and j is the y coordinate
 #### Init — 2D
 
-This will be a 0 indexed array that will have a 100% chance of survival at the zeroes, aka, 0 assassins met. 
-This is only a convenience option that I am opting into, so no integrity checks have to be performed later in the algorithm
-
-What we will do is set $dp[0][j]$ and $dp[i][0]$ = 0 for (i and j) = 0 to n respectively
+We initialize locations that we can only arrive one way (the first row and first column) to their A values plus the previous.
 #### Recurrence Relation — 2D
 
 We kinda described it above already. but
@@ -117,10 +114,69 @@ $dp[i][j] = min(dp[i-1][j],dp[i][j-1])$
 #### Pseudo Code — 2D
 
 ```
-dp[0][0] = 0
-for i = 0 to m
+dp[1][1] = A[1][1]
+for i = 2 to m:
+	dp[i][1] = dp[i-1][1] + A[i][1]
+for j = 2 to n:
+	dp[1][j] = dp[1][j-1] + A[1][j]
+for i = 2 to m:
+	for j = 2 to n:
+		dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + A[i][j]
+return 0.9^(dp[m][n])
 ```
 #### Runtime — 2D
 
+This will have runtime $\mathcal{O}(m*n)$
 
+#### Generalization to 3d
+
+Now the grid dimensions are $m \times n \times p$, but we are still dealing with the same kind of problem. 
+
+The table will represent the same thing as before, but we add the additional dimension.
+
+The initialization is almost the same, but considering the new dimension of going only forwards in z. 
+
+The equivalent 2d problem is hidden implicitly in the 3d problem, since every plane that only moves two of the variables is the 2d problem defined before. Hence, it makes sense to solve the 2d problem for these areas. This can be considered initializing as well.
+
+Then, the recurrence relation becomes:
+
+$$
+\begin{gather}
+dp[i][j][k] = \min\left\{ 
+\begin{aligned} & 
+dp[i-1][j][k], \\ 
+& dp[i][j-1][k], \\ 
+& dp[i][j][k-1] 
+\end{aligned} 
+\right\} + A[i][j][k]
+\end{gather}
+$$
+```python
+MaxSurvival(A[1..m, 1..n, 1..p])):
+	dp = new 3D array of size [m + 1][n + 1][p + 1]
+
+	dp[1][1][1] = A[1][1][1]
+
+	# 1D init
+	for i = 2 to m: 
+		dp[i][1][1] = dp[i - 1][1][1] + A[i][1][1] 
+	for j = 2 to n: 
+		dp[1][j][1] = dp[1][j - 1][1] + A[1][j][1] 
+	for k = 2 to p: 
+		dp[1][1][k] = dp[1][1][k - 1] + A[1][1][k]
+
+	# 2D init
+	for i = 2 to m: 
+		for j = 2 to n: 
+			dp[i][j][1] = min(dp[i - 1][j][1], dp[i][j - 1][1]) + A[i][j][1] 
+	for i = 2 to m: 
+		for k = 2 to p: 
+			dp[i][1][k] = min(dp[i - 1][1][k], dp[i][1][k - 1]) + A[i][1][k] 
+	for j = 2 to n: 
+		for k = 2 to p: 
+			dp[1][j][k] = min(dp[1][j - 1][k], dp[1][j][k - 1]) + A[1][j][k]
+
+	# 3D fill
+	
+```
 q5, q4
