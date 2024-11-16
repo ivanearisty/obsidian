@@ -43,8 +43,18 @@ $$
 Consider every entry dp\[r]\[t]
 
 Case 1:  $t \ge r$ 
+If the current rod size is shorter or equal to the target rod size, we can use the current rod to evaluate the solution at dp, hence:
 
+dp\[r]\[t] = max(dp\[r-1]\[t], dp\[r-1]\[t-r] + p(r))
+where dp\[r-1]\[t] represent the maximum of using just the previous rod sizes and
+dp\[r-1]\[t-r] + p(r) represents using the current rod and getting p(r) for it, and then the dp lookup gives us the profit from using all previous rod sizes up to this rod, and the target size of the new rod (which is the rod we had - how much rod we just used)
+
+Case 1:  $t < r$ 
+If the current rod size is greater than the target rod size, our rod is too big.
 #### Pseudo Code
 #### Runtime
+This runtime is $\mathcal{O}(n^{2})$ where n is the size of the rod in question. 
+This is because for every rod size, we are evaluating it against all previous combinations it could've made.
+
 
 q5, q4
