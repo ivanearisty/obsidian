@@ -98,12 +98,28 @@ By going a table from L -> R (inner) , UP -> Down (outer), dp\[i]\[j] would be e
 Let's actually try to go ahead and solve this and maybe we'll be able to generalize
 #### Table — 2D
 
-$dp[i][j]$ describes the maximum survival rate at some coordinate i and j.
+> Fact: We can determine maximum survival rate by minimizing the total number of assassins encountered along the path from the starting point (1,1) to any position (i,j)
 
-
+$dp[i][j]$ describes the minimum number of assassins encountered to get to  i and j.
+where i is the x coordinate
+and j is the y coordinate
 #### Init — 2D
+
+This will be a 0 indexed array that will have a 100% chance of survival at the zeroes, aka, 0 assassins met. 
+This is only a convenience option that I am opting into, so no integrity checks have to be performed later in the algorithm
+
+What we will do is set $dp[0][j]$ and $dp[i][0]$ = 0 for (i and j) = 0 to n respectively
 #### Recurrence Relation — 2D
+
+We kinda described it above already. but
+
+$dp[i][j] = min(dp[i-1][j],dp[i][j-1])$ 
 #### Pseudo Code — 2D
+
+```
+dp[0][0] = 0
+for i = 0 to m
+```
 #### Runtime — 2D
 
 
