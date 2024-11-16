@@ -79,11 +79,32 @@ This is because for every rod size, we are evaluating it against all previous co
 
 ## Question 2
 ### Part A 
-#### Table
-#### Init
-#### Recurrence Relation
-#### Pseudo Code
-#### Runtime
+#### Evaluating a simpler problem
+
+Let's imagine that our game is played on a 2D grid instead of a 3D grid. 
+
+In this situation, we have a $m\times n$ grid where A\[i]\[j] represents the number of assassins at any position in this grid
+
+In this situation, we start at coordinate (1,1) and want to get to (m,n).
+
+The analogous movement at each position corresponds to increasing the x or y cordinate by 1.
+
+Here, there would only be two ways to get to any position (i,j) in the grid. Namely, through (i-1, j) or (i, j-1).
+
+So, if we knew the total chance of survival of (m-1,n) and (m, n-1), then we would know that the max chance of survival for the entire problem would be max((m-1,n), (m, n-1)).
+
+By going a table from L -> R (inner) , UP -> Down (outer), dp\[i]\[j] would be equal to this max.
+
+Let's actually try to go ahead and solve this and maybe we'll be able to generalize
+#### Table — 2D
+
+$dp[i][j]$ describes the maximum survival rate at some coordinate i and j.
+
+
+#### Init — 2D
+#### Recurrence Relation — 2D
+#### Pseudo Code — 2D
+#### Runtime — 2D
 
 
 q5, q4
