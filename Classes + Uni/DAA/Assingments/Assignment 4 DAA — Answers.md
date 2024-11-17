@@ -231,10 +231,12 @@ q5, q4
 ## Question 3
 
 ### Part A
+#### Reasoning
 
+Since the boxes are not necessarily in order or continuous
 #### Table
 #### Init
-#### Recurence
+#### Recurrence
 #### Pseudo
 #### Runtime
 
