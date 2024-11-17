@@ -235,16 +235,49 @@ q5, q4
 
 1. The longest box will always be used in the best tower
 2. The smallest box will always be used in the best tower
-3. Since the boxes are not necessarily in order or continuous, a simple 2d table is not enough, since we cant organize boxes both by length and width. 
-4. It will be helpful to select either L or W to be sorted. We can then sub-sort same lengths by their widths (double key sorting or two stable merge sorts)
+3. We can select either L or W to be sorted. We can then sub-sort same lengths by their widths (double key sorting or two stable merge sorts)
+
+Problem reduces to a version of longest increasing subsequence.
 #### Table
 
-For any box, we must evaluate what is the next box that is just a tiny bit larger than it. In other words, we want to keep track of a 1D array which will hold the predecesors for any one box. 
+We will use dp\[i], where i is a certain box and dp\[i] corresponds to the maximum height that can be achieved when that box is the tallest box in the table.
 
-Given that this problem is maximizing a height, the constraint is somewhat lenient, and choosing the next best larger base for the current base as it's predecessor
+From LIS, the "length" of the subsequence is replaced by the "height" of the tower.
+
+By filling it up from the largest bases to the smallest, we will have, somewhere in the table (near the end but not necessarily the end) the maximum height achievable.
 #### Init
+
+Set every box represented in dp to be equal to it's height (dp\[i] = H\[i])
 #### Recurrence
+
+For each box i, we will iterate over previous boxes j where j < i. 
+
+The condition where j < i is not as simple as in LIS, since we need to consider both:
+$L[j] \ge L[i] \land W[j] \ge W[i]$ 
+and do that for every box (since there could be a path that leads to this box from the same fixed dimension, L, but a "bigger" subdimension, W in our case)
+
+Finally, we can update the best height at i as:
+$dp[i] = max(dp[i],dp[j]+H[i])$
 #### Pseudo
+
+```python
+n = length of L
+
+# This is equivalent to making objects I guess, but follows the 
+# constraints of the class
+apply a stable mergesort on W, but taking effect also in L and H
+apply a stable mergesort on L, but taking effect also in W and H
+
+dp = [n]
+
+for i = 1 to n
+	dp[i] = H[i]
+
+for i = 2 to n 
+	for j = 1 to i:
+		if L[j] >= L[i] and W[j] >= W[i]:
+			dp[i] = max(dp[i])
+```
 #### Runtime
 
 ## Question 5
