@@ -177,6 +177,39 @@ MaxSurvival(A[1..m, 1..n, 1..p])):
 			dp[1][j][k] = min(dp[1][j - 1][k], dp[1][j][k - 1]) + A[1][j][k]
 
 	# 3D fill
+	for i = 2 to m: 
+		for j = 2 to n: 
+			for k = 2 to p: 
+				dp[i][j][k] 
+				= min(  
+					dp[i - 1][j][k], 
+					dp[i][j - 1][k], 
+					dp[i][j][k - 1] 
+				) + A[i][j][k]
+
+	return 0.9^(dp[m][n][p])
+```
+
+
+#### Generalization 3D Runtime
+
+The runtime is $\mathcal{O}(m*n*p)$ which is bound by $O(*n^3)$ where $*n$ is a different n > m n and p.
+
+### Part B 
+
+We can reconstruct the path since we know what the previous value aught to be: the current dp - how many assasins we have at A(i,j,k)
+
+We will have 3 choices at each step, but we can select any which is equal to it:
+
+```
+i = m 
+j = n 
+k = p
+
+while not (i == 1 and j == 1 and k == 1):
+	print("(" + i + ", " + j + ", " + k + ")")
+	previous = dp[i][j][k] - A[i][j][k]
 	
 ```
+
 q5, q4
