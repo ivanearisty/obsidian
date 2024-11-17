@@ -51,3 +51,5 @@ Parent and Uncle are Red
 
 ![[Screenshot 2024-11-17 at 5.02.21 PM.jpg]]
 
+### Case 2
+
