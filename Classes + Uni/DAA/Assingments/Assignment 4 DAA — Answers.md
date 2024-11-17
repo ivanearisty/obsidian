@@ -381,7 +381,7 @@ init(d, b, c):
 	dp = new 3d array [d+1,b+1,c+1] # tbh im just giving myself space in case there's something rare i didn't consider
 	return p(d,b,c)
 	
-P(d, b, c):
+p(d, b, c):
 	# insta memo step
 	if (d, b, c) in dp: 
 		return dp[(d, b, c)]
@@ -423,9 +423,9 @@ P(d, b, c):
 	P_bc = (b * c) / total
 
 	# recursive step
-	dp_db = compute_dp(d - 1, b, c, dp)
-	dp_dc = compute_dp(d, b, c - 1, dp)
-	dp_bc = compute_dp(d, b - 1, c, dp)
+	dp_db = p(d - 1, b, c, dp)
+	dp_dc = p(d, b, c - 1, dp)
+	dp_bc = p(d, b - 1, c, dp)
 
 	# memoization
 	dp[(d, b, c)] =
@@ -466,12 +466,40 @@ if 2k >= n then we you can perform transactions on every day, so we sum up all p
 We can initialize $dp[i][j][0]$ s to 0 since we would have no transactions left.
 #### Recurrence
 
-If j = 0, then we can buy on this day:
-hence dp\[i]\[0]\[k] = $max(dp[i+1][0][k], -c[])$
+If j = 0, then we can buy on this day.
+This gives us the option to buy or skip:
+	dp\[i]\[0]\[k] = $max(dp[i+1][0][k], -c[i] + dp[i+1][1][k])$
 
+If j = 1, then we can sell on this day.
+This gives us the option to sell or skip:
+	dp\[i]\[1]\[k] = $max(dp[i+1][1][k], c[i] + dp[i+1][0][k-1])$ note we lose a transaction day if we do decide to sell here
 #### Pseudo
+
+```python
+n = length of prices
+
+dp = [length of prices + 1][2][transactions + 1]
+# btw this is 0 indexed cs i solved this problem like before and is how i got to understand it
+for i from n - 1 down to 0:
+    for the cases j in 0 or 1:
+        for k from 1 to transactions:
+            if j == 0:
+                dp[i][0][k] =
+                max (
+                    dp[i + 1][0][k],
+                    -prices[i] + dp[i + 1][1][k]
+                )
+            else:
+                dp[i][1][k] =
+                max (
+                    dp[i + 1][1][k],
+                    prices[i] + dp[i + 1][0][k - 1]
+                )
+
+return dp[0][0][transactions]
+```
 #### Runtime
-We have a O(n\*k) runtime because we iterate over a 
+We have a O(c\*k) runtime because we iterate over a c items k times. We dont really consider the j because it's a 2 stater, adn hence adds a constant amount every time.
 
 
 
