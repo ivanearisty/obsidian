@@ -437,17 +437,41 @@ P(d, b, c):
 ```
 #### Runtime
 
-Runtime is bound by n^3 if n^3 akl
+Runtime is bound by n^3 if n^3 also binds the animals, but, for completeness, $\mathcal{O}(d\times b\times c)$ is the actual time complexity, for dragons, boars and wolfs.
+
+The reason why is because there are $d \times b \times c$ probabilities out there. By using memoization, we keep these probabilities in memory and save a lot of recalculation.
+
+The probabilities that are low in people or pretty close to die at a base case, like 2, 2, 2 or 1, 5, 2, have very short recursion trees.
+
+However, just like something like fib, for massive probabilities you end up with a huge increase in tree size and redundant calculation.
 ## Question 5
 
-hehe i know this one: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+hehe i know this one https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 #### Table
 
+We create a maximum profit table that will hold the maximum profit value for any day.
 
+We have $dp[i][j][k]$ (new k btw) where i is the current day, j is whether we buy or sell at this day, and k is the remaining number of transactions we can perform after this.
 #### Init
+
+we have some base cases: 
+(k is number of transactiosn here)
+Case 1:
+if k = 0 then we have no transactions 
+if n <= 1 then we have no transactions because having only 1 day to buy and sell makes no money
+
+Case 2:
+if 2k >= n then we you can perform transactions on every day, so we sum up all positive differences.
+
+We can initialize $dp[i][j][0]$ s to 0 since we would have no transactions left.
 #### Recurrence
+
+If j = 0, then we can buy on this day:
+hence dp\[i]\[0]\[k] = $max(dp[i+1][0][k], -c[])$
+
 #### Pseudo
 #### Runtime
+We have a O(n\*k) runtime because we iterate over a 
 
 
 
