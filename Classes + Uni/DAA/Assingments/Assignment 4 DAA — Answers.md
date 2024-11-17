@@ -233,8 +233,15 @@ q5, q4
 ### Part A
 #### Reasoning
 
-Since the boxes are not necessarily in order or continuous
+1. The longest box will always be used in the best tower
+2. The smallest box will always be used in the best tower
+3. Since the boxes are not necessarily in order or continuous, a simple 2d table is not enough, since we cant organize boxes both by length and width. 
+4. It will be helpful to select either L or W to be sorted. We can then sub-sort same lengths by their widths (double key sorting or two stable merge sorts)
 #### Table
+
+For any box, we must evaluate what is the next box that is just a tiny bit larger than it. In other words, we want to keep track of a 1D array which will hold the predecesors for any one box. 
+
+Given that this problem is maximizing a height, the constraint is somewhat lenient, and choosing the next best larger base for the current base as it's predecessor
 #### Init
 #### Recurrence
 #### Pseudo
