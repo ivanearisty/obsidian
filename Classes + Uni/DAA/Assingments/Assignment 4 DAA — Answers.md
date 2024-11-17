@@ -310,25 +310,7 @@ while s is not empty:
 ```
 
 ## Question 4
-#### Reasoning
-
-An island has only three species living on it: the Komodo dragon, the wild boar, and the
-Coywolf. These animals roam the forests of the island, and periodically encounter each other. If a dragon
-encounters a boar, the boar kills the dragon. If a boar encounters a coywolf, the wolf kills the boar. If a
-coywolf encounters a dragon, the dragon kills the wolf. Suppose initially on the island there are n dragons,
-m boars, and p coywolves. As they roam the island, any two individuals meet with equal probability. The
-chance that a dragon and a boar meets depends on how many dragons and boars there are! You may use
-the following (if your probability is not up to snuff...): the chance that a boar meets a dragon is:
-nm/ (n+m+p choose 2)
-
-Eventually, there will be only one species left on the island. Your job is to determine the probability
-that each species is the last surviving species. For example, if the island starts with one animal of each
-species, there is a 1/3 chance that the dragon and wolf meet first, in which case the dragon survives. Next,
-the dragon and the boar meet, and the boar survives. Therefore the surviving animal is the boar, with
-probability 1/3. Therefore, for the input m = 1, n = 1, p = 1 the return value is [1/3, 1/3, 1/3], meaning
-there is an equal chance that each species is the last surviving species. Your return value must be of the
-form [a, b, c] where a is the chance that the dragon is the last species, b is the chance that the boar is the
-last species, and c is the chance that the wolf is the last species
+#### Table
 
 For simplicity, assume and map n to d, m to b, and p to c.
 
@@ -363,19 +345,99 @@ relevant meetings = total meetings - dragon meets dragon - boar meets boar - coy
 (D meets a C) = number of dragons * number of coyotes / relevant meetings
 (C meets a B) = number of coyotes * number of boars / relevant meetings
 
-And the recurrence relation would look like
+And in the table, if we ask what is the survival rate for 5, 1 and 2 population
 
-P\[5,1,2] = 5/17 x P[4,1,2]
+P\[5,1,2] = 5/17 x P\[4,1,2] + 10/17 x P\[5,1,1] + 2/17 x P\[5,0,2]
 
-P[]
-
-#### Table
+P\[d,b,c] = 
+(d x b / relevant meetings) x P \[d-1,b,c] +
+(d x c / relevant meetings) x P \[d,b,c-1] + 
+(c x b / relevant meetings) x P \[d,b-1,c]
 #### Initialization
 
+We have some base cases where only one species and two species are left.
 
+Since these cases are both deterministic, we have:
+
+If d>0 and b=0 and c=0: \[1, 0, 0]
+If d=0 and b>0 and c=0: \[0, 1, 0]
+If d=0 and b=0 and c>0: \[0, 0, 1]
+
+If d=0 and b>0 and c>0: Coywolf will kill Boar, so \[0, 0, 1]
+If d>0 and b=0 and c>0: Dragon will kill Coywolf, so \[1, 0, 0]
+If d>0 and b>0 and c=0: Boar will kill Dragon, so \[0, 1, 0]
 #### Recurrence Relation
+
+From some given state, we make recursive calls to compute the probabilities for the next possible states after each interaction.
+
+This will give us a bottom up solution to the first state inputted.
+
+If we have already computed some probability, then we look it up and save a lot of time, 
+if not, we recursively calculate what the some state will be and assign it the respective probability in our state.
 #### Pseudo code
+
+```python
+init(d, b, c):
+	dp = new 3d array [d+1,b+1,c+1] # tbh im just giving myself space in case there's something rare i didn't consider
+	return p(d,b,c)
+	
+P(d, b, c):
+	# insta memo step
+	if (d, b, c) in dp: 
+		return dp[(d, b, c)]
+
+	# degen step
+	if d == 0 and b == 0 and c == 0: 
+		dp[(d, b, c)] = [0, 0, 0] 
+		return dp[(d, b, c)]
+
+	# singular species step
+	if d > 0 and b == 0 and c == 0: 
+		dp[(d, b, c)] = [1, 0, 0] 
+		return dp[(d, b, c)]
+	if d == 0 and b > 0 and c == 0: 
+		dp[(d, b, c)] = [0, 1, 0] 
+		return dp[(d, b, c)]
+	if d == 0 and b == 0 and c > 0: 
+		dp[(d, b, c)] = [0, 0, 1] 
+		return dp[(d, b, c)]
+
+	# double species step
+	if d > 0 and b > 0 and c == 0: 
+		dp[(d, b, c)] = [0, 1, 0] 
+		return dp[(d, b, c)]
+	if d == 0 and b > 0 and c > 0: 
+		dp[(d, b, c)] = [0, 0, 1] 
+		return dp[(d, b, c)]
+	if d > 0 and b == 0 and c > 0: 
+		dp[(d, b, c)] = [1, 0, 0] 
+		return dp[(d, b, c)]
+
+	# triple species recur step 
+	# possible meaningful interations
+	total = (d * b) + (d * c) + (b * c)
+
+	# probability calc
+	P_db = (d * b) / total 
+	P_dc = (d * c) / total 
+	P_bc = (b * c) / total
+
+	# recursive step
+	dp_db = compute_dp(d - 1, b, c, dp)
+	dp_dc = compute_dp(d, b, c - 1, dp)
+	dp_bc = compute_dp(d, b - 1, c, dp)
+
+	# memoization
+	dp[(d, b, c)] =
+		P_db * dp_db +
+		P_dc * dp_dc +
+		P_bc * dp_bc
+
+	return dp[(d, b, c)]
+```
 #### Runtime
+
+Runtime is bound by n^3 if n^3 akl
 ## Question 5
 
 hehe i know this one: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
