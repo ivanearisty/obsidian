@@ -310,10 +310,48 @@ while s is not empty:
 ```
 
 ## Question 4
+#### Table / Reasoning
 
-#### Table
+An island has only three species living on it: the Komodo dragon, the wild boar, and the
+Coywolf. These animals roam the forests of the island, and periodically encounter each other. If a dragon
+encounters a boar, the boar kills the dragon. If a boar encounters a coywolf, the wolf kills the boar. If a
+coywolf encounters a dragon, the dragon kills the wolf. Suppose initially on the island there are n dragons,
+m boars, and p coywolves. As they roam the island, any two individuals meet with equal probability. The
+chance that a dragon and a boar meets depends on how many dragons and boars there are! You may use
+the following (if your probability is not up to snuff...): the chance that a boar meets a dragon is:
+nm
+n+m+p
+2
+
+Eventually, there will be only one species left on the island. Your job is to determine the probability
+that each species is the last surviving species. For example, if the island starts with one animal of each
+species, there is a 1/3 chance that the dragon and wolf meet first, in which case the dragon survives. Next,
+the dragon and the boar meet, and the boar survives. Therefore the surviving animal is the boar, with
+probability 1/3. Therefore, for the input m = 1, n = 1, p = 1 the return value is [1/3, 1/3, 1/3], meaning
+there is an equal chance that each species is the last surviving species. Your return value must be of the
+form [a, b, c] where a is the chance that the dragon is the last species, b is the chance that the boar is the
+last species, and c is the chance that the wolf is the last species
+
+The table dp will give the probability of survival given a population (d,c,b).
+This survival will be of the form (i, j, k) where i, j and k are probabilities of each population, d, b, c, surviving.
+where d is the population of dragons, b is boars,  c is coyotes.
+
+for 1, 1, 1 population:
+$\frac{1}{3}p(0,1,1) + \frac{1}{3}p(1,1,0) + \frac{1}{3}p(1,0,1)$
+
+We want to work out the probabilities of survival at A(i,j,k)
+
+So, for example, what is the survival rate for a population:
+5, 1, 2.
+d, b, c
+This would need:
+
+The probability 
+
 
 #### Init
+
+
 #### Recurrence
 #### Pseudo
 #### Runtime
