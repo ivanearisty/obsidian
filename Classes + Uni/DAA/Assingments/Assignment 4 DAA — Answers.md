@@ -310,7 +310,7 @@ while s is not empty:
 ```
 
 ## Question 4
-#### Table / Reasoning
+#### Reasoning
 
 An island has only three species living on it: the Komodo dragon, the wild boar, and the
 Coywolf. These animals roam the forests of the island, and periodically encounter each other. If a dragon
@@ -319,9 +319,7 @@ coywolf encounters a dragon, the dragon kills the wolf. Suppose initially on the
 m boars, and p coywolves. As they roam the island, any two individuals meet with equal probability. The
 chance that a dragon and a boar meets depends on how many dragons and boars there are! You may use
 the following (if your probability is not up to snuff...): the chance that a boar meets a dragon is:
-nm
-n+m+p
-2
+nm/ (n+m+p choose 2)
 
 Eventually, there will be only one species left on the island. Your job is to determine the probability
 that each species is the last surviving species. For example, if the island starts with one animal of each
@@ -332,7 +330,9 @@ there is an equal chance that each species is the last surviving species. Your r
 form [a, b, c] where a is the chance that the dragon is the last species, b is the chance that the boar is the
 last species, and c is the chance that the wolf is the last species
 
-The table dp will give the probability of survival given a population (d,c,b).
+For simplicity, assume and map n to d, m to b, and p to c.
+
+The table dp will give the probability of survival given a population (d,b, c).
 This survival will be of the form (i, j, k) where i, j and k are probabilities of each population, d, b, c, surviving.
 where d is the population of dragons, b is boars,  c is coyotes.
 
@@ -341,27 +341,51 @@ $\frac{1}{3}p(0,1,1) + \frac{1}{3}p(1,1,0) + \frac{1}{3}p(1,0,1)$
 
 We want to work out the probabilities of survival at A(i,j,k)
 
+P(d, b, c) = Probability of dragon meets a boar + probability of boar and coyote, and dragon and coyote
+
 So, for example, what is the survival rate for a population:
 5, 1, 2.
 d, b, c
-This would need:
 
-The probability 
+The probability of a dragon meeting a dragon is:
+ways dragons can meet = 5 choose 2
+and then you divide by number of possible for two people to meet 8 choose 2
+
+However, we want number of possible meetings between different species in the denominator, which is:
+
+(D meets a D) = number of dragons choose 2
+(B meets a B) = number of boars choose 2
+(C meets a C) = number of coyotes choose 2
+(total meetings) = number of animals choose 2
+relevant meetings = total meetings - dragon meets dragon - boar meets boar - coyote meets coyote
+
+(D meets a B) = number of dragons * number of boars / relevant meetings
+(D meets a C) = number of dragons * number of coyotes / relevant meetings
+(C meets a B) = number of coyotes * number of boars / relevant meetings
+
+And the recurrence relation would look like
+
+P\[5,1,2] = 5/17 x P[4,1,2]
+
+P[]
+
+#### Table
+#### Initialization
 
 
-#### Init
-
-
-#### Recurrence
-#### Pseudo
+#### Recurrence Relation
+#### Pseudo code
 #### Runtime
 ## Question 5
+
+hehe i know this one: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 #### Table
+
 
 #### Init
 #### Recurrence
 #### Pseudo
 #### Runtime
 
-hehe i know this one: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+
 
