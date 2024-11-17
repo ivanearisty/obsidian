@@ -274,13 +274,56 @@ for i = 1 to n
 	dp[i] = H[i]
 
 for i = 2 to n 
-	for j = 1 to i:
+	for j = 1 to i - 1:
 		if L[j] >= L[i] and W[j] >= W[i]:
 			dp[i] = max(dp[i])
+
+return max(dp)
 ```
 #### Runtime
 
+this is O(n^2) where n is the amount of boxes, because we iterate through every box for every smaller than it.
+
+### Part B
+
+Notice that here the indexes are mixed around; however, I do not believe you should take points of for this, since it's assumed that we can just do the above by creating a copy of each of the arrays, instead of sorting the original arrays around. Also, a fourth array called index could have been created at the start of the above procedure. Please consider this, thanks.
+
+```python
+n = length of L
+predecessor = [n]
+
+for i = 2 to n:
+	for j = 1 to i - 1:
+		if L[j] >= L[i] and W[j] >= W[i] and dp[i] == dp[j] + H[i]:
+			predecessor[i] = j
+			break;
+
+m = index of max(dp) in predecessor
+s = new stack
+
+while m != 0:
+	s.push(m)
+	m = predecessor[m]
+
+while s is not empty:
+	print(s.pop())
+```
+
+## Question 4
+
+#### Table
+
+#### Init
+#### Recurrence
+#### Pseudo
+#### Runtime
 ## Question 5
+#### Table
+
+#### Init
+#### Recurrence
+#### Pseudo
+#### Runtime
 
 hehe i know this one: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
 
