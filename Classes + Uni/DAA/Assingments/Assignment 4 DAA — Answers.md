@@ -197,7 +197,10 @@ The runtime is $\mathcal{O}(m*n*p)$ which is bound by $O(*n^3)$ where $*n$ is a 
 
 ### Part B 
 
-We can reconstruct the path since we know what the previous value aught to be: the current dp - how many assasins we have at A(i,j,k)
+We can reconstruct the path since we know what the previous value aught to be: 
+	the current dp - how many assasins we have at A(i,j,k)
+
+This is exactly the inverse of what we did to find current dp.
 
 We will have 3 choices at each step, but we can select any which is equal to it:
 
@@ -207,9 +210,35 @@ j = n
 k = p
 
 while not (i == 1 and j == 1 and k == 1):
-	print("(" + i + ", " + j + ", " + k + ")")
-	previous = dp[i][j][k] - A[i][j][k]
+	print("Starting at:", (i,j,k))
 	
+	previous = dp[i][j][k] - A[i][j][k]
+	if i > 1 and dp[i - 1][j][k] == previous_dp: 
+		i = i - 1 
+		print("Moved to:", (i, j, k)) 
+	else if j > 1 and dp[i][j - 1][k] == previous_dp: 
+		j = j - 1 
+		print("Moved to:", (i, j, k)) 
+	else:
+		k = k - 1 
+		print("Moved to:", (i, j, k))
+
+print("Starting at:", (i,j,k))
 ```
 
 q5, q4
+
+## Question 3
+
+### Part A
+
+#### Table
+#### Init
+#### Recurence
+#### Pseudo
+#### Runtime
+
+## Question 5
+
+hehe i know this one: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+
