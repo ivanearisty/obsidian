@@ -26,9 +26,13 @@ Runtime:
 
 BST Search:
 
-![[Screenshot 2024-10-21 at 10.54.17 PM.jpg | 400]]
+![[Screenshot 2024-11-17 at 9.13.24 PM.jpg]]
 
 Runtime is $\mathcal{O}(h)$ where h is the height of the tree
+
+## Max and Min
+
+O(h) 
 
 ## Insertion
 
@@ -67,3 +71,25 @@ Important to know that the expected height from above
 The number of comparisons would be the same as in quicksort.
 
 ![[Screenshot 2024-10-21 at 11.05.33 PM.jpg | 500]]
+
+## Successor
+
+![[Screenshot 2024-11-17 at 9.36.37 PM.jpg]]
+
+We cant assume that the node we are looking for will have a right child, so we need to find the successor which will be it's parent
+
+```python
+Predecessor(T, x)
+if x.left is not NIL
+    return Find-Max(x.left)
+else
+    y = T
+    success = NIL
+    while y is not NIL
+        if y.key < x.key
+            success = y
+            y = y.right
+        else
+            y = y.left
+    return success
+```
