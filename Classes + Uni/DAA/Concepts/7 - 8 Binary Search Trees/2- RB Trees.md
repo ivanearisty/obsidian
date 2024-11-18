@@ -42,6 +42,8 @@ The MINIMUM number of nodes in a red-black tree of black height b is $2^{b}-1$, 
 
 The MAXIMUM number of nodes in a red-black tree of black-height b is $2^{2b-1} -1$, and is when the tree is full and complete and alternates black/red
 
+
+
 **The shortest RB tree we can build is when all the nodes are black**. For example, when then black-height of the tree is 3, the height of the tree is 2. 
 *For a tree with black-height b, the shortest tree has height b − 1.*
 ![[Screenshot 2024-11-17 at 11.04.08 PM.jpg]]
@@ -132,45 +134,42 @@ else
 
 ## Key Properties of Red-Black Trees
 
+To edit and correct the provided information:
+
 1. **Black Height**:  
-   - The black height of a tree is the number of black nodes on the path from the root to any leaf (excluding the leaf itself).  
-   - Black height is the same for all paths in a red-black tree.
+   - The black height of a red-black tree is the number of black nodes on the path from the root to any leaf (excluding the leaf itself).  
+   - The black height is the same for all paths in a red-black tree, ensuring the balancing property.
 
 2. **Minimum Nodes**:  
-   - A red-black tree with black height \(b\) has a minimum of $2^b - 1$ nodes.  
-   - This happens when all nodes are black, forming a **perfectly balanced black-only tree**.  
+   - A red-black tree with black height \( b \) has a **minimum of \( 2^b - 1 \)** nodes.  
+   - This occurs when all nodes are black, forming a perfectly balanced **black-only tree**:  
      $$
-     N_{min} = 2^b - 1
+     N_{\text{min}} = 2^b - 1
      $$
+
 3. **Maximum Nodes**:  
-   - A red-black tree with black height \(b\) has a maximum of $2^{2b-1} - 1$ nodes.  
-   - This occurs when the tree alternates red and black nodes along all paths, forming a **maximally imbalanced red-black tree**.  
+   - A red-black tree with black height \( b \) has a **maximum of \( 2^{2b} - 1 \)** nodes.  
+   - This occurs when the tree alternates red and black nodes along all paths, forming a maximally **imbalanced red-black tree**:  
      $$
-     N_{max} = 2^{2b-1} - 1
+     N_{\text{max}} = 2^{2b} - 1
      $$
+
 4. **Height of the Tree**:  
-   - The **minimum height** of a red-black tree with black height \(b\) is:  
+   - The **minimum height** of a red-black tree with black height \( b \) is:  
      $$
-     \text{Height}_{min} = b - 1
+     \text{Height}_{\text{min}} = b - 1
      $$
-	(Occurs when the tree is a perfectly balanced black-only tree.)  
+	(Occurs when the tree is perfectly balanced with black-only nodes.)  
 
-   - The **maximum height** of a red-black tree with black height \(b\) is:       $$
-     \text{Height}_{max} = 2b - 1
+   - The **maximum height** of a red-black tree with black height \( b \) is:  
      $$
-	(Occurs when the tree alternates red and black nodes along a single path.)
+     \text{Height}_{\text{max}} = 2b - 1
+     $$
+	(Occurs when the tree alternates between red and black nodes along a single path, creating maximum imbalance.)
 
-## Examples
-
-### Case 1: Minimum Height
-- **Black Height (\(b = 3\))**  
-  - Minimum Nodes: $2^3 - 1 = 7$  
-  - Height: $b - 1 = 3 - 1 = 2$  
-  - Tree Structure: All nodes black, perfectly balanced.
-
-### Case 2: Maximum Height
-- **Black Height (\(b = 3\))**  
-  - Maximum Nodes: $2^{2 \cdot 3 - 1} - 1 = 31$
-  - Height: $2b - 1 = 2 \cdot 3 - 1 = 5$
-  - Tree Structure: Alternates between red and black nodes.
-  - 
+5. **Red Root Consideration**:  
+   - If the root of the red-black tree is red, the tree can accommodate additional nodes. The **exact maximum number of nodes** is given by:  
+     $$
+     N_{\text{red root max}} = (2^{2b} - 1) + (2^{2b} - 1) + 1
+     $$
+     This accounts for the contribution of the red root and two maximally imbalanced subtrees.

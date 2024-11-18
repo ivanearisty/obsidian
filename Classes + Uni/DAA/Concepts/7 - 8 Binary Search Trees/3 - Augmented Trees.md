@@ -12,3 +12,7 @@ tags:
 ### Iterative
 ### Recursive
 ![[Screenshot 2024-11-18 at 12.54.20 AM.jpg]]
+
+## Ranges
+
+![[Screenshot 2024-11-18 at 1.02.30 AM.jpg]]
