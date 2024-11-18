@@ -109,6 +109,9 @@ Function LongestIncreasingSubsequence(H[])
 [[Practice Set 10 — Solutions.pdf]] q3
 ![[Screenshot 2024-11-18 at 3.52.15 PM.jpg]]
 ## Max Weight Set
+
+[[Practice Set 10 — Solutions.pdf]] q3
+
 ## Min Stops
 ## Transaction
 ## Survival
