@@ -37,6 +37,8 @@ h(x) \le \log(n)
 \end{gather}
 $$
 
+![[Screenshot 2024-11-17 at 6.51.15 PM.jpg]]
+
 ## RB Repair
 
 ### Case 0
@@ -53,3 +55,4 @@ Parent and Uncle are Red
 
 ### Case 2
 
+[[2 - rb trees.pdf]]
