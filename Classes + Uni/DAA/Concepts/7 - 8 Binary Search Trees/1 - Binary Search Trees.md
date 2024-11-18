@@ -102,3 +102,6 @@ else
 
 ## BST-DELETE
 ![[Screenshot 2024-11-18 at 12.21.38 AM.jpg]]
+
+Neighbour 
+![[Screenshot 2024-11-18 at 4.31.56 AM.jpg]]
