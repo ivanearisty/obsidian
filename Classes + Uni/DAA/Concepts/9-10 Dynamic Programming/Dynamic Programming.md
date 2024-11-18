@@ -20,7 +20,8 @@ Getting from point a to point b on a 3d grid by minimizing the amount of tolls w
 Question 4 [[Practice Set 9 — Solutions.pdf]]
 ## Longest Increasing Subsequence
 ## Longest Common Subsequence
-
+[[Practice Set 9 — Solutions.pdf]] Q 5.1
+![[Screenshot 2024-11-18 at 12.26.06 PM.jpg]]
 [[dp2.pdf]]![[Screenshot 2024-11-17 at 7.52.03 PM.jpg]]
 ## Palindromic Substring
 ## Palindromic Subsequence
