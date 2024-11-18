@@ -10,7 +10,6 @@ s array to keep track of best solution is also here
 ### Ways to Cut Rods CountCuts(n)
 
 Question 2 [[Practice Set 9 — Solutions.pdf]]
-
 ### Cutting rods with diminishing piece sizes
 
 [[Assignment 4 DAA — Solutions.pdf]] question 1a
