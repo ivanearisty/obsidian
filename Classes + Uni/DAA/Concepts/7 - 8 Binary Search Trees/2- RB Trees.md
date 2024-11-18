@@ -37,13 +37,7 @@ h(x) \le \log(n)
 \end{gather}
 $$
 
-
-The MINIMUM number of nodes in a red-black tree of black height b is $2^{b}-1$, and is when the tree is full and complete and all black 
-
-The MAXIMUM number of nodes in a red-black tree of black-height b is $2^{2b-1} -1$, and is when the tree is full and complete and alternates black/red
-
-
-
+![[Screenshot 2024-11-18 at 5.03.00 AM.jpg]]
 **The shortest RB tree we can build is when all the nodes are black**. For example, when then black-height of the tree is 3, the height of the tree is 2. 
 *For a tree with black-height b, the shortest tree has height b − 1.*
 ![[Screenshot 2024-11-17 at 11.04.08 PM.jpg]]
