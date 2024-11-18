@@ -21,8 +21,10 @@ tags:
 Algorithm:
 ![[Screenshot 2024-10-21 at 10.51.56 PM.jpg]]
 
-Runtime:
+**Runtime:**
 ![[Screenshot 2024-10-21 at 10.52.48 PM.jpg]]
+
+![[Screenshot 2024-11-18 at 3.29.59 AM.jpg]]
 
 BST Search:
 

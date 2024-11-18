@@ -20,3 +20,6 @@ tags:
 ## Ranges
 
 ![[Screenshot 2024-11-18 at 1.02.30 AM.jpg]]
+
+### If you are asked for a recurrence runtime while going to left and right write this:
+![[Screenshot 2024-11-18 at 3.27.16 AM.jpg]]
