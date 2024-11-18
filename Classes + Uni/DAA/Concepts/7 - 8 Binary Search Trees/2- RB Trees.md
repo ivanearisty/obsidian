@@ -37,12 +37,18 @@ h(x) \le \log(n)
 \end{gather}
 $$
 
-![[Screenshot 2024-11-17 at 6.51.15 PM.jpg]]
 
+The MINIMUM number of nodes in a red-black tree of black height b is $2^{b}-1$, and is when the tree is full and complete and all black 
 
-**The shortest RB tree we can build is when all the nodes are black**. For example, when then black-height of the tree is 3, the height of the tree is 2. *For a tree with black-height b, the shortest tree has height b − 1.*
+The MAXIMUM number of nodes in a red-black tree of black-height b is $2^{2b-1} -1$, and is when the tree is full and complete and alternates black/red
 
-**The longest red-black path we can build in a tree is a path that alternates red and black nodes.** For example, when the black-height is 3, the maximum height of the tree is 5. An example of each case is shown below. Therefore *when the black height is b, the tree with the maximum height has height 2b − 1.*
+**The shortest RB tree we can build is when all the nodes are black**. For example, when then black-height of the tree is 3, the height of the tree is 2. 
+*For a tree with black-height b, the shortest tree has height b − 1.*
+![[Screenshot 2024-11-17 at 11.04.08 PM.jpg]]
+
+**The longest red-black path we can build in a tree is a path that alternates red and black nodes.** For example, when the black-height is 3, the maximum height of the tree is 5. An example of each case is shown below. 
+Therefore *when the black height is b, the tree with the maximum height has height 2b − 1.*
+![[Screenshot 2024-11-17 at 11.05.38 PM.jpg]]
 
 It is impossible to have a path of length 5 with only 2 black nodes.
 ## RB Repair
@@ -78,4 +84,52 @@ Post-order traversal: 2, 6, 7, 5, 14, 12, 25, 20, 15, 10
 
 ## When does the height of rb tree change? 
 
- A new node does not always change the black-height of tree. The RB-repair algorithm performs rotations in Case 2(which do not alter the number of black nodes on a path). RB-repair performs recolorings in Case1 (the parent and the uncle are recolored black, and the grandparent is colored red). Generally this recoloring does not change the number of black nodes on the path from the root. However, it may be that the grandparent is in fact the root node. In this case, the grandparent is left as a black node. The black height of the entire tree has increased by one.
+ A new node does not always change the black-height of tree. 
+ The RB-repair algorithm performs rotations in Case 2(which do not alter the number of black nodes on a path). 
+ RB-repair performs recolorings in Case1 (the parent and the uncle are recolored black, and the grandparent is colored red). 
+ Generally this recoloring does not change the number of black nodes on the path from the root. However, it may be that the grandparent is in fact the root node. 
+ In this case, the grandparent is left as a black node. The black height of the entire tree has increased by one.
+
+## **Key Properties of Red-Black Trees**
+
+1. **Black Height**:  
+   - The black height of a tree is the number of black nodes on the path from the root to any leaf (excluding the leaf itself).  
+   - Black height is the same for all paths in a red-black tree.
+
+2. **Minimum Nodes**:  
+   - A red-black tree with black height \(b\) has a minimum of $2^b - 1$ nodes.  
+   - This happens when all nodes are black, forming a **perfectly balanced black-only tree**.  
+     $$
+     N_{min} = 2^b - 1
+     $$
+3. **Maximum Nodes**:  
+   - A red-black tree with black height \(b\) has a maximum of $2^{2b-1} - 1$ nodes.  
+   - This occurs when the tree alternates red and black nodes along all paths, forming a **maximally imbalanced red-black tree**.  
+     $$
+     N_{max} = 2^{2b-1} - 1
+     $$
+4. **Height of the Tree**:  
+   - The **minimum height** of a red-black tree with black height \(b\) is:  
+     $$
+     \text{Height}_{min} = b - 1
+     $$
+	(Occurs when the tree is a perfectly balanced black-only tree.)  
+
+   - The **maximum height** of a red-black tree with black height \(b\) is:       $$
+     \text{Height}_{max} = 2b - 1
+     $$
+	(Occurs when the tree alternates red and black nodes along a single path.)
+
+## Examples
+
+### Case 1: Minimum Height
+- **Black Height (\(b = 3\))**  
+  - Minimum Nodes: $2^3 - 1 = 7$  
+  - Height: $b - 1 = 3 - 1 = 2$  
+  - Tree Structure: All nodes black, perfectly balanced.
+
+### Case 2: Maximum Height
+- **Black Height (\(b = 3\))**  
+  - Maximum Nodes: $2^{2 \cdot 3 - 1} - 1 = 31$
+  - Height: $2b - 1 = 2 \cdot 3 - 1 = 5$
+  - Tree Structure: Alternates between red and black nodes.
