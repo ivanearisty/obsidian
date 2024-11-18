@@ -7,3 +7,11 @@ Each node of the tree is an object which contains the usual BST attributes (x.pa
 
 ![[Screenshot 2024-11-18 at 2.45.55 AM.jpg]]
 
+![[Screenshot 2024-11-18 at 2.50.02 AM.jpg]]
+
+### Lower endpoint
+	
+![[Screenshot 2024-11-18 at 2.59.22 AM.jpg]]
+
+## Set Max
+![[Screenshot 2024-11-18 at 2.57.31 AM.jpg]]
