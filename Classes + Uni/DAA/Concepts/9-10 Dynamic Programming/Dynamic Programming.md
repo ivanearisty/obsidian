@@ -105,6 +105,8 @@ Function LongestIncreasingSubsequence(H[])
 
 [[dp3.pdf]]
 ## Weight Set
+
+
 ## Max Weight Set
 ## Min Stops
 ## Transaction
