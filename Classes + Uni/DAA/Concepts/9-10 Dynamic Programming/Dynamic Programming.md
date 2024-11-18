@@ -108,3 +108,58 @@ Function LongestIncreasingSubsequence(H[])
 ## Fib
 
 [[Practice Set 9 — Solutions.pdf]] q6 recursive vs dp
+
+LIS vars:
+
+### Variation 2: Maximize Prize with Limited Rest Stops
+
+The hiker can only rest at **at most k stops** while maximizing the prize. The additional constraint ensures the solution includes no more than kkk stops.
+#### Pseudocode
+
+```python
+Input:
+  A[1..n]  - Altitudes of the stops
+  P[1..n]  - Prize money at the stops
+  k         - Maximum number of stops allowed
+
+Output:
+  Maximum prize money with at most k stops
+  List of stops corresponding to the maximum prize
+
+Step 1: Initialize the DP table
+  H[1..n][1..k] = 0      // Maximum prize for each stop and stop count
+  Prev[1..n][1..k] = 0   // Previous stops in the optimal sequence
+  H[1][1] = P[1]         // First stop contributes its prize
+
+Step 2: Fill the DP table
+  for i = 2 to n:
+    for j = 1 to k:       // Iterate over the number of stops
+      max_prize = H[i][j]  // Start with the current prize
+      Prev[i][j] = 0
+      for m = 1 to i-1:
+        if A[m] < A[i] and j > 1:  // Ensure increasing altitude and valid stop count
+          if H[m][j-1] + P[i] > max_prize:
+            max_prize = H[m][j-1] + P[i]
+            Prev[i][j] = m
+      H[i][j] = max_prize
+
+Step 3: Find the index of the maximum prize for k stops
+  max_index = 1
+  for i = 1 to n:
+    if H[i][k] > H[max_index][k]:
+      max_index = i
+
+Step 4: Backtrack to find the stops
+  stops = []
+  current_k = k
+  while max_index != 0 and current_k > 0:
+    stops.append(max_index)
+    max_index = Prev[max_index][current_k]
+    current_k -= 1
+  stops.reverse()
+
+Return:
+  Maximum prize: max{H[1..n][k]}
+  List of stops: stops
+
+```
