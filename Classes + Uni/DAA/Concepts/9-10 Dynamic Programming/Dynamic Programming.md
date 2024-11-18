@@ -110,7 +110,7 @@ Function LongestIncreasingSubsequence(H[])
 ![[Screenshot 2024-11-18 at 3.52.15 PM.jpg]]
 ## Max Weight Set
 
-[[Practice Set 10 — Solutions.pdf]] q3
+[[Practice Set 10 — Solutions.pdf]] q4
 
 ![[Screenshot 2024-11-18 at 4.59.14 PM.jpg]]
 
@@ -177,8 +177,16 @@ Function LongestIncreasingSubsequence(H[])
 | **Initialization**        | $M[i, 0] = \text{True}, M[0, j] = \text{False}$ | $V[i, 0] = 0, V[0, j] = 0$ |
 | **Runtime**               | $O(n \cdot T)$       | $O(n \cdot T)$       |
 ## Min Stops
+
+[[Practice Set 10 — Solutions.pdf]] q5
+
+## 
 ## Transaction
+
+HW
 ## Survival
+
+HW
 ## Fib
 
 [[Practice Set 9 — Solutions.pdf]] q6 recursive vs dp
