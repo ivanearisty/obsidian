@@ -116,6 +116,20 @@ else
 
 ```
 
+## IsAVL(x)
+
+```python
+IsAVL(x) 
+if x = NIL return -1 
+a = IsAVL(x.left) 
+b = IsAVL(x.right) 
+if (a = −2 OR b = −2 OR |a − b| > 1) 
+	return -2 
+else 
+	return max(a,b) +1
+```
+
+
 ## Key Properties of Red-Black Trees
 
 1. **Black Height**:  

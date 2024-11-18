@@ -50,6 +50,7 @@ Assuming we get a pointer to the node through search:
 ![[Screenshot 2024-10-21 at 10.59.00 PM.jpg | 400]]
  ![[Screenshot 2024-10-21 at 11.00.08 PM.jpg | 300]] ![[Screenshot 2024-10-21 at 10.59.52 PM.jpg | 300]]
 
+
 ## Height of a BST
  
  ![[Screenshot 2024-10-21 at 11.01.31 PM.jpg]]
@@ -93,3 +94,9 @@ else
             y = y.left
     return success
 ```
+
+## Duplicate Key BST-DELETE and TREE-INSERt
+[[Practice Set 7 — Questions.pdf]] q13![[Screenshot 2024-11-18 at 12.19.03 AM.jpg]]
+
+## BST-DELETE
+![[Screenshot 2024-11-18 at 12.21.38 AM.jpg]]
