@@ -112,6 +112,70 @@ Function LongestIncreasingSubsequence(H[])
 
 [[Practice Set 10 — Solutions.pdf]] q3
 
+![[Screenshot 2024-11-18 at 4.59.14 PM.jpg]]
+
+## Combo Above
+
+### 1. Subset-Sum Problem
+#### Attributes:
+- **Goal:** Determine if there exists a subset of weights $w[1 \ldots n]$ whose total weight equals $T$.
+- **Table Definition:** $M[i, j]$
+  - $M[i, j] = \text{True}$ if a subset of weights $w[1 \ldots i]$ can sum to $j$, otherwise $\text{False}$.
+- **Table Dimensions:** $n \times T$ (items by target sum).
+#### Recurrence Relation:
+- If $w[i] > j$:
+  $$
+  M[i, j] = M[i-1, j]
+  $$
+- Otherwise:
+  $$
+  M[i, j] = M[i-1, j] \, \text{OR} \, M[i-1, j-w[i]]
+  $$
+#### Initialization:
+- $M[i, 0] = \text{True}$: Any subset can sum to $0$ by selecting no items.
+- $M[0, j] = \text{False}$: No items can sum to $j > 0$.
+
+#### Runtime:
+- **Time Complexity:** $O(n \cdot T)$
+- **Space Complexity:** $O(n \cdot T)$
+
+---
+
+### 2. Knapsack Problem
+#### Attributes:
+- **Goal:** Find the subset of weights $w[1 \ldots n]$ with maximum value $v[1 \ldots n]$ and total weight at most $T$.
+- **Table Definition:** $V[i, j]$
+  - $V[i, j]$: Maximum value achievable using weights $w[1 \ldots i]$ without exceeding total weight $j$.
+- **Table Dimensions:** $n \times T$ (items by capacity).
+
+#### Recurrence Relation:
+- If $w[i] > j$:
+  $$
+  V[i, j] = V[i-1, j]
+  $$
+- Otherwise:
+  $$
+  V[i, j] = \max(v[i] + V[i-1, j-w[i]], V[i-1, j])
+  $$
+
+#### Initialization:
+- $V[i, 0] = 0$: Maximum value is $0$ if the capacity is $0$.
+- $V[0, j] = 0$: Maximum value is $0$ if there are no items.
+
+#### Runtime:
+- **Time Complexity:** $O(n \cdot T)$
+- **Space Complexity:** $O(n \cdot T)$
+
+---
+
+### **Comparison:**
+| Attribute                 | Subset-Sum                | Knapsack                 |
+|---------------------------|---------------------------|--------------------------|
+| **Goal**                  | Determine existence of subset summing to $T$. | Maximize subset value without exceeding weight $T$. |
+| **Table Meaning**         | $M[i, j]$: True/False if subset exists. | $V[i, j]$: Maximum value achievable. |
+| **Recurrence Relation**   | $\text{OR}$ condition for subset inclusion/exclusion. | $\max$ for value inclusion/exclusion. |
+| **Initialization**        | $M[i, 0] = \text{True}, M[0, j] = \text{False}$ | $V[i, 0] = 0, V[0, j] = 0$ |
+| **Runtime**               | $O(n \cdot T)$       | $O(n \cdot T)$       |
 ## Min Stops
 ## Transaction
 ## Survival
