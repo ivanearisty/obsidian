@@ -99,7 +99,11 @@ Function LongestIncreasingSubsequence(H[])
 ![[Screenshot 2024-11-18 at 12.26.06 PM.jpg]]
 [[dp2.pdf]]![[Screenshot 2024-11-17 at 7.52.03 PM.jpg]]
 ## Palindromic Substring
+
+[[dp3.pdf]]
 ## Palindromic Subsequence
+
+[[dp3.pdf]]
 ## Weight Set
 ## Max Weight Set
 ## Min Stops
