@@ -87,10 +87,36 @@ Post-order traversal: 2, 6, 7, 5, 14, 12, 25, 20, 15, 10
  A new node does not always change the black-height of tree. 
  The RB-repair algorithm performs rotations in Case 2(which do not alter the number of black nodes on a path). 
  RB-repair performs recolorings in Case1 (the parent and the uncle are recolored black, and the grandparent is colored red). 
- Generally this recoloring does not change the number of black nodes on the path from the root. However, it may be that the grandparent is in fact the root node. 
+ Generally this recoloring does not change the number of black nodes on the path from the root. **However, it may be that the grandparent is in fact the root node.** 
  In this case, the grandparent is left as a black node. The black height of the entire tree has increased by one.
 
-## **Key Properties of Red-Black Trees**
+## BlackHeight(x)
+![[Screenshot 2024-11-17 at 11.28.34 PM.jpg]]
+
+## RedHeight(x)
+
+```python
+RedHeight(x)
+if (x is NilNode) return 0
+else
+    a = RedHeight(x.left)
+    if a == -1 return -1
+    if (x.left.color == red)
+        a++
+
+    b = RedHeight(x.right)
+    if b == -1 return -1
+    if (x.right.color == red)
+        b++
+
+    if (a != b)
+        return -1
+    else
+        return a
+
+```
+
+## Key Properties of Red-Black Trees
 
 1. **Black Height**:  
    - The black height of a tree is the number of black nodes on the path from the root to any leaf (excluding the leaf itself).  
@@ -133,3 +159,4 @@ Post-order traversal: 2, 6, 7, 5, 14, 12, 25, 20, 15, 10
   - Maximum Nodes: $2^{2 \cdot 3 - 1} - 1 = 31$
   - Height: $2b - 1 = 2 \cdot 3 - 1 = 5$
   - Tree Structure: Alternates between red and black nodes.
+  - 
