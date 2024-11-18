@@ -23,6 +23,8 @@ Question 4 [[Practice Set 9 — Solutions.pdf]]
 [[Practice Set 9 — Solutions.pdf]]
 Q7
 
+Notice that problem 7 where we care about maximizing stop value
+
 ```python
 Function LIS_Recursive(H[], k, memo)
     # Base case: If k = 1, LIS ending at k is 1 (single element is the subsequence)
