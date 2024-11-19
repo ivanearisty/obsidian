@@ -273,8 +273,74 @@ AboveBest(T, target):
 ### A
 ![[Screenshot 2024-11-18 at 7.29.31 PM.jpg]]
 
-S
+Why not just level order? Anyways...
+
+So print depth takes in some level i, and then it recursively goes down the tree, and prints out that level.
+
+So we if tell print depth to print the root at depth 0 then it just prints out the root.
+
+So if we have a procedure as defined above (the height procedure), then we can just get the maximum possible height, and iterate through the depths (inverse).
 
 ```python
-
+PrintLevelOrder(T):
+	height = maxHeight(T)
+	for i = 0 to height:
+		PrintDepth(T, i)
 ```
+
+This is inneficient since we make a lot of calls to just find the correct level. 
+Nevertheless, we werent asked to optimize for runtime or to hit a specific one.
+
+## Question 8
+
+![[Screenshot 2024-11-18 at 7.41.09 PM.jpg]]
+
+### Reasoning
+
+M \[0, 1, . . . , n, 0, 1, . . . , T ] where M \[i, j] 
+is the minimum possible cost of achieving exactly weight j using weights selected from 0, 1, 2...i. 
+
+If achieving exactly weight j is impossible, you may set entry M [i, j] to an any flag value that works in your solution.
+
+If the total sum has to be exactly equal to j then we can set inf to determine impossibility
+
+### Init
+
+- If the target weight is 0, then we must select no items. therefore M\[i,0] = 0 for all i
+- If the target weight i > 0, and we have no weights to reach it, then we need to init to infinity to describe the impossibility. 
+
+### Relationship
+
+If we can include i it's because w\[i] <= j
+Then we have a choice of including or not
+if we include it then we get:
+M\[i,j] = M\[ i - 1 , j - w\[i] ] + p\[i] <- the price of i
+
+
+- Option 2:
+if we not include
+
+Forced to not include
+if w\[i] > j then we exclude, and the minimizing would just be above us, the result of not including and using the pieces before us:
+M\[i -1, j]
+### Code
+
+```python
+for j = 1 to T set M[0,j] = infinity
+for i = 0 to n set M[i,0] = 0
+for i to n
+	for j 1 to T
+	if condition 
+		something
+	else M[i,j] = M[i-1, j]
+return M[n,T]
+```
+### Runtime
+
+We loop through a table of size n · T performing a constant number of steps for each entry. Therefore the overall runtime is O(n · T ).
+## Question 9
+
+
+## Question 10
+
+## Question 11
