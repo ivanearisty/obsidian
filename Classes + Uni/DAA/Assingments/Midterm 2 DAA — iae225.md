@@ -87,6 +87,8 @@ pre: root, left, right
 
 So again we can't do much.
 
+Think of the left only and right only trees again...
+
 ## Part 3
 
 We define a leaf to have a x.leaves value of 1, since it is a leaf
@@ -399,8 +401,21 @@ Facts:
 - If we pick up a rock at mile marker i and carry itto mile marker j, we get paid j-i * weight
 - you can drop and pick up a rock at the same mile marker.
 
+This problem feels very similar to another stock problem I have solved a long time ago, the way I am thinking about it is, imagine we have a setup where we have:
 
+weights:
+3, 1, 1, 1, 1, 1, 1 ... lots of 1s, 1, 1, 4, 2
+
+If we pick up the rock at 3, and keep walking until 4, we are effectively making more than we could ever make with any rock in between.
+
+Especially since there is no penalty for holding the rock for too long. 
+
+I mean, we can pick up and drop at any point, so the problem just becomes a sort of increasing graph, where **at any discrete point i, we are making i money = to the largest rock we have seen before.**
+
+So yes, it definitely works, always hold the rock that is making you the most money on each discrete step, no reason to downgrade your rock moneymaking potential, there is only a reason to upgrade it.
 
 ## Question 11
 ![[Screenshot 2024-11-18 at 8.27.25 PM.jpg]]
+
+Ok so what do we know? 
 
