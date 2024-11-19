@@ -417,5 +417,102 @@ So yes, it definitely works, always hold the rock that is making you the most mo
 ## Question 11
 ![[Screenshot 2024-11-18 at 8.27.25 PM.jpg]]
 
+
+### Reasoning
+
 Ok so what do we know? 
 
+- We can still pick up and drop a rock at any point in time.
+
+We have two choices at every step, to pick up a rock, or to not pickup
+
+We want to maximize the amount of rocks we can pick up.
+
+All rocks are worth the same, but we want to maximize rock touching.
+
+So, this preemptively feels like LIS but im not too sure.
+
+Let's try to define the subproblems
+
+At rock M\[i], we have to hold it for D\[i] time.
+
+The decision is whether to hold it or not to hold it
+
+If we hold it, we make
+the rock
+v 
+1  - the cost of carrying it.
+
+The cost of carrying it would be how many rocks we give up for carrying it.
+
+The rocks we give up are naively just the rocks to it's right, but each of those rocks has a cost of being carried too.
+
+For example
+
+2, 1, 5, 1, 1, 1
+
+The cost of rock 2 is 1 + OH! 
+
+The benefit of rock 2 is 1 + the benefit of all rocks after 5!
+
+Ok let's try to write something:
+![[A7200E56-F1AA-486B-9069-355724635AA4.jpg]]
+
+**Table:**
+
+We are going to have a 1 dimensional array such that dp\[i] represents the maximum number of rocks that can be carried from i to the finish line.
+
+**Init**
+
+The last rock is 0
+
+**recurrence**
+
+if d\[i] > n, then we are at an impossible rock, and the value is 0 or the value of the rocks in front of it.
+
+For any one rock i, the utilization of that rock is:
+1 + dp\[ i + D\[ i ]] or the value to it's right, whatever is bigger.
+
+**code**
+
+```python
+dp = [n] # make a new dp array
+dp[n] = 0 # set the last value to 0
+
+for(i = n to 1): # iterate down
+	if D[i] > n - i: # if the holding time is bigger than the time to hold
+		dp[i] = dp[i+1]
+	else:
+		dp[i] = max((1 + dp[i+d[i]] ), dp[i+1])
+		# 1 for getting this new rock
+		# getting how much we can carry later
+return dp[0]
+```
+
+Bonus,
+
+the selected rocks can be achieved by seeing whenever we go down by 1
+
+```python
+dp = [n] # make a new dp array
+dp[n] = 0 # set the last value to 0
+
+for(i = n to 1): # iterate down
+	if D[i] > n - i: # if the holding time is bigger than the time to hold
+		dp[i] = dp[i+1]
+	else:
+		dp[i] = max((1 + dp[i+d[i]] ), dp[i+1])
+		# 1 for getting this new rock
+		# getting how much we can carry later
+
+for i = 1 to n-1:
+	if(dp[i-1] > dp[i])
+		print(mile[i])
+	else
+		continue
+
+return dp[0]
+```
+
+Sanity check:
+![[A2992652-EE5F-4F87-B724-BE2B806731D1.jpg]]
