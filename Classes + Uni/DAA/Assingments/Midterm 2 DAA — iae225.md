@@ -315,12 +315,9 @@ If we can include i it's because w\[i] <= j
 Then we have a choice of including or not
 if we include it then we get:
 M\[i,j] = M\[ i - 1 , j - w\[i] ] + p\[i] <- the price of i
+And to choose whether we include or not we compare that to the choice of not including and select the minimum. That not including is the same as forced to include.
 
-
-- Option 2:
-if we not include
-
-Forced to not include
+**Forced to not include**
 if w\[i] > j then we exclude, and the minimizing would just be above us, the result of not including and using the pieces before us:
 M\[i -1, j]
 ### Code
@@ -329,9 +326,13 @@ M\[i -1, j]
 for j = 1 to T set M[0,j] = infinity
 for i = 0 to n set M[i,0] = 0
 for i to n
-	for j 1 to T
-	if condition 
-		something
+	for j 1 to T:
+	if w[i] <= j # if we gonna include
+		M[i,j] = min( # then this will be the minimum between
+			M[ i - 1 , j - w[i] ] + p[i], # including it and getting the result 
+										  # of the other stuff
+			M[i-1, j]					  # or not including it
+		)
 	else M[i,j] = M[i-1, j]
 return M[n,T]
 ```
@@ -340,7 +341,66 @@ return M[n,T]
 We loop through a table of size n · T performing a constant number of steps for each entry. Therefore the overall runtime is O(n · T ).
 ## Question 9
 
+![[Screenshot 2024-11-18 at 8.04.11 PM.jpg]]
 
+Ok so this is longest palindromic subsequence, but now we get more money for certain types of joins on the table.
+
+Let's look at what palindromic subsequence is:
+
+![[Screenshot 2024-11-18 at 8.06.49 PM.jpg]]
+
+Let's define a convenience function called getValue(i) so that for input i, where i is in {R, B, G, Y, P } we will get the respective price. 
+
+We might need another dimension for price.
+
+For initialization, we are going to assign the main diagonal table to 0, since we actually can't draw any rainbows in between.
+
+Then, for the second diagonal table, we can assign if there exists a palindrome or not into the value.
+
+After drawing a quick example
+
+![[IMG_6308.jpeg]]
+
+Our algorithm does work in selecting the best case, and we know LPS wont make any bad rainbows by the nature of how it works, so:
+
+The DP Table will dp\[i,j] will contain the current maximum value that we can make from i to j in the string, where i and j are the start and ending points of the string
+
+The initialization was explained above.
+
+Now the recurrence relation is:
+
+If c\[i] = c\[j] then the current best price is whatever rainbows are inside + the current gain from making this rainbow. dp(i+1, j-1) + getValue(c\[i])
+
+and if we dont make a palindrome, we take the best out of the right and left sides as before:
+
+```python
+from i = 1 to n set dp[i,i] to 0 
+from i = 1 to i = n - 1:
+	if c[i] = c[i+1] 
+		dp[i, i + 1] = getValue(c[i])
+	else dp[i, i + 1] = 0
+for k = 3 to k = n 
+	for i = 1 to i = n − k + 1 
+		j is the right endpoint: j = i + k − 1 
+		if c[i] = c[j]:
+			dp[i,j] = getValue(c[i]) +  dp[i+1, j-1]
+		else: 
+			dp[i,j] = max(dp[i+1, j], dp[i, j-1]
+```
+
+Our algorithm carries out a constant number of operations per cell of the table. 
+Since we have $\mathcal{O}(n^{2})$ entries in the table, the algorithm runs in time $\mathcal{O}(n^{2})$.
+Just like regular lps
 ## Question 10
 
+![[Screenshot 2024-11-18 at 8.27.19 PM.jpg]]
+
+Facts:
+- If we pick up a rock at mile marker i and carry itto mile marker j, we get paid j-i * weight
+- you can drop and pick up a rock at the same mile marker.
+
+
+
 ## Question 11
+![[Screenshot 2024-11-18 at 8.27.25 PM.jpg]]
+
