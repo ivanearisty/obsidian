@@ -61,7 +61,7 @@ So we can have at most
 
 ## Part 2
 
-### A
+### A REVISIT
 
 Give an example of a BST on 10 nodes such that the Inorder and Postorder traversal produce the same output, or explain that it is not possible
 
@@ -69,19 +69,126 @@ Post order traversal always prints out the left, right, root
 
 inorder visits the left root right
 
-if we eliminate one of the children
+if we eliminate one of the children maybe we could do something, 
 
+for pre we could eliminate left
 both would print out
-
-post: root, right
+pre: root, right
 in: root, right.
 
-so it would be a linkedlist like bst where every node only has a right child and we have not a single node with left children
-
+but for post order, we cant eliminate anything and it's not possible
 ### B
 Give an example of a BST on 10 nodes such that the Preorder and Postorder traversal produce the same output, or explain that it is not possible
 
-I mean, if we do the same analysis as before, we would have to eliminate the root in this situation sicne
+I mean, if we do the same analysis as before, we would have to eliminate the root in this situation.
 
 post: left, right, root
 pre: root, left, right
+
+So again we can't do much.
+
+## Part 3
+
+We define a leaf to have a x.leaves value of 1, since it is a leaf
+We define a null node to have a  x.leave value of 0
+We want to get to the end and if a node has both of their children be null return 1
+
+else traverse left and right
+
+```python
+SetLeaves(T):
+	if T == null return 0
+
+	# I am a leaf
+	if(T.left == null and T.right == null)
+		T.leaves = 1
+		return 1
+
+	left = SetLeaves(T.left)
+	right = SetLeaves(T.right)
+
+	T.leaves = left + right
+	return T.leaves
+	
+```
+
+## Part 4
+
+Whenever a new node is inserted into a tree, it will be a leaf, without exception.
+
+Hence, we know that adding 1 to the leaf count down the tree would be sufficient sometimes.
+
+However, it might be the case that a node gets inserted as a child of a  node that was a leaf. 
+
+In this scenario, then we would not want to update this property.
+
+We do not know before inserting a node where it will go, hence the tree insert algorithm.
+
+Therefore, we must verify whether the parent know of the tree that was inserted has another child, after the insertion.
+
+Two cases arise:
+1: If we have a sibling we must update the leaf size down our path.
+2: If we do not have a sibling, our parent was a leaf, nothing to update.
+
+In case 1, our approach will be to call another algorithm at the end of tree insert that will go search down the path for the the newly inserted node, and add 1 to the leaf sizes of each node we traverse.
+
+This would be a modified version of the BST-search algorithm.
+
+It is O(h) still.
+
+This is because the time complexity of tree-insert is O(h) since we at maximum go down the path of the tree.
+
+We are adding a new algorithm that also goes down the path of the tree, but perform constant amount of work at each step. 
+
+Hence, this algorithm is also Oh
+
+And, O(h+h) is just equal to h.
+
+## Part 5
+
+Since we talked about it in class, I am assuming that I can call an algorithm that returns the maximum height of the tree. This algorithm goes through all nodes and is O(n) so it wont increment our time complexity if we only call it once in the init.
+
+```python
+CheckColoring(T):
+	maxHeight = maxHeight(T)
+	return CheckColoring(T, maxHeight)
+
+CheckColoring(T, h):
+	if(T == NIL) return true
+	# if we are at the last level of the tree
+	if(h == 0):
+		if(T.color == red):
+			return true
+		else return false
+	else:
+		# if im not at the last level and im red return false
+		if(T.color == red):
+			return false
+		else:
+			return
+				# both left and right subtrees follow our rules
+				CheckColoring(T.left, h - 1)
+				and
+				CheckColoring(T.right, h - 1)
+```
+
+Our algorithm is O(n) since we visit every node once, and the init maxheight is also O(n)
+
+More justified, this is the same time complexity as inorder traversal since
+T(n) leq t(lx) + t(rx) + c where l and r denote the left and right subtrees. And we have proved before that this runtime is indeed O(n)
+From lecture notes:
+![[Screenshot 2024-11-18 at 6.57.08 PM.jpg]]
+
+## Part 6
+
+### A
+
+We can implement the above as a red black tree.
+
+If we use x as the key we can insert and delete everything in log(n) time. 
+
+The following would be modifications to BST delete and insert to keep everything correct as teh tree evolves:
+
+When inserting:
+we are given prereq and credits.
+maxcredits will always be equal to credits since we would insert a leaf.
