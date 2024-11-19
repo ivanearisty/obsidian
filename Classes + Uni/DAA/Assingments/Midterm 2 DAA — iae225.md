@@ -61,7 +61,7 @@ So we can have at most
 
 ## Part 2
 
-### A REVISIT
+### A CHECK THIS TODO
 
 Give an example of a BST on 10 nodes such that the Inorder and Postorder traversal produce the same output, or explain that it is not possible
 
@@ -183,12 +183,98 @@ From lecture notes:
 
 ### A
 
-We can implement the above as a red black tree.
+We can implement the above as an augmented red black tree.
 
 If we use x as the key we can insert and delete everything in log(n) time. 
 
-The following would be modifications to BST delete and insert to keep everything correct as teh tree evolves:
+We would need modifications to BST delete and insert to keep everything correct as teh tree evolves:
 
-When inserting:
+For example, when inserting:
 we are given prereq and credits.
 maxcredits will always be equal to credits since we would insert a leaf.
+same for pmax
+same for size it will just be 1.
+
+### B CHECK THIS TODO
+
+```python
+MaxCredits(T)
+	if(T == null) return 0
+	# if this studen't grade is less than 80 go right
+	if(T.grade < 80)
+		return MaxCredits(T.right)
+	else: # this student and all of the students to the right have a higher grade
+		student to the right = T.right.maxcredits
+		my credits = T.credits
+		# check the left subtree to see if anyone has a higher grade and add them too
+		maybe we have something on the left credits = MaxCredits(T.left)
+		# assuming null is fine
+		return max(
+			student to the right,
+			my credits,
+			maybe we have something on the left credits
+		)
+```
+
+Runtime is O(logn) because a rb tree has height bound by logn and we are executing an algorithm that at most will go all the way to right, or to the left, but it will traverse down one path. From root to leaf, and that leaf is at most h away from root.
+
+### C CHECK THIS TODO
+
+```python
+MaxPregrade(T):
+	if(T == null) return 0
+
+	## if we have too high of a grade go to the left to find lower
+	if(T.grade > 60):
+		return MaxPregrade(T.left)
+	else: # this sutdent and all the student to it's left have lower grades than 60
+		students to the left = T.left.PMax
+		my pre  = T.prereq
+		maybe we overshot it so check right = MaxPregrade(T.right)
+		return max(
+			students to the left,
+			my pre,
+			maybe we overshot it so check right
+			)
+```
+
+Same as above, runtime is O(logn) because a rb tree has height bound by logn and we are executing an algorithm that at most will go all the way to right, or to the left, but it will traverse down one path. From root to leaf, and that leaf is at most h away from root.
+
+### d
+![[Screenshot 2024-11-18 at 7.23.01 PM.jpg]]
+```python
+AboveBest(T):
+	if T == null return 0
+
+	highestgradepreq = T.PMax
+
+	AboveBest(T, highestgradepreq)
+
+AboveBest(T, target):
+	# if i am nobody, i dont exist
+	if T == null return 0
+	# if we are higher we need to add ourselves on all our right children 
+	# and check the left subtree to see if anyone else there is also higher
+	if(T.grade > target):
+		me = 1 
+		my right children = 0
+		if T.right != null:
+			my right children = T.right.size
+		whatever we left on the left = AboveBest(T.left, target)
+		return me + my right children + whatever we left on the left
+	# if I am in fact lower we should not count me and go to my right child
+	# because maybe he is bigger
+	else:
+		return AboveBest(T.right, target)
+```
+
+## Part 7
+
+### A
+![[Screenshot 2024-11-18 at 7.29.31 PM.jpg]]
+
+S
+
+```python
+
+```
