@@ -206,9 +206,9 @@ Let’s check:
 1. A→B:
     - A is not a superkey.
 
-**Now, is BBB contained in a candidate key?**
+**Now, is B contained in a candidate key?**
 
-- Yes, because BBB is functionally dependent on CCC, the only candidate key (since C→AC \to AC→A and A→BA \to BA→B).
+- Yes, because B is functionally dependent on C, the only candidate key (since $C\to A$ and $A \to B$).
 
 - Satisfies the third condition of 3NF.
 
@@ -234,3 +234,4 @@ In this decomposition:
 
 However, to answer queries about the original schema R, we’d need to join $R_1$ and $R_2$, which adds overhead. By allowing R to remain in 3NF, we avoid this unnecessary decomposition while still avoiding redundancy and anomalies.
 
+### Higher Normal Forms
