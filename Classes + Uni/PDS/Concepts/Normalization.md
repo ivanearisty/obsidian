@@ -62,22 +62,52 @@ Consider a relation schema r(R), and let α ⊆ R and β ⊆ R.
 ![[Screenshot 2024-11-20 at 6.51.15 PM.jpg]]
 
 ![[Screenshot 2024-11-20 at 6.52.27 PM.jpg]]
-### Sample Instance
+#### Sample Instance
 ![[Screenshot 2024-11-20 at 6.54.46 PM.jpg]]
 
-### Trivial Functional Dependency
+#### Trivial Functional Dependency
 
 Some functional dependencies are said to be trivial because they are satisfied by all relations. For example, A →A is satisfied by all relations involving attribute A.
 
 Functional dependencies in database theory describe relationships between attributes (or sets of attributes) in a relation. A functional dependency \( \alpha \to \beta \) means that if two tuples (rows) of a relation agree on the values of attributes in \( \alpha \), then they must also agree on the values of attributes in \( \beta \).
 
-### Trivial Functional Dependencies
 A functional dependency is considered **trivial** if it is satisfied by all possible relations, regardless of the actual data in those relations. 
 
-1. **\( A \to A \):**
+Similarly, AB →A is satisfied by all relations involving attribute A. In general, a functional dependency of the form α →β is trivial if β ⊆ α.
+
+1. **$A \to A$:**
    - This dependency says that an attribute \( A \) functionally determines itself. Since this is always true (the value of \( A \) in a tuple is obviously equal to itself), it is trivial.
 
-2. **\( AB \to A \):**
+2. $AB \to A$:
    - This dependency says that the attributes \( A \) and \( B \) together functionally determine \( A \). Since \( A \) is already part of the left-hand side (\( AB \)), this dependency is trivial.
 
-Similarly, AB →A is satisfied by all relations involving attribute A. In general, a functional dependency of the form α →β is trivial if β ⊆ α.
+#### Unrequired and Satisfied Functional Dependencies
+
+![[Screenshot 2024-11-20 at 7.32.55 PM.jpg]]
+![[Screenshot 2024-11-20 at 7.34.07 PM.jpg]]
+
+#### Inference
+
+![[Screenshot 2024-11-20 at 7.35.39 PM.jpg]]
+
+### Lossless Decomposition
+
+![[Screenshot 2024-11-20 at 7.37.06 PM.jpg]]
+
+![[Screenshot 2024-11-20 at 7.37.21 PM.jpg]]
+#### SQL
+![[Screenshot 2024-11-20 at 7.39.01 PM.jpg]]
+
+## Normal Forms
+
+One of the more desirable normal forms that we can obtain is Boyce–Codd normal form (BCNF). It eliminates all redundancy that can be discovered based on functional dependencies (but there could be other redundancies).
+
+A relation schema R is in BCNF with respect to a set F of functional dependencies if, for all functional dependencies in F + of the form α →β, where α ⊆ R and β ⊆ R, at least one of the following holds:
+
+- α →β is a trivial functional dependency (i.e., β ⊆ α).
+- α is a superkey for schema R.
+
+A database design is in BCNF if each member of the set of relation schemas that constitutes the design is in BCNF.
+
+![[Screenshot 2024-11-20 at 7.46.10 PM.jpg]]
+
