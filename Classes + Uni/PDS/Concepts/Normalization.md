@@ -235,3 +235,4 @@ In this decomposition:
 However, to answer queries about the original schema R, we’d need to join $R_1$ and $R_2$, which adds overhead. By allowing R to remain in 3NF, we avoid this unnecessary decomposition while still avoiding redundancy and anomalies.
 
 ### Higher Normal Forms
+
