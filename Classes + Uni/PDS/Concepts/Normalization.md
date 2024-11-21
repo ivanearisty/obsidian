@@ -100,6 +100,8 @@ Similarly, AB →A is satisfied by all relations involving attribute A. In gener
 
 ## Normal Forms
 
+### BCNF 
+
 One of the more desirable normal forms that we can obtain is Boyce–Codd normal form (BCNF). It eliminates all redundancy that can be discovered based on functional dependencies (but there could be other redundancies).
 
 A relation schema R is in BCNF with respect to a set F of functional dependencies if, for all functional dependencies in F + of the form α →β, where α ⊆ R and β ⊆ R, at least one of the following holds:
@@ -109,5 +111,10 @@ A relation schema R is in BCNF with respect to a set F of functional dependencie
 
 A database design is in BCNF if each member of the set of relation schemas that constitutes the design is in BCNF.
 
+### BCNF DEF
+
 ![[Screenshot 2024-11-20 at 7.46.10 PM.jpg]]
 
+### Decomposition to BCNF
+
+![[Screenshot 2024-11-20 at 7.51.17 PM.jpg]]
