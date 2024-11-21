@@ -118,3 +118,23 @@ A database design is in BCNF if each member of the set of relation schemas that 
 ### Decomposition to BCNF
 
 ![[Screenshot 2024-11-20 at 7.51.17 PM.jpg]]
+
+### Intro to Third Form
+
+Designing databases to efficiently test constraints is essential. While BCNF ensures robust normalization, it can prevent efficient testing of certain functional dependencies, as shown in a university database example. A ternary relationship `dept_advisor` captures the constraints that instructors belong to one department and students can have at most one advisor per department. 
+
+Decomposing this schema into BCNF results in two relations, `(s_ID, i_ID)` and `(i_ID, dept_name)`, but the functional dependency `s_ID, dept_name → i_ID` cannot be enforced without recomputing the join, making the design **not dependency preserving**.
+
+To balance normalization and efficiency, **Third Normal Form (3NF)**, a weaker normal form, allows dependency preservation while maintaining acceptable normalization. This trade-off highlights the importance of considering dependency preservation when designing schemas.
+
+### Third Normal Form
+
+BCNF requires that all nontrivial dependencies be of the form α →β, where α is a superkey.
+
+Third normal form (3NF) relaxes this constraint slightly by allowing certain nontrivial functional dependencies whose left side is not a superkey.
+
+A relation schema R is in third normal form with respect to a set F of functional dependencies if, for all functional dependencies in F + of the form α →β, where α ⊆ R and β ⊆ R, at least one of the following holds:
+
+- α →β is a trivial functional dependency.  
+- α is a superkey for R.  
+- Each attribute A in β − α is contained in a candidate key for R.
