@@ -6,6 +6,10 @@ Using your group members as customers (and additional fictional data as needed) 
 a. Two customers have ordered the same brand/style/color/size of shoes, and 
 
 
+|     |     |     |     |     |
+| --- | --- | --- | --- | --- |
+|     |     |     |     |     |
+
 
 b. There are multiple colors and/or sizes of at least one brand/style of shoes, and 
 c. There is a customer who has no orders, and 
