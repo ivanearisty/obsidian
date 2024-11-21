@@ -138,3 +138,99 @@ A relation schema R is in third normal form with respect to a set F of functiona
 - α →β is a trivial functional dependency.  
 - α is a superkey for R.  
 - Each attribute A in β − α is contained in a candidate key for R.
+
+Note that the third condition above does not say that a single candidate key must contain all the attributes in β − α ; each attribute A in β − α may be contained in a different candidate key.
+
+Observe that any schema that satisfies BCNF also satisfies 3NF, since each of its functional dependencies would satisfy one of the first two alternatives.
+
+![[Screenshot 2024-11-21 at 2.50.35 AM.jpg]]
+![[Screenshot 2024-11-21 at 2.53.49 AM.jpg]]
+
+### BCNF vs 3NF
+
+Our goals of database design with functional dependencies are:  
+1. BCNF.  
+2. Losslessness.  
+3. Dependency preservation.  
+Since it is not always possible to satisfy all three, we may be forced to choose between  
+BCNF and dependency preservation with 3NF.
+
+It is worth noting that SQL does not provide a way of specifying functional dependencies, except for the special case of declaring superkeys by using the primary key or unique constraints. It is possible, although a little complicated, to write assertions that enforce a functional dependency.
+
+Thus even if we had a dependency-preserving decomposition, if we use standard SQL we can  test efficiently only those functional dependencies whose left-hand side is a key.
+
+Even if we are not able to get a dependency-preserving BCNF decomposition, it is still preferable to opt for BCNF, since checking functional dependencies other than primary key constraints is difficult in SQL.
+
+### Example
+
+Let's consider a relation:
+
+> R(A,B,C)
+
+with the following functional dependencies:
+
+1. $A \to B$
+2. $C \to A$
+#### Candidate Keys:
+
+To determine the candidate keys for RR:
+
+- A→B: Knowing A, we can determine B.
+- C→A: Knowing C, we can determine A, and since A→B, C determines all attributes (A,B,C).
+
+Thus, the only **candidate key** for R is C.
+
+---
+
+#### Is R in BCNF?
+
+A relation is in **BCNF** if for every functional dependency $\alpha \to \beta, \alpha$ is a superkey. Let’s check:
+
+1. A→B Here, A is not a superkey because A does not determine all attributes (it only determines B). **Violation of BCNF**.
+2. C→A: Here, C is a superkey because it determines all attributes. **Satisfies BCNF**.
+
+Since A→BB violates BCNF, R is not in BCNF.
+
+---
+
+#### Is RR in 3NF?
+
+A relation is in **3NF** if for every functional dependency α→β, at least one of the following is true:
+
+1. α→β is trivial (β⊆α).
+2. α is a superkey.
+3. Every attribute in β−α is **contained in a candidate key**.
+
+Let’s check:
+
+1. A→B:
+    - A is not a superkey.
+
+**Now, is BBB contained in a candidate key?**
+
+- Yes, because BBB is functionally dependent on CCC, the only candidate key (since C→AC \to AC→A and A→BA \to BA→B).
+
+- Satisfies the third condition of 3NF.
+
+1. C→A:
+    - C is a superkey.
+    - Satisfies the second condition of 3NF.
+
+Thus, R is in 3NF but not in BCNF.
+
+---
+
+#### Why is the Third Condition Useful?
+
+Without the third condition of 3NF, R would have to be decomposed into BCNF, like this:
+
+1. $R_1(A, B)$ with $A \to B$.
+2. $R_2(C, A)$ with $C \to A$.
+
+In this decomposition:
+
+- The dependency A→B is preserved in $R_1$.
+- The dependency C→A is preserved in $R_2$.
+
+However, to answer queries about the original schema R, we’d need to join $R_1$ and $R_2$, which adds overhead. By allowing R to remain in 3NF, we avoid this unnecessary decomposition while still avoiding redundancy and anomalies.
+
