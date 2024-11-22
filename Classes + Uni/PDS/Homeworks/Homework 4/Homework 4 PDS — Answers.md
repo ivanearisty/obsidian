@@ -72,6 +72,37 @@ There's plenty:
 
 Trivial: styleID, brand -> brand
 
-Superkey: brand, styleID, size, color, email, orderDate
+Superkey: brand, styleID, size, color, email, orderDate -> basePrice, pricePaid, status, qInStock, qOrdered, bonusPoints, phone
 
--> basePrice, pricePaid, status, qInStock, qOrdered, bonusPoints, phone
+## Question 3
+
+![[Screenshot 2024-11-22 at 3.36.33 AM.jpg]]
+
+1. brand, styleID, size, color -> qInStock
+2. brand, styleID -> basePrice
+3. email -> phone, bonusPts
+
+## Question 4
+
+What is the canonical cover of the set of dependencies implied by the description?
+
+$$\begin{gather}
+1. ( { \text{brand, styleID, size, color} } \rightarrow \text{qInStock} ) \\
+2.	( { \text{brand, styleID} } \rightarrow \text{basePrice} ) \\
+3.	( { \text{email} } \rightarrow \text{phone}, \text{bonusPts} ) \\
+\end{gather}
+$$
+## Question 5
+
+Candidate Key: 
+(brand, styleID, size, color, email, orderDate)
+
+## Question 6
+
+A relation is in $\textbf{BCNF}$ if for every functional dependency $\alpha \to \beta$, $\alpha$ is a superkey. Let’s check:
+
+Consider $A: ( \text{brand, styleID, size, color} \rightarrow \text{qInStock} )$
+
+Since the candidate key is as above, we miss $( \text{email} ) and ( \text{orderDate} )$.
+
+Additionally, A is not trivial since $( \text{qInStock} \not\subseteq \text{(brand, styleID, size, color)} )$.

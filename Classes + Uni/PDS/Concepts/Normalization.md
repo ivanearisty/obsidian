@@ -189,7 +189,7 @@ A relation is in **BCNF** if for every functional dependency $\alpha \to \beta, 
 1. A→B Here, A is not a superkey because A does not determine all attributes (it only determines B). **Violation of BCNF**.
 2. C→A: Here, C is a superkey because it determines all attributes. **Satisfies BCNF**.
 
-Since A→BB violates BCNF, R is not in BCNF.
+Since A→B violates BCNF, R is not in BCNF.
 
 ---
 
