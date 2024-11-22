@@ -17,21 +17,21 @@ a. Two customers have ordered the same brand/style/color/size of shoes, and
 | pricePaid | status     | qInStock | qOrdered | bonusPts | phone        |
 | --------- | ---------- | -------- | -------- | -------- | ------------ |
 | 90        | inProgress | 255      | 1        | 0        | 516-555-5555 |
-| 90        | completed  | 270      | 1        | 0        | 516-555-5555 |
+| 90        | completed  | 270      | 1        | 0        | 516-555-5554 |
 |           |            |          |          |          |              |
 
 b. There are multiple colors and/or sizes of at least one brand/style of shoes, and 
 
 | brand  | styldeID | size | color | email                | orderDate | basePrice |
 | ------ | -------- | ---- | ----- | -------------------- | --------- | --------- |
-| Adidas | Predator | 11   | blue  | iae225@nyu.edu       | 11-22-24  | 100       |
-| Adidas | Predator | 10.5 | blue  | iae225@stern.nyu.edu | 11-21-24  | 100       |
+| Adidas | Predator | 11   | blue  | iae225@nyu.edu       | 11-20-24  | 100       |
+| Adidas | Predator | 10.5 | blue  | iae225@stern.nyu.edu | 11-19-24  | 100       |
 -
 
 | pricePaid | status     | qInStock | qOrdered | bonusPts | phone        |
 | --------- | ---------- | -------- | -------- | -------- | ------------ |
 | 90        | inProgress | 255      | 1        | 120      | 516-555-5555 |
-| 90        | completed  | 270      | 1        | 100      | 516-555-5555 |
+| 90        | completed  | 270      | 1        | 100      | 516-555-5554 |
 
 c. There is a customer who has no orders, and 
 
@@ -128,8 +128,7 @@ email -> phone, bonusPts
 - Inventory (brand, styleID, size, color, qInStock)
 - ShoePrice (brand, styleID, basePrice)
 - User (email, phone, bonusPts)
-- R: Order (brand, styleID, size, color, email, orderDate, pricePaid,
-status, qOrdered)
+- R: Order (brand, styleID, size, color, email, orderDate, pricePaid, status, qOrdered)
 
 ## Question 8
 
@@ -155,8 +154,78 @@ Show how the data in (1) is stored using the decomposed database schema from (7)
 
 **User**
 
-| email | phone | bonusPts |
-| ----- | ----- | -------- |
-|       |       |          |
+| email                 | phone        | bonusPts |
+| --------------------- | ------------ | -------- |
+| iae225@nyu.edu        | 516-555-5555 | 120      |
+| iae225@stern.nyu.edu  | 516-555-5554 | 100      |
+| iae225@tandon.nyu.edu | 516-444-444  | 200      |
+- 1 was so confusing that I even noticed mistakes I made then, now we can guarantee that users are uniquely identified by their email, and user attributes depend only on those. No need to have null order or inventory values to define a person.
 
 **Order**
+
+| brand  | styleID  | size | color | email                |
+| ------ | -------- | ---- | ----- | -------------------- |
+| Adidas | Predator | 11   | blue  | iae225@nyu.edu       |
+| Adidas | Predator | 10.5 | blue  | iae225@stern.nyu.edu |
+| Adidas | Predator | 11   | blue  | iae225@nyu.edu       |
+| Adidas | Predator | 11   | blue  | iae225@stern.nyu.edu |
+
+-
+
+| orderDate | pricePaid | status     | qOrdered |
+| --------- | --------- | ---------- | -------- |
+| 11-22-24  | 90        | inProgress | 1        |
+| 11-21-24  | 90        | completed  | 1        |
+| 11-20-24  | 90        | inProgress | 1        |
+| 11-19-24  | 90        | completed  | 1        |
+- Orders are uniquely identified, we no longer to make a null order to represent the sambas
+
+## Question 9
+
+Suppose the Shoe store changed its price structure to guarantee that all purchases of shoes with the same brand and styleID on the same orderDate have the same PricePaid.
+
+1: Write a functional dependency to characterize this:
+1. brand, styleID, orderDate -> pricePaid
+
+2: Decompose your answer from (7) further (if necessary) so it will be in BCNF with respect to the expanded set of functional dependencies
+Order (brand, styleID, size, color, email, orderDate, pricePaid, status, qOrdered)
+
+DailyPrice (brand, styleID, orderDate, pricePaid)
+Order (brand, styleID, size, color, email, orderDate, status, qOrdered)
+
+3: Is your result dependency preserving?
+"
+While BCNF ensures robust normalization, it can prevent efficient testing of certain functional dependencies, as shown in a university database example. A ternary relationship `dept_advisor` captures the constraints that instructors belong to one department and students can have at most one advisor per department. 
+
+Decomposing this schema into BCNF results in two relations, `(s_ID, i_ID)` and `(i_ID, dept_name)`, but the functional dependency `s_ID, dept_name → i_ID` cannot be enforced without recomputing the join, making the design **not dependency preserving**.
+
+To balance normalization and efficiency, **Third Normal Form (3NF)**, a weaker normal form, allows dependency preservation while maintaining acceptable normalization. 
+"
+
+Hence, considering our functional dependencies:
+brand, styleID, orderDate -> pricePaid
+brand, styleID, size, color -> qInStock
+brand, styleID -> basePrice
+email -> phone, bonusPts
+
+Then, our schema is still in BCNF since we do not have to recompute any joins to guarantee our dependencies check out 
+## Question 10
+
+![[Screenshot 2024-11-22 at 4.42.55 AM.jpg]]
+
+Inventory (brand, styleID, size, color, qInStock)
+ShoePrice (brand, styleID, basePrice)
+User (email, phone, bonusPts)
+R: Order (brand, styleID, size, color, email, orderDate, pricePaid, status, qOrdered)
+
+1: Write a functional dependency to characterize this:
+orderDate, basePrice -> pricePaid
+
+2: Decompose your answer from (7) further (if necessary) so it will be in BCNF with respect to the expanded set of functional dependencies
+Order (brand, styleID, size, color, email, orderDate, pricePaid, status, qOrdered)
+
+DailyScalars(basePrice, orderDate, pricePaid)
+Order(brand, styleID, size, color, email, orderDate, status, qOrdered)
+
+3: Is your result dependency preserving?
+Ye
