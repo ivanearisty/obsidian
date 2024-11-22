@@ -106,3 +106,57 @@ Consider $A: ( \text{brand, styleID, size, color} \rightarrow \text{qInStock} )$
 Since the candidate key is as above, we miss $( \text{email} ) and ( \text{orderDate} )$.
 
 Additionally, A is not trivial since $( \text{qInStock} \not\subseteq \text{(brand, styleID, size, color)} )$.
+
+## Question 7
+
+Decompose ShoeOrder into a collection of schemas each of which is in BCNF. Show your work: at each stage show which schema you are decomposing, which functional dependency violating BCNF you are using for the decomposition, and the resulting two schemas. At the end, show the entire decomposed database schema and give meaningful names to each relation schema.
+
+The schema is: ShoeOrder(brand, styleID, size, color, email, orderDate, basePrice, pricePaid, status, qInStock, qOrdered, bonusPts, phone)
+
+brand, styleID, size, color -> qInStock 
+- Inventory (brand, styleID, size, color, qInStock)
+- R(brand, styleID, size, color, email, orderDate, basePrice, pricePaid, status, qOrdered, bonusPts, phone)
+
+brand, styleID -> basePrice
+- ShoePrice (brand, styleID, basePrice)
+- R(brand, styleID, size, color, email, orderDate, pricePaid, status, qOrdered, bonusPts, phone)
+
+email -> phone, bonusPts 
+- User (email, phone, bonusPts)
+- R(brand, styleID, size, color, email, orderDate, pricePaid, status, qOrdered)
+
+- Inventory (brand, styleID, size, color, qInStock)
+- ShoePrice (brand, styleID, basePrice)
+- User (email, phone, bonusPts)
+- R: Order (brand, styleID, size, color, email, orderDate, pricePaid,
+status, qOrdered)
+
+## Question 8
+
+Show how the data in (1) is stored using the decomposed database schema from (7). Comment on how the decomposition addresses the anomalies you noted in part (1).
+
+**Inventory**
+
+| brand  | styleID  | size | color | qInStock |
+| ------ | -------- | ---- | ----- | -------- |
+| Adidas | Predator | 11   | blue  | 255      |
+| Adidas | Predator | 10.5 | blue  | 270      |
+| Adidas | Samba    | 9    | black | 100      |
+- Only one entry for the non-differentiated shoe. Q in stock is now kept as an attribute not dependent on orders, allowing us to edit it without having to do something new to orders
+- Samba shoes can be kept in DB without depending on null user values or being ordered
+
+**ShoePrice**
+
+| brand  | styleID  | basePrice |
+| ------ | -------- | --------- |
+| Adidas | Predator | 100       |
+| Adidas | Samba    | 100       |
+- basePrice correctly inherits from only brand and styleID, keeping an abstract relationship not dependent on actual shoes in storage
+
+**User**
+
+| email | phone | bonusPts |
+| ----- | ----- | -------- |
+|       |       |          |
+
+**Order**
