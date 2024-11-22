@@ -8,18 +8,70 @@ Using your group members as customers (and additional fictional data as needed) 
 
 a. Two customers have ordered the same brand/style/color/size of shoes, and 
 
-
-| brand  | styldeID | size | color | email          | orderDate | basePrice |
-| ------ | -------- | ---- | ----- | -------------- | --------- | --------- |
-| Adidas | Predator | 11   | blue  | iae225@nyu.edu | 11-22-24  | 100       |
-|        |          |      |       |                |           |           |
+| brand  | styldeID | size | color | email                | orderDate | basePrice |
+| ------ | -------- | ---- | ----- | -------------------- | --------- | --------- |
+| Adidas | Predator | 11   | blue  | iae225@nyu.edu       | 11-22-24  | 100       |
+| Adidas | Predator | 11   | blue  | iae225@stern.nyu.edu | 11-21-24  | 100       |
 -
 
-| pricePaid | status    | qInStock | qOrdered | bonusPts | phone        |
-| --------- | --------- | -------- | -------- | -------- | ------------ |
-| 100       | completed | 270      | 1        | 0        | 516-555-5555 |
-
+| pricePaid | status     | qInStock | qOrdered | bonusPts | phone        |
+| --------- | ---------- | -------- | -------- | -------- | ------------ |
+| 90        | inProgress | 255      | 1        | 0        | 516-555-5555 |
+| 90        | completed  | 270      | 1        | 0        | 516-555-5555 |
+|           |            |          |          |          |              |
 
 b. There are multiple colors and/or sizes of at least one brand/style of shoes, and 
+
+| brand  | styldeID | size | color | email                | orderDate | basePrice |
+| ------ | -------- | ---- | ----- | -------------------- | --------- | --------- |
+| Adidas | Predator | 11   | blue  | iae225@nyu.edu       | 11-22-24  | 100       |
+| Adidas | Predator | 10.5 | blue  | iae225@stern.nyu.edu | 11-21-24  | 100       |
+-
+
+| pricePaid | status     | qInStock | qOrdered | bonusPts | phone        |
+| --------- | ---------- | -------- | -------- | -------- | ------------ |
+| 90        | inProgress | 255      | 1        | 120      | 516-555-5555 |
+| 90        | completed  | 270      | 1        | 100      | 516-555-5555 |
+
 c. There is a customer who has no orders, and 
-d. There are some black size 9 Adidas Sambas in stock, and no one has ordered any of that shoe type. Comment briefly on problems with this schema that these data illustrate.
+
+| brand | styldeID | size | color | email                 | orderDate | basePrice |
+| ----- | -------- | ---- | ----- | --------------------- | --------- | --------- |
+| null  | null     | null | null  | iae225@tandon.nyu.edu | null      | null      |
+
+-
+
+| pricePaid | status | qInStock | qOrdered | bonusPts | phone        |
+| --------- | ------ | -------- | -------- | -------- | ------------ |
+| null      | null   | null     | null     | 200      | 516-444-4444 |
+
+d. There are some black size 9 Adidas Sambas in stock, and no one has ordered any of that shoe type. 
+
+
+| brand  | styldeID | size | color | email | orderDate | basePrice |
+| ------ | -------- | ---- | ----- | ----- | --------- | --------- |
+| Adidas | Samba    | 9    | black | null  | null      | 100       |
+
+-
+
+| pricePaid | status | qInStock | qOrdered | bonusPts | phone |
+| --------- | ------ | -------- | -------- | -------- | ----- |
+| null      | null   | 100      | null     | null     | null  |
+
+Comment briefly on problems with this schema that these data illustrate.
+
+There's plenty:
+- We must represent a shoe existing with a null or default order, which does not represent a real entity, and, if that were not done, we'd lose track of shoes available if no orders are associated to them
+- Integrity and Confusion: Fields like item quantities are hard to keep track of and instantly become outdated when a new order for an item comes in. 
+- Redundant Data Everywhere. We need unrelated attributes to be defined or null to express a meaningful real entity by itself.
+- Lots of for loops would be needed to find relevant data.
+
+## Question 2
+
+![[Screenshot 2024-11-22 at 3.33.36 AM.jpg]]
+
+Trivial: styleID, brand -> brand
+
+Superkey: brand, styleID, size, color, email, orderDate
+
+-> basePrice, pricePaid, status, qInStock, qOrdered, bonusPoints, phone
