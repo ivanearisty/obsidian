@@ -228,4 +228,10 @@ DailyScalars(basePrice, orderDate, pricePaid)
 Order(brand, styleID, size, color, email, orderDate, status, qOrdered)
 
 3: Is your result dependency preserving?
-Ye
+considering our functional dependencies:
+orderDate, basePrice -> pricePaid
+brand, styleID, size, color -> qInStock
+brand, styleID -> basePrice
+email -> phone, bonusPts
+
+Then, again, our schema is still in BCNF since we do not have to recompute any joins to guarantee our dependencies check out. 
