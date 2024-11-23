@@ -11,10 +11,9 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
   useEffect(() => {
     if (!datasets || datasets.length === 0) return;
 
-    // Define chart dimensions with larger right margin
-    const width = 700; // Adjust width if needed
+    const width = 700;
     const height = 400;
-    const margin = { top: 20, right: 150, bottom: 30, left: 40 }; // Increased right margin
+    const margin = { top: 20, right: 150, bottom: 50, left: 60 };
 
     // Create the SVG container
     const svg = d3
@@ -27,7 +26,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
     const xScale = d3
       .scaleLinear()
       .domain(d3.extent(datasets[0].data, (d) => d.x) as [number, number])
-      .range([margin.left, width - margin.right]); // Adjusted for larger right margin
+      .range([margin.left, width - margin.right]);
 
     const yScale = d3
       .scaleLinear()
@@ -56,7 +55,37 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(yScale).tickFormat(d3.format("d")));
 
-    const tooltip = svg.append("g").style("display", "none");
+    // Add X-Axis Label
+    svg
+      .append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", (width - margin.left - margin.right) / 2 + margin.left)
+      .attr("y", height - 10)
+      .style("font-size", "14px")
+      .style("fill", "white")
+      .text("Year");
+
+    // Add Y-Axis Label
+    svg
+      .append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", -(height - margin.top - margin.bottom) / 2 - margin.top)
+      .attr("y", 15)
+      .attr("transform", "rotate(-90)")
+      .style("font-size", "14px")
+      .style("fill", "white")
+      .text("Value");
+
+    const tooltip = svg
+      .append("g")
+      .style("position", "absolute")
+      .style("visibility", "hidden")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "1px")
+      .style("border-radius", "5px")
+      .style("padding", "10px")
+      .style("display", "none");
 
     tooltip
       .append("rect")
@@ -66,13 +95,13 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .attr("stroke", "black")
       .attr("rx", 4)
       .attr("ry", 4)
-      .attr("opacity", 0.8);
+      .attr("opacity", 0.9);
 
     const tooltipText = tooltip
       .append("text")
       .attr("x", 10)
       .attr("y", 20)
-      .attr("font-size", "12px")
+      .attr("font-size", "14px")
       .attr("fill", "black");
 
     // Create the path generator
@@ -109,12 +138,17 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
           .attr("r", 4)
           .attr("fill", color)
           .on("mouseover", function () {
-            tooltip.style("display", null);
-            tooltipText.text(`Year: ${point.x}, Value: ${point.y}`);
+            tooltip
+            .style("display", null)
+            .style("visibility", "visible");
+            tooltipText.text(`${point.x}, %${point.y}`);
           })
           .on("mousemove", function (event) {
             const [mouseX, mouseY] = d3.pointer(event, svg.node());
-            tooltip.attr("transform", `translate(${mouseX + 10}, ${mouseY - 30})`);
+            tooltip.attr(
+              "transform",
+              `translate(${mouseX + 10}, ${mouseY - 30})`
+            );
           })
           .on("mouseout", function () {
             tooltip.style("display", "none");
@@ -125,7 +159,10 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
     // Add Legend
     const legend = svg
       .append("g")
-      .attr("transform", `translate(${width - margin.right + 20}, ${margin.top})`); // Adjust legend position
+      .attr(
+        "transform",
+        `translate(${width - margin.right + 20}, ${margin.top})`
+      ); // Adjust legend position
 
     datasets.forEach(({ label, color }, index) => {
       const legendRow = legend
