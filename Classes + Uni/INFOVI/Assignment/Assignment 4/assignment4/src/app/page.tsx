@@ -1,6 +1,7 @@
 'use client'
 
 import RateGraphWrapper from "@/components/graphwrapper";
+import Hero from "@/components/hero";
 import RateGraph from "@/components/rategraph";
 import { DataPoint } from "@/types/types";
 import {Lenis, ReactLenis, useLenis} from "lenis/react"
@@ -31,32 +32,16 @@ export default function Home() {
   return (
     <Lenis root>
       <main className="bg-primary text-background min-h-screen">
-        {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center h-screen px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Raising Awareness About Men's Depression
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl">
-            OLD YELLOW BRICKS, looks a risk, quite the little as good pologist,
-            
-          </p>
-          <a
-            href="#charts"
-            className="mt-8 bg-accent text-primary px-6 py-3 rounded-lg text-lg hover:bg-highlight transition"
-          >
-            Explore the Data
-          </a>
-        </section>
+        <Hero />
 
-        {/* Data Visualization Section */}
         <section id="charts" className="py-20 px-6">
           <div className="max-w-6xl mx-auto space-y-20">
             <div>
               <h2 className="text-3xl font-bold mb-6">Chart 1: Rising Trends</h2>
               <RateGraphWrapper data={data1} />
               <p className="mt-4 text-lg">
-                This chart shows the rising prevalence of depression among men
-                over the years. Notice the steep incline in recent times.
+                Well I watch you tangle every weekend it might start different
+                but it ends up the same
               </p>
             </div>
 
@@ -64,8 +49,8 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-6">Chart 2: Stigma's Impact</h2>
               <RateGraphWrapper data={data2} />
               <p className="mt-4 text-lg">
-                A significant barrier to men seeking help is the stigma
-                surrounding mental health. This chart visualizes its impact.
+                Jerry can of, words and tones. Oh, you're so happy now, dancing
+                to the latest sounds. And there's something that frankie used to say
               </p>
             </div>
 
@@ -86,14 +71,14 @@ export default function Home() {
         <section className="bg-secondary text-primary py-20 text-center">
           <h2 className="text-4xl font-bold mb-6">Take Action</h2>
           <p className="text-xl mb-8">
-            Join us in spreading awareness and providing support to those who
-            need it most. Together, we can make a difference.
+            Well you're not gonna get no more, I told you once im im sure
+            you should learn how to find your dream without a dream.
           </p>
           <a
             href="#"
             className="bg-accent text-primary px-8 py-4 rounded-lg text-lg hover:bg-highlight transition"
           >
-            Get Involved
+            Peo
           </a>
         </section>
       </main>

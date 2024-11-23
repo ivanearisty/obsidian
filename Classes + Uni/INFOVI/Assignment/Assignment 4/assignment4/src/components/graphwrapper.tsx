@@ -14,17 +14,17 @@ const RateGraphWrapper: React.FC<RateGraphWrapperProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   // Lenis hook to listen for scroll events
-  useLenis((e) => {
-    if (ref.current) {
+  useLenis(() => {
+    if (ref.current && !isVisible) {
       const { top, bottom } = ref.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-
-      // Check if the chart is in the viewport
-      if (top < windowHeight && bottom > 0) {
+  
+      if (top + 300 < windowHeight && bottom > 0) {
+        console.log("Rendering chart...");
         setIsVisible(true);
       }
     }
-  });
+  });  
 
   return (
     <div ref={ref} className="min-h-[400px]">
