@@ -16,7 +16,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
     const height = 500;
     const margin = { top: 40, right: 150, bottom: 50, left: 60 };
 
-    // Create the SVG container
+    // SVG container
     const svg = d3
       .select(chartRef.current)
       .append("svg")
@@ -67,7 +67,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(yScale).tickFormat(d3.format("d")));
 
-    // Add X-Axis Label
+    // X-Axis Label
     svg
       .append("text")
       .attr("text-anchor", "middle")
@@ -77,7 +77,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .style("fill", "white")
       .text("Year");
 
-    // Add Y-Axis Label
+    // Y-Axis Label
     svg
       .append("text")
       .attr("text-anchor", "middle")
@@ -88,6 +88,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .style("fill", "white")
       .text("Value");
 
+    // Tooltip
     const tooltip = svg
       .append("g")
       .style("position", "absolute")
@@ -116,7 +117,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .attr("font-size", "14px")
       .attr("fill", "black");
 
-    // Create the path generator
+    // Path generator
     datasets.forEach(({ label, data, color }, datasetIndex) => {
       const lineGenerator = d3
         .line<DataPoint>()
@@ -168,7 +169,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       });
     });
 
-    // Add Legend
+    // Legend
     const legend = svg
       .append("g")
       .attr(

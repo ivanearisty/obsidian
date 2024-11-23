@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
 import Card from "@/components/card";
 import CTA from "@/components/cta";
 import RateGraphWrapper from "@/components/graphwrapper";
 import Hero from "@/components/hero";
-import RateGraph from "@/components/rategraph";
 import { loadRatesData } from "@/libs/api";
 import { DataPoint, Dataset } from "@/types/types";
 import { Lenis, ReactLenis, useLenis } from "lenis/react";

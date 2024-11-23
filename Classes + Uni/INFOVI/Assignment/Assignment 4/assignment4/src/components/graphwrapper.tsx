@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import RateGraph from "@/components/rategraph"; // Your existing chart component
+import RateGraph from "@/components/rategraph";
 import { DataPoint, RateGraphProps } from "@/types/types";
 import { useLenis } from "lenis/react";
 
