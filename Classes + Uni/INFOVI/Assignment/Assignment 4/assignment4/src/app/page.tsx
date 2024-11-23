@@ -1,5 +1,6 @@
 'use client'
 
+import CTA from "@/components/cta";
 import RateGraphWrapper from "@/components/graphwrapper";
 import Hero from "@/components/hero";
 import RateGraph from "@/components/rategraph";
@@ -32,6 +33,7 @@ export default function Home() {
   return (
     <Lenis root>
       <main className="bg-primary text-background min-h-screen">
+        
         <Hero />
 
         <section id="charts" className="py-20 px-6">
@@ -67,20 +69,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="bg-secondary text-primary py-20 text-center">
-          <h2 className="text-4xl font-bold mb-6">Take Action</h2>
-          <p className="text-xl mb-8">
-            Well you're not gonna get no more, I told you once im im sure
-            you should learn how to find your dream without a dream.
-          </p>
-          <a
-            href="#"
-            className="bg-accent text-primary px-8 py-4 rounded-lg text-lg hover:bg-highlight transition"
-          >
-            Peo
-          </a>
-        </section>
+        <CTA />
+        
       </main>
     </Lenis>
   );
