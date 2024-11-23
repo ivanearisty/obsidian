@@ -86,7 +86,7 @@
 }
 \makeatother% resets the meaning of the at-sign (@)
 
-\title{Assignment 3: Interactive Visualization} 
+\title{Assignment 4: Data Viz for Advocacy} 
 \author{Ivan Aristy — iae225}
 % \classnum
 
@@ -96,32 +96,14 @@
   % \vspace{-15pt}
 
 \section{Interactive Visualization}
-\label{sec:sec1}
 
-Note 1: For the puposes of page limits,
-I am treating code blocks as figures; 
-hence, they should not be considered.
-
-Note 2: The typesetting for the code blocks (lstdefinelanguage classes) 
-was made with AI, since this is not at all core to the assignment,
-I believe this usage is within the course guidelines.
-
-\subsection{Question }
+\subsection{Question}
 \label{subsec:subsec1}
 
-\textbf{How has my champion's win rate changed over time? Is my champion still strong in the current meta?}
+\textbf{How are men's mental states in the US?}
 
-I want the user to easily see the win rate of their champion over time. 
-Winrate is a key metric in League of Legends, as it is a good indicator of how strong a champion is in the current meta.
-This would allow the user to see how their champion has been impacted in recent patches.
-
-Winrate is not a direct representation of power, since some champions are harder to play than others.
-Easy champions usually have high winrates, while hard champions have lower winrates.
-Additionally, hyper-specific champions have really high winrates, since they are only played in specific situations.
-
-Nevertheless, patterns in winrates can be indicative of power. For example, a 2\% growth in winrates
-over a patch can be indicative of a very strong relating buff, while a 2\% decrease can be indicative of a strong relative nerf.
-Additionally, a winrate that is consistently above 50\% can show that a champion has and is strong in the current meta.
+The question is a bit general, but I want to communicate to a general audience
+that is not aware of the high levels of mental health issues that men face in the US.
 
 \subsection{Data}
 \label{subsec:subsec2}
@@ -129,54 +111,26 @@ Additionally, a winrate that is consistently above 50\% can show that a champion
 \subsubsection{Data Source}
 \label{subsubsec:Data Source}
 
-Riot's Developer API is very hard to use. In my opinion, it is not well documented, and it is very hard to get the data you want.
-Hence, I wll scrape some data off the internet to get the winrate of a champion over time.
+There are a few data sources to get information from.
 
-Particularly I need:
+The CDC holds lots of information, but particularly I looked into:
+
 \begin{enumerate}
-  \item The winrate of a champions over time.
-  \item The tier of the champion over time.
-  \item Visual Assets of the champion.
+  \item Behavioral Risk Factor Surveillance System (BRFSS) Survey
+  \item Household Pulse Survey
+  \item National Health and Nutrition Examination Survey (NHANES)
+  \item National Health Interview Survey (NHIS)
 \end{enumerate}
 
-\subsubsection{Data Retreival} 
-\label{subsubsec:Data Retreival}
+However, much to my dismay, lot's of the Data I was looking for 
+was not available. I was able to retrieve information for suicide rates,
+but the data regarding mental health for men was quite limited.
 
-To get winrate data, I will scrape \url{https://lolalytics.com/lol/tierlist/} for the winrate and tier of a champion over time.
+I ended up usin:g \url{https://www.cdc.gov/suicide/facts/data.html#cdc_data_surveillance_section_4-suicide-rates}
+for suicide rate information, and \url{https://www.apa.org/monitor/2015/12/numbers}
+for general information and stats regarding suicide rates.
 
-After analyzing the beautiful soup output, the relevant information for a champion 
-is contained in a div with the class \texttt{flex justify-around border border-[\#333333] p-2 text-center}.
-For the next div, we will skip the explanation, but it uses a similar process to the code below.
-
-\begin{figure}[ht] 
-  \centering
-  \includegraphics[width=0.75\textwidth]{figs/website.jpg}
-  \caption{
-      Corki's champion page.
-  }
-  \label{fig:fig1}
-\end{figure}
-
-\begin{lstlisting}[language=Javascript]
-  container_div = soup.find('div', class_='flex justify-around 
-  border border-[#333333] p-2 text-center')
-  if container_div:
-      # Find all the individual sections within this container
-      sections = container_div.find_all('div', recursive=False)
-      
-      for section in sections:
-          value_div = section.find('div', class_='mb-1 font-bold')
-          if value_div:
-              value = value_div.get_text(strip=True)
-              row_1_data.append(value)
-  print(row_1_data)
-\end{lstlisting}
-
-In \autoref{fig:fig1} the relevant data would be the eight values from "Win Rate"
-to "Games". However, this information is only for one patch, so the backend
-function will also receive a parameter to indicate the patch to scrape.
-
-\subsubsection{Serving Backend Server} 
+\subsubsection{Serving Information} 
 \label{subsubsec:Serving Backend Server}
 
 We are using FastAPI to expose the data to the frontend. 
