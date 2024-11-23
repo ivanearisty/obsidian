@@ -6,7 +6,7 @@ import { DataPoint, RateGraphProps } from "@/types/types";
 
 const RateGraph: React.FC<RateGraphProps> = ({ data }) => {
   const chartRef = useRef<HTMLDivElement>(null);
-
+  var delay = 300;
   useEffect(() => {
     if (!data || data.length === 0) return;
 
@@ -25,11 +25,13 @@ const RateGraph: React.FC<RateGraphProps> = ({ data }) => {
     // Scales
     const xScale = d3
       .scaleLinear()
+      .nice()
       .domain(d3.extent(data, (d) => d.x) as [number, number])
       .range([margin.left, width - margin.right]);
 
     const yScale = d3
       .scaleLinear()
+      .nice()
       .domain([0, d3.max(data, (d) => d.y) ?? 1])
       .range([height - margin.bottom, margin.top]);
 
@@ -57,7 +59,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ data }) => {
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", "#CBD4C2") // Secondary color
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 3)
       .attr("d", lineGenerator(data)); // Generate the line with the full dataset
 
     // Animate the line
@@ -67,7 +69,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ data }) => {
       .attr("stroke-dasharray", `${totalLength} ${totalLength}`)
       .attr("stroke-dashoffset", totalLength)
       .transition()
-      .duration(data.length * 200) // 200ms per point
+      .duration(data.length * delay) // 200ms per point
       .ease(d3.easeLinear)
       .attr("stroke-dashoffset", 0);
 
@@ -82,9 +84,9 @@ const RateGraph: React.FC<RateGraphProps> = ({ data }) => {
           .attr("fill", "#CF8E80") // Accent color
           .attr("opacity", 0)
           .transition()
-          .duration(200)
+          .duration(delay)
           .attr("opacity", 1);
-      }, index * 400);
+      }, index * delay);
     });
 
     return () => {
