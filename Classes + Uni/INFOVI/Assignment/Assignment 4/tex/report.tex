@@ -126,54 +126,46 @@ However, much to my dismay, lot's of the Data I was looking for
 was not available. I was able to retrieve information for suicide rates,
 but the data regarding mental health for men was quite limited.
 
-I ended up usin:g \url{https://www.cdc.gov/suicide/facts/data.html#cdc_data_surveillance_section_4-suicide-rates}
+I ended up using \url{https://www.cdc.gov/suicide/facts/data.html#cdc_data_surveillance_section_4-suicide-rates}
 for suicide rate information, and \url{https://www.apa.org/monitor/2015/12/numbers}
 for general information and stats regarding suicide rates.
 
 \subsubsection{Serving Information} 
 \label{subsubsec:Serving Backend Server}
 
-We are using FastAPI to expose the data to the frontend. 
-To accurately model the data, I created the following interface:
+For serving information, we use D3's csv function:
 
-\begin{lstlisting}[language=Python3]
-class ChampionInstance(BaseModel):
-  name: str
-  patch: float
-  win_rate: float
-  win_rate_delta: float
-  modified_winrate: float
-  pick_rate: float
-  tier: str
-  rank: int
-  ban_rate: float
-  games: int
+\begin{lstlisting}[language=JavaScript]
+  import * as d3 from "d3";
+  import { Dataset } from "@/types/types";
+  import theme from "@/types/themes";
+  
+  export async function loadRatesData(): Promise<Dataset[]> {
+    const data = await d3.csv("/rates.csv", d3.autoType); 
+    console.log(data); 
+  
+    return [
+      {
+        label: "Total Population",
+        data: data.map((d: any) => ({ x: d["Year"],
+         y: d["Total Population"] })), 
+        color: "#d4c2d4", 
+      },
+      {
+        label: "Male",
+        data: data.map((d: any) => ({ x: d["Year"], y: d["Male"] })),
+        color: "#cbd4c2", 
+      },
+      {
+        label: "Female",
+        data: data.map((d: any) => ({ x: d["Year"], y: d["Female"] })), 
+        color: "#c2c2d4", 
+      },
+    ];
+  }  
 \end{lstlisting}
 
-and exposed the following function to the frontend:
-
-\begin{lstlisting}[language=Python3]
-@app.get("/test/{champion_name}&{patch_version}")
-async def test(champion_name: str, patch_version: str):
-  testChampion: ChampionInstance = 
-    await api.get_champion_data(champion_name, patch_version)
-  return testChampion
-\end{lstlisting}
-
-All the functions used were made asynchronous, since load times were a complaint 
-I received from my peers while showing them the assignment. 
-
-The benefit of using live data is that, whenever a new patch is released, the user can see how their champion has been impacted by the patch.
-Additionally, for the current patch, changes in data are reflected in real time.
-
-% \begin{figure}[ht] % Change the position of your figure https://www.overleaf.com/learn/latex/Positioning_images_and_tables
-%   \centering
-%   \includegraphics[width=0.75\textwidth]{figs/Trump Chart.png}
-%   \caption{
-%       Trump's Illegal Immigration Chart
-%   }
-%   \label{fig:fig1}
-% \end{figure}
+and pass the data to the chart component through a wrapper.
 
 \subsection{Visualization}
 \label{subsec:Visualization}
@@ -181,59 +173,40 @@ Additionally, for the current patch, changes in data are reflected in real time.
 \subsubsection{Frontend Setup}
 \label{subsubsec:Frontend}
 
-The frontend is a simple React application that uses the 
+The frontend is a simple NextJS application that uses the 
 \texttt{D3} library to create the chart, and react hooks to update 
-and keep track of state (dynamic reloading of data depending on user
-selected parameters).
+and keep track of state.
 
-For the main App component, we define a useEffect hook that will achieve
-multiple "Quality of Life" improvements for the user:
-\begin{itemize}
-  \item Updating the chart whenever the user selects a new champion, metric, or patch range.
-  \item Displaying a loading spinner while the data is being fetched.
-  \item Asynchronous fetching of data to speed up the loading process.
-  \item Invalidate erroneous data but keep plotting the chart.
-\end{itemize}
+My main secondary goal for this visualization was to make the 
+design look sleek and simple. 
 
-\begin{lstlisting}[language=Javascript]
-useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
+As opposed to my previous visualization, I wanted to make a website that
+was more visually appealing and easier to understand, as well as having 
+goodies like smooth transitions and a responsive design.
 
-      const patchRange = patches.slice(
-        patches.indexOf(startPatch),
-        patches.indexOf(endPatch) + 1
-      );
+For smooth transitions I used the Lenis library, which allowed for smooth 
+scrolling. This greatly improved the feel of the website, and allowed me 
+to dynamically render the chart when the user scrolls to the chart section.
 
-      try {
-        const results = await Promise.all(
-          patchRange.map(async (patch) => {
-            const response = await fetch(
-              `http://127.0.0.1:8000/test/${selectedChampion}&${patch}`
-            );
-            if (!response.ok)
-              throw new Error(`Failed to fetch data for patch ${patch}`);
-
-            const result = await response.json();
-            return { patch, value: result[selectedMetric] };
-          })
-        );
-
-        setData(results);
-      } catch (error) {
-        console.error("An error occurred while fetching data:", error);
-      } finally {
-        setLoading(false);
+\begin{lstlisting}[language=JavaScript]
+const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+  
+    // Lenis hook to listen for scroll events
+    useLenis(() => {
+      if (ref.current && !isVisible) {
+        const { top, bottom } = ref.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+  
+        if (top + 300 < windowHeight && bottom > 0) {
+          setIsVisible(true);
+        }
       }
-    }
-
-    setData(null);
-    fetchData();
-  }, [selectedChampion, selectedMetric, startPatch, endPatch]);
+    });
 \end{lstlisting}
 
-\subsubsection{Interactivity Logic}
-\label{subsubsec:Interactivity Logic}
+\subsubsection{Components}
+\label{subsubsec:Components}
 
 To allow for interactivity, we create a few drop down labels that allow the user
 to select the data that they want to plot. For example, here is the code
@@ -266,23 +239,24 @@ the code will automatically adjust the end patch to 14.20.
 \subsubsection{Visualization Logic}
 \label{subsubsec:Visualization Logic}
 
-As mentioned previously, I used D3 to create the chart. For my previous 
-assignments I have used D3's sister library, Plot, which 
-is a wrapper around D3 that makes it easier to create charts. 
-Using D3 directly was a lot more challenging, and I concluded on using
-Plot for future projects with D3 on a case-by-case basis.
+I revisited D3 to create a custom chart, building upon my previous 
+experience with the library. 
 
-Nevertheless, D3 made me consider the components of a chart in a more
-explicit manner:
+Working directly with D3 again proved to be more challenging 
+but also rewarding, as it deepened my understanding of chart components 
+and their implementation.
+
+I gained a more explicit appreciation for the building blocks of a chart:
+
 \begin{itemize}
-  \item Margins: Focused on creating ample space for the chart.
-  \item Scales: Dynamically mapped the changing domain of the data to the range of the chart, 
-        and accounted for "edge" metrics. (For example, rank is plotted inversley, since
-        a lower rank is better... Rank 1 > Rank 2).
-  \item Line: Simple mapping of values received by the backend to the chart.
-  \item Tooltip \& Circles: Created dynamic circles that would show the value of the data
-        when hovered over, as well as grow slightly. Also considered circle size and color 
-        for visibility.
+  \item Margins: Carefully planned margins to ensure sufficient space for elements like axes, labels, and legends.
+  \item Scales: Mapped dynamically to the data, ensuring that the chart is responsive to changes in data.
+  \item Line: This time, I used 3 lines to represent the data, each with a different color.
+  \item Tooltip:
+  \item Circles: Since we were using 3 lines and transitions, the circles 
+  \item Dynamics: I progresively drew the lines, and added a transition to make the chart more visually appealing. 
+  I also believe that this draws attention to the chart, as the user is more likely to notice the chart if it is moving.
+  Plus it highlights how rates increase over time.
   \item Axes: Created axes, gridlines, and basic labels for 
   intuitive and fast understanding by the user.
 \end{itemize}
@@ -346,50 +320,6 @@ I deemed this to be beyond the scope of the assignment, but it is a good idea.
 
 I believe for both:
 
-\begin{enumerate}
-  \item How has my champion's win rate changed over time?
-  \item Is my champion still strong in the current meta?
-\end{enumerate}
-
-We more than answer the question. By providing additional data like rank,
-winrate delta, and games, we allow the user to make a more informed decision
-on whether their champion is strong or not.
-
-Corki was just buffed on Wednesday (and I hate that), do these images answer both questions? 
-
-\begin{figure}[ht] 
-  \centering
-  \includegraphics[width=0.75\textwidth]{figs/corki1.jpg}
-  \caption{
-      Corki Pick Rate
-  }
-\end{figure}
-
-\begin{figure}[ht] 
-  \centering
-  \includegraphics[width=0.75\textwidth]{figs/corki2.jpg}
-  \caption{
-      Corki Games Played
-  }
-\end{figure}
-
-\begin{figure}[ht] 
-  \centering
-  \includegraphics[width=0.75\textwidth]{figs/corki3.jpg}
-  \caption{
-      Corki Rank
-  }
-  \label{fig:fig3}
-\end{figure}
-
-\begin{figure}[ht] 
-  \centering
-  \includegraphics[width=0.75\textwidth]{figs/corki4.jpg}
-  \caption{
-      Corki Winrate
-  }
-  \label{fig:fig3}
-\end{figure}
 
 \begin{refcontext}[sorting=nyt]
 \printbibliography
