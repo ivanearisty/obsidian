@@ -28,12 +28,10 @@ export default function Home() {
         
         <Hero />
 
-        <main className="bg-primary text-background min-h-screen">
-          <section className="py-20">
-            <h1 className="text-4xl font-bold text-center">Men's Mental Health Rates</h1>
-            {datasets.length > 0 && <RateGraphWrapper datasets={datasets} />}
-          </section>
-        </main>
+        <section className="text-center ">
+          <h1 className="text-4xl font-bold mb-8">Men's Mental Health Rates</h1>
+          {datasets.length > 0 && <RateGraphWrapper datasets={datasets} />}
+        </section>
 
         <CTA />
 

@@ -62,7 +62,7 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
         .append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "#CBD4C2") // Secondary color
+        .attr("stroke", color)
         .attr("stroke-width", 3)
         .attr("d", lineGenerator(data)); // Generate the line with the full dataset
 
