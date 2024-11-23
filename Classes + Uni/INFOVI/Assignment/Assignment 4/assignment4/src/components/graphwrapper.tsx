@@ -23,6 +23,9 @@ const RateGraphWrapper: React.FC<RateGraphProps> = ({ datasets }) => {
   
     return (
       <div ref={ref} className="min-h-[400px]">
+        <h1 className="text-4xl font-bold mb-8>
+            s
+        </h1>
         {isVisible && <RateGraph datasets={datasets} />}
       </div>
     );

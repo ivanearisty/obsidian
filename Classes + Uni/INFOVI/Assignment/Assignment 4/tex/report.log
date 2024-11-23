@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  23 NOV 2024 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.16)  23 NOV 2024 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -770,44 +770,39 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [1
 
 {/Users/suape/Library/texlive/2024basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024basic/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2]
-<figs/one.jpg, id=138, 2591.6825pt x 1330.9725pt>
-File: figs/one.jpg Graphic file (type jpg)
-<use figs/one.jpg>
-Package pdftex.def Info: figs/one.jpg  used on input line 287.
-(pdftex.def)             Requested size: 352.31625pt x 180.9327pt.
-<figs/two.jpg, id=139, 2649.9pt x 1334.9875pt>
-File: figs/two.jpg Graphic file (type jpg)
-<use figs/two.jpg>
-Package pdftex.def Info: figs/two.jpg  used on input line 296.
-(pdftex.def)             Requested size: 352.31625pt x 177.48592pt.
- [3]
+<figs/website.jpg, id=131, 1517.67pt x 1078.0275pt>
+File: figs/website.jpg Graphic file (type jpg)
+<use figs/website.jpg>
+Package pdftex.def Info: figs/website.jpg  used on input line 274.
+(pdftex.def)             Requested size: 352.31625pt x 250.24402pt.
 
-LaTeX Warning: Empty bibliography on input line 325.
 
-[4 <./figs/one.jpg> <./figs/two.jpg>] (./report.aux)
+LaTeX Warning: Empty bibliography on input line 300.
+
+[3] [4 <./figs/website.jpg>] (./report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: E1B6809B964138D29A2E0AE5C2538928;2029.
+(rerunfilecheck)             Checksum: 1471B75267782BA96811B7723F31349F;1744.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23379 strings out of 475230
- 392992 string characters out of 5763677
+ 23367 strings out of 475230
+ 392757 string characters out of 5763677
  1973187 words of memory out of 5000000
- 45212 multiletter control sequences out of 15000+600000
+ 45199 multiletter control sequences out of 15000+600000
  589386 words of font info for 70 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  69i,6n,81p,919b,1990s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024basic/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmb8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmr8a.pfb></Users/suape/Library/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (4 pages, 482591 bytes).
+Output written on report.pdf (4 pages, 412349 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
- 82 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 185 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
