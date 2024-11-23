@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { DataPoint, RateGraphProps } from "@/types/types";
+import theme from "@/types/themes";
 
 const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -11,9 +12,9 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
   useEffect(() => {
     if (!datasets || datasets.length === 0) return;
 
-    const width = 700;
-    const height = 400;
-    const margin = { top: 20, right: 150, bottom: 50, left: 60 };
+    const width = 800;
+    const height = 500;
+    const margin = { top: 40, right: 150, bottom: 50, left: 60 };
 
     // Create the SVG container
     const svg = d3
@@ -21,6 +22,17 @@ const RateGraph: React.FC<RateGraphProps> = ({ datasets }) => {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
+
+    // Add Title
+    svg
+      .append("text")
+      .attr("x", (width - margin.left - margin.right) / 2 + margin.left)
+      .attr("y", margin.top / 2) // Position above the chart
+      .attr("text-anchor", "middle")
+      .style("font-size", "18px")
+      .style("font-weight", "bold")
+      .style("fill", theme.colors.background)
+      .text("Death per 100M by suicide in the U.S. 2000-2022, by gender");
 
     // Scales
     const xScale = d3
