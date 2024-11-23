@@ -39,7 +39,7 @@ export default function Home() {
         <section id="charts" className="py-20 px-6">
           <div className="max-w-6xl mx-auto space-y-20">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Chart 1: Rising Trends</h2>
+              <h2 className="text-3xl font-bold mb-6">Rising Suicide Rates</h2>
               <RateGraphWrapper data={data1} />
               <p className="mt-4 text-lg">
                 Well I watch you tangle every weekend it might start different
@@ -70,7 +70,7 @@ export default function Home() {
         </section>
 
         <CTA />
-        
+
       </main>
     </Lenis>
   );

@@ -2,14 +2,10 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import RateGraph from "@/components/rategraph"; // Your existing chart component
-import { DataPoint } from "@/types/types";
+import { DataPoint, RateGraphProps } from "@/types/types";
 import { useLenis } from "lenis/react";
 
-type RateGraphWrapperProps = {
-  data: DataPoint[];
-};
-
-const RateGraphWrapper: React.FC<RateGraphWrapperProps> = ({ data }) => {
+const RateGraphWrapper: React.FC<RateGraphProps> = ({ data }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
