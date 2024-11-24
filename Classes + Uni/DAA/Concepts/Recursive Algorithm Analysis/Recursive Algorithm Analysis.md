@@ -23,7 +23,7 @@ Represent all the steps of the recursive algorithm in a tree.
 ![[Screenshot 2024-09-27 at 5.23.39 AM.jpg]]
 
 Adding things:
-
+![[Screenshot 2024-11-24 at 4.58.38 PM.jpg|300]]
 ![[Screenshot 2024-09-27 at 5.24.57 AM.jpg]]
 
 The number of levels in a tree where we divide by 2 is $\log_{2}(n)$
