@@ -251,3 +251,30 @@ SelectionSort(A,s,f):
 12 -> 
 ]
 ```
+
+T(n) = T(n/2) + c
+
+Master:
+a = 1
+b = 2
+f(n) = 1
+
+logb(a) = log2(1) = 0
+
+n^k = n^0 = 1
+
+f(n) = n^k = case 2 
+
+n^k * logn = logn
+
+sub
+
+T(n) = T(n/2) + c
+
+Guess log(n)
+goal: T(n) < dlogn
+
+assume T(n/2) < d(logn/2)
+
+T(n) = T(logn/4)
+

@@ -15,3 +15,6 @@ For (n > 1): (\log_{2} n < \log_{3} n)
 \end{gather}
 $$
 *log: base to the what equals inside*
+
+![[Recursive Algorithm Analysis]]
+![[Hashing]]

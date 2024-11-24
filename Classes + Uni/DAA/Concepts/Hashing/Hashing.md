@@ -130,7 +130,7 @@ h(k,i) = h(k) + ai + bi^{2}
 $$
 a and b can be any constants...
 
-They just end up making things jump around much more, so we get 
+They just end up making things jump around much more.
 
 #### Double Hashing
 
@@ -143,7 +143,6 @@ For example, if h1(25) = 3 and h2(25) = 2, then we first try to insert at positi
 #### Performance
 
 ![[Screenshot 2024-09-30 at 9.10.01 PM.jpg]]
-
 
 Quadratic hashing
 - spreads out numbers more
