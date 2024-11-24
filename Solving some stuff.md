@@ -15,6 +15,11 @@ n+\log ^{2}(n) + \sqrt{ n } \le c \times n_{1} \\
 n + n + n = 3n \leq c \times n_{1} \\
 c = 3, k = 1\\
 \\
-\Omega(n)
+\Omega(n):
+\forall n_{1} \geq k, \exists c > 0 \rightarrow \\
+n+\log ^{2}(n) + \sqrt{ n } \ge c \times n_{1} \\
+\text{Since} \log ^{2}(n) + \sqrt{ n } > 0, \forall n>0 \\
+\text{for } c = 1, k = 1 \text{ the above holds}
+\\\\\therefore f(n) = \Theta(n)
 \end{gather}
 $$
