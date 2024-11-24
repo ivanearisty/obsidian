@@ -152,3 +152,4 @@ Double hashing if number is relatively prime:
 - might produce a 0 and lead to boing
 - checks entire table if not
 
+![[Screenshot 2024-11-24 at 5.18.14 PM.jpg]]
