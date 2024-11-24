@@ -41,7 +41,7 @@ kanban-plugin: board
 - [x] Hand in [[Assignment 1 DAA — Answers]] #DAA
 - [x] Review [[Notes Week 1|Notes Week 1]]
 - [x] Review [[Recursive Algorithm Analysis|Recursive Algorithm Analysis]]
-- [x] Finish [[Practice 1 Answers]]
+- [x] Finish [[Practice Set 1 — Answers]]
 
 
 ## Aborted
