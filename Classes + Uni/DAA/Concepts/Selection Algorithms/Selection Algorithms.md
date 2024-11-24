@@ -2,7 +2,7 @@
 tags:
   - DAA/Week3
 ---
-## Randomized Select
+ ## Randomized Select
 
 ### Partitioning:
 
