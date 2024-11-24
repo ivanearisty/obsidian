@@ -2,6 +2,7 @@
 tags:
   - DAA/Week2
 ---
+## MergeSort
 ### Divide and Conquer
 
 divide: break up problems into subproblems
@@ -10,11 +11,7 @@ combine: use solutions to subproblem to solve original
 
 Merge Sort:![[Screenshot 2024-09-27 at 5.19.26 AM.jpg]]
 
-Three methods:
-1. Recursion tree
-2. Substitution/Induction
-3. Master method
-
+## Methods
 ### Recursion Tree
 
 Represent all the steps of the recursive algorithm in a tree.
@@ -55,31 +52,21 @@ Facts used:
 We realize that we can achieve our goal if we get the right constants:
 ![[Screenshot 2024-09-27 at 5.41.53 AM.jpg]]
 
-### Substitution example 2
-
-```
-Fact(n)
-	if n = 1
-		return 1
-	else 
-		return n*Fact(n-1)
-```
-
+#### Substitution example 2
 ![[Screenshot 2024-09-27 at 5.44.41 AM.jpg]]
 We can guess that this is $\mathcal{O}(n)$ since we can replace the T multiple times and see how it behaves.
 
 ![[Screenshot 2024-09-27 at 5.46.06 AM.jpg]]
 
 We are done here because we can just assume that d is bigger than c.
-
 ### Master method
 
-![[Screenshot 2024-09-27 at 5.47.29 AM.jpg]]
+![[Screenshot 2024-09-27 at 5.47.29 AM.jpg| 400]]
 
-![[Screenshot 2024-09-27 at 5.58.58 AM.jpg]]
+![[Screenshot 2024-09-27 at 5.58.58 AM.jpg| 400]]
 
 Case 3:
-![[Screenshot 2024-09-27 at 6.01.20 AM.jpg]]
+![[Screenshot 2024-09-27 at 6.01.20 AM.jpg | 300]]
 
 Case 2: 
-![[Screenshot 2024-09-27 at 6.03.33 AM.jpg]]
+![[Screenshot 2024-09-27 at 6.03.33 AM.jpg | 300]]
