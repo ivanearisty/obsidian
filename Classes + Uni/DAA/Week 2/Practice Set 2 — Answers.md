@@ -252,30 +252,18 @@ SelectionSort(A,s,f):
 ]
 ```
 
-T(n) = T(n/2) + c
+$$
+\begin{gather}
+T(n) = T\left( \frac{n}{2} \right) + c \times log(n)
+\\
+\\
+T(n) = T\left( \frac{n}{2} \right) + c \times log(n)
+\end{gather}
+$$
 
-Master:
-a = 1
-b = 2
-f(n) = 1
-
-logb(a) = log2(1) = 0
-
-n^k = n^0 = 1
-
-f(n) = n^k = case 2 
-
-n^k * logn = logn
-
-sub
-
-T(n) = T(n/2) + c
-
-Guess log(n)
-goal: T(n) < dlogn
-
-assume T(n/2) < d(logn/2)
-
-T(n) = T(logn/4)
-
-![[Screenshot 2024-11-24 at 1.43.22 AM.jpg]]
+$$
+\begin{gather}
+T(n) = T\left( \frac{n}{2} \right) + \log n \\ \\
+T\left( \frac{n}{2} \right) \le d\times \frac{n}{2} 
+\end{gather}
+$$
