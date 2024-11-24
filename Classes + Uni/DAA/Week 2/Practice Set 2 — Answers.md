@@ -278,3 +278,4 @@ assume T(n/2) < d(logn/2)
 
 T(n) = T(logn/4)
 
+![[Screenshot 2024-11-24 at 1.43.22 AM.jpg]]
