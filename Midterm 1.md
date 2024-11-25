@@ -134,6 +134,110 @@ g = \frac{2n^{2} + (\log n)^{2}}{n-6} - 6n \\
 \frac{2n^{2}}{n} - 6n \geq c\times n \text{can remove stuff this time around} \\
 2n - 6n \geq c\times n  \\
 -4n \geq c\times n  \\
-\therefore c = 0 \land k = 1
+\therefore c = 0 \land k = 1 \\
+\Omega(n) \land \mathcal{O}(n) = \Theta(n) = g(n)
 \end{gather}
 $$
+
+## Q2
+
+### A REVISE TODO
+![[Screenshot 2024-11-24 at 6.33.13 PM.jpg]]
+
+$2T\left( \frac{n}{4} \right) + \log(n^{3})$
+
+a = 2 
+b = 4
+f = $\log(n^{3}) = 3\log n = \log n$
+
+$k = \log b(a) = \log_{4}(2) = 0.5$
+
+$n^{0.5} \land \log n$
+
+This fails because we are not bigger by more than 1 n (we have the log)
+
+## Q3
+![[Screenshot 2024-11-24 at 6.40.10 PM.jpg]]
+
+```python
+findMin(A, i):
+	if i > A.heapsize:
+		return infinity
+	m1 = findMin(A, 2i)
+	m2 = findMin(A, 2i+1)
+	return min(m1, m2, A[i])
+```
+
+The runtime is $T(n) = 2T\left( \frac{n}{2} \right) + c$ or $\Theta(n)$ (n^k = n, fn = c) since we are potentially going through every single node in the heap to find our minimum value.
+
+## Q4
+![[Screenshot 2024-11-24 at 6.45.57 PM.jpg]]
+
+Quadratic Probing
+
+```
+INIT:
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ,  ]
+
+h(k) + i + i^2) mod 13
+h(k) = mod 13
+
+5, 24, 31, 45, 62, 11, 12
+
+Insert 5
+5 mod 13 = 5
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[  ,  ,  ,  ,  , 5,  ,  ,  ,  ,  ,  ,  ]
+
+Insert 24
+24 mod 13 = 11
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[  ,  ,  ,  ,  , 5,  ,  ,  ,  ,  ,24,  ]
+
+Insert 31
+31 mod 13 = 5
+Probe: h(31, 1) = 31 + 1 + 1 = 33 mod 13 = 7
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[  ,  ,  ,  ,  , 5,  ,31,  ,  ,  ,24,  ]
+
+Insert 45
+45 mod 13 = 6
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[  ,  ,  ,  ,  , 5,45,31,  ,  ,  ,24,  ]
+
+Insert 62
+62 mod 13 = 10
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[  ,  ,  ,  ,  , 5,45,31,  ,  ,62,24,  ]
+
+Insert 11
+11 mod 13 = 11
+Probe: h(11, 1) = 11 + 1 + 1 = 13 mod 13 = 0
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[11,  ,  ,  ,  , 5,45,31,  ,  ,62,24,  ]
+
+Insert 12
+12 mod 13 = 12
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
+[11,  ,  ,  ,  , 5,45,31,  ,  ,62,24,12]
+
+END
+```
+
+## Q5
+
+![[Screenshot 2024-11-24 at 6.54.23 PM.jpg]]
+
+### Reasoning
+
+Let's remind ourselves of what bubble sort is:
+This is naive bubble sort:
+
+![[Screenshot 2024-11-23 at 10.06.54 PM.jpg]]
+
+And this is the more advanced version where we only verify swaps up to the second last element.
+
+Carol is doing from:  i = 1 to n 
+Bob is doing from: i = n to 1
+
