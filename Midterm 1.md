@@ -32,7 +32,7 @@ n^{n} + 3^{n/2} \\
 $$
 $$
 \begin{gather} 
-\sqrt{ 3n^{4} + \log n }, \sqrt{ n^{4} } \text{ highest order}, \mathcal{O}(n^{4})\\
+\sqrt{ 3n^{4} + \log n }, \sqrt{ n^{4} } \text{ highest order}, \mathcal{O}(n^{2})\\
 2^{64} \times n + \frac{n^{2}}{n^{0.5}}, n^{1.5} \text{ highest order}. \mathcal{O}(n^{1.5})\\ 
 n! + 6 \times 2^{n} \text{ factorial by far highest order } \mathcal{O}(n!)\\
 n^{n} + 3^{n/2} \text{ n to the n always a bomb, } \mathcal{O}(n^{n})\\
@@ -47,8 +47,8 @@ $$
 \begin{gather} 
 3n + n\log n , \mathcal{O}(n\log n)\\ \\
 2^{64} \times n + \frac{n^{2}}{n^{0.5}}, n^{1.5} , \mathcal{O}(n^{1.5})\\  \\
+\sqrt{ 3n^{4} + \log n }, \sqrt{ n^{4} } , \mathcal{O}(n^{2})\\ \\
 2n^{2} + 3n^{2}\log n + 4n\log n,  \mathcal{O}(n^{2}\log n) \\ \\
-\sqrt{ 3n^{4} + \log n }, \sqrt{ n^{4} } , \mathcal{O}(n^{4})\\ \\
 n! + 6 \times 2^{n} , \mathcal{O}(n!)\\ \\
 n^{n} + 3^{n/2} , \mathcal{O}(n^{n})\\
 \end{gather}
@@ -98,8 +98,9 @@ f(n) = 4^{n} + 2^{n}\log n + n\log n + n\times 2^{n} = \Omega(3^{n}) \\
 \text{Hence, } 4^{n} \text{ plus a bunch of oterh stuff will be greater than} \\
 4^{n} + 2^{n}\log n + n\log n + n\times 2^{n} \ge c \times 4^{n_{1}}
 \\ \text{ and since } 4^{n} \geq 3^{n} \\
-4^{n} + 2^{n}\log n + n\log n + n\times 2^{n} \ge c \times 4^{n_{1}}  \geq 3^{n} \\
+4^{n} + 2^{n}\log n + n\log n + n\times 2^{n} \ge c \times 4^{n_{1}}  \geq c \times 3^{n} \\
 \text{and the proof is done.}
+
 \end{gather}
 $$
 
@@ -134,7 +135,7 @@ g = \frac{2n^{2} + (\log n)^{2}}{n-6} - 6n \\
 \frac{2n^{2}}{n} - 6n \geq c\times n \text{can remove stuff this time around} \\
 2n - 6n \geq c\times n  \\
 -4n \geq c\times n  \\
-\therefore c = 0 \land k = 1 \\
+\therefore c = -4 \land k = 1 \\
 \Omega(n) \land \mathcal{O}(n) = \Theta(n) = g(n)
 \end{gather}
 $$
@@ -283,6 +284,17 @@ We haven't performed a single swap and we break.
 
 #### Worst Case
 
+Trying a reverse order, we realize that this dream couple, has not made a worse sorting algorithm in terms of swaps, because each pass takes turns in bubbling up 1 element to the correct spot:
+
+![[D613D457-4685-4654-8B3E-8FD234CECEA6 Large.jpeg | 450]]
+
+Hence, the total number of swaps is still:
+
+$$
+\begin{gather}
+swaps = \frac{n(n-1)}{2}
+\end{gather}
+$$
 
 ## Question 6
 
@@ -311,7 +323,7 @@ $T(n) = \Theta(\log n\times \sqrt{ n })$
 
 Ok, now we know what we're looking for and it doesnt look like it matters if i remove that constant either:
 
-![[3BFE51BD-8AB0-4ADA-932A-FF175AA08BA8.jpg]]
+![[3BFE51BD-8AB0-4ADA-932A-FF175AA08BA8 Large.jpeg | 450]]
 And we get the same result
 
 ## Question 7
