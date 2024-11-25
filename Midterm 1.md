@@ -362,8 +362,19 @@ All these operations are O(n) time, and, although a bit convoluted, it would gua
 
 ![[Screenshot 2024-11-24 at 7.59.42 PM.jpg]]
 
+Insertion sort has a path of length n-1 which represents the best case scenario (where the array is already sorted). Likewise, bubble sort has another n-1 path that represents the same thing.
 
+Let's think about their algorithms.
+
+Insertion sort will compare if A\[j] < A\[j-1] at each step, but, if we are already sorted, we do one comparison and break immediately. Since we start from i = 2 the path is n - 1.
+
+Bubble sort is similar, if it goes through the entire loop without performing a single swap, the outer loop will break. To know whether it performed a swap it first has to check n - 1 elements; hence, again, we can expect it to have a path of n - 1 in the decision tree representing that best case scenario.
+
+Selection sort will not have a path of n-1 since it always performs the same number of comparisons, regardless of the input we may give it. 
+
+Selection sort work by "selecting" and to "select" something to go at pos 1, we have to compare n-1 times. to select at pos 2 we do n-2, for 3 -> n-3, etc... Hence, all the paths have a length of n(n-1)/2
 
 ## Question 10
 
 ![[Screenshot 2024-11-24 at 7.59.50 PM.jpg]]
+
