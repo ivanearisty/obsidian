@@ -154,7 +154,19 @@ $k = \log b(a) = \log_{4}(2) = 0.5$
 
 $n^{0.5} \land \log n$
 
-This fails because we are not bigger by more than 1 n (we have the log)
+Convincing myself whether it does or doesnt fail:
+$$
+\begin{gather}
+\log n = n^{0} \log n \\
+\text{when we've had:} \\
+n^{1} \text{ and } n^{1.1} \text{ I think the master method has worked} \\
+\text{Likewise for, } n^{1} \text{ vs } n^{1.1}\log n \text{ the right would be bigger} \\
+\text{And it's not bigger by a logn, it's by a .1 of an n, which is still a lot} \\
+\text{For } n^{1} \land n^{1} \log n \lor n^{0} \land n^{0}\log n \text{it shouldnt work.}
+\end{gather}
+$$
+
+Hence, the master method applies and $T(n) = \Theta(\sqrt{ n })$
 
 ## Q3
 ![[Screenshot 2024-11-24 at 6.40.10 PM.jpg]]
@@ -168,7 +180,7 @@ findMin(A, i):
 	return min(m1, m2, A[i])
 ```
 
-The runtime is $T(n) = 2T\left( \frac{n}{2} \right) + c$ or $\Theta(n)$ (n^k = n, fn = c) since we are potentially going through every single node in the heap to find our minimum value.
+The runtime is $T(n) = 2T\left( \frac{n}{2} \right) + c$ or $\Theta(n)$ (n^k = n, fn = c, hence n) since we are potentially going through every single node in the heap to find our minimum value.
 
 ## Q4
 ![[Screenshot 2024-11-24 at 6.45.57 PM.jpg]]
@@ -256,6 +268,21 @@ while(made-swap):
 			Swap A[i] and A[i+1]
 			made-swap = true
 ```
+
+#### Best Case
+The best case number of swaps is 0 given the implementation above.
+
+Imagine that the input array is sorted:
+1,2,3,4,5,6,7
+
+Then for i = 1 to n, we are going to check whether the next is greater than us.
+
+The next is never greater than us, so made swap is still false by the tame we get to the if statement.
+
+We haven't performed a single swap and we break.
+
+#### Worst Case
+
 
 ## Question 6
 
@@ -377,4 +404,39 @@ Selection sort work by "selecting" and to "select" something to go at pos 1, we 
 ## Question 10
 
 ![[Screenshot 2024-11-24 at 7.59.50 PM.jpg]]
+
+```
+Quicksort:
+(did the right side first but it shouldnt matter really)
+
+A = [ 4, 3, 1, 2, 6, 7, 8, 5] 8 elements
+
+Quicksort(A, 1, 8):
+[ 4, 3, 1, 2, 6, 7, 8, 5]
+Partition about 5
+[ 4, 3, 1, 2, 5, 7, 8, 6]
+	Quicksort(A,6,8):
+		[ 4, 3, 1, 2, 5, 7, 8, 6]
+		partition about 6
+		[ 4, 3, 1, 2, 5, 6, 8, 7]
+			Quicksort(A,6,5) -> return
+			Quicksort(A,7,8):
+				[ 4, 3, 1, 2, 5, 6, 8, 7]
+				partition about 7
+				[ 4, 3, 1, 2, 5, 6, 7, 8]
+				Quicksort(A, 7, 6) -> return
+				Quicksort(A, 8, 8) -> return
+	Quicksort(A,1,4):
+		[ 4, 3, 1, 2, 5, 6, 7, 8]
+		partition about 2
+		[ 1, 3, 4, 2, 5, 6, 7, 8] 
+		[ 1, 2, 4, 3, 5, 6, 7, 8]
+			Quicksort(A, 1, 1) -> return
+			Quicksort(A, 3, 4):
+				[ 1, 2, 4, 3, 5, 6, 7, 8]
+				partition about 3
+				[ 1, 2, 3, 4, 5, 6, 7, 8]
+					Quicksort(A,3,2) -> return
+					Quicksort(A,4,4) -> return
+```
 
