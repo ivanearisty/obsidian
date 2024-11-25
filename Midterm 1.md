@@ -304,3 +304,66 @@ However, this is because we are assuming to make a "good choice a good amount of
 
 Here we are always making the second worst, hence, it is equivalent to saying that we are reducing the problem size by n-2 at each step.
 
+This is no longer a probabilistic randomized algorithm, funny how probability works, but a deterministic runtime with: 
+$T(n) = T(n-2) + c$
+same and best in worst cases.
+
+Let's prove it using substitution: 
+$$
+\begin{gather}
+\text{Goal: } \exists d \in \mathbb{R}:  T(n) \le dn\\
+\text{Assume: } T(n-2) \le d(n-2) \\
+\text{Subsitute: } \\
+T(n) = T(n-2) + c \le \\
+d(n-2) + c = dn - 2d + c \\
+dn - 2d + c \le dn \text{ as long as } 2d \geq c
+\end{gather}
+$$
+
+## Question 8
+
+![[Screenshot 2024-11-24 at 7.39.24 PM.jpg]]
+
+- There are no exact duplicates
+- They are not rounded and include all decimals (real numbers cant use radix and stuff)
+
+Since we know how many grades there are (n), we know the rank of the median: (n+1)/2
+
+The closest grades below the median will be from rank (n+1)/2 to rank (n+1)/2 - k. Define this to be var LowK
+
+Similarly the closest grades above the median will be from rank of (n+1)/2 to rank (n+1)/2 + k. Define this to be var HighK
+
+Two things come to mind for retrieving this range.
+
+The first approach would be to call the Select algorithm on all members of ranks lowK to highK. This would give the core grades we are looking for and have a time $\mathcal{O}(n\times k)$ where k is the amount of grades. 
+
+If k is constant then $\mathcal{O}(n\times k)$ reduces to $\mathcal{O}(n)$ however, if k is influenced by n, which I cannot tell exactly from the verbiage, then it can change. Say, if k is sqrt(n), then our time complexity would be $\mathcal{O}(n^{1.5})$
+
+Hence, only if the above is not sufficient, consider the following:
+
+We can call select on the element of rank varLow first. 
+
+This would partition the array as:
+
+Elements below varLow, varLow, Elements above varLow.
+
+Then, we can call select again, but as follows: 
+
+Call select on varHigh, but we limit the input size such that we go from the index of varLow, to the end of the array.
+
+This will partition arround varHigh without touching elements below varLow
+
+At the end, the array looks like:
+
+Elements below varLow, varLow, sweet spot, median, sweet spot, varHigh, Elements above varhigh
+
+All these operations are O(n) time, and, although a bit convoluted, it would guarantee O(n) because we are doing a series of O(n) steps (2 selects, 2 partitions, maybe 2 O(n) searches to find the index if we didn't modify select).
+## Question 9
+
+![[Screenshot 2024-11-24 at 7.59.42 PM.jpg]]
+
+
+
+## Question 10
+
+![[Screenshot 2024-11-24 at 7.59.50 PM.jpg]]
