@@ -241,3 +241,66 @@ And this is the more advanced version where we only verify swaps up to the secon
 Carol is doing from:  i = 1 to n 
 Bob is doing from: i = n to 1
 
+```python
+made-swap = true
+while(made-swap):
+	made-swap = false
+	for i = 1 to n //CAROL CASE
+		if A[i+1] < A[i]
+			Swap A[i] and A[i+1]
+			made-swap = true
+	if(not made-swap) 
+		break;
+	for i = n to i //BOB CASE
+		if A[i-1] > A[i]
+			Swap A[i] and A[i+1]
+			made-swap = true
+```
+
+## Question 6
+
+![[Screenshot 2024-11-24 at 7.09.46 PM.jpg]]
+
+By steps:
+divide into 4 quarters
+T(n) = T(n/4)
+
+call my recurse on the first and last quarter
+T(n) = 2T(n/4)
+
+Call fast part on the middle half (middle half is 2n/4)
+T(n) = 2T(n/4) + sqrt(2n/4)
+T(n) = 2T(n/4) + sqrt(n/2)
+
+My question is do we even care about this 1/2 that is multiplying the n?
+
+It's a constant so can't we ignore it if we're going to find the runtime?
+
+master method sanity check:
+k = $\log_{4}(2) = 0.5$
+$n^{k} = \sqrt{ n }$
+$f(n) = \sqrt{ \frac{n}{2}} = \sqrt{ n }$
+$T(n) = \Theta(\log n\times \sqrt{ n })$ 
+
+Ok, now we know what we're looking for and it doesnt look like it matters if i remove that constant either:
+
+![[3BFE51BD-8AB0-4ADA-932A-FF175AA08BA8.jpg]]
+And we get the same result
+
+## Question 7
+![[Screenshot 2024-11-24 at 7.26.33 PM.jpg]]
+
+Randomize select is not very random if we know that we're going to make the second worst choice at any point in time always (expect for perhaps the last time where we want the max rank right)
+
+The usual randomized select goes
+
+$$
+\begin{gather}
+2cn \times \sum_{m=0}^{steps}\left( \frac{3}{4} \right)^{m}
+\end{gather}
+$$
+
+However, this is because we are assuming to make a "good choice a good amount of the time"\
+
+Here we are always making the second worst, hence, it is equivalent to saying that we are reducing the problem size by n-2 at each step.
+
