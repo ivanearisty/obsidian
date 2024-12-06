@@ -153,3 +153,6 @@ Secondary indices enhance query performance for non-clustering search keys but d
 ### Queries
 
 ![[Screenshot 2024-12-06 at 12.25.23 PM.jpg]]![[Screenshot 2024-12-06 at 12.25.30 PM.jpg]]![[Screenshot 2024-12-06 at 12.25.44 PM.jpg]]
+
+#### Range Algo Detail
+![[Screenshot 2024-12-06 at 1.09.21 PM.jpg]]
