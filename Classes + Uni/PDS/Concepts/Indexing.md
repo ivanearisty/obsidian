@@ -111,3 +111,44 @@ Updating an index is necessary whenever a record is inserted, deleted, or modifi
             - Replace the index entry with the next search-key value, or remove it if the next value already has an entry.
             - Update the index entry to point to the next record if needed.
 
+### Secondary Indices
+
+1. **Secondary Indices vs. Clustering Indices:**
+    
+    - **Secondary indices** must be **dense**, with an index entry and a pointer for every record, ensuring records with the same search-key value are locatable.
+    - **Clustering indices** can be **sparse**, as intermediate records can be accessed sequentially in file order.
+2. **Candidate Key and Non-Candidate Key Differences:**
+
+    - For **candidate key** secondary indices, the structure resembles dense clustering indices, though the file records are not sequentially ordered.
+    - If the search key is not a candidate key, a secondary index must point to every record since the file order is determined by the clustering index, not the secondary index.
+3. **Non-Unique Search Keys:**
+    
+    - **Nonunique search keys** use a bucket structure:
+        - Each index pointer leads to a bucket, which then contains pointers to records.
+        - **Drawbacks:** Increases access time and wastes space for keys with few duplicates.
+4. **Efficiency Considerations:**
+    
+    - Sequential scans are efficient with clustering indices due to alignment of physical and index order.
+    - Scanning in secondary index order is slow due to mismatched physical and secondary key orders, causing frequent disk I/O.
+5. **Updates and Overhead:**
+    
+    - Modifications to the database require updating all indices, adding significant overhead.
+    - Secondary indices are beneficial for improving query performance on non-clustering search keys but must be balanced against update costs.
+6. **Composite Search Keys:**
+    
+    - Composite search keys consist of multiple attributes, represented as tuples (e.g., `(course_id, semester, year)`).
+    - Indices on composite keys use **lexicographic ordering**, similar to alphabetic word ordering, and support efficient querying for combinations of attributes.
+
+![[Screenshot 2024-12-06 at 10.14.28 AM.jpg | 500]]
+
+Secondary indices enhance query performance for non-clustering search keys but demand careful consideration due to increased complexity, overhead, and storage requirements. Composite keys expand indexing capabilities by supporting queries involving multiple attributes.
+
+## B+ Tree Index Files
+
+### Structure
+
+![[Screenshot 2024-12-06 at 10.27.53 AM.jpg]]![[Screenshot 2024-12-06 at 10.28.00 AM.jpg]]
+![[Screenshot 2024-12-06 at 10.28.40 AM.jpg]]![[Screenshot 2024-12-06 at 10.28.28 AM.jpg]]
+![[Screenshot 2024-12-06 at 10.28.09 AM.jpg]]
+### Queries
+
