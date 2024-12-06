@@ -158,11 +158,21 @@ Fetch all matching records individually, performing random I/O operations at eac
 
 ![[Screenshot 2024-12-06 at 12.58.32 PM.jpg]]
 
+![[Screenshot 2024-12-06 at 2.38.16 PM.jpg | 500]]
+
 a. insert 795 
 
-
+Insert 795 into leaf node J and since J.size < n and > n/2 we do nothing else.
 
 b. insert 192 
+Insert 192 into leaf node E.
+Since E is full we split into:
+E: 180, 192, 200, 220
+E': 240, 260, 280, 300
+
+Update parent, A, as:
+A: $p_{c}, 100, p_{d}, 180,p_{e},240,p_{e'},320,p_{f}$
+
 c. insert 593 
 d. delete 200 
 e. delete 340 
