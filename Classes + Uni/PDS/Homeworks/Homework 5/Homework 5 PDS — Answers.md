@@ -66,7 +66,7 @@ Node is leaf.
 Begin algorithm: Find $K_{i}$ such that $K_{i} = 620$
 Comparison 1: $620 = 620$
 Return P(1) which directs to the record in data file.
-![[Screenshot 2024-12-06 at 12.28.01 PM.jpg]]
+
 C: 
 Find all records with key values between 685 and 825, inclusive, assuming the B+ tree is a sparse primary (clustering) index on the data file.
 
@@ -95,15 +95,73 @@ Comparison 1: $620 \neq 685$
 Comparison 2: $640 \ngeq 685$
 Comparison 3: $660 \ngeq 685$
 Comparison 4: $680 \ngeq 685$
-Comparison 4: $700 \ge 685$
+Comparison 5: $700 \ge 685$
+
+Compare to 825.
+Comparison leads to: Add 700 to rs,
+Comparison leads to: Add 720 to rs,
+Move to leaf J via $P_{n+1}$,
+Comparison leads to: Add 740 to rs,
+Comparison leads to: Add 760 to rs,
+Comparison leads to: Add 800 to rs,
+Move to leaf K via $P_{n+1}$
+Comparison leads to: Add 820 to rs,
+Comparison leads to: $840 \ge 825$.
+
+Fetch all records directly from the data file for keys 700, 720, 740, 760, 800, and 820.
+
 D: 
 Find all records with key values between 680 and 820, inclusive,assuming the B+ tree is a secondary (non-clustering) index on the data file.
+
+Load Node R into main memory.
+Begin algorithm: Find smallest key $K_{i}$ such that $K_{i} \geq 680$
+Comparison 1: $400 \ngeq 680$
+Move to next K.
+Arrived at end. 
+$C = P_{m}=P_{b}$
+Drop R from main memory.
+Search in pointer $C=P_{m} \rightarrow B$
+
+Load Node B into main main memory.
+Begin algorithm: Find smallest key $K_{i}$ such that $K_{i} \geq 680$
+Comparison 1: $480 \ngeq 680$
+Comparison 2: $620 \ngeq 680$
+Comparison 3: $750 \geq 680$
+Since $720 \neq 680 \rightarrow C = P_{I}$
+Drop Node B from main memory.
+Search in pointer $C = P_{I}$
+
+Load Node I into main memory.
+Node is leaf.
+Begin algorithm: Find $K_{i}$ such that $K_{i} \geq 680$
+Comparison 1: $620 \neq 680$
+Comparison 2: $640 \ngeq 680$
+Comparison 3: $660 \ngeq 680$
+Comparison 4: $680 \geq 680$
+
+Since $680=680$, Add 680 to RS
+
+Compare to 820.
+Comparison leads to: Add 700 to rs,
+Comparison leads to: Add 720 to rs,
+Move to leaf J via $P_{n+1}$,
+Comparison leads to: Add 740 to rs,
+Comparison leads to: Add 760 to rs,
+Comparison leads to: Add 800 to rs,
+Move to leaf K via $P_{n+1}$
+Comparison leads to: $820 \ge 820$ and stop
+Since 820 = 820. Add result to rs
+
+Fetch all matching records individually, performing random I/O operations at each key 680, 700, 720, 740, 760, 800, and 820.
 
 ### Set 2
 
 ![[Screenshot 2024-12-06 at 12.58.32 PM.jpg]]
 
 a. insert 795 
+
+
+
 b. insert 192 
 c. insert 593 
 d. delete 200 
