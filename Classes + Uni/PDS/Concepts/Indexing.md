@@ -45,7 +45,69 @@ An **index entry**, or index record, consists of a search-key value and pointers
 
 ![[Screenshot 2024-12-06 at 9.31.00 AM.jpg | 500]]
 
+### Looking for a Value (example)
+
 **Dense Index on PK:** Here we follow the pointer directly to the desired record. Since ID is a primary key, there exists only one such record and the search is complete.
 ![[Screenshot 2024-12-06 at 9.33.17 AM.jpg | 500]]
 
-**Sparse index on PK**: 
+**Sparse index on PK**: Since the last entry (in numerical order) before “22222” is “10101”, we follow that pointer. We then read the file in sequential order to find the 22222 record.
+![[Screenshot 2024-12-06 at 9.34.42 AM.jpg | 500]]
+
+**Dense index on non-PK**: in this case the instructor file is sorted on the search key dept name, instead of ID. (Otherwise, this index would be nonclustering). In this case, we follow the pointer directly to the first History record.
+![[Screenshot 2024-12-06 at 9.36.12 AM.jpg | 500]]
+
+it is generally faster to locate a record if we have a dense index rather than a sparse index. However, a sparse index imposes less space demands. *A common scenario is to have a sparse index with one entry per block.* This is because *the usual dominant cost in processing a data request is the IO time taken to bring the block from disk to main memory*. Using this sparse index, we locate the block containing the record that we are seeking. Thus, unless the record is on an overflow block, we minimize block accesses while keeping the size of the index (and thus our space overhead) as small as possible.
+
+### Multilevel Indices
+#### Motivation
+
+We also consider the case where records for one search-key value occupy several blocks.
+
+Suppose we build a dense index on a relation with 1,000,000 tuples. Index entries are smaller than data records, so let us assume that 100 index entries fit on a 4-kilobyte block. Thus, our index occupies 10,000 blocks. If the relation instead had 100,000,000 tuples, the index would instead occupy 1,000,000 blocks, or 4 gigabytes of space. Such large indices are stored as sequential files on disk.
+
+> If an index is small enough to be kept entirely in main memory, the search time to find an entry is low. However, if the index is so large that not all of it can be kept in memory, index blocks must be fetched from disk when required.
+
+Binary search can be used on the index file to locate an entry, but the search still  has a large cost. If the index would occupy b blocks, binary search requires *as many as  $⌈log_{2}(b)⌉$ blocks to be read.*
+
+Note that the blocks that are read are not adjacent, hence each read requires a random, non sequential, IO operation. *For a 10,000-block index, binary search requires 14 random block reads.*
+
+On a magnetic disk system where a random block read takes on average 10 milliseconds, the index search will take 140 milliseconds. This may not seem much, but we would be able to carry out only seven index searches a second on a single disk.
+
+#### Multilevel Indexing
+
+To deal with this problem, we treat the index just as we would treat any other  sequential file, and we construct a sparse outer index on the original index, which we  now call the inner index:
+
+![[Screenshot 2024-12-06 at 9.48.03 AM.jpg | 500]]
+
+In our example, an inner index with 10,000 blocks would require 10,000 entries in the outer index, which would occupy just 100 blocks. If we assume that the outer index is already in main memory, we would read only one index block for a search using a multilevel index, rather than the 14 blocks we read with binary search. As a result, we can perform 14 times as many index searches per second.
+
+ When dealing with extremely large files, the outer index may become too large to fit in main memory. For example, a 100,000,000-tuple relation requires an inner index occupying 1,000,000 blocks and an outer index of 10,000 blocks (40 megabytes). Given the demands on main memory, it may not be feasible to allocate enough space for the outer index. In such cases, an additional level of indexing can be created, which can be repeated as needed, forming multilevel indices. These multilevel indices substantially reduce the number of I/O operations required for searching compared to binary search methods.
+
+### Index Update
+
+Updating an index is necessary whenever a record is inserted, deleted, or modified in a file. Record modifications that affect the search-key attribute are treated as a deletion of the old record and insertion of the new record, simplifying the process to managing insertions and deletions.
+
+#### Index Update Process:
+
+1. **Insertion:**
+    - **Dense Indices:**
+        - If the search-key value is new, a corresponding entry is added to the index.
+        - If the search-key value already exists:
+            - Add a pointer to the new record in the index entry if it stores all pointers.
+            - If the index stores a pointer to only the first record, insert the new record after other records with the same key.
+    - **Sparse Indices:**
+        - If a new block is created, insert the first search-key value from the block into the index.
+        - Update the index only if the new record has the smallest search-key value in its block.
+
+2. **Deletion:**
+    - **Dense Indices:**
+        - Remove the index entry if the deleted record is the only one with its search-key value.
+        - If other records share the search-key value:
+            - Remove the pointer to the deleted record.
+            - If the deleted record was the first, update the index to point to the next record.
+    - **Sparse Indices:**
+        - No change if the search-key value isn’t present in the index.
+        - If the deleted record's search-key value exists in the index:
+            - Replace the index entry with the next search-key value, or remove it if the next value already has an entry.
+            - Update the index entry to point to the next record if needed.
+
