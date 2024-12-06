@@ -25,4 +25,27 @@ And to access them we will use techniques and *evaluate* them against:
 4. Deletion time
 5. Space overhead
 
-An attribute or set of attributes used to look up records in a file is called a search key. Note that this definition of key differs from that used in primary key, candidate key, and superkey. This duplicate meaning for key is (unfortunately) well established in practice. Using our notion of a search key, we see that if there are several indices on a file, there are several search keys.
+An attribute or set of attributes used to look up records in a file is called a **search key**. 
+
+Using our notion of a search key, we see that *if there are several indices on a file, there are several search keys.*
+
+## Ordered Indices 
+
+To gain fast random access to records in a file, we can use an **index structure**. 
+
+Each **index structure** is *associated with a particular search key*. Just like the index of a book or a library catalog, an ordered index *stores the values of the search keys in sorted order and associates with each search key the records that contain it*.
+
+A file may have several indices, on different search keys. If the file containing the records is sequentially ordered, a **clustering index** (or primary index) is an index whose search key also defines the sequential order of the file.
+
+Indices whose search key specifies an order different from the sequential order of the file are called **nonclustering indices**, or secondary indices.
+
+### Dense and Sparse Indices
+
+An **index entry**, or index record, consists of a search-key value and pointers to one or more records with that value as their search-key value.
+
+![[Screenshot 2024-12-06 at 9.31.00 AM.jpg | 500]]
+
+**Dense Index on PK:** Here we follow the pointer directly to the desired record. Since ID is a primary key, there exists only one such record and the search is complete.
+![[Screenshot 2024-12-06 at 9.33.17 AM.jpg | 500]]
+
+**Sparse index on PK**: 
