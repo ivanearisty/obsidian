@@ -174,6 +174,20 @@ Update parent, A, as:
 A: $p_{c}, 100, p_{d}, 180,p_{e},240,p_{e'},320,p_{f}$
 
 c. insert 593 
+
+Insert 593 into leaf node H.
+Since H is full split into:
+H: 480 500 520 540
+H': 560 580 593 600
+
+Update B:
+B: $p_{g}, 480, p_{h}, 560,p_{h'}, 620, p_{i}, 740, p_{j},820,p_{k},1000,p_{l},2000,p_{m}3000,p_{n}$
+
+But now B is overflown, so split B into 
+
+B:
+B':
+
 d. delete 200 
 e. delete 340 
 f. delete 40
