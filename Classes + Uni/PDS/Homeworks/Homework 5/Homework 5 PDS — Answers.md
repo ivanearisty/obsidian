@@ -185,10 +185,17 @@ B: $p_{g}, 480, p_{h}, 560,p_{h'}, 620, p_{i}, 740, p_{j},820,p_{k},1000,p_{l},2
 
 But now B is overflown, so split B into 
 
-B:
-B':
+B: $p_{g}, 480, p_{h}, 560,p_{h'}, 620, p_{i}$
+B': $p_{j}, 820,p_{k},1000,p_{l},2000,p_{m}3000,p_{n}$
+
+and set root to:
+
+$p_{a},400,p_{b},740,p_{b'}$
 
 d. delete 200 
+
+
+
 e. delete 340 
 f. delete 40
 
