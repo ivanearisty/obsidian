@@ -97,14 +97,14 @@ Comparison 3: $660 \ngeq 685$
 Comparison 4: $680 \ngeq 685$
 Comparison 5: $700 \ge 685$
 
+Since it's a cluster, we can go to the table, and compare to 825 directly.
+
 Compare to 825.
 Comparison leads to: Add 700 to rs,
 Comparison leads to: Add 720 to rs,
-Move to leaf J via $P_{n+1}$,
 Comparison leads to: Add 740 to rs,
 Comparison leads to: Add 760 to rs,
 Comparison leads to: Add 800 to rs,
-Move to leaf K via $P_{n+1}$
 Comparison leads to: Add 820 to rs,
 Comparison leads to: $840 \ge 825$.
 
@@ -185,12 +185,12 @@ B: $p_{g}, 480, p_{h}, 560,p_{h'}, 620, p_{i}, 740, p_{j},820,p_{k},1000,p_{l},2
 
 But now B is overflown, so split B into 
 
-B: $p_{g}, 480, p_{h}, 560,p_{h'}, 620, p_{i}$
-B': $p_{j}, 820,p_{k},1000,p_{l},2000,p_{m}3000,p_{n}$
+B: $p_{g}, 480, p_{h}, 560,p_{h'}, 620, p_{i},720, p_{j}$
+B': $p_{k},1000,p_{l},2000,p_{m}3000,p_{n}$
 
 and set root to:
 
-$p_{a},400,p_{b},740,p_{b'}$
+$p_{a},400,p_{b},820,p_{b'}$
 
 d. delete 200 
 
@@ -260,4 +260,11 @@ So 4 levels total.
 
 C:
 
-Searching the tree requires 4 seeks and 4 block transfers
+Searching the tree requires 4 seeks and 4 block transfers.
+
+However, since it's non-clustered We need 10 additional seeks and block transfers, one per record.
+
+D: 
+1. The data would have to be physically sorted by sID
+2. I don't think this matters
+3. It'd be faster since the final searches would be adjacent and we wouldn't have to do those $2\times 10$ steps. The traversal would remain the same though.
