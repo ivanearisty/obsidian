@@ -262,9 +262,9 @@ C:
 
 Searching the tree requires 4 seeks and 4 block transfers.
 
-However, since it's non-clustered We need 10 additional seeks and block transfers, one per record.
+However, since it's non-clustered We need 10 additional seeks and block transfers, aka one per record.
 
 D: 
 1. The data would have to be physically sorted by sID
-2. I don't think this matters
+2. Now, we could turn this into a sparse primary index, and save ourselves some space. Our previous tree was dense, since we had a secondary index. However, this does not mean that a primary index on the same data would have to be also dense. 
 3. It'd be faster since the final searches would be adjacent and we wouldn't have to do those $2\times 10$ steps. The traversal would remain the same though.
