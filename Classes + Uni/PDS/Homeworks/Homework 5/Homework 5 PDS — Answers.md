@@ -194,11 +194,41 @@ $p_{a},400,p_{b},740,p_{b'}$
 
 d. delete 200 
 
-
+Delete directly from leaf E:
+E: 180, 220, 240, 260, 280, 300
 
 e. delete 340 
+
+Delete from F: 320, 340, 360, 380
+
+320, 360, 380
+
+Need to redistribute since we dont meet minimum requirement.
+
+We check neighbouring node E, and redistribute by sending 300 from e to f
+
+E: 180, 200, 220, 240, 260, 280,
+F: 300, 320, 360, 380
+
+Update parent from 320 to 300:
+
+A: $p_{c},100,p_{d},180, p_{e},300,p_{f}$
+
 f. delete 40
+
+Delete from C: 20, 40, 60, 80
+
+20, 60, 80
+
+Can coalesce since we dont meet minimum requirement here or on checking node D.
+
+New node is
+
+C: 20, 60, 80, 100, 120, 140, 160
+D is deleted
+and the parent becomes A: $p_{c},180,p_{e},320,p_{f}$
 
 ## Problem 2
 
 ![[Screenshot 2024-12-06 at 12.59.15 PM.jpg]]
+
