@@ -232,3 +232,32 @@ and the parent becomes A: $p_{c},180,p_{e},320,p_{f}$
 
 ![[Screenshot 2024-12-06 at 12.59.15 PM.jpg]]
 
+A:
+
+Recall that a B+ tree has a parameter n that determines the min and max number of key values and pointers in each node. Determine the largest value of n that allows n pointers and n-1 keys to fit into a block.
+
+Each block contains n-1 keys and n pointers.
+
+So for 4KB we have $4096=8(n-1)+ 8n \rightarrow n=256$
+
+B:
+
+Choose a convenient number x to work with, somewhere between n/2 and n, assume each node has x children, and estimate the height of the tree. Note that there are many records for each sID; assume that there are duplicates of the same sID in the leaf nodes, so that the number of key values is equal to the number of records in Takes.
+
+Let's assume that we are $\frac{2}{3}$ full, so each node has $\frac{2}{3}\times 256 \approx 170$
+
+to store all the 500,000,000 records we need $\frac{500,000,000}{170} \approx 3,000,000$ leaf nodes.
+
+We can get the height with a log:
+
+$$
+h = \lceil \log_{170}(3,000,000) \rceil 
+$$![[Screenshot 2024-12-06 at 9.22.58 PM.jpg]]
+
+So we need 3 levels apart from the root node.
+
+So 4 levels total.
+
+C:
+
+Searching the tree requires 4 seeks and 4 block transfers
