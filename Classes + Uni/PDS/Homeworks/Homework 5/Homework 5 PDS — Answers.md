@@ -5,7 +5,6 @@ tags:
 # iae225  - Indexing
 
 ## Problem 1
-![[Screenshot 2024-12-06 at 12.28.01 PM.jpg]]
 
 ### Set 1
 
@@ -156,9 +155,6 @@ Fetch all matching records individually, performing random I/O operations at eac
 
 ### Set 2
 
-![[Screenshot 2024-12-06 at 12.58.32 PM.jpg]]
-
-![[Screenshot 2024-12-06 at 2.38.16 PM.jpg | 500]]
 
 a. insert 795 
 
@@ -172,6 +168,8 @@ E': 240, 260, 280, 300
 
 Update parent, A, as:
 A: $p_{c}, 100, p_{d}, 180,p_{e},240,p_{e'},320,p_{f}$
+
+e' should point to e.next, and then e should point to e'
 
 c. insert 593 
 
@@ -191,6 +189,11 @@ B': $p_{k},1000,p_{l},2000,p_{m}3000,p_{n}$
 and set root to:
 
 $p_{a},400,p_{b},820,p_{b'}$
+
+Also, we have to update the pointers for the new nodes.
+
+h' should point to h.next, and then h should point to h'
+likewise updates for the changes to root pointer
 
 d. delete 200 
 
@@ -227,10 +230,8 @@ New node is
 C: 20, 60, 80, 100, 120, 140, 160
 D is deleted
 and the parent becomes A: $p_{c},180,p_{e},320,p_{f}$
-
+the next node pointer in c now points to e instead of d.
 ## Problem 2
-
-![[Screenshot 2024-12-06 at 12.59.15 PM.jpg]]
 
 A:
 
@@ -251,8 +252,10 @@ to store all the 500,000,000 records we need $\frac{500,000,000}{170} \approx 3,
 We can get the height with a log:
 
 $$
+\begin{gather}
 h = \lceil \log_{170}(3,000,000) \rceil 
-$$![[Screenshot 2024-12-06 at 9.22.58 PM.jpg]]
+\end{gather}
+$$
 
 So we need 3 levels apart from the root node.
 
@@ -266,5 +269,5 @@ However, since it's non-clustered We need 10 additional seeks and block transfer
 
 D: 
 1. The data would have to be physically sorted by sID
-2. Now, we could turn this into a sparse primary index, and save ourselves some space. Our previous tree was dense, since we had a secondary index. However, this does not mean that a primary index on the same data would have to be also dense. 
-3. It'd be faster since the final searches would be adjacent and we wouldn't have to do those $2\times 10$ steps. The traversal would remain the same though.
+2. Now, we could turn this into a sparse primary index, and save ourselves some space. Our previous tree was dense, since we had a secondary index. However, this does not mean that a primary index on the same data would have to be also dense. Hence, it can be different, since we can save a lot of space by making it sparse (potentially getting to height of 3 while including the root)
+3. It'd be faster since the final searches would be adjacent and we wouldn't have to do those $2\times 10$ steps. The traversal would remain the same though. 
