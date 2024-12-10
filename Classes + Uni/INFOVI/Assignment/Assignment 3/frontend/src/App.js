@@ -196,8 +196,8 @@ function App() {
   const [endPatch, setEndPatch] = useState(patches[patches.length - 1]);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const cleanChampionName = selectedChampion.toLowerCase().replace(/[\s_']/g, '');
   const [imageUrl, setImageUrl] = useState(getChampionImageUrl(cleanChampionName, true));
+  const cleanChampionName = selectedChampion.toLowerCase().replace(/[\s_']/g, '');
 
   function getChampionImageUrl(name, includeZero) {
     return `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/characters/${name.toLowerCase()}/skins/base/${name.toLowerCase()}loadscreen${includeZero ? '_0' : ''}.jpg`;
