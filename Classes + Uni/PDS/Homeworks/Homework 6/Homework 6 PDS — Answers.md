@@ -21,3 +21,7 @@ Draw an expression tree illustrating the following relational algebra query, wit
 
 $\Pi_{title, grade}(\sigma_{sID=12345\land building=\text{"JAB"}}((\text{section}\bowtie\text{takes})\bowtie\text{course}))$
 
+![[Screenshot 2024-12-13 at 7.35.32 PM.jpg]]
+
+### Question 3
+
