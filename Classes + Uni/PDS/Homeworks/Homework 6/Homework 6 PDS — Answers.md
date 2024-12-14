@@ -25,3 +25,7 @@ $\Pi_{title, grade}(\sigma_{sID=12345\land building=\text{"JAB"}}((\text{section
 
 ### Question 3
 
+![[Screenshot 2024-12-13 at 9.34.38 PM.jpg]]
+
+### Question 4
+
