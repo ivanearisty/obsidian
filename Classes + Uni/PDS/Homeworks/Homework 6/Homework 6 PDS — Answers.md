@@ -26,9 +26,17 @@ $\Pi_{title, grade}(\sigma_{sID=12345\land building=\text{"JAB"}}((\text{section
 ![[Screenshot 2024-12-13 at 10.28.25 PM.jpg]]
 ### Question 4
 
+I was confused about whether we are projecting here or not.
+
+If the query plan is:
+
 1. Scan Takes to find courses taken by student 12345 and their grades 
 2. Join result with Section, selecting sections in JAB building while doing the join 
 3. Join result with Course. (Projections can be done along with the joins; No duplicate elimination is needed.)
+
+I will be assuming that we will not be projecting anything, and this is different from the RA query above.
+
+If we would be considering projections, the steps would be slightly different.
 
 Step 1:
 - Selecting from takes to find student with id 12345
