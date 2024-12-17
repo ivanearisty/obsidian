@@ -240,3 +240,15 @@ Given the Graph G and a sequence of vertices S from v1 to vn where each v is a d
 The verification is polynomial since we are performing linear time operation checks on every step 
 
 Step 2: Reduction
+
+We will transform from hamiltonian path
+
+We are given a graph G = (V,E) and the vertex S
+
+We will convert this into an instance of question 5.
+First we will add a new vertex S
+Then we will connect S to all vertices in G
+
+S is going to be designated as the starting vertex in question 5.
+
+Since S is connected to all vertices in S
