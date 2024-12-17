@@ -191,7 +191,6 @@ Visiting all edges in this scenario is hamiltonian path, again, so we can't poss
 
 Prove that the following problem is NP-complete using a reduction from either : Vertex Cover, Inde- pendent Set, Dominating Set, or Clique. Recall the two steps that are necessary in order to show that a problem is NP complete. A set of n people attend a political meeting, where m issues are to be discussed. Each person attending has created a sublist of issues (selected from the main set of m issues) that they are most interested in. The organisers would like to select at most k issues so that each person is interested in at least one of the selected issues. The problem is to determine if it possible or not.
 
-
 Step 1: show that question 4 is in NP.
 We must show that given the input, we can verify if the solution is true.
 
@@ -200,13 +199,44 @@ Given the input and a potential solution of issues J we can verify the solution 
 	1. Check if each list has at least 1 selected issue from J
 2. Check that the total number of issues, J.length, is less than or equal to k
 
+The time it takes for verification is polynomial since we do a triple for loop through every person, through their list, and through every issue selected. So it's O(n^3) where n is greater than all the input sizes.
+
 Step 2: Reduction
 
-We will model the input as a graph where:
-All vertices are issues
-All edges are issues that both person 1 and person 2 have listed.
+An instance of vertex cover consists of a graph G = (V,E) and an integer k. 
 
+We will convert this into an instance of question 4.
+
+Each edge becomes a person.
+Each vertex becomes an issue.
+The value of k stays the same.
+For each edge $e \in E$ we let the two endpoints be the two issues that they are allowed to select.
+In other words, for e = (u, v), person e is interested in issues u and v.
+
+We now have created an instance of question 4.
+
+We will now verify that the reduction is valid:
+1 If there is a vertex cover of size ≤ k, then it is possible to select ≤ k issues:
+
+Suppose G has a vertex cover called set C of size ≤ k. Each edge in G is adjacent to at least one vertex in C. Let the vertices in C correspond to the selected issues in question 4. Since each edge e = (u,v) in G corresponds to a person in question 4 with interests in issues u and v, then we know that either u or v is in C, and therefore the person e has interest in at least one issue.
+
+2 If there is NO vertex cover of size ≤ k, then it is NOT possible to select ≤ k issues:
+
+If it is NOT possible to select k vertices to cover all edges, then no set of k issues would interest  all people. This is because each issue corresponds to a vertex, so if the issues had interest from all people, this would mean it corresponded to a vertex cover.
 
 ## Question 5
 
 ![[Screenshot 2024-12-16 at 9.41.00 PM.jpg]]
+
+Step 1: show that question 5 is in NP.
+We must show that given the input, we can verify if the solution is true.
+
+Given the Graph G and a sequence of vertices S from v1 to vn where each v is a distinct vertex:
+1. We verify that v1 is in S (O(S))
+2. We verify that all vertices in S appear exactly once in the sequence (O(V^2))
+3. We verify that all vertices in from G are present in S (O(VxG(V)))
+4. For every pair $(v_{i},v_{i+1})$ in the sequence, we verify that the edge $e(v_{i},v_{i+1}) \in G$  (O(S))
+
+The verification is polynomial since we are performing linear time operation checks on every step 
+
+Step 2: Reduction
