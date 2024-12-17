@@ -148,3 +148,48 @@ Determining if something is a DAG is as simple as running DFS to confirm if ther
 If we have any back edges we return false, if not true.
 
 This is poly because it's based on DFS.
+
+### H
+
+An undirected graph has weighted edges. The problem is determine if there is a path that starts at vertex s and travels to vertex t where the sum of the edge weights is less than k.
+
+I am a bit torn. 
+
+We can run DJ if there are no negative weights.
+
+At the end of DJ, we can check t.d and compare it to k to return true or false.
+
+The above is poly.
+
+However, in an undirected graph, if we have negative weights, we can't run bellman ford.
+
+Think about it, an undirected graph is a directed graph where every edge is replaced with a directed edge to and from it's source to and from it's end.
+
+So, the above would have negative weight cycles by definition.
+
+Hence, if we have negative weights, and carefully select a specific set of edge weights and a k value, the problem actually becomes hamiltonian cycle.
+
+Since our algorithm would have to solve for this situation, then we know our problem is at least as hard as HC.
+
+Since we know HC is NP, we would not have a poly time algo for this problem.
+
+### J
+
+An undirected graph has weighted edges. The problem is determine if there is a path that starts at vertex s and visits all vertices exactly once, where the sum of the edge weights is less than k.
+
+This problem can reduce to the above dilema from H.
+
+Imagine we setup the problem such that:
+- k = n - 1
+- every weight = 1
+
+Visiting all edges in this scenario is hamiltonian path, again, so we can't possible have a poly time solution.
+
+## Question 4
+
+![[Screenshot 2024-12-16 at 9.40.44 PM.jpg]]
+
+
+## Question 5
+
+![[Screenshot 2024-12-16 at 9.41.00 PM.jpg]]
