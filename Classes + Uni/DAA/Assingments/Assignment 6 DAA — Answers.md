@@ -251,4 +251,8 @@ Then we will connect S to all vertices in G
 
 S is going to be designated as the starting vertex in question 5.
 
-Since S is connected to all vertices in S
+Since S is connected to all vertices in S it must go to one vertex in V and proceed traversing remaining vertices without revisiting, aka every path must begin at S..
+
+We can verify since if our reduction has a hamiltonian path, then S will have a simple path that visits all vertices once.
+
+If G does not have a simple path then our new graph doesnt have one either.
