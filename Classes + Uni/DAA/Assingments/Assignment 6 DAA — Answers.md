@@ -189,6 +189,15 @@ Visiting all edges in this scenario is hamiltonian path, again, so we can't poss
 
 ![[Screenshot 2024-12-16 at 9.40.44 PM.jpg]]
 
+Prove that the following problem is NP-complete using a reduction from either : Vertex Cover, Inde- pendent Set, Dominating Set, or Clique. Recall the two steps that are necessary in order to show that a problem is NP complete. A set of n people attend a political meeting, where m issues are to be discussed. Each person attending has created a sublist of issues (selected from the main set of m issues) that they are most interested in. The organisers would like to select at most k issues so that each person is interested in at least one of the selected issues. The problem is to determine if it possible or not.
+
+
+Step 1: show that question 4 is in NP.
+We must show that given the input, we can verify if the solution is true.
+
+Given the input and a potential solution of issues I we can verify the solution in polynomial time as such:
+1. Check 
+
 
 ## Question 5
 
