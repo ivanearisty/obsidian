@@ -93,3 +93,58 @@ Since DFS is a poly-time algorithm, we are good.
 
 A graph **G** has **n** vertices and **m** edges. The problem is to determine if **G** contains a simple cycle of length at least k.
 
+If we set k = n, we are asking the exact same question the hamiltonian cycle tries to solve.
+
+Hamiltonian cycle does a Hamilton Path which is:
+	A Hamilton Path is a simple path in G that visits every vertex exactly once.
+
+So, again, if we set that k to be the maximal amount for this cycle (or that some k >= 1), then we are asking the hamiltonian cycle question.
+
+Since HC is NP-complete, no solution that is poly-time can exist for this algo.
+
+### D
+
+A **directed graph G** contains **n vertices** and **m edges**. The problem is to determine if there is path from **vertex s to every other vertex in the graph**.
+
+We can just run a SSSP algorithm, like Dijkstra, from vertex s. If after running the algorithm the exists a vertex v inn G such that v.d = INF, then we return false, if not we return true.
+
+Since Dijkstra is in P, then we have a poly time algo.
+
+(If weights can be negative we run some other SSSP)
+### E
+
+A **directed graph G** contains **n vertices** and **m edges**. The problem is to determine if there is path from **vertex s to and from every other vertex in the graph**.
+
+For this algorithm, we can do the above for every vertex v $\in$ G. 
+
+We first would run SSSP on s to determine if the first condition is true.
+
+Then, we would run SSSP on every vertex $u \in G \to u \neq v$ and check if v's v.d = INF on any iteration. 
+
+This time, we are running SSSP n times.
+
+This will make the runtime n x T(n), which would be big O of $n^{2} \times n=n^{3}$ 
+
+This runtime is definitely bigger, but still poly.
+
+(After doing below I realized BFS might also work here but the above does produce an upper bound that would allow me to conclude my conclusion \[wow] )
+### F
+
+A directed graph G contains n vertices and m edges. The graph is not weighted. The problem is to determine if there is path from vertex s to every other vertex in the graph, where the number of edges in the path must be at most k.
+
+I am thinking of running BFS here.
+
+If the graph is not weighted, we would just run a BFS and if any node has a final distance attribute > k we return false.
+
+If not we return true.
+
+This is poly because it's based on BFS and running a check of n vertices at the end.
+### G
+
+A directed graph contains n vertices and m edges. The problem is to determine if G is a DAG.
+
+Determining if something is a DAG is as simple as running DFS to confirm if there are any back edges.
+
+If we have any back edges we return false, if not true.
+
+This is poly because it's based on DFS.
