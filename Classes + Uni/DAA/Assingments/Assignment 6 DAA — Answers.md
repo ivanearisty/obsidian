@@ -195,8 +195,16 @@ Prove that the following problem is NP-complete using a reduction from either : 
 Step 1: show that question 4 is in NP.
 We must show that given the input, we can verify if the solution is true.
 
-Given the input and a potential solution of issues I we can verify the solution in polynomial time as such:
-1. Check 
+Given the input and a potential solution of issues J we can verify the solution in polynomial time as such:
+1. Check every person's list of issues
+	1. Check if each list has at least 1 selected issue from J
+2. Check that the total number of issues, J.length, is less than or equal to k
+
+Step 2: Reduction
+
+We will model the input as a graph where:
+All vertices are issues
+All edges are issues that both person 1 and person 2 have listed.
 
 
 ## Question 5
