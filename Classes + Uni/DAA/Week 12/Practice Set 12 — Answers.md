@@ -2,9 +2,9 @@
 tags:
   - DAA/Week12
 ---
-### Question 1
-
+## Question 1
 **Topological Sort**
+![[Topo Sort 1.drawio.svg]]
 
-Vertex H:
+**Strongly Connected Components**
 
