@@ -52,4 +52,38 @@ PrintTree(u)
 ## Problem 5
 
 ## Problem 6
+Valid:
+![[Screenshot 2024-12-18 at 1.15.19 AM.jpg]]
+![[Screenshot 2024-12-18 at 1.17.22 AM.jpg]]
+Not valid:
+![[Screenshot 2024-12-18 at 1.15.56 AM.jpg]]
+![[Screenshot 2024-12-18 at 1.16.59 AM.jpg]]
+
+Insight:
+Cycles are allowed, but they have to be of an even number of nodes, which means colors have to be iterating.
+
+When we detect a cycle, if it's the same as the color that we set this node to be, then it's not possible.
+
+```python
+DFS-color(u)
+	for all v in G v.color = 'NONE'
+	return DFS-color(u, 'WHITE')
+
+DFS-color(u, state)
+	# set color
+	if state = 'WHITE'
+		u.color = 'BLACK'
+	else 
+		u.color = 'WHITE'
+		
+	for each v ∈ Adj [u]
+		if v.color == 'NONE' # if not visited visit
+			v.parent = u
+			if DFS-cycle(v, u.color) = false
+				return false
+		else 
+			if v.color == u.color
+				return false
+	return true
+```
 
