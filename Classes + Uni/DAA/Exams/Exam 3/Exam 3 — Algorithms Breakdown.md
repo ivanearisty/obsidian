@@ -209,9 +209,46 @@ The algorithm above runs a DFS twice: once on G on again on GT . Therefore the t
 [[Practice Set 13 — Solutions.pdf]] problem 6:
 It cannot contain the edge with maximum weight on the cycle
 
+[[Practice Set 13 — Solutions.pdf]] problem 11:
+Distinct weights and needing to be in the cycle
+
 
 
 ## Prim's Algorithm
+
+### Trait
+
+- Builds MST
+- Parent pointers when a tree is added and it remains permanent are the edges of the tree
+### Pseudocode
+```python
+Prim(G,s):
+	# Init
+	for all v ∈ V set v.d = INF
+	for all v ∈ V set v.parent = NIL
+	T is a new empty Tree
+	s.d = 0
+	for all v ∈ V Decrease-key(Q, v, v.d)
+	# get minimum-distance item from the queue until the queue is empty
+	while Q != Nil
+		u = Extract-min(Q)
+		for each v in Adj[u]
+			if v ∈ Q and v.d > weight(u, v) # Update the distance to v
+				Decrease-key(Q, v, w(u, v))
+				v.parent = u # Set this node as the child of u
+```
+
+### Runtime
+**Deletes**
+Over the entire course of the algorithm, a vertex is removed from the queue exactly once. Recall that the priority queue carries out a delete in O(log n) time, and in this case n = |V |. Therefore each delete in the priority queue takes time O(log V ). Since there are V vertices, this accounts for a runtime of O(V log V ).
+**Key Updates**
+The for loop that examines the adjacency list of each vertex examines each edge exactly twice during the entire algorithm - and each examination may carry out a Decrease-key() operation in (taking time O(log V )). This accounts for a total runtime of O(E log V ).
+**Total**
+Therefore the overall runtime of step 2 is therefore O(E log V + V log V ) = O(E log V ), and thus the runtime of Prim is O(E log V )
+
+### Variations
+
+**With children** 
 
 ## Kruskal’s algorithm
 
