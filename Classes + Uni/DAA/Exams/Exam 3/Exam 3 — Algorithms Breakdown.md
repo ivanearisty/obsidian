@@ -302,9 +302,59 @@ Using counting sort [[Practice Set 13 — Solutions.pdf]] Problem 5
 
 ## Dijkstra’s algorithm
 
+```python
+Dijkstra(G,s):
+	# Init
+	for all v ∈ V set v.d = INF
+	s.d = 0
+	T is a new empty Tree
+	for all v ∈ V Decrease-key(Q, v, v.d)
+	# Build SSSP
+	while Q is not empty
+		u = Extract-min(Q)
+		for each v in Adj [u]
+			if v.d > u.d + w(u, v)  # We have found a shorter route to v
+				Decrease-key(Q, v, u.d + w(u, v)) 
+				v.parent = u
+```
 
+![[Screenshot 2024-12-18 at 4.41.37 PM.jpg]]
 
 ## Bellman Ford
 
+```python
+Bellman-Ford(G, s):
+	# Init
+	for all v ∈ V set v.d = INF
+	s.d = 0
+	T is a new empty Tree
+	# Build SSSp
+	Loop through exactly V − 1 times
+		for each edge (u, v) in E
+			if v.d > u.d + w(u, v)
+				v.d = u.d + w(u, v)
+				v.parent = u
+```
+
+[[Assignment 5 DAA — Answers#Part D]]
+To iterate, set the order first 
+update every node in iteration
+if no new updates break early
+Always look at the outgoing edges, if you don't know how to reach something skip it for now.
+![[Screenshot 2024-12-18 at 4.48.24 PM.jpg]]
+
+## Reduction
+
+It's ok as long as we represent a valid input. Don't represent all inputs but it's valid input:
+![[Screenshot 2024-12-18 at 5.01.31 PM.jpg]]
 ## Care
+To get home from finish to other edges:
+	reverse edges
+	run dj
+
+Do the two steps
+1. verify sol in poly
+2. reduce
+	1. verify reduce
+
 
