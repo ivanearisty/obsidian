@@ -87,5 +87,5 @@ DFS-color(u, state)
 	return true
 ```
 
-## Problem 8
+## Problem 12
 
