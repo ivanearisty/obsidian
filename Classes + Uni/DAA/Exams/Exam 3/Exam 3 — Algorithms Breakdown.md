@@ -35,6 +35,11 @@ DFS-visit(u):
 The DFS algorithm marks each vertex as visited only once. 
 For each vertex, the algorithm carries out a for loop for each neighbor of v. 
 Over all vertices in the graph, this is equivalent to doing a constant amount of work for each edge in the tree. The total runtime is then Θ(V + E).
+
+### Variations
+- Problem 3: Back Edge, Cycle detection, Undirected
+- Problem 4: With children and preorder printing
+- 
 ## BFS
 
 ### Properties
@@ -168,7 +173,28 @@ The runtime of DFS is Θ(V + E), and the extra time needed to simply place the v
 ## Strongly Connected Components (SCC)
 ### Properties
 ### Pseudocode
+
+```python
+# step 1: usual dfs with timestamps
+for each v in V
+	if v.visited = false
+		DFS-visit(v)
+# step 2: create G^t
+Copy vertices from V to the set of vertices in G^t
+for each edge e = (u, v) in E 
+	add edge (v, u) to E^t 
+	add vertex u to Adj[v] 
+for each v in V # reset all vertices as unvisited. 
+	v.visited = false
+# sort by decreasing finish times
+L = Sort vertices in V by decreasing v.finish
+# Run dfs on transpose, every restart is a SCC
+for each v in L 
+	if v.visited = false 
+		DFS-visit-with-children(v) # or something else to get the scc
+```
 ### Runtime
+The algorithm above runs a DFS twice: once on G on again on GT . Therefore the total runtime is Θ(V + E)
 
 ## MST
 
