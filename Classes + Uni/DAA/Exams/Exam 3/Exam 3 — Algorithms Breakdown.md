@@ -198,6 +198,19 @@ The algorithm above runs a DFS twice: once on G on again on GT . Therefore the t
 
 ## MST
 
+### Traits
+
+1. MST is not necessarily unique
+2. MST is a tree
+3. Any cut edge is in the MST
+4. Adding any other edge from E to the MST creates a cycle
+5. The lightest-edge across any partition must be in the MST
+
+[[Practice Set 13 — Solutions.pdf]] problem 6:
+It cannot contain the edge with maximum weight on the cycle
+
+
+
 ## Prim's Algorithm
 
 ## Kruskal’s algorithm
@@ -205,3 +218,6 @@ The algorithm above runs a DFS twice: once on G on again on GT . Therefore the t
 ## Dijkstra’s algorithm
 
 ## Bellman Ford
+
+## Care
+
