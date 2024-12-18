@@ -212,7 +212,10 @@ It cannot contain the edge with maximum weight on the cycle
 [[Practice Set 13 — Solutions.pdf]] problem 11:
 Distinct weights and needing to be in the cycle
 
+[[Assignment 5 DAA — Solutions.pdf]] 3A:
+Cycle added and we can run 
 
+Traversing MST is O(V+E) = O(V+V) = O(V) since we have as many edges as we do vertices
 
 ## Prim's Algorithm
 
@@ -248,11 +251,58 @@ Therefore the overall runtime of step 2 is therefore O(E log V + V log V ) = O(E
 
 ### Variations
 
-**With children** [[Practice Set 13 — Solutions.pdf]]
+**With children** [[Practice Set 13 — Solutions.pdf]] problem 10
 
 ## Kruskal’s algorithm
+Sorts the edges of the graph and processes them one at a time.
+Goes from smallest to largest
+checks if an edge can be safely added (would join disjoint components)
+
+
+```python
+Kruskal(G):
+	# Init
+	T is a new empty tree
+	Edges = sort E from smallest to biggest
+	for all v ∈ V set v.parent to v.val (or v.identifier or v.hash())
+	# Process
+	for each e ∈ Edges
+		if find(u) != find(v) # different components
+			Add edge (u, v) to T.
+			Merge(u, v)
+		else
+			continue
+	# The tree T now contains the edges of the MST
+
+Find(x):
+    if parent[x] ≠ x   # If x is not the root
+        parent[x] = Find(parent[x])  # make x point directly to the root
+    return parent[x]    # Return the root of the set containing x
+
+Merge(u, v):
+    rootU = Find(u)    # Find the root of u's component
+    rootV = Find(v)    # Find the root of v's component
+    
+    if rootU ≠ rootV  # If u and v are in different components
+        if rank[rootU] > rank[rootV]  # Attach trees, smaller under the larger 
+            parent[rootV] = rootU
+        else if rank[rootU] < rank[rootV]:
+            parent[rootU] = rootV
+        else:                               # If both trees have the same rank
+            parent[rootV] = rootU           # Attach one tree under the other
+            rank[rootU] += 1                # Increment the rank of the new root
+```
+![[Screenshot 2024-12-18 at 4.34.53 PM.jpg]]
+
+Optimization:
+
+Using counting sort [[Practice Set 13 — Solutions.pdf]] Problem 5
+
+![[Screenshot 2024-12-18 at 4.36.39 PM.jpg]]
 
 ## Dijkstra’s algorithm
+
+
 
 ## Bellman Ford
 
