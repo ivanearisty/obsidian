@@ -146,7 +146,28 @@ BFS(G):
 [[Practice Set 12 — Solutions.pdf]] Problem 11
 ## Topological Sort
 
+### Properties
+- Consider only directed acyclic graphs
+- 
+### Pseudocode
+```python
+DFS-visit(u) 
+	time = time + 1 
+	u.visited = true 
+	u.start = time 
+		for each v ∈ Adj[u]
+			if v.visited = false 
+				v.parent = u 
+				v.distance = u.distance + 1 
+				DFS-visit(v) 
+		time = time + 1 
+		u.finish = time
+```
+### Runtime
 ## Strongly Connected Components (SCC)
+### Properties
+### Pseudocode
+### Runtime
 
 ## MST
 
