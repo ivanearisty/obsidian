@@ -248,7 +248,7 @@ Therefore the overall runtime of step 2 is therefore O(E log V + V log V ) = O(E
 
 ### Variations
 
-**With children** 
+**With children** [[Practice Set 13 — Solutions.pdf]]
 
 ## Kruskal’s algorithm
 
