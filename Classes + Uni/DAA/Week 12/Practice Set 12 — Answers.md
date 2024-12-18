@@ -15,17 +15,41 @@ DFS on an undirected graph can't have any forward edges because their non-direct
 
 ## Problem 3
 ```python
-DFS-cycle(u):
-	dummy = new Node
-	add u to the adjencency list of dummy
-	return DFS-cycle(u, ) 
-
-DFS-cycle(u, p) 
+DFS-cycle(u) 
 	u.visited = true
-	For each v ∈ Adj [u]
-		If v.visited = false 
+	for each v ∈ Adj [u]
+		if v.visited = false 
 			v.parent = u 
 			v.distance = u.distance + 1 
-			DFS-cycle(u)
-	
+			if DFS-cycle(v) = true
+				return true
+		else 
+			if v.parent != u
+				return true
+	return false
 ```
+
+## Problem 4
+
+```python
+DFS-visit(u) 
+	u.visited = true
+	for each v ∈ Adj [u]
+		if v.visited = false 
+			v.parent = u
+			u.add(v)
+			v.distance = u.distance + 1 
+			DFS-cycle(v)
+```
+
+```python
+PrintTree(u)
+	print(u)
+	for each v ∈ u.children:
+		PrintTree(u)
+```
+
+## Problem 5
+
+## Problem 6
+
