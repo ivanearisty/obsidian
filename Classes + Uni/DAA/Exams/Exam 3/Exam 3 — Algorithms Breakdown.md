@@ -350,11 +350,17 @@ It's ok as long as we represent a valid input. Don't represent all inputs but it
 ## Care
 To get home from finish to other edges:
 	reverse edges
-	run dj
-
+	run dj [[Practice Set 13 — Solutions.pdf]] problem 9
+ 
 Do the two steps
 1. verify sol in poly
 2. reduce
 	1. verify reduce
 
+Explain always how to remove the heaviest weight of a cycle for MSTs. To find the heaviest weight you need to describe it. [[Assignment 5 DAA — Solutions.pdf]] 3A
+
+SCC
+Up to us to describe how SCC works
+we can't say that a magical output comes out
+All we will get at the end is a set of DFS trees
 
