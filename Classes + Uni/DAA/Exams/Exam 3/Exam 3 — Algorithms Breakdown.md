@@ -164,6 +164,7 @@ DFS-visit(u)
 		u.finish = time
 ```
 ### Runtime
+The runtime of DFS is Θ(V + E), and the extra time needed to simply place the vertices in a linked list in the order that they are finished is O(1) per node. Therefore the overall runtime is Θ(V + E).
 ## Strongly Connected Components (SCC)
 ### Properties
 ### Pseudocode
