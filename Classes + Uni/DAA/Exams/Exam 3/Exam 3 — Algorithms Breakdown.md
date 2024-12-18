@@ -4,7 +4,37 @@ tags:
 ---
 ## DFS
 
+### Pseudocode
 
+```python
+DFS(u): # if it's all connected
+	for all v ∈ V set v.visited = false
+	for all v ∈ V set v.parent = NIL
+	u.distance = 0
+	DFS-visit(u)
+		
+# we have to switch the above if the graph is not connected:
+DFS(G):
+	for all v ∈ V set v.visited = false
+	for all v ∈ V set v.parent = NIL
+	for all v ∈ V 
+		if v.visited = false 
+			DFS-visit(v)
+
+DFS-visit(u):
+	u.visited = true 
+	for each v ∈ Adj[u] 
+		if v.visited = false 
+			v.parent = u 
+			v.distance = u.distance + 1 
+			DFS-visit(v)
+```
+
+### Runtime
+
+The DFS algorithm marks each vertex as visited only once. 
+For each vertex, the algorithm carries out a for loop for each neighbor of v. 
+Over all vertices in the graph, this is equivalent to doing a constant amount of work for each edge in the tree. The total runtime is then Θ(V + E).
 ## BFS
 
 ### Properties
@@ -117,3 +147,13 @@ BFS(G):
 ## Topological Sort
 
 ## Strongly Connected Components (SCC)
+
+## MST
+
+## Prim's Algorithm
+
+## Kruskal’s algorithm
+
+## Dijkstra’s algorithm
+
+## Bellman Ford
