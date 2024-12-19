@@ -15,5 +15,8 @@ data from Brazil's largest department store, containing 100,000 orders from 2016
 
 ![[Screenshot 2024-12-19 at 3.35.18 AM.jpg]]
 
-
+Execution time
+How it will go about executing the query (execution plan) row scan.
+bottleneck on 
+Video
 
