@@ -279,4 +279,77 @@ DFS-visit(u):
 	return max(maxdist, u.distance)
 ```
 
-This algorithm is O(V+E) since it
+We mark each vertex as visited once and visit each vertex only once.
+For each vertex, the algorithm carries out a for loop for each neighbor of v. 
+Over all vertices in the graph, we keep a distance attribute which takes constant amount of time to update and keep track of (just like for parent)
+Hence, the total runtime is Θ(V + E).
+
+## Question 6
+![[Screenshot 2024-12-18 at 7.42.09 PM.jpg]]
+![[Screenshot 2024-12-18 at 7.50.29 PM.jpg]]
+It does not work.
+
+Dijstra removes nodes from Q when it evaluates their path because that *must* be the shortest path to get to them.
+
+A path cannot become shorter after being the shortest discoverable from the source vertex. However, it can definitely become longer by exploring a path that was not yet seen.
+
+This preemptively removes nodes from potentially being the longest.
+
+The above would work if paths "could not get any bigger" which would be when all the weights are actually negative.
+
+## Question 7
+
+![[Screenshot 2024-12-18 at 7.55.33 PM.jpg]]
+
+- A person can make both pickups.
+
+This is similar to what we discussed in office hours. What we want here is to minimize the path it takes for both of us to do everything and we have a couple of scenarios we can lay out:
+
+- Ivan goes directly to the party, Erin picks up the beer, then the pizza, then goes to the party.
+- Ivan picks up beer, then goes to the party. Erin up pizza, then goes to the party.
+- Ivan picks up pizza, then goes to the party. Erin up beer, then goes to the party.
+- Ivan picks up beer, the picks up pizza, then goes to the party. Erin goes directly to the party.
+
+We can represent this problems as a graph, and the previous scenarios can happen as we minimize and pick the scenario with least time
+
+Since time can't be negative, we use DJ.
+
+First we will run DJ on Ivan and augment the algorithm so that each node reached from ivan contains an attribute called .fromIvan which represents the shortest path ivan can take to get to that node.
+
+Then we will do something similar for Erin, but with fromErin.
+
+Then we will do something similar with Pizza, but with fromPizza.
+
+Then we will do something similar with Beer, but with fromBeer.
+
+At the end of our algorithm, the finish, beer, and pizza will have the amount it takes ivan and erin to get to that node.
+
+The finish will have the amount it takes to get there from pizza and beer.
+
+Now we can perform a minimization to output what the best scenario would be:
+
+First we calculate the results for each scenario and add it into a scenarios table of size 4
+Scenario 1:
+- Ivan goes directly to the party, Erin picks up the beer, then the pizza, then goes to the party.
+- max(finish.fromIvan, beer.fromErin + pizza.fromBeer + finish.fromBeer)
+
+Scenario 2:
+- Ivan picks up beer, then goes to the party. Erin up pizza, then goes to the party.
+- max(beer.fromIvan + finish.fromBeer, pizza.fromErin + finish.fromPizza)
+
+Scenario 3:
+- Ivan picks up pizza, then goes to the party. Erin up beer, then goes to the party.
+- max(beer.fromErin + finish.fromBeer, pizza.fromIvan + finish.fromPizza)
+
+Scenario 4:
+- Ivan picks up beer, the picks up pizza, then goes to the party. Erin goes directly to the party.
+- max(finish.fromErin, beer.fromIvan + pizza.fromBeer + finish.fromBeer)
+
+At the end, we will have our results stored in an array. 
+
+We will pick the minimum and keep track of the index and output which scenario erin and ivan should follow based on teh 
+## Question 8
+
+## Question 9
+
+## Question 10
