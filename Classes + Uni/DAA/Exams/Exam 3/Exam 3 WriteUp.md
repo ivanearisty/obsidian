@@ -421,6 +421,44 @@ Not sharing an edge is the same thing as not being being adjacent.
 Coloring vertices pink and not letting be adjacent is analogous to Independent set. 
 Hence, we do not have a poly time solution. 
 
-### Problem
+### Problem 3
+
+ Graph G is a simple, connected, undirected graph. There are n vertices and m edges. The goal is to determine if the vertices can be colored in two different colors so that no edge exists between vertices of the same color.
+
+We have explored coloring in the course and found that it is analogous to finding if a graph is BiPartite. This is a poly-time problem and can be solved with BFS from a source vertex, where we iterate along the nodes, shifting colors, and return true if no nodes colored the same are adjacent.
+
+### Problem 4
+
+A set of m children go shopping in a shop with n different toys. Each child picks exactly TWO of their favourite toys. Note that some children may chose the same toy. The problem is to select at least k toys so that no child goes home with TWO toys (going home with none or one is okay).
+
+The shop has n different toys.
+We can model child choices as edges in between the toys.
+Going home with none or 1 is okay.
+We can turn vertex cover into an instance of this problem.
+Vertex cover specifies that we select a set of at most k vertices such that each edge has at least one selected endpoint.
+Since we can make every child go home with 1 toy, there is no poly time algorithm since this can be an instance of vertex cover.
+
 ## Question 10
 ![[Screenshot 2024-12-18 at 8.33.33 PM.jpg]]
+Let G be a directed unweighted graph on n vertices, where each vertex is colored either black or white. The goal is to find a a simple cycle through at least k vertices where all vertices are of the same color. Show that this problem is NP complete, using a reduction from a problem from class.
+
+directed unweighted graph on n vertices
+color either black or white
+simple cycle where all vertices are of the same color
+
+Step 1: verify a proposed solution to the problem is polynomial time. Given a path P through the input graph:
+- Verify that the length of path p is >= k O1
+- Loop through adjacent pairs of vertices in P and ensure that there is an edge in G for each adjacent pair in the path O(V + E)
+- Loop through adjacent vertices in P and ensure they are all of color white or Loop through adjacent vertices in P and ensure they are all of color black  O(P)
+The following will run in poly
+
+Step 2: Reduction from Hamiltonian Cycle
+	Given an input graph G to HamiltonianCycle, we translate it into input for Question10 as follows:
+	The input graph G is converted into G1 and G2 where G1 has vertexes (and their edges) which would be black removed and vice versa for G2.
+	The new graphs are each copied as two different inputs for Question10.
+
+Step 2 Verification:
+
+Assume you are given an instance to the Independent Set problem. Convert it to an instance of the Clique problem in such a way that the Clique problem “solves” the independent set problem. The time it takes you do to this conversion must be polynomial.
+
+Show that the solution to the clique problem corresponds exactly to the solution of the independent set problem. If the independent set problem was a “yes”, then the clique conversion must be a “yes”. Similarly, if the independent set problem was a “no”, then the clique problem was also a “no”.
