@@ -14,5 +14,6 @@ data from Brazil's largest department store, containing 100,000 orders from 2016
 ### Dataset Structure
 
 ![[Screenshot 2024-12-19 at 3.35.18 AM.jpg]]
-### Dataset Setup Instructions
+
+
 
