@@ -225,6 +225,7 @@ DFS(n): # if it's all connected
 		
 DFS-visit(u, fromColor):
 	found = false
+	if s = n return true
 	if(fromColor = red):
 		# I am a green path
 		for each v ∈ Adj[u]
@@ -454,11 +455,11 @@ The following will run in poly
 
 Step 2: Reduction from Hamiltonian Cycle
 	Given an input graph G to HamiltonianCycle, we translate it into input for Question10 as follows:
-	The input graph G is converted into G1 and G2 where G1 has vertexes (and their edges) which would be black removed and vice versa for G2.
-	The new graphs are each copied as two different inputs for Question10.
+	The input graph G is converted into G1 where G1 has vertexes (and their edges) which would be black removed.
+	We set the amount of of vertices added equal to k.
+	We copy this as input.
 
 Step 2 Verification:
+For instances of hamiltonian cycle where the answer is yes, the the corresponding output in q is yes. If the original graph has a path through these vertices that exists and greater than k, it will come from such input
 
-Assume you are given an instance to the Independent Set problem. Convert it to an instance of the Clique problem in such a way that the Clique problem “solves” the independent set problem. The time it takes you do to this conversion must be polynomial.
-
-Show that the solution to the clique problem corresponds exactly to the solution of the independent set problem. If the independent set problem was a “yes”, then the clique conversion must be a “yes”. Similarly, if the independent set problem was a “no”, then the clique problem was also a “no”.
+For instances of hamiltonian cycle where the answer is no, the the corresponding output in q is no. If the original graph has no path then it would 
