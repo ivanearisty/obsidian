@@ -204,6 +204,8 @@ Forward edges would not have to be explored either since by marking them as visi
 1. they were explored from the path of a red path (and with maximum permission for exploration found nothing)
 2. they were explored from a green path and still found nothing
 
+The path resides at the parent pointers from S.
+
 The time complexity is still O(V+E) because we have not changed the core logic of how the algorithm operates.
 
 ## Question 3
@@ -211,26 +213,70 @@ The time complexity is still O(V+E) because we have not changed the core logic o
 ![[Screenshot 2024-12-18 at 7.07.30 PM.jpg]]
 
 ```python
-DFS(u): # if it's all connected
-	for all v ∈ V set v.visited1 = false
-	for all v ∈ V set v.visited2 = false
+DFS(n): # if it's all connected
+	for all v ∈ V set v.visitedFromGreen = false
+	for all v ∈ V set v.visitedFromRed = false
+	for all v ∈ V set v.parent = NIL
+	n.visitedFromRed = true
+	for each v ∈ Adj[n]
+		if e(n,v) = green
+			v.visitedFromRed = true
+			DFS-visit(v, red)
+		
+DFS-visit(u, fromColor):
+	found = false
+	if(fromColor = red):
+		# I am a green path
+		for each v ∈ Adj[u]
+			if v.visitedFromGreen = false and e(n,v) = green
+				if found == true
+					return true
+				v.visitedFromGreen = true
+				v.parent = u
+				found = DFS-visit(v, green)
+	else
+		# I am a red path
+		for each v ∈ Adj[u]
+			if v.visitedFromRed = false and e(n,v) = red
+				if found == true
+					return true
+				v.visitedFromRed = true
+				v.parent = u
+				found = DFS-visit(v, green)
+	return found
+```
+
+## Question 4
+
+![[Screenshot 2024-12-18 at 7.25.19 PM.jpg]]
+
+![[Screenshot 2024-12-18 at 7.31.15 PM.jpg]]
+
+In the example above, we can apply Kruskals to see that the there is only one configuration that would make the case on the left work. Any other configuration would choose a higher weight node.
+
+On the chart on the left, we have to include the middle node, and we have options regarding which path (the 1s) to follow. We would not be able to pick the other weight 3 at any point because it would create a cycle.
+
+## Question 5
+
+![[Screenshot 2024-12-18 at 7.33.41 PM.jpg]]
+
+```python
+LongPath(T):
+	for all v ∈ V set v.visited = false
 	for all v ∈ V set v.parent = NIL
 	u.distance = 0
 	DFS-visit(u)
 		
-# we have to switch the above if the graph is not connected:
-DFS(G, color):
-	for all v ∈ V set v.visited = false
-	for all v ∈ V set v.parent = NIL
-	for all v ∈ V 
-		if v.visited = false 
-			DFS-visit(v)
-
 DFS-visit(u):
-	u.visited = true 
+	u.visited = true
+	maxdist = 0
 	for each v ∈ Adj[u] 
 		if v.visited = false 
 			v.parent = u 
 			v.distance = u.distance + 1 
-			DFS-visit(v)
+			dist = DFS-visit-distance(v) 
+			maxdist = max(dist, maxdist)
+	return max(maxdist, u.distance)
 ```
+
+This algorithm is O(V+E) since it
