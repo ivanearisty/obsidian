@@ -314,7 +314,7 @@ We can represent this problems as a graph, and the previous scenarios can happen
 
 Since time can't be negative, we use DJ.
 
-First we will run DJ on Ivan and augment the algorithm so that each node reached from ivan contains an attribute called .fromIvan which represents the shortest path ivan can take to get to that node.
+First we will run DJ on Ivan and augment the algorithm so that each node reached from ivan contains an attribute called .fromIvan which represents the shortest path ivan can take to get to that node. We will be utilizing the same graph, but, instead of d for distance, we will use this from variable for our distinct operations.
 
 Then we will do something similar for Erin, but with fromErin.
 
@@ -347,9 +347,80 @@ Scenario 4:
 
 At the end, we will have our results stored in an array. 
 
-We will pick the minimum and keep track of the index and output which scenario erin and ivan should follow based on teh 
+We will pick the minimum and keep track of the index and output which scenario erin and ivan should follow based on what minimized the time.
 ## Question 8
 
+![[Screenshot 2024-12-18 at 8.11.03 PM.jpg]]
+
+If we have 5 strongly connected components, we would like to make a loop between all 5 of them.
+
+By the definition of an SCC, from any point in the SCC, you can get to any node in that same SCC.
+
+You can think of the SCCs as nodes really. 
+
+We can have them as such
+
+![[Screenshot 2024-12-18 at 8.15.27 PM.jpg]]
+or like this
+![[Screenshot 2024-12-18 at 8.16.47 PM.jpg]]
+or this:
+![[Screenshot 2024-12-18 at 8.17.10 PM.jpg]]
+
+This is non-exhaustive, but it illustrates the idea.
+
+First we will build our sccs.
+
+For every vertex in the graph, we will run DFS visit with timestamps.
+
+Then, we will copy vertices from v to the set of vertices in G^t
+
+Then, for each edge in the original list of edges, we will:
+- add the opposite direction edge to G^t
+- add the vertices of our original edge to the adjacency list of the transpose
+This will build our transpose graph.
+
+Then we will create a list of vertices sorted by their decreasing finish times.
+
+We will create a temporary array of size 6 that will store nodes and initialize a variable count = 1
+
+For each vertex in this list:
+- we will run DFS-visit-with-children as long as visited = false
+- every restart of this loop WILL be an SCC, and we will have the parent pointer of that scc, hence **we will add this node to array[count]** and increment it.
+
+This will finalize the creation of the SCCs and we will end with an array that will contain the parent nodes. It might look like: \[parent1,parent2,parent3,parent4,parent5,NULL]
+
+Now we will set array[6] = to parent 1: \[parent1,parent2,parent3,parent4,parent5,parent1]
+
+The next step will complete the task:
+**We will run a loop 5 times that creates a new edge from array\[i] to array\[i+1]**
+
+At the end we will have completed a cycle between all the sccs, and NO MATTER WHAT was the state of our initial graph, it will, by definition, look like this:
+![[Screenshot 2024-12-18 at 8.31.00 PM.jpg]]
+
+Given that from any SCC you can get to any node within it, and the sccs are now in a loop, it must be the case that we have created only 1 scc.
+
+The first part algorithm is O(V+E) since creating the sccs involves running DFS twice: once on G on again on GT. 
+The steps of the final algorithm are always 5, so O(1)
+The dominant term, and therefore the total runtime, is Θ(V + E)
 ## Question 9
 
+![[Screenshot 2024-12-18 at 8.33.25 PM.jpg]]
+
+### Problem 1
+
+A set of n children are such that certain pairs of children are friends. A friendship is a bi-directional relationship between two children. The school teacher would like to select at least k children who are all friends with each other.
+
+If children are vertexes in a graph, and friendships are edges, the problem the teacher wants to solve infolves selecting k children which are all pair-wise connected by their friendships. Hence this is an instance of Cliques, and we do not have a poly time solution.
+
+### Problem 2
+
+Graph G is a simple, connected, undirected graph. There are n vertices and m edges. The goal is to find at least k vertices and color them pink such that no two pink vertices share an edge.
+
+Coloring vertices pink and not letting them share an edge.
+Not sharing an edge is the same thing as not being being adjacent.
+Coloring vertices pink and not letting be adjacent is analogous to Independent set. 
+Hence, we do not have a poly time solution. 
+
+### Problem
 ## Question 10
+![[Screenshot 2024-12-18 at 8.33.33 PM.jpg]]
