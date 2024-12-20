@@ -96,11 +96,11 @@ create table olist_orders_dataset (
 	order_id varchar(255), -- unique identifier of the order.
     customer_id varchar(255), -- key to the customer dataset. Each order has a unique customer_id.
     order_status varchar(100), -- reference to the order status (delivered, shipped, etc.
-    order_purchase_timestamp date, -- shows purchase timestamp in format: 2017-10-02 10:56:33.
-    order_approved_at date, -- shows the payment approval timestam in format: 2017-10-02 10:56:33.
-    order_delivered_carrier_date date, -- shows the order posting timestamp. When it was handled to the logistic partner.
-    order_delivered_custoemr_date date, -- shows the actual order delivery date to the customer.
-    order_estimated_delivery_date date, -- shows the estimated delivery date that was informed to customer at the purchase moment.
+    order_purchase_timestamp datetime, -- shows purchase timestamp in format: 2017-10-02 10:56:33.
+    order_approved_at datetime, -- shows the payment approval timestam in format: 2017-10-02 10:56:33.
+    order_delivered_carrier_date datetime, -- shows the order posting timestamp. When it was handled to the logistic partner.
+    order_delivered_custoemr_date datetime, -- shows the actual order delivery date to the customer.
+    order_estimated_delivery_date datetime, -- shows the estimated delivery date that was informed to customer at the purchase moment.
     primary key (order_id), -- unique identifier
 	constraint fk_customer_id foreign key (customer_id) references olist_customers_dataset(customer_id)
 );
@@ -125,7 +125,7 @@ create table olist_order_items_dataset (
     order_item_id int, -- sequential number identifying number of items included in the same order.
     product_id varchar(255), -- product unique identifier.
     seller_id varchar(255), -- seller unique identifier. HERE WE PROLLY WANT REFERENCE TO SELLER BUT RIP SELLER TABLE.
-    shipping_limit_date date, -- seller shipping limit date for handling the order over to the logistic partner in format: 2017-10-02 10:56:33.
+    shipping_limit_date datetime, -- seller shipping limit date for handling the order over to the logistic partner in format: 2017-10-02 10:56:33.
     price decimal(10, 2), -- item price in format _.00
     freight_value decimal(10, 2), -- item freight value item in format _.00 (if an order has more than one item the freight value is splitted between items)
     primary key (order_id, order_item_id), -- combo pk
@@ -158,7 +158,7 @@ ignore 1 rows
 #### Orders
 Error Code: 1292. Incorrect date value: 'franca' for column 'order_purchase_timestamp' at row 1
 
-Let's relax the insertion strictness and try again hoping null values are inserted for invalid entries.
+Let's relax the insertion strictness and try again hoping null values or '0000' datetime objects are inserted for invalid entries.
 
 Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`miniproject`.`olist_orders_dataset`, CONSTRAINT `fk_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `olist_customers_dataset` (`customer_id`))
 
@@ -174,10 +174,108 @@ Let's fix this for both tables, ignoring any quotation marks that happen when in
 
 ![[Screenshot 2024-12-19 at 8.14.29 PM.jpg]]
 
+We'll do the following for every file:
 ```python
+files = {
+    "olist_customers_dataset": "/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_customers_dataset.csv",
+    "olist_orders_dataset": "/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_orders_dataset.csv",
+    "olist_products_dataset": "/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_products_dataset.csv",
+    "olist_order_items_dataset": "/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_order_items_dataset.csv",
+}
 
+output_dir = "/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/"
+
+for table_name, input_path in files.items():
+
+    df = pd.read_csv(input_path)
+    
+    output_path = f"{output_dir}{table_name}_cleaned.csv"
+    df.to_csv(output_path, index=False, quoting=1) 
 ```
+
+Cleaned versions look like:
+![[Screenshot 2024-12-19 at 8.21.15 PM.jpg]]
+
+Even after doing this we get the same error. So we are going to create a temporary table and only insert relevant values:
 
 ```sql
+drop table if exists temp_olist_orders_dataset;
 
+create temporary table temp_olist_orders_dataset like olist_orders_dataset;
+
+load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_orders_dataset.csv'
+into table temp_olist_orders_dataset
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n'
+ignore 1 rows
+(order_id, customer_id, order_status, order_purchase_timestamp, order_approved_at, order_delivered_carrier_date, order_delivered_custoemr_date, order_estimated_delivery_date);
+
+insert into olist_orders_dataset
+select *
+from temp_olist_orders_dataset
+where customer_id in (select customer_id from olist_customers_dataset);
+
+select * from olist_orders_dataset;
+
+select count(order_id) from olist_orders_dataset;
 ```
+
+Somehow, we get all relevant orders: 'count(order_id)' : '99441'
+
+So we can move on
+
+### Products
+
+Error Code: 1366. Incorrect integer value: '' for column 'product_name_length' at row 106
+
+Why did I see this coming?
+
+Well that row looks like:
+
+```csv
+"a41e356c76fab66334f36de622ecbd3a","","","","","650.0","17.0","14.0","12.0"
+```
+
+Since we are already preprocessing with pandas. Let's fix these values too to become default 0.
+
+```python
+file_path = '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_products_dataset.csv'
+output_path = '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_products_dataset.csv'
+
+df = pd.read_csv(file_path)
+
+numeric_columns = [
+    'product_name_length', 
+    'product_description_length',
+    'product_photos_qty', 
+    'product_weight_g', 
+    'product_length_cm', 
+    'product_height_cm', 
+    'product_width_cm'
+]
+
+for col in numeric_columns:
+    df[col] = pd.to_numeric(df[col], errors='coerce') 
+
+df.fillna({'product_name_length': 0, 
+           'product_description_length': 0, 
+           'product_photos_qty': 0, 
+           'product_weight_g': 0, 
+           'product_length_cm': 0, 
+           'product_height_cm': 0,
+           'product_width_cm': 0}, 
+           inplace=True)
+
+df.to_csv(output_path, index=False, quoting=1) 
+```
+
+```csv
+"a41e356c76fab66334f36de622ecbd3a","","0.0","0.0","0.0","650.0","17.0","14.0","12.0"
+```
+
+Nice:
+
+
+
+32951 row(s) affected Records: 32951  Deleted: 0  Skipped: 0  Warnings: 0
