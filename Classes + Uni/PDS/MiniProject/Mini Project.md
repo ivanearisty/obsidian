@@ -88,7 +88,7 @@ create table olist_customers_dataset (
     cutomer_city varchar(100), -- customer city name.
     customer_state varchar(2), -- customer state.
     primary key (customer_id), -- unique id for customer_order which is what this db represents tbh
-    unique (customer_unique_identifier) -- uniqueness constraint for db integrity
+    -- unique (customer_unique_identifier) uniqueness constraint for db integrity; removed due to constraint failure from data
 );
 ```
 ```sql
@@ -139,4 +139,45 @@ create table olist_order_items_dataset (
 Let's fix some names from the data real quick:
 - product_name_lenght -> product_name_length
 
-Queries
+Some issues I fixed:
+Error Code: 1062. Duplicate entry 'b6c083700ca8c135ba9f0f132930d4e8' for key 'olist_customers_dataset.customer_unique_id' -> non-unique values.
+
+#### Customers
+```sql
+load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_customers_dataset.csv'
+into table olist_customers_dataset
+fields terminated by ','
+enclosed by '"' 
+lines terminated by '\n' 
+ignore 1 rows 
+(customer_id, customer_unique_id, cutomer_zip_code_prefix, cutomer_city, customer_state);
+```
+
+99441 row(s) affected Records: 99441  Deleted: 0  Skipped: 0  Warnings: 0
+
+#### Orders
+Error Code: 1292. Incorrect date value: 'franca' for column 'order_purchase_timestamp' at row 1
+
+Let's relax the insertion strictness and try again hoping null values are inserted for invalid entries.
+
+Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`miniproject`.`olist_orders_dataset`, CONSTRAINT `fk_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `olist_customers_dataset` (`customer_id`))
+
+Let's check customer db:
+
+SELECT count(customer_id) FROM miniproject.olist_customers_dataset;
+
+'99441'
+
+Seems like we have all the valid IDs but, upon further inspection, some ids have leading quotations and some dont.
+
+Let's fix this for both tables, ignoring any quotation marks that happen when inserting ids.
+
+![[Screenshot 2024-12-19 at 8.14.29 PM.jpg]]
+
+```python
+
+```
+
+```sql
+
+```
