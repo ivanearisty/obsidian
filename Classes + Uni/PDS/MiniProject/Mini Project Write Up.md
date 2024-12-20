@@ -353,7 +353,7 @@ FROM olist_orders_dataset o
 WHERE 
 	c.customer_unique_id = '8d50f5eadf50201ccdcedfb9e2ac8455' 
 ORDER BY 
-	o.order_purchase_timestamp DESC;
+	o.order_purchase_timestamp DESC; 
 ```
 
 ### Output

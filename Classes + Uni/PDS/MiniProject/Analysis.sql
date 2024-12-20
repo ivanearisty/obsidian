@@ -20,3 +20,8 @@ WHERE
 	c.customer_unique_id = '8d50f5eadf50201ccdcedfb9e2ac8455' 
 ORDER BY 
 	o.order_purchase_timestamp DESC;
+    
+create index idx_customer_unique_id on olist_customers_dataset(customer_unique_id);
+
+create index idx_order_timestamp on olist_orders_dataset(order_purchase_timestamp, order_id);
+
