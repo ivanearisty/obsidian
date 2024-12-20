@@ -412,5 +412,55 @@ From both queries we can see that:
     - olist_order_items_dataset: 17 rows
     - olist_products_dataset: 16 rows
 
+Since we use primary keys of orders, orderitems, customers, and products, there were automatically generated indexes for us. 
 
-#### Analysis
+The absence of an index on customer_unique_id forces MySQL to scan all 99,441 rows to evaluate the filter condition c.customer_unique_id = '8d50f5eadf50201ccdcedfb9e2ac8455'.
+
+Since we did not make this the pk given the data specs, we have to create an index for this too. This will prevent the full table scan from taking place.
+
+```sql
+create index idx_customer_unique_id on olist_customers_dataset(customer_unique_id);
+```
+
+Much better now: 
+![[Screenshot 2024-12-19 at 10.07.17 PM.jpg]]
+
+```txt
+-> Sort: o.order_purchase_timestamp DESC  (actual time=2.21..2.22 rows=16 loops=1)
+    -> Stream results  (cost=23.8 rows=17) (actual time=0.342..2.15 rows=16 loops=1)
+        -> Nested loop inner join  (cost=23.8 rows=17) (actual time=0.332..2.1 rows=16 loops=1)
+            -> Nested loop inner join  (cost=17.8 rows=17) (actual time=0.278..1.66 rows=16 loops=1)
+                -> Nested loop inner join  (cost=11.9 rows=17) (actual time=0.219..1.06 rows=17 loops=1)
+                    -> Covering index lookup on c using idx_customer_unique_id (customer_unique_id=''8d50f5eadf50201ccdcedfb9e2ac8455'')  (cost=5.9 rows=17) (actual time=0.101..0.117 rows=17 loops=1)
+                    -> Index lookup on o using fk_customer_id (customer_id=c.customer_id)  (cost=0.256 rows=1) (actual time=0.053..0.0547 rows=1 loops=17)
+                -> Filter: (oi.product_id is not null)  (cost=0.256 rows=1) (actual time=0.0323..0.0345 rows=0.941 loops=17)
+                    -> Index lookup on oi using PRIMARY (order_id=o.order_id)  (cost=0.256 rows=1) (actual time=0.0318..0.0339 rows=0.941 loops=17)
+            -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.256 rows=1) (actual time=0.0269..0.027 rows=1 loops=16)
+```
+
+Now, the query uses a covering index lookup on customer_unique_id, resulting in a significant improvement. 
+
+Instead of scanning the whole table, it directly retrieves the matching rows using the index.
+
+Can we do better?
+
+Well, this was the main bottleneck, but notice that we are doing an order by at the end of the query. This can be optimized by creating a composite index on olist_orders_dataset(order_purchase_timestamp, order_id). Sorting will use the index directly instead of creating temporary tables, saving some computation time.
+
+```sql
+create index idx_order_timestamp on olist_orders_dataset(order_purchase_timestamp, order_id);
+```
+
+```txt
+-> Sort: o.order_purchase_timestamp DESC  (actual time=1.45..1.45 rows=16 loops=1)
+    -> Stream results  (cost=24.9 rows=19.5) (actual time=0.212..1.41 rows=16 loops=1)
+        -> Nested loop inner join  (cost=24.9 rows=19.5) (actual time=0.202..1.37 rows=16 loops=1)
+            -> Nested loop inner join  (cost=18 rows=19.5) (actual time=0.178..1.09 rows=16 loops=1)
+                -> Nested loop inner join  (cost=11.9 rows=17) (actual time=0.145..0.721 rows=17 loops=1)
+                    -> Covering index lookup on c using idx_customer_unique_id (customer_unique_id=''8d50f5eadf50201ccdcedfb9e2ac8455'')  (cost=5.9 rows=17) (actual time=0.0796..0.0916 rows=17 loops=1)
+                    -> Index lookup on o using fk_customer_id (customer_id=c.customer_id)  (cost=0.256 rows=1) (actual time=0.035..0.0365 rows=1 loops=17)
+                -> Filter: (oi.product_id is not null)  (cost=0.257 rows=1.15) (actual time=0.0194..0.0212 rows=0.941 loops=17)
+                    -> Index lookup on oi using PRIMARY (order_id=o.order_id)  (cost=0.257 rows=1.15) (actual time=0.019..0.0207 rows=0.941 loops=17)
+            -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.255 rows=1) (actual time=0.0167..0.0168 rows=1 loops=16)
+```
+
+We can see that the actual time now goes down by around 30%. At scale, even though it was a few seconds, it is helpful!
