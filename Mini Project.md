@@ -39,12 +39,36 @@ ORDER BY
 	o.order_purchase_timestamp DESC;
 ```
 
-So the datasets we need are 
+### Setup 
+
+So the datasets we need are:
 
 olist_orders_dataset
 olist_order_items_dataset
 olist_products_dataset
 olist_customers_dataset
 
+From Customers:
+![[Screenshot 2024-12-19 at 7.14.33 PM.jpg]]
+From Orders:
+![[Screenshot 2024-12-19 at 7.15.08 PM.jpg]]
 
+So it seems that the reference goes from orders -> customers.
 
+First we spring up the DB:
+
+```sql
+create schema if not exists miniproject;
+
+use miniproject;
+
+drop table if exists olist_order_items_dataset;
+drop table if exists olist_products_dataset;
+drop table if exists olist_orders_dataset;
+drop table if exists olist_customers_dataset;
+```
+
+And make a table for each csv:
+
+```
+```
