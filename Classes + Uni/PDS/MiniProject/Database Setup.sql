@@ -71,14 +71,43 @@ ignore 1 rows
 show variables like 'sql_mode';
 set session sql_mode = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
+drop table if exists temp_olist_orders_dataset;
+
+create temporary table temp_olist_orders_dataset like olist_orders_dataset;
+
+load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_orders_dataset.csv'
+into table temp_olist_orders_dataset
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n'
+ignore 1 rows
+(order_id, customer_id, order_status, order_purchase_timestamp, order_approved_at, order_delivered_carrier_date, order_delivered_custoemr_date, order_estimated_delivery_date);
+
+insert into olist_orders_dataset
+select *
+from temp_olist_orders_dataset
+where customer_id in (select customer_id from olist_customers_dataset);
+
+select * from olist_orders_dataset;
+
+select count(order_id) from olist_orders_dataset;
+
 set session sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_products_dataset.csv'
-INTO TABLE olist_products_dataset
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
+into table olist_products_dataset
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n'
+ignore 1 rows
 (product_id, product_category_name, product_name_length, product_description_length, product_photos_qty, product_weight_g, product_length_cm, product_height_cm, product_width_cm);
+
+load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_order_items_dataset.csv'
+into table olist_order_items_dataset
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n'
+ignore 1 rows
+(order_id, order_item_id, product_id, seller_id, shipping_limit_date, price, freight_value);
 
 

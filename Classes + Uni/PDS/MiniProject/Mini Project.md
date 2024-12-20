@@ -189,7 +189,7 @@ for table_name, input_path in files.items():
 
     df = pd.read_csv(input_path)
     
-    output_path = f"{output_dir}{table_name}_cleaned.csv"
+    output_path = f"{output_dir}{table_name}.csv"
     df.to_csv(output_path, index=False, quoting=1) 
 ```
 
@@ -225,7 +225,7 @@ Somehow, we get all relevant orders: 'count(order_id)' : '99441'
 
 So we can move on
 
-### Products
+#### Products
 
 Error Code: 1366. Incorrect integer value: '' for column 'product_name_length' at row 106
 
@@ -276,6 +276,118 @@ df.to_csv(output_path, index=False, quoting=1)
 
 Nice:
 
-
+```sql
+load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_products_dataset.csv'
+into table olist_products_dataset
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n'
+ignore 1 rows
+(product_id, product_category_name, product_name_length, product_description_length, product_photos_qty, product_weight_g, product_length_cm, product_height_cm, product_width_cm);
+```
 
 32951 row(s) affected Records: 32951  Deleted: 0  Skipped: 0  Warnings: 0
+
+#### Order Items
+
+I wont even write the query since I know it's already going to fail cs of the numeric columns.
+
+Let's do another preprocess:
+```python
+file_path = '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/olist_order_items_dataset.csv'
+output_path = '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_order_items_dataset.csv'
+
+df = pd.read_csv(file_path)
+
+# Probably should've done this before for other columns, will look at this later
+df['shipping_limit_date'] = pd.to_datetime(df['shipping_limit_date'], errors='coerce')
+
+numeric_columns = ['order_item_id', 'price', 'freight_value']
+for col in numeric_columns:
+    df[col] = pd.to_numeric(df[col], errors='coerce')  
+
+df.fillna({'order_item_id': 0,
+           'price': 0.00,
+           'freight_value': 0.00}, 
+           inplace=True)
+
+df.to_csv(output_path, index=False, quoting=1)  
+```
+
+And now try to insert:
+
+```sql
+load data infile '/Users/suape/WorkDir/Main Vault/Classes + Uni/PDS/MiniProject/DataSource/cleaned/olist_order_items_dataset.csv'
+into table olist_order_items_dataset
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\n'
+ignore 1 rows
+(order_id, order_item_id, product_id, seller_id, shipping_limit_date, price, freight_value);
+```
+
+112650 row(s) affected Records: 112650  Deleted: 0  Skipped: 0  Warnings: 0
+
+Nice
+
+## Analysis
+
+### Query, Again
+
+```sql
+SELECT 
+	o.order_id, 
+	o.order_status, 
+	o.order_purchase_timestamp, 
+	p.product_id, 
+	p.product_category_name, 
+	oi.price, 
+	oi.freight_value 
+FROM olist_orders_dataset o 
+	JOIN olist_order_items_dataset oi 
+		ON o.order_id = oi.order_id
+	JOIN olist_products_dataset p 
+		ON oi.product_id = p.product_id 
+	JOIN olist_customers_dataset c 
+		ON o.customer_id = c.customer_id 
+WHERE 
+	c.customer_unique_id = '8d50f5eadf50201ccdcedfb9e2ac8455' 
+ORDER BY 
+	o.order_purchase_timestamp DESC;
+```
+### Part A:  Document Current Performance
+
+- Run EXPLAIN ANALYZE on the baseline query 
+- Record: 
+	- Execution time 
+	- Number of rows processed 
+- Save the execution plan
+
+I actually ran into this problem in a previous assignment where me and my team had to process millions of rows, so I will also run explain on this:
+
+Explain:
+
+| id  | select_type | table | partitions | type   | possible_keys          | key            | key_len | ref                       | rows  | filtered | Extra                                        |
+| --- | ----------- | ----- | ---------- | ------ | ---------------------- | -------------- | ------- | ------------------------- | ----- | -------- | -------------------------------------------- |
+| 1   | SIMPLE      | c     | NULL       | ALL    | PRIMARY                | NULL           | NULL    | NULL                      | 90004 | 10       | Using where; Using temporary; Using filesort |
+| 1   | SIMPLE      | o     | NULL       | ref    | PRIMARY,fk_customer_id | fk_customer_id | 1023    | miniproject.c.customer_id | 1     | 100      | NULL                                         |
+| 1   | SIMPLE      | oi    | NULL       | ref    | PRIMARY,fk_product_id  | PRIMARY        | 1022    | miniproject.o.order_id    | 1     | 100      | Using where                                  |
+| 1   | SIMPLE      | p     | NULL       | eq_ref | PRIMARY                | PRIMARY        | 1022    | miniproject.oi.product_id | 1     | 100      | NULL                                         |
+
+Explain Analyze:
+
+**EXPLAIN**
+'-> Sort: o.order_purchase_timestamp DESC  (actual time=46..46 rows=16 loops=1)\n    -> Stream results  (cost=18732 rows=9000) (actual time=5.06..45.9 rows=16 loops=1)\n        -> Nested loop inner join  (cost=18732 rows=9000) (actual time=5.05..45.8 rows=16 loops=1)\n            -> Nested loop inner join  (cost=15582 rows=9000) (actual time=5.03..45.7 rows=16 loops=1)\n                -> Nested loop inner join  (cost=12432 rows=9000) (actual time=5.01..45.4 rows=17 loops=1)\n                    -> Filter: (c.customer_unique_id = \'8d50f5eadf50201ccdcedfb9e2ac8455\')  (cost=9282 rows=9000) (actual time=4.95..45 rows=17 loops=1)\n                        -> Table scan on c  (cost=9282 rows=90004) (actual time=0.218..36.7 rows=99441 loops=1)\n                    -> Index lookup on o using fk_customer_id (customer_id=c.customer_id)  (cost=0.25 rows=1) (actual time=0.0248..0.0253 rows=1 loops=17)\n                -> Filter: (oi.product_id is not null)  (cost=0.25 rows=1) (actual time=0.0121..0.0132 rows=0.941 loops=17)\n                    -> Index lookup on oi using PRIMARY (order_id=o.order_id)  (cost=0.25 rows=1) (actual time=0.0116..0.0126 rows=0.941 loops=17)\n            -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.25 rows=1) (actual time=0.00958..0.00961 rows=1 loops=16)\n'
+
+Let's consult: https://planetscale.com/blog/how-read-mysql-explains
+
+
+#### Analysis
+
+### Part B: Optimize Query
+
+- Identify bottlenecks 
+- Create appropriate indexes 
+- Measure new performance using EXPLAIN ANALYZE on same query
+
+#### Analysis
