@@ -332,7 +332,7 @@ Nice
 
 ## Analysis
 
-### Query, Again
+### Query
 
 ```sql
 SELECT 
@@ -355,7 +355,8 @@ WHERE
 ORDER BY 
 	o.order_purchase_timestamp DESC;
 ```
-### Part A:  Document Current Performance
+
+### Output
 
 - Run EXPLAIN ANALYZE on the baseline query 
 - Record: 
@@ -376,18 +377,40 @@ Explain:
 
 Explain Analyze:
 
-**EXPLAIN**
-'-> Sort: o.order_purchase_timestamp DESC  (actual time=46..46 rows=16 loops=1)\n    -> Stream results  (cost=18732 rows=9000) (actual time=5.06..45.9 rows=16 loops=1)\n        -> Nested loop inner join  (cost=18732 rows=9000) (actual time=5.05..45.8 rows=16 loops=1)\n            -> Nested loop inner join  (cost=15582 rows=9000) (actual time=5.03..45.7 rows=16 loops=1)\n                -> Nested loop inner join  (cost=12432 rows=9000) (actual time=5.01..45.4 rows=17 loops=1)\n                    -> Filter: (c.customer_unique_id = \'8d50f5eadf50201ccdcedfb9e2ac8455\')  (cost=9282 rows=9000) (actual time=4.95..45 rows=17 loops=1)\n                        -> Table scan on c  (cost=9282 rows=90004) (actual time=0.218..36.7 rows=99441 loops=1)\n                    -> Index lookup on o using fk_customer_id (customer_id=c.customer_id)  (cost=0.25 rows=1) (actual time=0.0248..0.0253 rows=1 loops=17)\n                -> Filter: (oi.product_id is not null)  (cost=0.25 rows=1) (actual time=0.0121..0.0132 rows=0.941 loops=17)\n                    -> Index lookup on oi using PRIMARY (order_id=o.order_id)  (cost=0.25 rows=1) (actual time=0.0116..0.0126 rows=0.941 loops=17)\n            -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.25 rows=1) (actual time=0.00958..0.00961 rows=1 loops=16)\n'
+```
+-> Sort: o.order_purchase_timestamp DESC  (actual time=46..46 rows=16 loops=1)\n   -> Stream results  (cost=18732 rows=9000) (actual time=5.06..45.9 rows=16 loops=1)\n        -> Nested loop inner join  (cost=18732 rows=9000) (actual time=5.05..45.8 rows=16 loops=1)\n            -> Nested loop inner join  (cost=15582 rows=9000) (actual time=5.03..45.7 rows=16 loops=1)\n                -> Nested loop inner join  (cost=12432 rows=9000) (actual time=5.01..45.4 rows=17 loops=1)\n                    -> Filter: (c.customer_unique_id = \'8d50f5eadf50201ccdcedfb9e2ac8455\')  (cost=9282 rows=9000) (actual time=4.95..45 rows=17 loops=1)\n                        -> Table scan on c  (cost=9282 rows=90004) (actual time=0.218..36.7 rows=99441 loops=1)\n                    -> Index lookup on o using fk_customer_id (customer_id=c.customer_id)  (cost=0.25 rows=1) (actual time=0.0248..0.0253 rows=1 loops=17)\n                -> Filter: (oi.product_id is not null)  (cost=0.25 rows=1) (actual time=0.0121..0.0132 rows=0.941 loops=17)\n                    -> Index lookup on oi using PRIMARY (order_id=o.order_id)  (cost=0.25 rows=1) (actual time=0.0116..0.0126 rows=0.941 loops=17)\n            -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.25 rows=1) (actual time=0.00958..0.00961 rows=1 loops=16)\n
+```
 
 Let's consult: https://planetscale.com/blog/how-read-mysql-explains
 
+> In MySQL 8.0.18, `EXPLAIN ANALYZE` was introduced, a new concept built on top of the regular `EXPLAIN` query plan inspection tool. In addition to the query plan and estimated costs, which a normal `EXPLAIN` will print, `EXPLAIN ANALYZE` also prints the _actual_ costs of individual iterators in the execution plan.
+> `EXPLAIN ANALYZE` actually runs the query, so if you don’t want to run the query against your live database, do not use `EXPLAIN ANALYZE`.
 
-#### Analysis
+Right, so, let's do a quick replacement of the \n with actual new lines using python:
 
-### Part B: Optimize Query
+```
+Execution Plan:
+-> Sort: o.order_purchase_timestamp DESC  (actual time=46..46 rows=16 loops=1)
+    -> Stream results  (cost=18732 rows=9000) (actual time=5.06..45.9 rows=16 loops=1)
+        -> Nested loop inner join  (cost=18732 rows=9000) (actual time=5.05..45.8 rows=16 loops=1)
+            -> Nested loop inner join  (cost=15582 rows=9000) (actual time=5.03..45.7 rows=16 loops=1)
+                -> Nested loop inner join  (cost=12432 rows=9000) (actual time=5.01..45.4 rows=17 loops=1)
+                    -> Filter: (c.customer_unique_id = '8d50f5eadf50201ccdcedfb9e2ac8455')  (cost=9282 rows=9000) (actual time=4.95..45 rows=17 loops=1)
+                        -> Table scan on c  (cost=9282 rows=90004) (actual time=0.218..36.7 rows=99441 loops=1)
+                    -> Index lookup on o using fk_customer_id (customer_id=c.customer_id)  (cost=0.25 rows=1) (actual time=0.0248..0.0253 rows=1 loops=17)
+                -> Filter: (oi.product_id IS NOT NULL)  (cost=0.25 rows=1) (actual time=0.0121..0.0132 rows=0.941 loops=17)
+                    -> Index lookup on oi using PRIMARY (order_id=o.order_id)  (cost=0.25 rows=1) (actual time=0.0116..0.0126 rows=0.941 loops=17)
+            -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.25 rows=1) (actual time=0.00958..0.00961 rows=1 loops=16)
+```
+### Analysis
 
-- Identify bottlenecks 
-- Create appropriate indexes 
-- Measure new performance using EXPLAIN ANALYZE on same query
+From both queries we can see that:
+- The total execution time is 46 ms
+- We process:
+	- olist_customers_dataset: 99,441 rows
+    - olist_orders_dataset: 17 rows
+    - olist_order_items_dataset: 17 rows
+    - olist_products_dataset: 16 rows
+
 
 #### Analysis
