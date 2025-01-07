@@ -30,11 +30,10 @@
     - Data Types (strings, numbers, arrays, objects).
     - Functions:
         - Traditional (`function myFunction() {}`).
-        - Arrow (`const myFunction = () => {}`): Learn how `=>` works and why it's different.
+        - Arrow (`const myFunction = () => {}`): Learn how => works and why it's different.
     - Control Structures (`if`, `for`, `while`, etc.).
     - Events and the DOM (`document.querySelector`, `addEventListener`).
 - **Key Topics for React**:
-    
     - **Objects and Arrays**:
         - Accessing and modifying nested structures.
         - Using methods like `.map()`, `.filter()`, `.reduce()`.
