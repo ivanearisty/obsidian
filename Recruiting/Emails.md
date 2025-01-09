@@ -15,6 +15,19 @@ Hola Josue! Te escribo porque estoy bien interesado en escuchar sobre tu experie
 
 Hi Helena! Fellow NYU grad here. I'm reaching out because of interest in learning about your experience @ Riot during your internship and learnings as you've grown within the company. If you're open, I'd love to get a brief chat!
 
+### [Hatu](https://www.linkedin.com/in/hatukanu/)
+
+### [Samatha](https://www.linkedin.com/in/samantha-l-garcia/)
+
+### [Justine](https://www.linkedin.com/in/justineavalos/)
+
+### [David](https://www.linkedin.com/in/david-mckenna-362841132/)
+
+### [Mina](https://www.linkedin.com/in/meanerina/)
+
+### [Matt](https://www.linkedin.com/in/matt-kraus-51051721/)
+
+
 ## Old In-Mail
 - Charles
     
