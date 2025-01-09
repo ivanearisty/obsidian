@@ -2,9 +2,14 @@
 tags: []
 ---
 ## Riot
-### Rodrigo 
+### [Rodrigo](https://www.linkedin.com/in/rgkaizen/)
 Hi Rodrigo! Reaching out because I'm interested in learning about your experience @ Riot and have great curiosity about how the game operates at scale. I'd love to get a brief chat!
 
+### [Siva](https://www.linkedin.com/in/siva-veera-8289a01/)
+Hi Siva! I'm reaching out because of interest in learning about your experience @ Riot and I have great curiosity about how you use data to cipher truth. If you're open, I'd love to get a brief chat!
+
+### [Josue]()
+Hola Josue! Te escribo porque estoy bien interesado en escuchar sobre tu experiencia en Riot. Specially about LOL Data Central, interview tips y la cultura. Si estás open, I'd love to do a brief chat!
 ## Old In-Mail
 - Charles
     
