@@ -10,6 +10,11 @@ Hi Siva! I'm reaching out because of interest in learning about your experience 
 
 ### [Josue]()
 Hola Josue! Te escribo porque estoy bien interesado en escuchar sobre tu experiencia en Riot. Specially about LOL Data Central, interview tips y la cultura. Si estás open, I'd love to do a brief chat!
+
+### [Prateek](https://www.linkedin.com/in/gargprateek1/)
+
+Hi Helena! Fellow NYU grad here. I'm reaching out because of interest in learning about your experience @ Riot during your internship and learnings as you've grown within the company. If you're open, I'd love to get a brief chat!
+
 ## Old In-Mail
 - Charles
     
