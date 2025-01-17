@@ -1,1 +1,0 @@
-[**Input Array is Sorted**](https://www.piratekingdom.com/leetcode/templates/binary-search)

@@ -1,0 +1,14 @@
+{
+  "name": "0b26e2b8e0cffcfd",
+  "main": "0b26e2b8e0cffcfd@232.js",
+  "version": "232.0.0",
+  "homepage": "https://observablehq.com/d/0b26e2b8e0cffcfd",
+  "author": {
+    "name": "Ivan Aristy Eusebio",
+    "url": "https://observablehq.com/@ivan-aristy-eusebio-infoviz-assignment"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}

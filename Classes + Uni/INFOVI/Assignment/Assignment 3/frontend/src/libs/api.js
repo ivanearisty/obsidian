@@ -1,1 +1,0 @@
-// axios shit to request from the backend for the appropiate champs
