@@ -11,3 +11,5 @@ tags:
 
 [[Register]]
 ## State
+
+userIsLoggedIn

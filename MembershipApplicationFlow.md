@@ -8,7 +8,7 @@ This flow aims to guide the user through an onboarding process to gather demogra
 
 ## Flow
 
-[[DemographicsPage]] -> 
+[[DemographicsPage]] -> [[DemographicsCompletePage]] -> [[NecessaryBehavioralsPage]] -> [[NBPComplete]]
 ## [[DemographicsPage]]
 
 ## [[Page]]
@@ -20,3 +20,7 @@ This flow aims to guide the user through an onboarding process to gather demogra
 
 
 ## State
+
+Flow Finalized
+
+Save questions internally and externally to restore state as the user signs in or quits the app
