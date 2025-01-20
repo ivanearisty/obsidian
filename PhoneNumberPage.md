@@ -6,4 +6,10 @@ tags:
 
 ## Actions
 
+[[SendVerificationCode]]
+[[WhyDoYouWantMyPhoneNumber?]]
 ## State
+
+[[Neutral]]
+[[VerificationCodeSent]]
+[[ErrorWhileTryingToSendVerificationCode]]
