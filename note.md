@@ -1,0 +1,1 @@
+Thanks everyone for sharing so many helpful resources! I am so happy to know that the Latino community is as strong and supportive as ever.  I was terribly sick last week, which is why I haven't reached out individually, but will do so Today :) Your help truly means a lot during this period of uncertainty. Wishing all of you lots of blessings and a wonderful week ahead!
