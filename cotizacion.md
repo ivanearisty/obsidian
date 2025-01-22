@@ -14,4 +14,4 @@ Objectives:
 Web App:
 
 Development Concerns:
-
+![[Pasted image 20250122064422.png]]
