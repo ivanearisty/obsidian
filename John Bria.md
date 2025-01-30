@@ -13,4 +13,6 @@ Tell story to fully say the whole situation, what did you actually do, what was 
 Build out the stories based on the document shared (minimu 5 but you need more)
 [https://docs.google.com/document/d/1lDIazXyFU9en1JGeZJqvogUlMVNzzbdfBIvx3r6bFJo/edit?tab=t.0](https://docs.google.com/document/d/1lDIazXyFU9en1JGeZJqvogUlMVNzzbdfBIvx3r6bFJo/edit?tab=t.0) 
 
-what makes the user come back..
+what makes the user come back.
+
+https://angelesinvestors.com/startupsapplication/
