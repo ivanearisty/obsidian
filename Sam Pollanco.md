@@ -27,3 +27,14 @@ setup interview process.
 Ship, Nesby, Alphatech, Latinos in tech.
 
 associate
+
+Thanks you so much for chatting with me today, Sam!
+
+It was a pleasure to meet you. I truly enjoyed our conversation, and I'm excited for our next chat.
+
+I'll look more into QE, the difference between QA, QC and QE proced my interest of the area. 
+
+I am free next week at the same time for a follow-up chat, but let me know what works best for you—my schedule is flexible.
+
+Talk soon,
+Ivan
