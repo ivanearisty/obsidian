@@ -23,3 +23,7 @@ can you send me some thing sso i can learn more about your area?
 
 hackerrank, helps understand the level of thinking.
 setup interview process.
+
+Ship, Nesby, Alphatech, Latinos in tech.
+
+associate
