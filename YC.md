@@ -18,3 +18,6 @@ Go on their website and watch the videos:
 - Husslers, perseverance, submitting a story about yourself to show that you are a hussler. How did you hack a system. Show that you are hacking the system in some way, resourceful and greedy.
 - How you met and why you decided. What we said initially sounded desperate.
 - "There is chemistry and match between these people, they are hustlers"
+- Come up with a whole shitload of patents. System patent, components, algorithms, etc... Provisional pattents which give you a year. In the ask you say you need x for ip protection, provisional patents for IP protection.
+- "Patent it yourself"
+- SBDC payed for the consultant to help get set up with government system.
