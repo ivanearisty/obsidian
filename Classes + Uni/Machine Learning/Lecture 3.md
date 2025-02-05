@@ -57,3 +57,14 @@ Typical train-test split 70-90 / 30-10
 
 #### K-fold cross validation
 
+#### Risk
+
+i.i.d --> Independently and identically distributed.
+
+The risk for a model f with some parameters theta, is based on the expectation (mean or average) of the distribution of the loss of some function.
+
+L is our loss function. 
+
+Theta is the same as beta here
+
+Goal is to find some model from a bunch of models, parametarized by theta.
