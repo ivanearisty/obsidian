@@ -65,6 +65,22 @@ The risk for a model f with some parameters theta, is based on the expectation (
 
 L is our loss function. 
 
-Theta is the same as beta here
+Theta is the same as beta here.
 
 Goal is to find some model from a bunch of models, parametarized by theta.
+
+Population risk: Expected value from the distribution of the loss 
+Empirical Risk: We don't know the entire population.
+
+What are we saying: You have a big distribution that is going to have some risk or huge loss; how can i calculate a loss since you don't have all the pictures? Sample some of them and calculate the average loss. That should be representative of the population risk.
+
+Hence, for any fixed model, we can say that the population risk can be approximated by the empirical risk.
+
+In terms of model selection, we can grab some representative data points, train models, find best parameters, and compute empirical risk. 
+
+We can only do this since we assume that our original dataset was drawn iid from the total distribution.
+
+Finally, this leads us to assume that the model we train has unbiased risk.
+
+In practice, it doesn't quite work that way but that's why you test models with different degrees.
+
