@@ -8,6 +8,7 @@ kanban-plugin: board
 
 - [ ] WeB0nd Review
 - [ ] [[Homework 1 ML — Answers]] #ML
+- [ ] Find Creative Director #WeB0nd
 
 
 ## Cruise
