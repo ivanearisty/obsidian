@@ -108,6 +108,8 @@ $$
     - The concept of the null space
     - Properties and applications of orthogonal matrices
 
+![[Screenshot 2025-02-18 at 2.02.45 AM.jpg]]
+
 **Lesson 6: Eigenvectors, Eigenvalues, and Eigendecomposition**
 
 - **Topics Covered:**
