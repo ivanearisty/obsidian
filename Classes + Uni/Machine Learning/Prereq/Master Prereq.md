@@ -44,6 +44,14 @@ A **vector** is an ordered list of numbers. It can be thought of as a point in a
 Vectors are often written in bold (e.g., **v**) or with an arrow over them (e.g., $v$. They can also be represented as a column or row.
 
 A **matrix** is a two-dimensional array of numbers arranged in rows and columns. Matrices are typically denoted by uppercase letters (e.g. **A, B**)
+
+**i-hat** is the base vector in the x direction $\hat{i}$
+**j-hat** is the base vector in the y direction $\hat{j}$
+both of length 1
+
+These **basis vectors** can be different on different coordinate systems.
+
+The set of all possible vectors reachable with a linear combination of two vectors is called the **span**.
 #### Addition
 Add corresponding elements of two vectors.
 
@@ -64,6 +72,7 @@ Multiply each element by a scalar.
     - Matrix-vector multiplication
     - Matrix-matrix multiplication
 
+![[Screenshot 2025-02-18 at 12.31.35 AM.jpg]]
 #### Inner Product (Dot Product)
 
 The **inner product** (commonly known as the dot product) of two vectors is the sum of the products of their corresponding entries. It gives a single scalar value.
