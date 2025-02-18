@@ -10,7 +10,7 @@
 ### Law of Large Numbers
 
 ## [Linear Algebra](http://web.stanford.edu/class/cs246/handouts/CS246_LinAlg_review.pdf)
-
+https://chatgpt.com/c/67b41041-92d8-8009-9afd-ebf59877ca56
 ### Lesson 0:  Latex
 
 $$
