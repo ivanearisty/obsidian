@@ -95,8 +95,9 @@ $$
     - Understanding and applying the triangle inequality
 
 **Lesson 4: Solving Systems of Linear Equations and Related Concepts**
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uQhTuRlWMxw?si=y9-ZNwxitPjc56LF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 - **Topics Covered:**
+	- Inverse Matrix
     - Methods for solving linear systems (e.g., Gaussian elimination)
     - Linear independence
     - Matrix rank
