@@ -32,3 +32,11 @@
 
 - **`dbus-launch startxfce4 &`**  
   Start the Xfce desktop environment with DBus support in the background, ensuring necessary services are available.
+
+sysctl net.ipv4.tcp_synack_retries
+
+```zsh
+# sysctl -a | grep syncookies (Display the SYN cookie flag)
+# sysctl -w net.ipv4.tcp_syncookies=0 (turn off SYN cookie)
+# sysctl -w net.ipv4.tcp_syncookies=1 (turn on SYN cookie)
+```
