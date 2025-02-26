@@ -26,3 +26,4 @@ This is the extension of the single-variable calculus idea to multiple variables
 ![[Screenshot 2025-02-26 at 4.44.34 AM.jpg]]![[Screenshot 2025-02-26 at 4.45.34 AM.jpg]]
 ![[Screenshot 2025-02-26 at 4.45.56 AM.jpg]]
 ![[Screenshot 2025-02-26 at 4.46.05 AM.jpg]]
+![[Screenshot 2025-02-26 at 5.56.47 AM.jpg | 750]]
