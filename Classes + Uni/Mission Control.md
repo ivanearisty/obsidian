@@ -36,3 +36,5 @@ from "Classes + Uni/PDS/PDS Spaceship"
 where !completed
 ```
 
+## Learning
+https://www.youtube.com/watch?v=IS9nGKg946I
