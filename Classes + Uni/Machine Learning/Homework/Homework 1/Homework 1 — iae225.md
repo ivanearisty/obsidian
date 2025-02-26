@@ -38,10 +38,5 @@ $$
 \beta_{1} = \frac{\sigma_{xy}}{\sigma^{2}_{x}}
 \end{gather}
 $$
-In our current situation we recall that:
-$$
-\begin{gather}
-\sigma_{xy} = \frac{1}{n}\sum ^{n}_{i=1}(x_{i}-\bar{x})(y_{i}-\bar{y})
-\end{gather}
-$$
+In our current situation we recall our variance of x and covariance of x and y, and when the means of y and x are 0, then they are the same.
 
