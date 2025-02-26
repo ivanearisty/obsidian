@@ -72,3 +72,22 @@ how come we can us ea beta start we dont know?
 
 24/44 final step
 
+29/44 30/44
+Armijo rule,
+
+if we set the next iteration as the currrent iteration - gradient, then the next iteration is approx.
+
+If you have a very small learning rate
+
+36/44 randomized variant of gradient descent that reduces n when n is large.
+
+40/44
+Gradient descet uses all the points whcih you go to the star more directly
+
+if you use one point you will go ina  roundabout way but each iteration is.
+
+*Stochastic gradient descent:*
+from my personal assumption, choosing a random point to get the gradient feels kinda wild,
+why not do sqrtn n points? 
+is there a way to get log(n)
+
