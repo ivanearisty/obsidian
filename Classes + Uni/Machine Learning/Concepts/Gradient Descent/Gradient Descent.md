@@ -37,5 +37,38 @@ Point is, we have a lot of convex functions and these is where gradient descent 
 
 17/44
 Convergence analysis.
-Some smart people wanted to prove that gradient descent converges for convex functions. We can assume that L is convex 
-If a 
+Some smart people wanted to prove that gradient descent converges for convex functions. 
+
+We can assume that:
+
+1:
+L is convex 
+
+2:
+If a function is 10 lipschits is doesnt  change by more than G in a ceratain interval. 
+The function is not very steep.
+Aka, deosnt change too rapidly
+
+3:
+Our starting point is not going to be more than R far away than the optimal point. 
+
+18/44
+We want to prove that if the number steps is greater than Rsr G2 / epsilon sr, then the Loss function on beta hat is less than or equal to our optional + epislon.
+
+The loss of some beta hat will be either less than or equal to the optimal + some small number/
+
+19/44
+Intermediate definition of alternative convexity definition.
+THis one is for the gradient, our previous one was based on points
+We can say a function is convex if the los sof alpha - loss of beta is greater than the gradient xx (alpha - b)
+
+20/44 
+transitivity from claim1  to claim 1a
+
+21/44
+how come we can us ea beta start we dont know?
+
+22/44 23/44 all cancel out 
+
+24/44 final step
+
