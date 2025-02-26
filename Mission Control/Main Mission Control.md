@@ -35,4 +35,4 @@ SORT Order ASC
 ## Help
 [[Obsidian Info]]
 
-## ![[Learning]]
+![[Learning]]
