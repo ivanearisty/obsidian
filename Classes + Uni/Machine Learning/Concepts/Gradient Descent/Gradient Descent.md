@@ -91,3 +91,10 @@ from my personal assumption, choosing a random point to get the gradient feels k
 why not do sqrtn n points? 
 is there a way to get log(n)
 
+https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming
+
+Metrics Book: Software development metrics David Nicolette.
+
+Velocity is the most looked at metric for software development.
+
+Onboarding time. Time to tenth pull request.

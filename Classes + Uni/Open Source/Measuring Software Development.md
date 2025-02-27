@@ -28,3 +28,10 @@ Questions to ask: (Sierra Jasmine — Engineer Prod research google)
 
 > Measurements feel like going to the doctor with symptoms.
 
+*Estimates are forecasts, not commitments.*
+
+*You're saying we, who is this we? Do CTOs have like a processes team*
+
+Github pulse metrics
+
+Accelerate: Top quintile companies measuring, also are top companies in the marketplace.
