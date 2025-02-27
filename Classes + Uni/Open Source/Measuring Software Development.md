@@ -32,6 +32,8 @@ Questions to ask: (Sierra Jasmine — Engineer Prod research google)
 
 *You're saying we, who is this we? Do CTOs have like a processes team*
 
+if you want to get executives attention, build a metric so the problem looks bad. Also make it look worse than what they could ever guess.
+
 Github pulse metrics
 
 Accelerate: Top quintile companies measuring, also are top companies in the marketplace.
