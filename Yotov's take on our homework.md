@@ -33,7 +33,6 @@ Notes
 	- Failed tests
 	- Code coverage
 
-CPP:
 - cpp is more nuanced, because of the nature of the language and different priorities there is a lot fo choices and there are differnt ways to do interfaces, from very tightly coupled to loosley coupled stuff.
 - if we take the python and translate as is is creating a class with abstract methods and have an impl of the class that overrides those abstract methods virtual dispatch
 - The way cpp has evolved , templates are very prevalent, adn they requeire to put the code of the template in the headers .
@@ -53,5 +52,20 @@ CPP:
 - python is the glue code, you want to automate stuff such that the e2e test for.
 - Component directory structure is important
 - Add all clang-tidy and then remove lints that you explain why you removed something .
+
+interface isf for users
+private is for your use
+
+all the calculators have different degrees of crazyness I guess.
+
+look at calculator 3 and how we use pimpl
+
+application binary interface
+
+tightly couple for high performance and costly to maintain
+
+- add dependencies of things internally
+
+Mental model: If you have a good component then it's something that you can easily fork lift away from the project into a different project.
 ## Homework 2
 If you do not understand something give something hard.
