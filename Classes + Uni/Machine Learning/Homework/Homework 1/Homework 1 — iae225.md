@@ -76,7 +76,51 @@ L(m) = max_{i}|y_{i}-m| \text{, what value of m minimizes the loss?} \\ \\
 \text{So, I see two possible worst case scenarios, the largest and smallest data points:}\\
 \text{Let } y_{min} = \text{min}_{i}y_{i} \text{ and } y_{max} = \text{max}_{i}y_{i} \\ \\
 \text{m should be the value maximum possible deviation, so } \\
-L(m) = \text{max}(|y_{min}-m|, |y_{max}-m|) \\
-
+L(m) = \text{max}(|y_{min}-m|, |y_{max}-m|) \\ \\
+\text{The error from the minimum value can be thought as a V-shaped curve that reaches zero when } m=y_{min} \\
+\text{the same is true for } y_{max} \text{ but in the opposite orientation.} \\
+\text{Since we are trying to minimize these two values, the best case scenario happens when the two curves intersect: } \\
+|y_{min}-m| =|y_{max}-m| \\
+\text{Which happens at the midpoint, so:} \\
+m = \frac{y_{min} + y_{max}}{2} \\
+\text{At this point, both errors are equal, and hence the worst-case error is minimized}
 \end{gather}
 $$
+![[Pasted image 20250302010916.png]]
+
+#### C
+Consider the loss function $L(m) = \sum_{i=1}^{n}|y_{i}-m|$. Prove that L(m) is minimized by setting m to the median of the data.
+
+Let's imagine we have a set of points on the number line:
+
+1 2 3 4 10.
+
+Our function is telling us that m=3 will minimize the error in this data, since it's the median.
+
+L(m) = 
+
+2, 1, 0, 1, 7 = 11
+
+Using the mean, we would set m=4 and 
+
+3, 2, 1, 0, 6 = 12
+
+So, at least in our example it does seem to minimize the function better than the median...
+
+but why might this be?
+
+What is different when we do $L(m) = \sum_{i=1}^{n}(y_{i}-m)^{2}$ making us choose the mean?
+
+Let's test it out:
+
+(median) m=3 => 4, 1, 0, 1, 49 = 55
+(mean) m=4 => 9, 4, 1, 0, 36 = 50
+
+So it does hold!
+
+Welp, something seems clear, when we square the function, large mistakes have a significantly greater impact on the overall loss, hence encouraging the model to minimize large errors.
+
+When we are not squaring, mistakes are treated the same across the board, contributing linearly to the total loss. 
+
+Taking the median quite literally splits the points into two halves. From above, we saw how when we set the median from 3 to 4, all the points on the left added + 1 to the total loss, and all the points on the right contributed - 1 to the total loss.
+Since, by definition of a median, there had to be more points on the left than on the right after moving from 3 to 4, increasing above the median led to a 
