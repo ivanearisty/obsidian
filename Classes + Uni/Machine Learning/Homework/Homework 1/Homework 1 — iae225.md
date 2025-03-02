@@ -216,12 +216,12 @@ X.T @ X computes the matrix product X^T X. Similarly for X^T y
 ![[Screenshot 2025-03-02 at 4.54.37 AM.jpg]]
 ### Answer
 #### A
-
+https://en.wikipedia.org/wiki/Lp_space 
 $$
 \begin{gather}
+\lVert z \rVert ^{p}_{p} = \sum_{i=1}^{n}(z_{i})^{p} \\
 \text{Derive an expression for } \nabla g(z), \text{where } g(z) = \lVert z \rVert ^p_{p} \\ \\
-\nabla g(z) = \begin{pmatrix} \frac{\partial g}{\partial z_{1}} \\ \frac{\partial g}{\partial z_{2}} \\ \vdots \\ \frac{\partial g}{\partial z_{p}} \end{pmatrix} \\
- 
+\nabla g(z) = \nabla \lVert z \rVert ^{p}_{p} = \frac{\partial}{\partial z_{i}} \sum_{i=1}^{n}(z_{i})^{p} = 
 \end{gather}
 $$
 #### B
