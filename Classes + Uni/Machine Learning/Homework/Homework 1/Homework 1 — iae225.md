@@ -52,10 +52,31 @@ $$
 ### Answers
 #### A
 This kind of makes sense if you think about it a bit, if we want to pick some value m that is the most representative of the dataset, it would make sense that this value is the mean.
-
+*To minimize a loss function L(x), one of the techniques is to take the derivative with respect to x and find where they are equal to 0*
 $$
 \begin{gather}
 L(m) = \sum ^{n}_{i=1}(y_{i} - m)^{2} \\
 \text{We know that: } \bar{y} = \frac{1}{n}\sum ^{n}_{i=1}(y_{i}) \rightarrow \text{mean of } y_{i} \\
+\frac{d}{dm}L(m) = \frac{d}{dm}\sum ^{n}_{i=1}(y_{i} - m)^{2} \\
+\frac{d}{dm}L(m) = \sum ^{n}_{i=1}2(y_{i} - m)(-1) = \sum ^{n}_{i=1}-2(y_{i} - m) = -2 \sum ^{n}_{i=1}(y_{i} - m) \\
+\text{Nowe we set the derivative to 0, } \frac{d}{dm}L(m) =  -2 \sum ^{n}_{i=1}(y_{i} - m) = 0 \\
+-2 \sum ^{n}_{i=1}(y_{i} - m) = 0 \\
+\sum ^{n}_{i=1}(y_{i}) - \sum ^{n}_{i=1}(m) = 0 \implies \sum ^{n}_{i=1}(y_{i}) = \sum ^{n}_{i=1}(m) = n \times m \\
+n \times m = \sum ^{n}_{i=1}(y_{i}) \\
+m = \frac{\left( \sum ^{n}_{i=1}(y_{i}) \right)}{n} \\
+m = \frac{1}{n} \sum ^{n}_{i=1}(y_{i}) = \bar{y}
+\end{gather}
+$$
+
+#### B 
+$$
+\begin{gather}
+L(m) = max_{i}|y_{i}-m| \text{, what value of m minimizes the loss?} \\ \\
+\text{In plain english, I read this as m should be whatever value minimizes the maximum diviation when evaluating any point} \\
+\text{So, I see two possible worst case scenarios, the largest and smallest data points:}\\
+\text{Let } y_{min} = \text{min}_{i}y_{i} \text{ and } y_{max} = \text{max}_{i}y_{i} \\ \\
+\text{m should be the value maximum possible deviation, so } \\
+L(m) = \text{max}(|y_{min}-m|, |y_{max}-m|) \\
+
 \end{gather}
 $$
