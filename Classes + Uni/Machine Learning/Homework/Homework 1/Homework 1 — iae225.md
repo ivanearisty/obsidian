@@ -175,8 +175,25 @@ The maximum loss might be good when you want to make sure that the worst case er
 #### A
 $$
 \begin{gather}
-\text{Model} : f_{z_{0}, \alpha}(t) = z_{0}e^{-\alpha t} \\
-\text{Paramters : } z_{0}, \alpha \\
-\text{Loss Function : } L(z_{0}, \alpha) = 
+\text{We want to get this into the form: } y_{i} = \beta_{0} + \beta \times x_{i} \\ \\
+\text{Current Model} : f_{z_{0}, \alpha}(t) = z_{0}e^{-\alpha t} \\
+c_{i} = z_{0}e^{-\alpha t_{i}} \\
+\ln(c_{i}) = \ln(z_{0}e^{-\alpha t_{i}})\\
+\ln(c_{i}) = \ln(z_{0}e) - \alpha t_{i}\\ \\
+\text{If we define: } \\
+y_{i} = \ln(c_{i}) \\ x_{i} = t_{i} \\ \beta_{0} = \ln(z_{0}e) \\ \text{and } b_{1} = - \alpha \\ \\
+\text{We can now fit the data into our linear function.}
 \end{gather}
 $$
+#### B
+```python
+def func(times, concentrations):
+	# the prediction is concentrations' natural log
+	y = np.log(concentrations) 
+	# the predictor is the same (time) 
+	x = times
+
+	n = len(x)
+
+	x
+```
