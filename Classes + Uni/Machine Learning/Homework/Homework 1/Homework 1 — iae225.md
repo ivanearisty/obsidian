@@ -151,14 +151,23 @@ L(m) - L(j) = (m - j) (|N_{-}(m)| - |N_{+}(m)| )\\ \\
 m > j \implies m - j > 0 \\
 \land  \\ 
 |N_{-}(m)| > |N_{+}(m)| \implies |N_{-}(m)| - |N_{+}(m)| > 0 \\
-\therefore L(m) - L(j) > 0 \implies L(m) > L(j) \text{ and moving from m to j (closer to the median) reduces the loss}
+\therefore L(m) - L(j) > 0 \implies L(m) > L(j) \text{ and moving from m to j (closer to the median) reduces the loss} \\ \\
+\text{Similarly, } \text{when } m < y_{k} \\
+\text{A candidate j such that } y_{k} \geq j > m \\ 
+\text{Has the same function: } L(m) - L(j) = (m - j) (|N_{-}(m)| - |N_{+}(m)| )\\ 
+\text{And since}\\
+m < j \implies m - j < 0 \\
+\land  \\ 
+|N_{-}(m)| < |N_{+}(m)| \implies |N_{-}(m)| - |N_{+}(m)| < 0 \\
+\therefore L(m) - L(j) > 0 \text{ and our assumption holds}
+\\
 \end{gather}
 $$
-$$
-\begin{gather}
-\text{When } m < y_{k}: \\
-|N_{-}(m)| < |N_{+}(m)| \\ \\ 
-\text{Now we choose a candidate j such that}:\\
-y_{k} \geq j > m
-\end{gather}
-$$
+#### D
+In a few short sentences, discuss when you might prefer each of the three losses above. Is the median typically considered a more “robust” measure of central tendency than the mean? Why?
+
+The maximum loss might be good when you want to make sure that the worst case error is low. The mean is good when you want to penalize big errors. The median is good when you want each error to contribute linearly to the loss. I think that the median is a better measure of central tendency due to it's equal evaluation of every point and less focus on punishing outliers.
+
+## Practice with Non-linear Transformations
+
+
