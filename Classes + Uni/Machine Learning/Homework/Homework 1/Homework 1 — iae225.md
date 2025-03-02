@@ -127,13 +127,38 @@ Since, by definition of a median, there had to be more points on the left than o
 
 $$
 \begin{gather}
-\text{First, let's assume that the data is sorted, and let the median be denoted by } y_{k} \\
-N_{-}(m) = \{ i | y_{i} \leq m \} \land N_{+}(m) = \{ i | y_{i} \geq m \} \\ \\
+\text{First, let's assume that the data is sorted, and let the median be denoted by } y_{k}. \\
+\text{We define two sets: }\\
+N_{-}(m) = \{ i | y_{i} \leq m \} \text{ and } N_{+}(m) = \{ i | y_{i} \geq m \} \\ 
+\text{And we can say that the loss function is equivalent to: } \\
+L(m) =  \sum_{i=\in N_{-}(m)}(m -y_{i}) +  \sum_{i=\in N_{+}(m)}(y_{i} - m) \\ \\
+\end{gather}
+$$
+$$
+\begin{gather}
 \text{When } m > y_{k}: \\
-|N_{-}(m)| > |N_{+}(m)| \\  \\
+|N_{-}(m)| > |N_{+}(m)| \\ \\
 \text{Now, we choose some candidate j such that: } \\
-y_{k} \leq j < m \\ \\
-
-L(m) = \sum_{i=1}^{n}|y_{i}-m|
+y_{k} \leq j < m \\  \\
+\text{When moving from m to j, the change in the loss function is } \\
+L(m) - L(j) \\
+L(m) - L(j) = \sum_{i=\in N_{-}(m)}[(m -y_{i})-(j -y_{i})] +  \sum_{i=\in N_{+}(m)}[(y_{i} - m)-(y_{i} - j)] \\
+L(m) - L(j) = \sum_{i=\in N_{-}(m)}(m - j) +  \sum_{i=\in N_{+}(m)}(-m + j) \\
+L(m) - L(j) = \sum_{i=\in N_{-}(m)}(m - j) - \sum_{i=\in N_{+}(m)}(m - j) \\ 
+L(m) - L(j) = |N_{-}(m)|(m - j) - |N_{+}(m)|(m - j) \\ \\
+L(m) - L(j) = (m - j) (|N_{-}(m)| - |N_{+}(m)| )\\ \\
+\text{Since }  \\ 
+m > j \implies m - j > 0 \\
+\land  \\ 
+|N_{-}(m)| > |N_{+}(m)| \implies |N_{-}(m)| - |N_{+}(m)| > 0 \\
+\therefore L(m) - L(j) > 0 \implies L(m) > L(j) \text{ and moving from m to j (closer to the median) reduces the loss}
+\end{gather}
+$$
+$$
+\begin{gather}
+\text{When } m < y_{k}: \\
+|N_{-}(m)| < |N_{+}(m)| \\ \\ 
+\text{Now we choose a candidate j such that}:\\
+y_{k} \geq j > m
 \end{gather}
 $$
