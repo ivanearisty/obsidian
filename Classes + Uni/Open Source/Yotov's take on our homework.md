@@ -23,10 +23,10 @@ Notes
 - Do some thinking such that the code for the tests 
 - When you run a build script then you should not have any tests.
 - Api is important and necessary 
-	- either in init.py or inseperate api.py 
-	- Always have puytest — nose is extra credit
+	- either in init.py or in a seperate api.py 
+	- Always have pytest — nose is extra credit
 - Each component has to be a separate uv package 
-	- -owen dependencies , etc
+	- own dependencies , etc
 	- own pyproject.toml
 - CI/CD Links
 	- Passed tests
