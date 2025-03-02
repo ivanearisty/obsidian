@@ -48,7 +48,7 @@ $$
 $$
 ## Problem 2 — Machine Learning Does Averages
 ### Question
-![[Screenshot 2025-03-02 at 12.25.35 AM.jpg | 900]]
+![[Screenshot 2025-03-02 at 12.25.35 AM.jpg | 1000]]
 ### Answers
 #### A
 This kind of makes sense if you think about it a bit, if we want to pick some value m that is the most representative of the dataset, it would make sense that this value is the mean.
@@ -169,5 +169,14 @@ In a few short sentences, discuss when you might prefer each of the three losses
 The maximum loss might be good when you want to make sure that the worst case error is low. The mean is good when you want to penalize big errors. The median is good when you want each error to contribute linearly to the loss. I think that the median is a better measure of central tendency due to it's equal evaluation of every point and less focus on punishing outliers.
 
 ## Practice with Non-linear Transformations
-
-
+### Question
+![[Screenshot 2025-03-02 at 3.50.51 AM.jpg | 1000]]
+### Answer
+#### A
+$$
+\begin{gather}
+\text{Model} : f_{z_{0}, \alpha}(t) = z_{0}e^{-\alpha t} \\
+\text{Paramters : } z_{0}, \alpha \\
+\text{Loss Function : } L(z_{0}, \alpha) = 
+\end{gather}
+$$

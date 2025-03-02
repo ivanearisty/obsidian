@@ -2,16 +2,8 @@
 tags:
   - ML/Week2
 ---
-Below is a step-by-step explanation of everything shown on that slide about **Linear Least-Squares Regression**. I’ll walk through each item—the model definition, the parameters, and the loss function—and clarify the notation and meaning.
 
----
-
-## 1. Title: “Linear Least-Squares Regression”
-
-This simply means we are performing **linear regression** using a **least-squares** approach. “Linear” indicates that our model is a linear function of its input features, and “least squares” refers to minimizing the sum of squared errors between predictions and actual values.
-
----
-
+# Linear Least-Squares Regression
 ## 2. Model: $f_{\beta}(x) = \langle x, \beta \rangle$
 
 - **Notation**: 
@@ -112,3 +104,15 @@ $$
 3. **Loss Function**: The sum of squared errors, $\sum_{i=1}^n (y_i - \langle x_i,\beta\rangle)^2$, which can also be written in vector/matrix form as $\|y - X\beta\|_2^2$.
 
 This slide sets the stage for **ordinary least-squares** linear regression, where we learn $\beta$ by minimizing the total squared difference between our predictions and the actual target values.
+
+# Gradient
+
+### What is a Gradient? 
+- **Definition:** The gradient of a function is a vector of partial derivatives that indicates the direction of the steepest ascent of that function. - **For a function** $L(\beta)$, where $\beta = (\beta_1, \beta_2, \ldots, \beta_d)$, the gradient is: $$ \nabla L(\beta) = \begin{pmatrix} \frac{\partial L}{\partial \beta_1} \\ \frac{\partial L}{\partial \beta_2} \\ \vdots \\ \frac{\partial L}{\partial \beta_d} \end{pmatrix}. $$
+- **Interpretation:** Each component $\frac{\partial L}{\partial \beta_j}$ shows how much the loss changes with a small change in $\beta_j$. The gradient points in the direction of the greatest increase in the loss function. 
+### Role in Minimization: 
+- **Gradient Descent:** To minimize $L(\beta)$, we update $\beta$ in the direction opposite to the gradient: $$ \beta \leftarrow \beta - \eta \, \nabla L(\beta), $$ where $\eta$ is the learning rate that controls the step size. 
+- **Closed-Form for Squared Loss:** For the squared error loss, $$ L(\beta) = \|y - X\beta\|_2^2, $$ the gradient is derived as: $$ \nabla L(\beta) = -2 \, X^T (y - X\beta). $$
+- Setting $\nabla L(\beta) = 0$ leads to the **normal equations**: $$ X^T X\, \beta = X^T y, $$ and solving these gives the closed-form solution: $$ \beta = (X^T X)^{-1} X^T y. $$
+![[Screenshot 2025-03-02 at 3.45.26 AM.jpg]]
+![[Screenshot 2025-03-02 at 3.46.09 AM.jpg]]
