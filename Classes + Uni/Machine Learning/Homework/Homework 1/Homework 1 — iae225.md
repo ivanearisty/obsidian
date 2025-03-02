@@ -181,7 +181,7 @@ c_{i} = z_{0}e^{-\alpha t_{i}} \\
 \ln(c_{i}) = \ln(z_{0}e^{-\alpha t_{i}})\\
 \ln(c_{i}) = \ln(z_{0}e) - \alpha t_{i}\\ \\
 \text{If we define: } \\
-y_{i} = \ln(c_{i}) \\ x_{i} = t_{i} \\ \beta_{0} = \ln(z_{0}e) \\ \text{and } b_{1} = - \alpha \\ \\
+y_{i} = \ln(c_{i}) \\ x_{i} = t_{i} \\ \beta_{0} = \ln(z_{0}e) = \ln(z_{0}) \\ \text{and } b_{1} = - \alpha \\ \\
 \text{We can now fit the data into our linear function.}
 \end{gather}
 $$
@@ -191,9 +191,37 @@ def func(times, concentrations):
 	# the prediction is concentrations' natural log
 	y = np.log(concentrations) 
 	# the predictor is the same (time) 
-	x = times
+	
+	n = len(times)
 
-	n = len(x)
+	X = np.column_stack((np.ones(n), times)) # n rows and 2 columns
+	# The first column is all ones (for β0​) and the second column contains the x-values (for β1​)
 
-	x
+	# https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html
+	beta = np.linalg.inv(X.T @ X) @ (X.T @ y)
+
+"""
+X.T is the transpose of the design matrix.
+X.T @ X computes the matrix product X^T X. Similarly for X^T y
+"""
+
+	beta_0, beta_1 = beta[0], beta[1]
+
+	return np.exp(beta_0), -beta_1
 ```
+![[Screenshot 2025-03-02 at 4.48.44 AM.jpg]]
+![[Screenshot 2025-03-02 at 4.50.14 AM.jpg]]
+## Problem 4: Practice With Gradients 
+### Question
+![[Screenshot 2025-03-02 at 4.54.37 AM.jpg]]
+### Answer
+#### A
+
+$$
+\begin{gather}
+\text{Derive an expression for } \nabla g(z), \text{where } g(z) = \lVert z \rVert ^p_{p} \\ \\
+\nabla g(z) = \begin{pmatrix} \frac{\partial g}{\partial z_{1}} \\ \frac{\partial g}{\partial z_{2}} \\ \vdots \\ \frac{\partial g}{\partial z_{p}} \end{pmatrix} \\
+ 
+\end{gather}
+$$
+#### B

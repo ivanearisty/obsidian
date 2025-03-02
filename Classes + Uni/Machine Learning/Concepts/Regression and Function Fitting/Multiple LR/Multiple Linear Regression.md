@@ -108,7 +108,8 @@ This slide sets the stage for **ordinary least-squares** linear regression, wher
 # Gradient
 
 ### What is a Gradient? 
-- **Definition:** The gradient of a function is a vector of partial derivatives that indicates the direction of the steepest ascent of that function. - **For a function** $L(\beta)$, where $\beta = (\beta_1, \beta_2, \ldots, \beta_d)$, the gradient is: $$ \nabla L(\beta) = \begin{pmatrix} \frac{\partial L}{\partial \beta_1} \\ \frac{\partial L}{\partial \beta_2} \\ \vdots \\ \frac{\partial L}{\partial \beta_d} \end{pmatrix}. $$
+- **Definition:** The gradient of a function is a vector of partial derivatives that indicates the direction of the steepest ascent of that function. 
+- **For a function** $L(\beta)$, where $\beta = (\beta_1, \beta_2, \ldots, \beta_d)$, the gradient is: $$ \nabla L(\beta) = \begin{pmatrix} \frac{\partial L}{\partial \beta_1} \\ \frac{\partial L}{\partial \beta_2} \\ \vdots \\ \frac{\partial L}{\partial \beta_d} \end{pmatrix}. $$
 - **Interpretation:** Each component $\frac{\partial L}{\partial \beta_j}$ shows how much the loss changes with a small change in $\beta_j$. The gradient points in the direction of the greatest increase in the loss function. 
 ### Role in Minimization: 
 - **Gradient Descent:** To minimize $L(\beta)$, we update $\beta$ in the direction opposite to the gradient: $$ \beta \leftarrow \beta - \eta \, \nabla L(\beta), $$ where $\eta$ is the learning rate that controls the step size. 
