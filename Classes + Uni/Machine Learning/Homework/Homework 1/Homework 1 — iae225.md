@@ -123,4 +123,17 @@ Welp, something seems clear, when we square the function, large mistakes have a 
 When we are not squaring, mistakes are treated the same across the board, contributing linearly to the total loss. 
 
 Taking the median quite literally splits the points into two halves. From above, we saw how when we set the median from 3 to 4, all the points on the left added + 1 to the total loss, and all the points on the right contributed - 1 to the total loss.
-Since, by definition of a median, there had to be more points on the left than on the right after moving from 3 to 4, increasing above the median led to a 
+Since, by definition of a median, there had to be more points on the left than on the right after moving from 3 to 4, increasing above the median led to a greater increase from the leftward points than the rightward points (since there were more points on the left). Let's try to make this rigurous:
+
+$$
+\begin{gather}
+\text{First, let's assume that the data is sorted, and let the median be denoted by } y_{k} \\
+N_{-}(m) = \{ i | y_{i} \leq m \} \land N_{+}(m) = \{ i | y_{i} \geq m \} \\ \\
+\text{When } m > y_{k}: \\
+|N_{-}(m)| > |N_{+}(m)| \\  \\
+\text{Now, we choose some candidate j such that: } \\
+y_{k} \leq j < m \\ \\
+
+L(m) = \sum_{i=1}^{n}|y_{i}-m|
+\end{gather}
+$$
