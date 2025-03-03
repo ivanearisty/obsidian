@@ -254,7 +254,8 @@ $$
 p(r_{i})^{p-1} \times \frac{\partial r_{i}}{\partial \beta}\\
 \frac{\partial r_{i}}{\partial \beta} = -x^{\top}_{i}\\
 p(r_{i})^{p-1} \times -x^{\top}_{i}\\
-- p(r_{i})^{p-1} \times x^{\top}_{i}\\
+-p(r_{i})^{p-1} \times x^{\top}_{i}\\ 
+-p\sum{(r_{i})^{p-1} \times x^{\top}_{i}\\}
 \\ \\
 \nabla L_{p}(\beta) = -p X^{\top}((y-X\beta)^{p-1})
 \end{gather}
@@ -280,3 +281,11 @@ From the Matrix‐Vector Perspective we:
 1. **compute predictions** $\hat{y} = X\beta$, which is an $n \times 1$ vector whose i-th entry is $x_{i}^{\top}\beta$
 2. **compute residuals** $r \;=\; y - \hat{y} \;=\; y - X\beta$, which is an n $n \times 1$ vector whose i-th entry is $r_{i} = y_{i} - x_{i}^{\top}\beta$
 3. **compute the p-norm** $\lVert r \rVert ^{p}_{p} = \sum ^{n}_{i=1}|r_{i}|^{p}$, hence the summation is a component by component version of $\lVert y - X\beta \rVert^{p}_{p}$ (*we can drop abs if p is even*)
+
+## Piecewise Linear Regression via Feature Transformations
+### Question
+![[Screenshot 2025-03-03 at 9.24.50 AM.jpg]]
+![[Screenshot 2025-03-03 at 9.25.02 AM.jpg]]
+![[Screenshot 2025-03-03 at 9.25.20 AM.jpg]]
+### Answer
+#### A
