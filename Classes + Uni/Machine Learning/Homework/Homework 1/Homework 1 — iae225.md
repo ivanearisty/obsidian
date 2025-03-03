@@ -249,7 +249,8 @@ $$
 \nabla \lVert y - X\beta \rVert ^{p}_{p} = \nabla \sum(y_{i} - x_{i}^{\top}\beta)^{p} \\
 \text{If we let } r_{i} = y_{i} - x_{i}^{\top}\beta, \forall i \in \{ 1,\dots n \} \text{ we can express as:} \\
 \nabla \sum(r_{i})^{p} \\ \\
-\text{}\sum(r_{i})^{p} \\
+\text{And if we differentiate: } \\ 
+\frac{\partial}{\partial \beta}\sum(r_{i})^{p} \\
 \\ \\
 \nabla L_{p}(\beta) = -p X^{\top}((y-X\beta)^{p-1})
 \end{gather}
