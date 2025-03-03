@@ -216,12 +216,36 @@ X.T @ X computes the matrix product X^T X. Similarly for X^T y
 ![[Screenshot 2025-03-02 at 4.54.37 AM.jpg]]
 ### Answer
 #### A
-https://en.wikipedia.org/wiki/Lp_space 
+
 $$
 \begin{gather}
 \lVert z \rVert ^{p}_{p} = \sum_{i=1}^{n}(z_{i})^{p} \\
 \text{Derive an expression for } \nabla g(z), \text{where } g(z) = \lVert z \rVert ^p_{p} \\ \\
-\nabla g(z) = \nabla \lVert z \rVert ^{p}_{p} = \frac{\partial}{\partial z_{i}} \sum_{i=1}^{n}(z_{i})^{p} = 
+\nabla g(z) = \nabla \lVert z \rVert ^{p}_{p} = \frac{\partial}{\partial z_{i}} \sum_{i=1}^{n}(z_{i})^{p} = \sum_{i=1}^{n}(p\times z_{i}^{p-1})
 \end{gather}
 $$
+##### Notes
+https://en.wikipedia.org/wiki/Lp_space 
+Restricting for even integer values of $p$ is likely made for two important reasons: **to ensure full differentiability** of $g(z)$ in all real directions and to align with the definition of an $\ell_p$ norm without ambiguity.
+
+- **Differentiability:** When $p$ is even (e.g. $2,4,6,\dots$), the function $g(z)=\sum_i (z_i)^p$ is a polynomial in the components of $z$. Polynomials are smooth (infinitely differentiable) everywhere on $\mathbb{R}^n$. In particular, there is no cusp or nondifferentiable point at $z_i=0$ because an even power eliminates any sign change issues. For example, $|x|^2 = x^2$ is differentiable for all $x$, including at $x=0$ 
+- **Norm Properties:** Norms, by definition, are **absolutely homogeneous** and **positive definite** (always non-negative, and zero only at the origin). For this to equal $(\sum_i z_i^p)^{p}$ without absolute values, we must have $z_i^p = |z_i|^p$ for each term. This equality holds true **only when $p$ is an even integer**, because raising to an even power automatically yields a non-negative result
+
 #### B
+$$
+\begin{gather}
+\text{Derive an expression for: } \nabla L_{p}(\beta) \\
+\end{gather}
+$$
+We know that 
+![[Screenshot 2025-03-02 at 10.11.38 PM.jpg |400]]
+but this is for the case where we are doing an l-2 norm.
+
+$$
+\begin{gather}
+\nabla L_{p}(\beta) = \nabla \lVert y - f_{\beta}(x) \rVert ^{p}_{p} 
+& \text{} 
+\\
+\nabla \lVert y - f_{\beta}(x) \rVert ^{p}_{p}
+\end{gather}
+$$
