@@ -251,6 +251,10 @@ $$
 \nabla \sum(r_{i})^{p} \\ \\
 \text{And if we differentiate: } \\ 
 \frac{\partial}{\partial \beta}\sum(r_{i})^{p} \\
+p(r_{i})^{p-1} \times \frac{\partial r_{i}}{\partial \beta}\\
+\frac{\partial r_{i}}{\partial \beta} = -x^{\top}_{i}\\
+p(r_{i})^{p-1} \times -x^{\top}_{i}\\
+- p(r_{i})^{p-1} \times x^{\top}_{i}\\
 \\ \\
 \nabla L_{p}(\beta) = -p X^{\top}((y-X\beta)^{p-1})
 \end{gather}
