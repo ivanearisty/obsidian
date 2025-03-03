@@ -289,3 +289,22 @@ From the Matrix‐Vector Perspective we:
 ![[Screenshot 2025-03-03 at 9.25.20 AM.jpg]]
 ### Answer
 #### A
+$$
+\begin{gather}
+\text{Since we have that } a_{1} + s_{1}\lambda = a_{2} + s_{2} \lambda \implies a_{2} = a_{1} + s_{1}\lambda -s_{2}\lambda \\
+\\
+\text{We can subsitute for } a_{2}, x \geq \lambda \text{ such that: } \\
+a_{2} + s_{2}x = [a_{1}+s_{1}\lambda-s_{2}\lambda] + s_{2}x \\ \\
+f(x) = \begin{cases}
+a_{1}+s_{1}x & x < \lambda \\
+[a_{1}+s_{1}\lambda-s_{2}\lambda] + s_{2}x & x \geq \lambda
+\end{cases}
+\end{gather}
+$$
+#### B
+I am a bit confused here, I know that we want the find
+$$
+\begin{gather}
+\beta* = X^{\top}y(X^{\top}X)^{-1} = 
+\end{gather}
+$$
