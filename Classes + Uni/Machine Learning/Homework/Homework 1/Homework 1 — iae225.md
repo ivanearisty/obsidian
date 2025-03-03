@@ -227,7 +227,7 @@ $$
 ##### Notes
 https://en.wikipedia.org/wiki/Lp_space 
 Restricting for even integer values of $p$ is likely made for two important reasons: **to ensure full differentiability** of $g(z)$ in all real directions and to align with the definition of an $\ell_p$ norm without ambiguity.
-
+![[Screenshot 2025-03-02 at 10.24.16 PM.jpg]]
 - **Differentiability:** When $p$ is even (e.g. $2,4,6,\dots$), the function $g(z)=\sum_i (z_i)^p$ is a polynomial in the components of $z$. Polynomials are smooth (infinitely differentiable) everywhere on $\mathbb{R}^n$. In particular, there is no cusp or nondifferentiable point at $z_i=0$ because an even power eliminates any sign change issues. For example, $|x|^2 = x^2$ is differentiable for all $x$, including at $x=0$ 
 - **Norm Properties:** Norms, by definition, are **absolutely homogeneous** and **positive definite** (always non-negative, and zero only at the origin). For this to equal $(\sum_i z_i^p)^{p}$ without absolute values, we must have $z_i^p = |z_i|^p$ for each term. This equality holds true **only when $p$ is an even integer**, because raising to an even power automatically yields a non-negative result
 
@@ -243,9 +243,35 @@ but this is for the case where we are doing an l-2 norm.
 
 $$
 \begin{gather}
-\nabla L_{p}(\beta) = \nabla \lVert y - f_{\beta}(x) \rVert ^{p}_{p} 
-& \text{} 
-\\
-\nabla \lVert y - f_{\beta}(x) \rVert ^{p}_{p}
+\nabla L_{p}(\beta) = \nabla \lVert y - f_{\beta}(x) \rVert ^{p}_{p}  \\
+\nabla \lVert y - f_{\beta}(x) \rVert ^{p}_{p} = \nabla \lVert y - X\beta \rVert ^{p}_{p} \\ \\
+
+\nabla \lVert y - X\beta \rVert ^{p}_{p} = \nabla \sum(y_{i} - x_{i}^{\top}\beta)^{p} \\
+\text{If we let } r_{i} = y_{i} - x_{i}^{\top}\beta, \forall i \in \{ 1,\dots n \} \text{ we can express as:} \\
+\nabla \sum(r_{i})^{p} \\ \\
+\text{}\sum(r_{i})^{p} \\
+\\ \\
+\nabla L_{p}(\beta) = -p X^{\top}((y-X\beta)^{p-1})
 \end{gather}
 $$
+##### Notes
+
+In linear regression or in a general linear model, the **fitted value** (or prediction) for the i-th observation is
+
+$\hat{y}_i \;=\; x_i^\top\,\beta$
+
+i.e., the dot product between the i-th feature vector $x_i$ and the parameter vector $\beta$.
+
+Thus the residual (difference between actual and predicted) is:
+
+$r_i \;=\; y_i - \hat{y}_i \;=\; y_i \;-\; x_i^\top\,\beta.$
+
+When we write a loss function based on these residuals—e.g. the sum of p-th powers:
+
+$\|\,y - X\beta\,\|_p^p \;=\; \sum_{i=1}^n \bigl|\,y_i - x_i^\top \beta \bigr|^p,$
+
+From the Matrix‐Vector Perspective we:
+
+1. **compute predictions** $\hat{y} = X\beta$, which is an $n \times 1$ vector whose i-th entry is $x_{i}^{\top}\beta$
+2. **compute residuals** $r \;=\; y - \hat{y} \;=\; y - X\beta$, which is an n $n \times 1$ vector whose i-th entry is $r_{i} = y_{i} - x_{i}^{\top}\beta$
+3. **compute the p-norm** $\lVert r \rVert ^{p}_{p} = \sum ^{n}_{i=1}|r_{i}|^{p}$, hence the summation is a component by component version of $\lVert y - X\beta \rVert^{p}_{p}$ (*we can drop abs if p is even*)
