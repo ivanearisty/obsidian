@@ -302,9 +302,20 @@ a_{1}+s_{1}x & x < \lambda \\
 \end{gather}
 $$
 #### B
+**I am about confused about norms, we do the second norm here  (and have done it most of the time), but, above, we had p norm. What is the difference as it pertains to our model?**
+
 I am a bit confused here, I know that we want the find
 $$
 \begin{gather}
-\beta* = X^{\top}y(X^{\top}X)^{-1} = 
+\beta* = X^{\top}y(X^{\top}X)^{-1} = \begin{bmatrix}
+\beta_{0} \\
+\beta_{1} \\
+\beta_{2}
+\end{bmatrix}
 \end{gather}
 $$
+I tried to get some help with AI but I don't understand if the parameters should directly be the betas or not? 
+
+Is this just algebra or is something more advanced going on here? From what I was thinking, it seems like $a_{1}$ is just the intercept so sure it should be $\beta_{0}$, but $s_{2}$ being $\beta_{1}+\beta_{2}$ is such because we need s1 and s2 to meet up due to $a_{1} + s_{1}\lambda = a_{2} + s_{2}$??
+
+![[Screenshot 2025-03-03 at 11.27.43 AM.jpg | 400]]![[Screenshot 2025-03-03 at 11.27.55 AM.jpg | 400]]
