@@ -3,6 +3,11 @@ theme: night
 highlightTheme: monokai
 ---
 
+look into limit on product catalogue
+find out proper catalogue etiquette from stripe
+Tax jar integrated by Stripe helps you do all fifty states
+
+
 # Current Tests
 
 %% ## Webhooks
@@ -180,6 +185,7 @@ https://dashboard.stripe.com/test/payment-links
 - Need verified account for tests
 
 [Dashboard](https://dashboard.stripe.com/test/tax/overview)
+
 [Monitoring](https://docs.stripe.com/tax/monitoring)
 
 ---
