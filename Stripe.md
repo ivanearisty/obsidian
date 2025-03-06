@@ -1,17 +1,21 @@
-# Workbench
-yo
-## Webhooks
-Stripe will send these events to your destination. You can use these events to create your own workflows or to update your local database.
+---
+theme: night
+highlightTheme: monokai
+---
 
-stripe listen --forward-to localhost:3000/api/webhook/stripe
-> Ready! You are using Stripe API Version [2025-02-24.acacia]. Your webhook signing secret is whsec_729fc076e3b2f43db1ca9f3f1a76502ee1ca7e87ac7aa0c0b5b95b53b00cea13 (^C to quit)
+# Webhooks
 
 ---
 
-- All Bullet points
-- have green
-- background color
+## Webhooks
+Stripe will send these events to your destination. 
 
+You can use these events to create your own workflows or to update your local database.
+
+stripe listen --forward-to localhost:3000/api/webhook/stripe
+> Ready! You are using Stripe API Version [2025-02-24.acacia]. 
+
+---
 
 ## Captured Data
 ```json
@@ -68,7 +72,40 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 
 ```
 
-<!-- slide class="" -->
+
+---
+
+# API or Manual
+
+---
+
+[Documentation Link](https://docs.stripe.com/products-prices/pricing-models?dashboard-or-api=api)
+[Product Catalogue](https://dashboard.stripe.com/products)
+
+---
+
+# Internal Pricing
+
+---
+<grid drag="100 10" drop="center"  flow="row" pad="20px" align="center" >
+<grid flow="col"  align="top" pad="10px" >
+## Basic Plan
+- 2.9% + 30 cents
+</grid>
+<grid flow="col" align="top" pad="10px">
+	## Custom Plans
+	- IC+ pricing
+	- Volume discounts
+	- Multi-product discounts
+</grid>
+</grid>
+
+
+---
+
+# External Pricing
+
+--- 
 
 # Pricing Models
 https://docs.stripe.com/products-prices/pricing-models
