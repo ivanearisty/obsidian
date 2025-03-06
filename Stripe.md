@@ -87,6 +87,7 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 # Internal Pricing
 
 ---
+
 <grid drag="100 10" drop="center"  flow="row" pad="20px" align="center" >
 <grid flow="col"  align="top" pad="10px" >
 ## Basic Plan
@@ -100,23 +101,28 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 </grid>
 </grid>
 
-
 ---
 
 # External Pricing
-
---- 
-
-# Pricing Models
 https://docs.stripe.com/products-prices/pricing-models
+
+---
+
 ## One-off Payments
+
+---
+
 ## Recurring Payments
+
 
 ### Customer Portal
 https://dashboard.stripe.com/test/settings/billing/portal
 https://billing.stripe.com/p/login/test_9AQg121oVgpm2o84gg
 ### Automations
 https://dashboard.stripe.com/settings/billing/automations
+
+---
+
 ## Invoicing
 https://dashboard.stripe.com/test/invoices
 https://invoice.stripe.com/i/acct_1QzVHaPU48Lk0PKL/test_YWNjdF8xUXpWSGFQVTQ4TGswUEtMLF9SdEtMYkV6Zm9adkloakQ3ZHNPM2JrWEUyZXA2bVJnLDEzMTc4MjUzNw0200hC3PUv1w?s=db
