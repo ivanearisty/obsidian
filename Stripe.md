@@ -3,7 +3,7 @@ theme: night
 highlightTheme: monokai
 ---
 
-# Webhooks
+# Current Tests
 
 ---
 
@@ -79,8 +79,9 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 
 ---
 
-[Documentation Link](https://docs.stripe.com/products-prices/pricing-models?dashboard-or-api=api)
-[Product Catalogue](https://dashboard.stripe.com/products)
+[Documentation Link](https://docs.stripe.com/products-prices/pricing-models?dashboard-or-api=api) (Managed by Engineering)
+
+[Product Catalogue](https://dashboard.stripe.com/products) (Managed by Product)
 
 ---
 
@@ -104,7 +105,7 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 ---
 
 # External Pricing
-https://docs.stripe.com/products-prices/pricing-models
+
 
 ---
 
@@ -112,8 +113,19 @@ https://docs.stripe.com/products-prices/pricing-models
 
 ---
 
+
+
+---
+
 ## Recurring Payments
 
+- recurring billing cycles with trials & proration
+- tiered pricing and **usage-based** options available (can be very useful for MiFi)
+
+
+[docs](https://docs.stripe.com/products-prices/pricing-models)
+
+---
 
 ### Customer Portal
 https://dashboard.stripe.com/test/settings/billing/portal
@@ -124,34 +136,69 @@ https://dashboard.stripe.com/settings/billing/automations
 ---
 
 ## Invoicing
-https://dashboard.stripe.com/test/invoices
-https://invoice.stripe.com/i/acct_1QzVHaPU48Lk0PKL/test_YWNjdF8xUXpWSGFQVTQ4TGswUEtMLF9SdEtMYkV6Zm9adkloakQ3ZHNPM2JrWEUyZXA2bVJnLDEzMTc4MjUzNw0200hC3PUv1w?s=db
 
-<!-- slide  -->
-# Checkout
+- Automated invoice generation via whs
+- Customizable templates
+- Supports one-off, partial, and recurring
+- CRM syncs with jobs
+
+[Dashboard](https://dashboard.stripe.com/test/invoices)
+
+[Invoice Example](https://invoice.stripe.com/i/acct_1QzVHaPU48Lk0PKL/test_YWNjdF8xUXpWSGFQVTQ4TGswUEtMLF9SdEtMYkV6Zm9adkloakQ3ZHNPM2JrWEUyZXA2bVJnLDEzMTc4MjUzNw0200hC3PUv1w?s=db)
+
+---
+
+## Checkout
 https://docs.stripe.com/payments/checkout
 ![[Screenshot 2025-03-06 at 1.10.40 AM.jpg]]
-# Direct Payments (POC)
+
+---
+
+## Direct Payments (POC)
+
 https://dashboard.stripe.com/test/payment-links
+
+---
 
 # Taxing
 https://dashboard.stripe.com/test/tax/overview
 # Invoicing
 https://dashboard.stripe.com/test/invoices
 
+---
+
 # Next Steps
+
+---
+
 ## Business Verification & Accounts Setup 
-https://dashboard.stripe.com/profile/account/onboarding/business-structure
+
+[Onboarding](https://dashboard.stripe.com/profile/account/onboarding/business-structure)
+
+---
 ## Taxes
-### Monitoring
-https://docs.stripe.com/tax/monitoringz
+
+- Need verified account for tests
+
+[Monitoring](https://docs.stripe.com/tax/monitoring)
+
+---
 
 ## Dispute Protection
-New Stripe accounts are vulnerable and can get permanently banned for one dispute. 
 
- - A dispute (or chargeback) occurs when your customer tells their bank they didn’t make/authorize the payment on your site.
-- The payment amount along with a $15 dispute fee is deducted from your Stripe account.
-- There is a dispute resolution process through which you have to prove the payment was valid. A dispute rate above 0.75% is punishable by Visa & MasterCard. Stripe will react before that. 
+---
+
+**New Stripe accounts are vulnerable and can get permanently banned for one dispute.** 
+
+<grid align="center" ">
+
+</grid>
+ - A dispute (or chargeback) occurs when your customer tells their bank they didn’t make/authorize the payment.
+- The payment amount along with a $15 dispute fee is deducted from account.
+- There is a dispute resolution process through which we have to prove the payment was valid. A dispute rate above 0.75% is punishable by Visa & MasterCard. Stripe will react before that. 
+
+---
+
 ### Policies
 - Refund Policies Clearly Stated 
 - Guarantees Clearly Stated
