@@ -5,15 +5,13 @@ highlightTheme: monokai
 
 # Current Tests
 
----
-
-## Webhooks
+%% ## Webhooks
 Stripe will send these events to your destination. 
 
 You can use these events to create your own workflows or to update your local database.
 
 stripe listen --forward-to localhost:3000/api/webhook/stripe
-> Ready! You are using Stripe API Version [2025-02-24.acacia]. 
+> Ready! You are using Stripe API Version [2025-02-24.acacia].  %%
 
 ---
 
@@ -75,6 +73,16 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 
 ---
 
+## Checkout
+
+
+[docs](https://docs.stripe.com/payments/checkout)
+
+
+![[Screenshot 2025-03-06 at 1.10.40 AM.jpg | 500]]
+
+---
+
 # API or Manual
 
 ---
@@ -111,9 +119,6 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 
 ## One-off Payments
 
----
-
-
 
 ---
 
@@ -128,10 +133,15 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 ---
 
 ### Customer Portal
-https://dashboard.stripe.com/test/settings/billing/portal
-https://billing.stripe.com/p/login/test_9AQg121oVgpm2o84gg
+
+[Dashboard](https://dashboard.stripe.com/test/settings/billing/portal)
+
+[Portal Example](https://billing.stripe.com/p/login/test_9AQg121oVgpm2o84gg)
+
+Pros and Cons...
 ### Automations
-https://dashboard.stripe.com/settings/billing/automations
+
+[Automation](https://dashboard.stripe.com/settings/billing/automations) --> Business rules for when payments fail.
 
 ---
 
@@ -146,11 +156,6 @@ https://dashboard.stripe.com/settings/billing/automations
 
 [Invoice Example](https://invoice.stripe.com/i/acct_1QzVHaPU48Lk0PKL/test_YWNjdF8xUXpWSGFQVTQ4TGswUEtMLF9SdEtMYkV6Zm9adkloakQ3ZHNPM2JrWEUyZXA2bVJnLDEzMTc4MjUzNw0200hC3PUv1w?s=db)
 
----
-
-## Checkout
-https://docs.stripe.com/payments/checkout
-![[Screenshot 2025-03-06 at 1.10.40 AM.jpg]]
 
 ---
 
@@ -158,12 +163,6 @@ https://docs.stripe.com/payments/checkout
 
 https://dashboard.stripe.com/test/payment-links
 
----
-
-# Taxing
-https://dashboard.stripe.com/test/tax/overview
-# Invoicing
-https://dashboard.stripe.com/test/invoices
 
 ---
 
@@ -180,19 +179,17 @@ https://dashboard.stripe.com/test/invoices
 
 - Need verified account for tests
 
+[Dashboard](https://dashboard.stripe.com/test/tax/overview)
 [Monitoring](https://docs.stripe.com/tax/monitoring)
 
 ---
 
-## Dispute Protection
+# Disputes
 
 ---
 
 **New Stripe accounts are vulnerable and can get permanently banned for one dispute.** 
 
-<grid align="center" ">
-
-</grid>
  - A dispute (or chargeback) occurs when your customer tells their bank they didn’t make/authorize the payment.
 - The payment amount along with a $15 dispute fee is deducted from account.
 - There is a dispute resolution process through which we have to prove the payment was valid. A dispute rate above 0.75% is punishable by Visa & MasterCard. Stripe will react before that. 
@@ -202,18 +199,78 @@ https://dashboard.stripe.com/test/invoices
 ### Policies
 - Refund Policies Clearly Stated 
 - Guarantees Clearly Stated
-- 3DS https://docs.stripe.com/payments/3d-secure
-- Block if CVC fails
+- [3DS](https://docs.stripe.com/payments/3d-secure)
+- Block if CVC fails?
 	- The default Stripe configuration allowed anyone with a card number to pay on a Stripe Checkout, even without the correct CVC.
-- Refund links
-	- ![[Pasted image 20250306013413.png]]
-- 
-### Pre-Refund
-### Fraud Radar
-### Contact-Us Forms
-### Timelines (24HR Dispute Flows)
-Before
-![[Screenshot 2025-03-06 at 1.29.30 AM.jpg]]
-After
-![[Screenshot 2025-03-06 at 1.29.46 AM.jpg]]
-![[Screenshot 2025-03-06 at 1.30.08 AM.jpg]]![[Screenshot 2025-03-06 at 1.30.36 AM.jpg]]
+- Refund links on checkout + portal
+
+---
+
+## Pre-Service Reqs
+
+1. **Client Agreement**  
+   - Ensure the client has signed an agreement **before** granting any logins or access to services.
+
+
+2. **Payment Plan + Access Confirmation**  
+   - Always confirm the payment schedule and access details in writing (email is preferred).  
+    
+---
+
+## Early Engagement
+
+3. **48-Hour Check-In**  
+
+> "How is everything going with your program so far? Please let us know if you have any concerns or need any assistance."
+
+4. **Educate Team**  
+   - Relevant articles (e.g., [Stripe Dispute Article](#)).
+
+---
+
+## Document Mgmt
+
+5. **Create a Folder for Proof** (critical files)
+     1. Files Stripe specifically requests  
+     2. Signed agreements (essential)  
+     3. Preferably written text evidence rather than audio/video  
+     4. Store all proof in structured documents (instead of scattered screenshots)  
+     5. Avoid uploading too many files—keep it easy to review
+
+---
+
+## Dispute Prep
+
+6. **Sub-Folder for Sales & Delivery Proof**  
+   - Have Sales & Delivery teams record 1-on-1 conversations and store them in a dedicated sub-folder.
+
+7. **Dispute File Preparation**  
+   - Base your dispute files on the dispute type.  
+   - Pre-make templates.
+
+---
+
+## Post-Dispute Steps
+
+8. **Maintain Access**  
+   - **Do NOT** revoke clients’ access during a dispute.  
+
+9. **Post-Dispute Documentation**  
+   - If you **win** a chargeback, store all relevant documentation in Knowledge Base.  
+   - This allows us to reference successful dispute strategies for future cases.
+
+---
+
+## Messaging Flows
+
+<grid flow="row" align="left" >
+<grid >
+> "Hi [Client], I noticed you initiated a chargeback, and I’m surprised we didn’t have a chance to discuss this beforehand....
+</grid>
+
+<grid flow="col" >
+Use empathetic yet firm communication to invite dialogue.  
+
+Attempt to resolve the dispute amicably before escalating through official channels.
+</grid>
+</grid> 
