@@ -1,3 +1,75 @@
+# Workbench
+yo
+## Webhooks
+Stripe will send these events to your destination. You can use these events to create your own workflows or to update your local database.
+
+stripe listen --forward-to localhost:3000/api/webhook/stripe
+> Ready! You are using Stripe API Version [2025-02-24.acacia]. Your webhook signing secret is whsec_729fc076e3b2f43db1ca9f3f1a76502ee1ca7e87ac7aa0c0b5b95b53b00cea13 (^C to quit)
+
+---
+
+- All Bullet points
+- have green
+- background color
+
+
+## Captured Data
+```json
+{
+  "id": "ppage_1QzYOQPU48Lk0PKLI9Vkm6b2",
+  ...,
+  "customer": {
+    "id": "cus_RtL5MZntbrw8MK",
+    "address": {
+      "country": "US",
+      "postal_code": "11747",
+      ...
+    },
+    "email": "ivanearisty@gmail.com"
+  },
+  "customer_email": "ivanearisty@gmail.com",
+  ...,
+  "line_item_group": {
+    "line_items": [
+      {
+        "id": "li_1QzYOQPU48Lk0PKLAOrFBm4K",
+        "description": "Test for MiFi Mobile Router",
+        "price": {
+          "id": "price_1QzXbqPU48Lk0PKLsc9GCi8O",
+          "currency": "usd",
+          "unit_amount": 100,
+          "product": {
+            "id": "prod_RtKGAuBhJ8ypBc",
+            "name": "MiFi — WaveLink Mobile Router (test)",
+            "description": "Test for MiFi Mobile Router"
+          }
+        },
+        "quantity": 1,
+        "total": 100
+      }
+    ],
+    "subtotal": 100,
+    "total": 100
+  },
+  ...,
+  "payment_intent": {
+    "id": "pi_3QzYPFPU48Lk0PKL2eT3pQCB",
+    "amount": 100,
+    "created": 1741244385,
+    "payment_method": "pm_1QzYPZPU48Lk0PKLY71yhZtR",
+    "payment_method_types": [
+      "card"
+    ],
+    "status": "succeeded"
+  },
+  "payment_status": "paid",
+  ...
+}
+
+```
+
+<!-- slide class="" -->
+
 # Pricing Models
 https://docs.stripe.com/products-prices/pricing-models
 ## One-off Payments
@@ -11,6 +83,8 @@ https://dashboard.stripe.com/settings/billing/automations
 ## Invoicing
 https://dashboard.stripe.com/test/invoices
 https://invoice.stripe.com/i/acct_1QzVHaPU48Lk0PKL/test_YWNjdF8xUXpWSGFQVTQ4TGswUEtMLF9SdEtMYkV6Zm9adkloakQ3ZHNPM2JrWEUyZXA2bVJnLDEzMTc4MjUzNw0200hC3PUv1w?s=db
+
+<!-- slide  -->
 # Checkout
 https://docs.stripe.com/payments/checkout
 ![[Screenshot 2025-03-06 at 1.10.40 AM.jpg]]
