@@ -3,10 +3,11 @@ theme: night
 highlightTheme: monokai
 ---
 
-look into limit on product catalogue
-find out proper catalogue etiquette from stripe
-Tax jar integrated by Stripe helps you do all fifty states
-
+- Look into limit on product catalogue
+- Find out proper catalogue etiquette from stripe
+- Tax jar integrated by Stripe helps you do all fifty states
+- Should we limit Stripe visibility into product catalogue? Can this be done? Concern over security on manipulating product catalogue.
+- Look about account provisioning in Stripe
 
 # Current Tests
 
