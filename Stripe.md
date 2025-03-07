@@ -10,6 +10,9 @@ highlightTheme: monokai
 - Look about account provisioning in Stripe
 - Likely not need Form -> Jira if we can get this out by next week 
 - Including customer care info
+- Look into dynamic pricing through stripe
+- Blocking shipping based on zip
+- Add checkbox to order flow (checkbox) input email so it is sent to their email
 - %%
 
 # Current Tests
