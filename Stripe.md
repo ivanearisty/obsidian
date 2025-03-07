@@ -2,12 +2,15 @@
 theme: night
 highlightTheme: monokai
 ---
-
+%% 
 - Look into limit on product catalogue
 - Find out proper catalogue etiquette from stripe
 - Tax jar integrated by Stripe helps you do all fifty states
 - Should we limit Stripe visibility into product catalogue? Can this be done? Concern over security on manipulating product catalogue.
 - Look about account provisioning in Stripe
+- Likely not need Form -> Jira if we can get this out by next week 
+- Including customer care info
+- %%
 
 # Current Tests
 
@@ -120,7 +123,6 @@ stripe listen --forward-to localhost:3000/api/webhook/stripe
 
 # External Pricing
 
-
 ---
 
 ## One-off Payments
@@ -188,6 +190,14 @@ https://dashboard.stripe.com/test/payment-links
 [Dashboard](https://dashboard.stripe.com/test/tax/overview)
 
 [Monitoring](https://docs.stripe.com/tax/monitoring)
+
+---
+
+## Dashboard / Mgmt
+
+- Manage Subscription
+- Jira connection
+- 
 
 ---
 
