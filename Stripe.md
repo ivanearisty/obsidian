@@ -13,7 +13,8 @@ highlightTheme: monokai
 - Look into dynamic pricing through stripe
 - Blocking shipping based on zip
 - Add checkbox to order flow (checkbox) input email so it is sent to their email
-- %%
+- make bruce admin on goog
+%%
 
 # Current Tests
 
