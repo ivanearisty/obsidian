@@ -22,3 +22,9 @@ https://google.github.io/styleguide/javaguide.html
 
 ## SpotBugs
 https://spotbugs.github.io/spotbugs-maven-plugin/
+
+## JDBC AGE driver
+
+Build jar from https://github.com/apache/age/tree/master/drivers/jdbc
+
+add jar to libs and create dependency...
