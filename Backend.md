@@ -107,3 +107,77 @@ If you prefer, you can stop and remove just the db container and its volume manu
 - **Leave AGE Viewer alone:** These commands target only the "db" service, so the AGE Viewer container remains unchanged.
 
 This way, you avoid the lengthy build process for AGE Viewer while updating or reinitializing your database as needed.
+
+## Adding graph features
+
+- **Leveraging Graph**:
+    - You can keep your relational design but store edges/nodes in the AGE graph for advanced queries.
+    - No immediate changes are needed in your schema for that; you’d simply create a “wbcore_graph” (or similar) and insert nodes/edges in parallel.
+- **Future Enhancements**:
+    - Possibly normalize membership plan details.
+    - Add triggers or application logic to keep the graph in sync.
+    - Add indexes or advanced constraints as you refine your data model.
+- **Graph Insert (Apache AGE):**
+    
+    - Immediately after, run a small “sync” step that issues a `cypher(...)` query to create a corresponding edge in your AGE graph. For example:
+        
+        `SELECT * FROM cypher('wbcore_graph', $$   MATCH (u1:User {user_id: $userId1}), (u2:User {user_id: $userId2})   CREATE (u1)-[:BOND {status:'ACTIVE'}]->(u2) $$) AS (edge agtype);`
+        
+- **Transaction or Background Job:**
+    
+    - **Same Transaction**: If you want strong consistency, you can do both inserts within a single transaction in your application logic. If the relational insert succeeds but the graph insert fails, you can roll back so you don’t end up with data mismatches.
+    - **Background Job**: Alternatively, you can push “bond created” events to a queue (like Kafka) or maintain a job that periodically syncs new/updated bonds into the graph. This is more decoupled but can lead to short-term inconsistencies if the job is asynchronous.
+
+## Mockito
+
+1. - Mockito is a **mocking framework** for Java. It helps create mock objects so you can **isolate** the class under test from its real dependencies. This is useful when you want to test logic without hitting an actual database, external service, or complicated code in another class.
+2. **Why Use Mocks**
+    
+    - **Isolation**: Test a single class without depending on real implementations of repositories, services, or APIs.
+    - **Determinism**: You can control what the mocked method returns (stubbing), ensuring consistent test results.
+    - **Verification**: Check how many times a method was called, what arguments were passed, etc.
+3. **Typical Usage**
+    
+    java
+    
+    Copy
+    
+```java
+import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+class MyServiceTest {
+
+    @Mock
+    private MyRepository myRepository;
+
+    @InjectMocks
+    private MyService myService; // The class under test
+
+    @Test
+    void testSomethingWithMock() {
+        MockitoAnnotations.openMocks(this);
+
+        // Stub the repository
+        when(myRepository.findSomething()).thenReturn("mocked value");
+
+        // Now call the service method
+        String result = myService.doWork();
+
+        // Verify the result
+        assertEquals("processed: mocked value", result);
+
+        // Check repository interactions
+        verify(myRepository).findSomething();
+    }
+}
+```
+    
+    
+- **`@Mock`**: Tells Mockito to create a mock instance of `MyRepository`.
+- **`@InjectMocks`**: Tells Mockito to inject the mock `MyRepository` into the `myService` instance.
+- **`when(...).thenReturn(...)`**: Stub a method call so it returns a specific value.
+- **`verify(...)`**: Check that the method was called, possibly with certain arguments.
