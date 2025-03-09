@@ -50,3 +50,4 @@ The `Authentication` contains:
 - `credentials`: Often a password. In many cases, this is cleared after the user is authenticated, to ensure that it is not leaked.
     
 - `authorities`: The [`GrantedAuthority`](https://docs.spring.io/spring-security/reference/servlet/authentication/architecture.html#servlet-authentication-granted-authority) instances are high-level permissions the user is granted. Two examples are roles and scopes.
+
