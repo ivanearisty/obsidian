@@ -316,3 +316,5 @@ telnet <target-ip> <port>
 ### Established Connection
 ![[Screenshot 2025-03-10 at 4.55.32 PM.jpg]]
 
+![[Screenshot 2025-03-10 at 6.29.19 PM.jpg]]
+
