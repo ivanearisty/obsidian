@@ -313,4 +313,6 @@ telnet <target-ip> <port>
 ![[Screenshot 2025-02-24 at 6.55.16 PM.jpg]]
 ## Q2 Task 2: TCP RST Attacks on telnet Connections
 
+### Established Connection
+![[Screenshot 2025-03-10 at 4.55.32 PM.jpg]]
 
