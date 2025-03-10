@@ -319,3 +319,10 @@ telnet <target-ip> <port>
 ![[Screenshot 2025-03-10 at 6.29.19 PM.jpg]]
 
 ![[Screenshot 2025-03-10 at 6.42.07 PM.jpg]]
+
+## Q3 TCP Session Hijacking
+
+PreHijack
+![[Screenshot 2025-03-10 at 7.16.15 PM.jpg]]
+![[Screenshot 2025-03-10 at 7.23.20 PM.jpg]]
+![[Screenshot 2025-03-10 at 7.23.37 PM.jpg]]
