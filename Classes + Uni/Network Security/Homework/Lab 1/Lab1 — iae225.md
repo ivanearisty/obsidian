@@ -318,3 +318,4 @@ telnet <target-ip> <port>
 
 ![[Screenshot 2025-03-10 at 6.29.19 PM.jpg]]
 
+![[Screenshot 2025-03-10 at 6.42.07 PM.jpg]]
