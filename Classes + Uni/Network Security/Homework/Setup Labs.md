@@ -40,3 +40,16 @@ sysctl net.ipv4.tcp_synack_retries
 # sysctl -w net.ipv4.tcp_syncookies=0 (turn off SYN cookie)
 # sysctl -w net.ipv4.tcp_syncookies=1 (turn on SYN cookie)
 ```
+
+### Pw
+Xz7zdy5qjnbc7QG
+
+## 2
+
+Starting a telnet server
+
+```
+sudo apt-get install telnetd
+sudo service inetd restart
+```
+
