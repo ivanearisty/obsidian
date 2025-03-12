@@ -30,7 +30,16 @@ Training loss alone is not usually a good metric for model selection. Small loss
 
 Models which perform better on the test set will generalize better to future data.
 
+![[Screenshot 2025-03-11 at 9.37.15 PM.jpg | 500]]
 
-# Numpy and 
+![[Screenshot 2025-03-11 at 9.38.32 PM.jpg | 500]]
+
+Population risk, also known as the true risk, is the expected loss of a model over the entire input distribution. It is the average loss the model incurs across all possible data points.
+
+Empirical risk is an estimate of the population risk based on a finite sample of data. It is the average loss over the training dataset.
+![[Screenshot 2025-03-11 at 9.41.42 PM.jpg | 500]]
+
+# [[Regularization]]
+# Numpy and Pandas
 
 ## Inverse Transformation
