@@ -98,3 +98,14 @@ $$
 
 ### C
 No because we are still adding a penalty of some sort.
+
+## Problem 4: Logistic Regression (12pts)
+### B
+$$
+\begin{gather}
+\text{bias b} = w_{0} \\
+\text{We need to find a linear function that produces at most one error on: } \\
+w_{0}+w_{1}x_{1}+w_{2}+x_{2} \\
+\text{Let } w = [20,]
+\end{gather}
+$$

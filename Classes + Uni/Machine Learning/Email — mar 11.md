@@ -1,6 +1,6 @@
 Hello Professor Sandoval—I hope you are doing well.
 
-I have caught up with the class, but still feel relatively unprepared for the exam today. I have completed all the coursework, but need a few more days to refine my understanding.
+I still feel relatively unprepared for the exam today. I have completed lots of the coursework, but need a few more days to refine my understanding.
 
 Hence, as a last ditch effort to squeeze some more time to prepare, I wanted to ask if I could give the exam when we come back from spring break.
 
