@@ -75,13 +75,26 @@ $$
 A bigger penalty means we sacrifice fit accuracy to keep coefficients small, so the training residual must go up intuitively.
 $$
 \begin{gather}
-\text{If } \lambda_{1}\geq \lambda_{2} \rightarrow 
-\lVert \beta^{*}_{1} \rVert ^{2}_{2} \leq \lVert \beta^{*}_{2} \rVert ^{2}_{2} \\
-\lVert X \rVert 
+
+\text{Teh ridge expression is: }
+min_{\beta} \lVert X \beta - y \rVert ^{2}_{2} + \lambda \lVert \beta \rVert ^{2}_{2} \\
+\\
+\text{We claimed that for any } \lambda \rightarrow \\
+\beta^{*}_{\lambda} = \frac{argmin}{\beta:\lVert \beta \rVert^{2}_{2} < c(\lambda)} \lVert X\beta - y \rVert ^{2}_{2} \\
+\text{which represents the smallest training error achievable } \\
+\text{when you only allow beta to have norm at most c.} \\
+\\
+\text{Also, we have that for } \lambda_{1} > \lambda_{2}, \space c(\lambda_{1}) < c(\lambda_{2}) \\
+\\
+\text{So } \\
+\frac{argmin}{\beta:\lVert \beta \rVert^{2}_{2} < c(\lambda_{1})} \lVert X\beta - y \rVert ^{2}_{2} 
+\geq \frac{argmin}{\beta:\lVert \beta \rVert^{2}_{2} < c(\lambda_{2})} \lVert X\beta - y \rVert ^{2}_{2}
+\\
+\\
+\therefore
+\lVert X\beta_{1}^{*} - y \rVert ^{2}_{2} \geq \lVert X\beta_{2}^{*} - y \rVert ^{2}_{2} \\
 \end{gather}
 $$
 
 ### C
-
-
-
+No because we are still adding a penalty of some sort.
