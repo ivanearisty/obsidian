@@ -65,6 +65,23 @@ $$
 ### A
 $$
 \begin{gather}
-
+\text{We know that }
+\beta^{*} = X^{T}y \space (X^{T}X + \lambda I)^{-1} \\
+\text{In } (X^{T}X + \lambda I)^{-1}, \text{ as } \lambda \text{ increases, } \\
+\text{we are essentially dividing by a bigger value.}
 \end{gather}
 $$
+### B
+A bigger penalty means we sacrifice fit accuracy to keep coefficients small, so the training residual must go up intuitively.
+$$
+\begin{gather}
+\text{If } \lambda_{1}\geq \lambda_{2} \rightarrow 
+\lVert \beta^{*}_{1} \rVert ^{2}_{2} \leq \lVert \beta^{*}_{2} \rVert ^{2}_{2} \\
+\lVert X \rVert 
+\end{gather}
+$$
+
+### C
+
+
+
