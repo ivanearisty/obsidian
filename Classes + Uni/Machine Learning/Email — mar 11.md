@@ -8,7 +8,9 @@ Of course, I understand that this is a very unrealistic request; however, I have
 
 I'd be more than happy to sit in your office and complete it right when we come back. Quite literally can be that same morning or whenever it is best for you.
 
-And, again, I completely understand that this request goes well beyond the usual accommodations for someone in my situation, but I would be tremendously grateful if there were any way to make it happen. If not, I fully respect your decision and will do my best to take the exam as scheduled.
+I completely understand that this request goes well beyond the usual accommodations for someone in my situation, but I would be tremendously grateful if there were any way to make it happen, since withdrawing the class is not financially feasible for me. 
+
+Nevertheless, I fully respect your decision and would do my best to take the exam as scheduled.
 
 Thank you so much for your time and understanding.
 
