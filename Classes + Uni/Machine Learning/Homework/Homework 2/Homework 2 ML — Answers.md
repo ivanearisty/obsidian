@@ -105,7 +105,12 @@ $$
 \begin{gather}
 \text{bias b} = w_{0} \\
 \text{We need to find a linear function that produces at most one error on: } \\
-w_{0}+w_{1}x_{1}+w_{2}+x_{2} \\
-\text{Let } w = [20,]
+w_{0}+w_{1}x_{1}+w_{2}+x_{2} >0 \rightarrow y=1\\
+\text{Let } w \text{with w0 included be } = [-40,1,40] \\
+\text{This incorrectly predicts the third value as yes, but predicts the first value as no.} \\
+\text{All other values become yes.}
 \end{gather}
 $$
+
+### C
+
