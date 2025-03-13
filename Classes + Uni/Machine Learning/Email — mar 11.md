@@ -16,3 +16,26 @@ Thank you so much for your time and understanding.
 
 Cordially,
 Ivan
+
+Hello Professor Mak,
+
+I hope you are doing well!
+
+I am reaching out to inquire whether there is a make-up test for the midterm, or if I could take the exam at a later date.
+
+I am behind in the class due to commitments of my startup and part time role:
+
+Namely, the 20th - 21st we are going to Start Summit 2025 in Switzerland, and got selected to compete in the "start-up pitching competition" where 20 startups compete for an equity free cash prize of 10,000 CHF and 500,000 € in funding from b2venture. This is a massive opportunity for us, and I've been working around the clock to get key features deployed for the 19th (the day of quarterfinals).
+
+Additionally, at my part time job, I just finished a product catalogue + checkout sprint that took lots of my time these past two weeks.
+
+Finally, I have to pick up a friend at the airport on Saturday morning, so I'd not just be unprepared while taking the test—I'd also be a bit sleep deprived.
+
+I completely understand that this request goes well beyond the usual accommodations for someone in my situation, but I would be tremendously grateful if there were any way to make it happen. 
+
+Nevertheless, I fully respect your decision and would do my best to take the exam as scheduled.
+
+Thank you so much for your time and understanding.
+
+Cordially,
+Ivan
