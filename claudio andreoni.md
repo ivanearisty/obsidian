@@ -1,3 +1,2 @@
 # Developing within organizations
 
-## 
