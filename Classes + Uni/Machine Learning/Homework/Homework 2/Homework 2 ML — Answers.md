@@ -161,6 +161,40 @@ $$
 \text{The decision boundary does not really change with our scaling: } 
 z_{i} = \alpha w_{0} + + \alpha w_{1}x_{1}+\alpha w_{2}x_{2} \\
 \text{However, I do think that we push values to be more positive or negative, which, in a way,}\\
-\text{Is like}
+\text{is like saying that we are "more confident?" on our predictions.}
 \end{gather}
 $$
+
+## Problem 5: Tree Based Methods (12pts)
+### A
+We first start at the root and we need to pick a variable as the splitting point.
+To pick this variable we consider how well the variable splits the groups by using RSS.
+So, we evaluate how much each variable reduces the RSS and pick the maximum.
+After this initial split, we keep going for each child in a recursive fashion.
+$$
+\begin{gather}
+\text{Let's say that we have a parent node and have } y_{1}, y_{2},\dots y_{n} \text{ observations, }
+\text{the average is }\bar{y}.\\
+\text{The RSS for teh parent is} RSS_{parent} = \sum_{i=1}^{n}(y_{i}-\bar{y})^{2} \\
+\text{If we split } X_{j} < s \text{ into left and right children:} \\
+RSS_{l} = \sum_{i\in R_{l}}(y_{i}-\bar{y})^{2} \\
+RSS_{r} = \sum_{i\in R_{l}}(y_{i}-\bar{y})^{2} \\
+\text{Then our rss when we split is:  } RSS_{split} = RSS_{l} + RSS_{r} \\
+\text{and the reduction is the difference between RSS from parent and this split.}
+\end{gather}
+$$
+
+### B
+
+### C
+#### Bagging
+Bagging is when we build multiple trees with random, replacement enabled, samples of training data, and average predicitons.
+The benefit is that we reduce the variance from errors in individual trees.
+#### RF
+A RF does bootstrapping, but then every tree is built by selecting a random subset of features as well. This decorrelates the trees further, reducing variance and adds higher aaccuracy
+#### Booooost
+Boosting is building trees iteratively, where each new tree is trained to correct RSS of previous trees. This reduced bias on difficult to predict cases, but can lead to overfitting.
+
+#### General Cons
+For all the examples we talked about, a single tree is very easy to visualize and interpret. A decision can be traced along a path and clearly show how we got to an answer.
+The methods discussed above combine many thousands of trees, greatly reducing interpretability and turning the model into a black box. It is possible to create nice visualizations of thousands of trees to show how we get to decisions, but the
