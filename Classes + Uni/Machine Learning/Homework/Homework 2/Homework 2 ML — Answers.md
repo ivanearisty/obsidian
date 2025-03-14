@@ -130,7 +130,7 @@ $$
 \text{bias b} = w_{0} \\
 \text{We need to find a linear function that produces at most one error on: } \\
 w_{0}+w_{1}x_{1}+w_{2}+x_{2} >0 \rightarrow y=1\\
-\text{Let } w \text{with w0 included be } = [1,-40,40] \\
+\text{Let } w \text{with w0 included be } = [40,1,-40,] \\
 \text{This incorrectly predicts the third value as yes, but predicts the first value as no.} \\
 \text{All other values become yes.}
 \end{gather}
@@ -146,10 +146,21 @@ $$
 $$
 \begin{align}
 P(y_{i} = 1|x_{i}) = \frac{1}{1+e^{-z_{i}}}, z_{i} = w^{T}x_{i} + b && \text{Formula}\\
-f(z_{i} = 30,0) && \frac{1}{1+e^{-(0 \times -40 + 1 \times 30 + 40)}} \\
-f(z_{i} = 50,1) && \frac{1}{1+e^{-(1 \times -40 + 1 \times 50 + 40)}} \\
-f(z_{i} = 70,1) && \frac{1}{1+e^{-(1 \times -40 + 1 \times 70 + 40)}} \\
-f(z_{i} = 80,2) && \frac{1}{1+e^{-(2 \times -40 + 1 \times 80 + 40)}} \\
-f(z_{i} = 100,1) && \frac{1}{1+e^{-(1 \times -40 + 1 \times 100 + 40)}} \\
+f(z_{i} = 30,0) && \frac{1}{1+e^{-(0 \times 40 + 1 \times 30 - 40)}} = -10\\
+f(z_{i} = 50,1) && \frac{1}{1+e^{-(1 \times 40 + 1 \times 50 - 40)}} = 50 \\
+f(z_{i} = 70,1) && \frac{1}{1+e^{-(1 \times 40 + 1 \times 70 - 40)}} = 70\\
+f(z_{i} = 80,2) && \frac{1}{1+e^{-(2 \times 40 + 1 \times 80 - 40)}} = \dots\\
+f(z_{i} = 100,1) && \frac{1}{1+e^{-(1 \times 40 + 1 \times 100 - 40)}} =\dots \\
 \end{align}
+$$
+The least likely comes from the first value where up top we get -10.
+
+### D
+$$
+\begin{gather}
+\text{The decision boundary does not really change with our scaling: } 
+z_{i} = \alpha w_{0} + + \alpha w_{1}x_{1}+\alpha w_{2}x_{2} \\
+\text{However, I do think that we push values to be more positive or negative, which, in a way,}\\
+\text{Is like}
+\end{gather}
 $$
