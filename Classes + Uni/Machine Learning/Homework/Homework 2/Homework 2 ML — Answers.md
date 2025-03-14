@@ -110,7 +110,7 @@ $$
 \begin{gather}
 P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) \\ \\
 P('send, us, your, account' | spam) = \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \\ \\
-P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \times \\ \\ 
+P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \times \frac{2}{3}\\ \\ 
 \end{gather}
 $$
 ### D
@@ -118,21 +118,38 @@ $$
 \begin{gather}
 P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) \\ \\
 P('send, us, your, account' | spam) = \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \\ \\
-P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \times \\ \\ 
+P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \times \frac{2}{3} \\ \\ 
 \end{gather}
 $$
 ## Problem 4: Logistic Regression (12pts)
+### A
+![[Screenshot 2025-03-13 at 8.48.43 PM.jpg]]
 ### B
 $$
 \begin{gather}
 \text{bias b} = w_{0} \\
 \text{We need to find a linear function that produces at most one error on: } \\
 w_{0}+w_{1}x_{1}+w_{2}+x_{2} >0 \rightarrow y=1\\
-\text{Let } w \text{with w0 included be } = [-40,1,40] \\
+\text{Let } w \text{with w0 included be } = [1,-40,40] \\
 \text{This incorrectly predicts the third value as yes, but predicts the first value as no.} \\
 \text{All other values become yes.}
 \end{gather}
 $$
 
 ### C
-
+$$
+\begin{gather}
+P(y_{i} = 1|x_{i}) = \frac{1}{1+e^{-z_{i}}}, z_{i} = w^{T}x_{i} + b \\
+\\
+\end{gather}
+$$
+$$
+\begin{align}
+P(y_{i} = 1|x_{i}) = \frac{1}{1+e^{-z_{i}}}, z_{i} = w^{T}x_{i} + b && \text{Formula}\\
+f(z_{i} = 30,0) && \frac{1}{1+e^{-(0 \times -40 + 1 \times 30 + 40)}} \\
+f(z_{i} = 50,1) && \frac{1}{1+e^{-(1 \times -40 + 1 \times 50 + 40)}} \\
+f(z_{i} = 70,1) && \frac{1}{1+e^{-(1 \times -40 + 1 \times 70 + 40)}} \\
+f(z_{i} = 80,2) && \frac{1}{1+e^{-(2 \times -40 + 1 \times 80 + 40)}} \\
+f(z_{i} = 100,1) && \frac{1}{1+e^{-(1 \times -40 + 1 \times 100 + 40)}} \\
+\end{align}
+$$
