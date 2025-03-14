@@ -104,8 +104,23 @@ No because we are still adding a penalty of some sort.
 ### A
 P(spam) = 2/3
 ### B
-P("password" | spam) = 
-
+P("password" | spam) = 1/2
+### C
+$$
+\begin{gather}
+P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) \\ \\
+P('send, us, your, account' | spam) = \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \\ \\
+P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \times \\ \\ 
+\end{gather}
+$$
+### D
+$$
+\begin{gather}
+P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) \\ \\
+P('send, us, your, account' | spam) = \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \\ \\
+P(spam | 'send, us, your, account') = P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \frac{3+1}{13+6} \times \frac{4+1}{13+6} \times \frac{1+1}{13+6} \times \\ \\ 
+\end{gather}
+$$
 ## Problem 4: Logistic Regression (12pts)
 ### B
 $$
