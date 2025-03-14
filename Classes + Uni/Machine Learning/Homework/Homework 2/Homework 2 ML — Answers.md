@@ -99,6 +99,13 @@ $$
 ### C
 No because we are still adding a penalty of some sort.
 
+## Problem 3: Naive Bayes (12pts)
+
+### A
+P(spam) = 2/3
+### B
+P("password" | spam) = 
+
 ## Problem 4: Logistic Regression (12pts)
 ### B
 $$
