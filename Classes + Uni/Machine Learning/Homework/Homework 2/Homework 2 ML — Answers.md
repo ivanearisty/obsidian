@@ -97,7 +97,7 @@ min_{\beta} \lVert X \beta - y \rVert ^{2}_{2} + \lambda \lVert \beta \rVert ^{2
 $$
 
 ### C
-No because we are still adding a penalty of some sort.
+No, because we are still adding a penalty of some sort. That was the key part, not the method of penalty. I think that as long as the penalty is a real positive number it should not change the conclusions.
 
 ## Problem 3: Naive Bayes (12pts)
 
@@ -185,7 +185,10 @@ RSS_{r} = \sum_{i\in R_{l}}(y_{i}-\bar{y})^{2} \\
 $$
 
 ### B
-
+We want a tree that is both accurate and simple. To achieve this, we measure how well the tree fits the data and how complex the tree is.
+Hence, to create a cost complexity criteria, we say that $Cost=Error+\alpha \times (\text{Number of Leaves})$, where $\alpha$ is a parameter of how much we penalize complexity.
+To decide on the right level of pruning (aka the best 𝛼), cross-validation is used. This means splitting the data into parts, building trees on some parts, and testing how well they predict on the remaining part. 
+Hence, the final tree will give the best balance between low error and simplicity.
 ### C
 #### Bagging
 Bagging is when we build multiple trees with random, replacement enabled, samples of training data, and average predicitons.
@@ -194,7 +197,7 @@ The benefit is that we reduce the variance from errors in individual trees.
 A RF does bootstrapping, but then every tree is built by selecting a random subset of features as well. This decorrelates the trees further, reducing variance and adds higher aaccuracy
 #### Booooost
 Boosting is building trees iteratively, where each new tree is trained to correct RSS of previous trees. This reduced bias on difficult to predict cases, but can lead to overfitting.
-
 #### General Cons
 For all the examples we talked about, a single tree is very easy to visualize and interpret. A decision can be traced along a path and clearly show how we got to an answer.
-The methods discussed above combine many thousands of trees, greatly reducing interpretability and turning the model into a black box. It is possible to create nice visualizations of thousands of trees to show how we get to decisions, but the
+The methods discussed above combine many thousands of trees, greatly reducing interpretability and turning the model into a black box. It is possible to create nice visualizations of thousands of trees to show how we get to decisions, but the interpretability is very majorly reduced.
+Nevertheless, the prediction accuracy of these methods is much much better due to the benefits we discussed above.
