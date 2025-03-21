@@ -79,7 +79,17 @@ Using the skeleton code below, implement ICMP traceroute using scapy. Do NOT use
 
 ## Q4 Sniﬃng and then spoofing program
 
-So many attempts:
+Ubuntu traceroute gives:
+
+![[Screenshot 2025-03-21 at 7.25.59 AM.jpg]] 
+
+or 
+
+![[Screenshot 2025-03-21 at 7.26.20 AM.jpg]]
+
+depending on how it feels...
+
+*So many attempts:*
 
 v1 
 ```python
@@ -221,5 +231,63 @@ while True:
 V4 Out:
 ![[Screenshot 2025-03-21 at 7.06.51 AM.jpg]]
 
-![[Screenshot 2025-03-21 at 7.10.10 AM.jpg | 1200]]
+Final Version:
+```python
+#!/usr/bin/env python3
+from scapy.all import IP, ICMP, sr1
 
+ttl=1
+destination="8.8.8.8"
+
+while True:
+    ip = IP(dst="8.8.8.8", ttl=ttl)
+
+    icmp = ICMP()
+    
+    packet = sr1(ip / icmp, timeout=3, retry=2, verbose=0)
+
+    if packet is None:
+        print(f"TTL {ttl}: No response")
+        ttl += 1
+        continue
+    elif ttl >= 11:
+        break
+    elif packet.type == 3:
+        print("Complete ", packet[IP].src)
+        break
+    else:
+        print("TTL: %d, Source: " %ttl, packet[IP].src)
+        ttl+= 1
+```
+
+![[Screenshot 2025-03-21 at 7.10.10 AM.jpg | 1200]]
+![[Screenshot 2025-03-21 at 7.22.20 AM.jpg]]
+![[Screenshot 2025-03-21 at 7.25.03 AM.jpg | 1000]]
+
+And I got a bunch of "Host administratively prohibited" messages along the way. 
+
+I think they don't like me :D 
+
+![[Screenshot 2025-03-21 at 7.29.17 AM.jpg]]
+## Q4 Sniﬃng and-then Spoofing
+
+Sniﬃng and-then Spoofing. You need two machines on the same LAN: the VM and the user container.
+
+You will find that when you ping from the terminal, 10.9.0.99 will have a destination
+unreachable response. That is the expected result. Your program does not need to work for
+this IP. (You do not need to force it to work by performing ARP spoofing.) You will, however,
+need to explain why your program does not work for IP 10.9.0.99 (while it’s supposed to work
+for 1.2.3.4 and 8.8.8.8).
+
+In this task, you will combine the sniffing and spoofing techniques to implement the following sniff-and-
+then-spoof program. You need two machines on the same LAN. From machine A, you ping an IP X. This
+will generate an ICMP echo request packet. If X is alive, the ping program will receive an echo reply, and
+print out the response. Your sniff-and-then-spoof program runs on the attacker machine, which monitors
+the LAN through packet sniffing. Whenever it sees an ICMP echo request, regardless of what the target IP
+address is, your program should immediately send out an echo reply using the packet spoofing technique.
+Therefore, regardless of whether machine X is alive or not, the ping program will always receive a reply,
+indicating that X is alive. You need to write such a program in C, and include screenshots in your report to
+show that your program works. Please also attach the code (with adequate amount of comments) in your
+report.
+
+### 4.1
