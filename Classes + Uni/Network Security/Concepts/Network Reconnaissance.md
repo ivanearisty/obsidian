@@ -1,4 +1,0 @@
----
-tags:
-  - NS/Concepts/NR
----
