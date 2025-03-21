@@ -1,5 +1,5 @@
 Since seedlabs said from vm or attacker, i ran from vm since i was using python environments that caused issues with permissions
-## Q1 
+## Q1 Packet Sniﬃng and Spoofing
 ### 1.1
 ```python
 ## List Network Interfaces
@@ -46,6 +46,33 @@ pkt = sniff(iface="br-407b98f0a521", filter="net 10.9.0.0/24", prn=print_pkt)
 Used one of the machines for simplicity:
 ![[Screenshot 2025-03-21 at 6.03.03 AM.jpg | 1200]]
 
-## Q2 Task 1.2: Spoofing ICMP Packets
+## Q2 Spoofing ICMP Packets
+
+### 2.1
 
 Spoof an ICMP echo request packet with source IP address 8.8.8.8 and send to Host A. Use Wireshark to show that it replies back with echo replies.
+```python
+from scapy.all import *
+packet = IP(src="8.8.8.8", dst="10.9.0.5") / ICMP()
+send(packet)
+```
+
+Based on the code above, what is the IP address for (1)?
+
+**8.8.8.8**
+
+Based on the code above, what is the IP address for (2)?
+
+**10.9.0.5**
+
+### 2.2
+
+![[Screenshot 2025-03-21 at 6.21.33 AM.jpg | 1200]]
+
+## Q3 Fully-automated Traceroute
+
+Using the skeleton code below, implement ICMP traceroute using scapy. Do NOT use the built-in scapy traceroute function. Perform a traceroute to 8.8.8.8. Show proof using a Wireshark capture and take a screenshot of your program’s output.
+### 
+
+## Q4 Sniﬃng and then spoofing program
+
