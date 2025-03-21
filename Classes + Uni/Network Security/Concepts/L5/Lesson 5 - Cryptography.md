@@ -134,20 +134,9 @@ CT3 = encrypt(PT3 XOR CT2)
 
 ## 8. Diffie-Hellman Key Exchange
 
-Allows two parties (Alice & Bob) to agree on a **shared secret key** without revealing it to eavesdroppers.
+![[Screenshot 2025-03-21 at 6.02.52 PM.jpg | 500]]
 
-1. Choose a large prime nn and a base gg. Both are public.
-2. - Alice picks a secret aa, computes A=gamod  nA = g^a \mod n and sends AA.
-    - Bob picks a secret bb, computes B=gbmod  nB = g^b \mod n and sends BB.
-3. - Alice computes K=Bamod  nK = B^a \mod n.
-    - Bob computes K=Abmod  nK = A^b \mod n.
-4. Both get the **same** shared key KK.
-
-**Example**: If n=23n=23, g=5g=5, a=4a=4, b=3b=3:
-
-- Alice sends A=54mod  23=625mod  23=8 A = 5^4 \mod 23 = 625 \mod 23 = 8.
-- Bob sends B=53mod  23=125mod  23=10 B = 5^3 \mod 23 = 125 \mod 23 = 10.
-- Both compute K=104mod  23=83mod  23=2 K = 10^4 \mod 23 = 8^3 \mod 23 = 2 (whichever expression you use, you get 2).
+![[Screenshot 2025-03-21 at 6.03.27 PM.jpg]]
 
 ---
 
