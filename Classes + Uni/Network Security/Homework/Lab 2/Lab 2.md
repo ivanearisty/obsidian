@@ -292,3 +292,22 @@ report.
 
 ### 4.1
 
+1- packet\[IP].dst
+2- packet\[IP].src
+3- type=0
+4- packet\[ICMP].id
+5- packet\[ICMP].seq
+6- packet\[Raw].load
+7- ip/icmp/raw_data
+8- icmp and icmp\[0] == 8
+
+### 4.2
+
+![[Screenshot 2025-03-21 at 2.22.11 PM.jpg | 1000]]
+
+### 4.3
+
+Ping 10.9.0.99 and show screenshots of the output from your program and with the ping from the terminal. If this does not work, please explain why.
+
+![[Screenshot 2025-03-21 at 2.23.24 PM.jpg]]
+
