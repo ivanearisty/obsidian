@@ -155,25 +155,135 @@ tags:
   - **Application-Specific Replies:** May provide further clues on service status.
 
 ## nmap Scan Types, Purposes, and Advantages/Disadvantages
-- **TCP Connect Scan:**  
-  - **Purpose:** Establish a full connection using the OS’s connect() call.
-  - **Advantages:** Reliable and easy to implement.
-  - **Disadvantages:** Easily logged and detected; slower.
-- **TCP SYN Scan:**  
-  - **Purpose:** Perform a “half-open” scan by not completing the TCP handshake.
-  - **Advantages:** Stealthier and faster than a full connect.
-  - **Disadvantages:** Still detectable by modern IDS/IPS systems.
-- **TCP FIN, NULL, and XMAS Scans:**  
-  - **Purpose:** Exploit TCP RFC 793 behavior to distinguish open vs. closed ports.
-  - **Advantages:** Can bypass some firewall rules on UNIX systems.
-  - **Disadvantages:** May not work on Windows systems or non-RFC-compliant stacks.
-- **TCP ACK Scan:**  
-  - **Purpose:** Map out firewall rules and determine if stateful inspection is in use.
-  - **Advantages:** Useful for firewall rule mapping.
-  - **Disadvantages:** Does not reliabl
 
-## Nessus
-## Metasploit
+## Nmap Scan Types
+
+---
+
+### TCP Connect Scan
+- **Purpose (Simple):**  
+  Establishes a complete TCP connection with the target, just like a normal user would.
+- **How It Works:**  
+  1. The scanner initiates a full TCP handshake by sending a SYN packet.  
+  2. The target responds with a SYN/ACK if the port is open.  
+  3. The scanner completes the handshake by sending an ACK, confirming the port is open; failure to complete indicates the port is closed or filtered.
+- **Advantages:**  
+  - Very reliable and works on most systems.  
+  - Provides clear confirmation of port status.
+- **Disadvantages:**  
+  - Easily logged by target systems.  
+  - Slower due to completing the full connection.
+
+---
+
+### TCP SYN Scan (Half-Open Scan)
+- **Purpose (Simple):**  
+  Checks for open ports by sending a SYN packet without finishing the TCP handshake.
+- **How It Works:**  
+  1. The scanner sends a SYN packet to the target port.  
+  2. If a SYN/ACK is received, the port is considered open.  
+  3. The scanner sends an RST to tear down the connection without completing the handshake.
+- **Advantages:**  
+  - Stealthier and faster than a full connect scan.  
+  - Reduces the amount of logging on the target.
+- **Disadvantages:**  
+  - Modern IDS/IPS can still detect the half-open connections.  
+  - Requires raw packet privileges (e.g., root or administrator access).
+
+---
+
+### TCP FIN Scan
+- **Purpose (Simple):**  
+  Tests port status by sending a TCP packet with only the FIN flag set.
+- **How It Works:**  
+  1. The scanner sends a FIN packet to the target port.  
+  2. If the port is closed, the target replies with an RST.  
+  3. If the port is open, many systems do not respond, indicating a potentially open port.
+- **Advantages:**  
+  - May bypass firewalls that focus on SYN traffic.  
+  - Produces less traffic than full connection scans.
+- **Disadvantages:**  
+  - Ineffective on systems (e.g., Windows) that ignore FIN scans.  
+  - Can be detected by advanced security systems.
+
+---
+
+### TCP NULL Scan
+- **Purpose (Simple):**  
+  Determines port status by sending a TCP packet with no flags set.
+- **How It Works:**  
+  1. The scanner sends a packet with all TCP flags off.  
+  2. Closed ports typically respond with an RST, while open ports generally ignore the packet.
+- **Advantages:**  
+  - May slip past simple firewall filters.  
+  - Useful for fingerprinting based on differing TCP implementations.
+- **Disadvantages:**  
+  - Unreliable on systems that do not strictly follow TCP RFCs.  
+  - Modern defenses can detect unusual packet patterns.
+
+---
+
+### TCP XMAS Scan
+- **Purpose (Simple):**  
+  Identifies open ports using a packet with multiple flags (FIN, URG, PSH) set.
+- **How It Works:**  
+  1. The scanner sends a packet with FIN, URG, and PSH flags turned on (like decorating a tree).  
+  2. Closed ports typically respond with an RST, whereas open ports remain silent.
+- **Advantages:**  
+  - Can bypass firewalls that monitor primarily SYN traffic.  
+  - Helps in OS detection by leveraging non-standard flag responses.
+- **Disadvantages:**  
+  - Often ineffective on Windows and systems that do not follow RFC standards.  
+  - Can still trigger alerts on sophisticated IDS/IPS setups.
+
+---
+
+### TCP ACK Scan
+- **Purpose (Simple):**  
+  Maps out firewall rules by determining whether ports are filtered or unfiltered.
+- **How It Works:**  
+  1. The scanner sends a TCP packet with the ACK flag set to the target.  
+  2. If an RST is returned, the port is considered unfiltered.  
+  3. No response or specific ICMP messages suggest that the port is filtered.
+- **Advantages:**  
+  - Useful for understanding firewall behavior and mapping network security boundaries.
+- **Disadvantages:**  
+  - Does not differentiate between open and closed ports—only indicates filtering status.  
+  - Can be detected by security monitoring systems.
+
+---
+
+### FTP Bounce Scan
+- **Purpose (Simple):**  
+  Uses an FTP server to indirectly scan target ports, potentially masking the scanner's origin.
+- **How It Works:**  
+  1. The scanner connects to a misconfigured FTP server.  
+  2. It uses the FTP PORT command to instruct the server to connect to the target on specific ports.  
+  3. The FTP server’s responses reveal whether those target ports are open or closed.
+- **Advantages:**  
+  - Can hide the true IP address of the attacker.  
+  - Circumvents direct scanning restrictions in some environments.
+- **Disadvantages:**  
+  - Only effective if the FTP server permits such bounce operations.  
+  - Many FTP servers have bounce scanning disabled due to security concerns.
+
+---
+
+### Idle Scan
+- **Purpose (Simple):**  
+  Performs a highly stealthy scan by using a “zombie” host to indirectly infer the status of target ports.
+- **How It Works:**  
+  1. The attacker selects a “zombie” host with a predictable IP ID sequence.  
+  2. Spoofed packets are sent to the target, using the zombie's IP address.  
+  3. By monitoring changes in the zombie’s IP ID field (before and after the spoofed packets), the scanner deduces whether the target port is open.
+- **Advantages:**  
+  - Extremely stealthy, as it conceals the scanner’s identity.  
+  - Difficult for the target to trace back to the attacker.
+- **Disadvantages:**  
+  - Requires a suitable zombie host with predictable behavior.  
+  - Complex to set up and dependent on consistent IP ID incrementation.
+
+
 
 ## Misc 
 ### Attacks
