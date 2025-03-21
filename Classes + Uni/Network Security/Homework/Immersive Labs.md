@@ -143,7 +143,94 @@
 4. **Use Built-in Tools:**  
     For conversation counts or to follow streams (for HTTP), use Wireshark’s Statistics or Follow TCP Stream options.
     
+## TCP dump
+
+## General tcpdump Tips
+
+- **Display vs. Write:**  
+    Use `-r <filename>` to read a PCAP file and `-w <filename>` to write captured packets into a file.
+- **Interface Listing:**  
+    The `-D` option lists all available interfaces. Look for “nflog” in the list to see its assigned number.
+- **No DNS/Service Resolution:**  
+    The `-nn` option tells tcpdump not to convert addresses and port numbers, speeding up output and avoiding ambiguity.
+- **BPF Filters:**  
+    Like Wireshark, tcpdump accepts BPF (Berkeley Packet Filter) syntax to limit output to specific traffic (e.g., by host, port, or protocol).
 
 ---
 
-This guide should help you quickly navigate the PCAP file and answer each lab question during your incident response exercise.
+## Step-by-Step Command Guide for the Lab
+
+### 1. Write Packets to a File
+
+**Question:** Which option can you pass to tcpdump to write captured packets out to a file?  
+**Command:**
+
+```bash
+tcpdump -i <interface> -w capturefile.pcap
+```
+
+**Explanation:**  
+The `-w` option specifies the file to which tcpdump writes the captured packets. (Replace `<interface>` with your active interface if capturing live traffic.)
+
+---
+
+### 2. List All Available Interfaces
+
+**Question:** Using tcpdump, list all the available interfaces. What number is `nflog` listed as?  
+**Command:**
+
+```bash
+tcpdump -D
+```
+
+**Explanation:**  
+This command outputs all available interfaces with assigned numbers. Look through the output for the line containing “nflog” to note its number.
+
+---
+
+### 3. Display ASCII and Hex Representation of Packets
+
+**Question:** Which option can be passed to tcpdump to display the ASCII and hex representation of the packet contents?  
+**Command:**
+
+```bash
+tcpdump -nn -X -r tcpdump.pcap
+```
+
+**Explanation:**  
+The `-X` option prints each packet’s data in both hexadecimal and ASCII, helping you see the full packet content. The `-nn` option prevents conversion of IPs/ports.
+
+---
+
+### 4. Filter for a Specific IP and Find the Final Packet's Time
+
+**Question:** Using tcpdump, read the packets from `tcpdump.pcap` and filter packets to include IP address `88.221.88.59` only. What is the time shown on the final packet (HH:MM:SS)?  
+**Command:**
+
+```bash
+tcpdump -nn -r tcpdump.pcap 'host 88.221.88.59'
+```
+
+**Explanation:**  
+This command reads the PCAP file and only displays packets where `88.221.88.59` is either the source or destination. Scroll to the final displayed packet and note the timestamp (formatted as HH:MM:SS) shown at the beginning of the line.
+
+---
+
+### 5. Filter by IP and Port, Write to File, and Compute MD5sum
+
+**Question:** Using tcpdump, read the packets from `tcpdump.pcap` and filter packets to include IP address `184.107.41.72` and port `80` only. Write these packets to a new file and compute its MD5sum. What is the MD5sum shown?  
+**Commands:**
+
+```bash
+tcpdump -nn -r tcpdump.pcap 'host 184.107.41.72 and port 80' -w filtered.pcap
+md5sum filtered.pcap
+```
+
+**Explanation:**
+
+- The first command applies a BPF filter that captures only packets with IP `184.107.41.72` and port `80`, then writes the filtered packets to `filtered.pcap`.
+- The second command calculates and displays the MD5 checksum of that file. Note down the MD5sum as your answer.
+
+---
+
+This guide should help you efficiently use tcpdump to answer each lab question and perform Incident Response analysis on your PCAP files. Happy analyzing!
