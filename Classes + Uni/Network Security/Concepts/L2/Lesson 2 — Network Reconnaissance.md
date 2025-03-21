@@ -293,7 +293,7 @@ tags:
   - Requires a suitable zombie host with predictable behavior.  
   - Complex to set up and dependent on consistent IP ID incrementation.
 
-
+![[Screenshot 2025-03-21 at 2.25.51 AM.jpg]]
 
 ## Misc 
 ### Attacks
