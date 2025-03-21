@@ -119,31 +119,18 @@ CT3 = encrypt(PT3 XOR CT2)
 
 ## 7. RSA Key Generation & Encryption
 
-### 7.1 RSA Key Steps
+![[Screenshot 2025-03-21 at 4.54.44 PM.jpg | 500]]
 
-1. **Pick two large primes** pp and qq.
-2. Compute n=p×qn = p \times q.
-3. Compute φ=(p−1)(q−1)\varphi = (p-1)(q-1).
-4. Choose an ee that is relatively prime to φ\varphi.
-5. Compute dd such that e×d≡1mod  φe \times d \equiv 1 \mod \varphi.
-6. **Public Key:** (n,e)(n, e), **Private Key:** (n,d)(n, d).
+![[Screenshot 2025-03-21 at 4.57.02 PM.jpg | 600]]
+![[Screenshot 2025-03-21 at 5.00.17 PM.jpg | 500]]
 
-### 7.2 RSA Example
 
-- If p=23,q=83p=23, q=83, then:
-    - n=1909n = 1909
-    - φ=1804\varphi = 1804
-    - Smallest valid ee might be 33.
-    - Find dd such that 3×d≡1mod  18043 \times d \equiv 1 \mod 1804. Suppose d=1203d=1203.
-- **Encryption**: c=memod  nc = m^e \mod n.
-- **Decryption**: m=cdmod  nm = c^d \mod n.
+![[Screenshot 2025-03-21 at 5.05.17 PM.jpg | 500]]
+![[Screenshot 2025-03-21 at 5.06.47 PM.jpg | 500]]
 
-### 7.3 Example RSA Operations
-
-- **Encrypt m=100m=100**: c=1003mod  1909≈1593c = 100^3 \mod 1909 \approx 1593.
-- **Decrypt c=1593c=1593**: m=15931203mod  1909=100m = 1593^{1203} \mod 1909 = 100.
-
----
+![[Screenshot 2025-03-21 at 5.07.24 PM.jpg | 500]]
+![[Screenshot 2025-03-21 at 5.10.06 PM.jpg | 500]]
+![[Screenshot 2025-03-21 at 5.13.34 PM.jpg | 500]]
 
 ## 8. Diffie-Hellman Key Exchange
 
