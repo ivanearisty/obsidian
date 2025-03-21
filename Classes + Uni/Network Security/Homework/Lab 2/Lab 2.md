@@ -16,7 +16,7 @@ ICMP
 ### 1.3
 "ping" command uses the Internet Control Message Protocol (ICMP) to test network connectivity:
 we ping seed@5f6ab58c1854 from seed@a5e78c282aa2
-![[Screenshot 2025-03-21 at 5.52.13 AM.jpg | 1200]]
+![[Screenshot 2025-03-21 at 5.52.13 AM.jpg | 600]]
 ### 1.4
 Capture any TCP packet that comes from a specific IP and with a destination port number 23.
 
@@ -33,7 +33,7 @@ def print_pkt(pkt):
 pkt = sniff(iface="br-407b98f0a521", filter="tcp and host 10.9.0.5 and port 23", prn=print_pkt)
 ```
 Used one of the machines for simplicity:
-![[Screenshot 2025-03-21 at 6.00.37 AM.jpg | 1200]]
+![[Screenshot 2025-03-21 at 6.00.37 AM.jpg | 600]]
 
 ### 1.6
 net 10.9.0.0/24
@@ -44,7 +44,7 @@ def print_pkt(pkt):
 pkt = sniff(iface="br-407b98f0a521", filter="net 10.9.0.0/24", prn=print_pkt)
 ```
 Used one of the machines for simplicity:
-![[Screenshot 2025-03-21 at 6.03.03 AM.jpg | 1200]]
+![[Screenshot 2025-03-21 at 6.03.03 AM.jpg | 600]]
 
 ## Q2 Spoofing ICMP Packets
 
@@ -67,7 +67,7 @@ Based on the code above, what is the IP address for (2)?
 
 ### 2.2
 
-![[Screenshot 2025-03-21 at 6.21.33 AM.jpg | 1200]]
+![[Screenshot 2025-03-21 at 6.21.33 AM.jpg | 600]]
 
 ## Q3 Fully-automated Traceroute
 
@@ -260,7 +260,7 @@ while True:
         ttl+= 1
 ```
 
-![[Screenshot 2025-03-21 at 7.10.10 AM.jpg | 1200]]
+![[Screenshot 2025-03-21 at 7.10.10 AM.jpg | 600]]
 ![[Screenshot 2025-03-21 at 7.22.20 AM.jpg]]
 ![[Screenshot 2025-03-21 at 7.25.03 AM.jpg | 1000]]
 
@@ -292,6 +292,29 @@ report.
 
 ### 4.1
 
+```python
+#!/usr/bin/env python3
+from scapy.all import *
+def sniff_and_spoof(packet):
+    if ICMP in packet:
+        # Reverse source and destination 
+        ip = IP(src=packet[IP].dst, dst=packet[IP].src)
+
+        # Create ICMP echo reply
+        icmp = ICMP(type=0, id=packet[ICMP].id, seq=packet[ICMP].seq)
+
+        if Raw in packet:
+            raw_data = packet[Raw].load
+        else:
+            raw_data = ""
+
+        new_packet= ip/icmp/raw_data
+
+        send(new_packet, verbose=0)
+        print("Sent packet: ", new_packet.summary())
+pkt = sniff(filter="icmp and icmp[0] == 8", prn=sniff_and_spoof, iface="br-407b98f0a521")
+```
+
 1- packet\[IP].dst
 2- packet\[IP].src
 3- type=0
@@ -309,5 +332,14 @@ report.
 
 Ping 10.9.0.99 and show screenshots of the output from your program and with the ping from the terminal. If this does not work, please explain why.
 
-![[Screenshot 2025-03-21 at 2.23.24 PM.jpg]]
+![[Screenshot 2025-03-21 at 2.28.46 PM.jpg]]
 
+When our host pings an IP on the LAN, it wants to resolve the MAC from IP through ARP. Since no machine actually owns 10.9.0.99, ARP gets no reply. 
+
+Since ARP is never delivered, we see no ICMP requests from our attacker or wireshark, which is consistent since there is no poisoned arp cache.
+
+When ip is outside LAN, the default gateway is the one tasked with responding to ARP requests, so icmp is delivered and we can spoof them.
+
+### 4.4
+
+![[Screenshot 2025-03-21 at 2.30.46 PM.jpg]]
