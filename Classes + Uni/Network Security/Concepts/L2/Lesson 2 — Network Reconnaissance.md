@@ -69,12 +69,59 @@ tags:
 
 ## Whois and DNS Reconnaissance
 - **Whois:**  
-  - Query domain registration records to obtain owner, contact, and server details.
+  - **Purpose:**  
+    - Query domain registration records.  
+  - **Details:**  
+    - Retrieve information such as domain owner, contact details, and server records.
 - **DNS Recon:**  
-  - **Zone Transfers:** Use tools (e.g., `dig`) to attempt AXFR transfers and list DNS records.
-  - **Record Types:** Identify A, MX, NS, CNAME, SOA, SRV, PTR, TXT, and HINFO records.
-  - **Brute Forcing:** Employ DNS mapping tools to enumerate subdomains.
-  - **Split DNS:** Understand that external and internal DNS servers may provide different views of network resources.
+  - **Zone Transfers:**  
+    - **Tool Example:** `dig`  
+    - **Purpose:**  
+      - Attempt AXFR transfers to list all DNS records.
+  - **Record Types:**  
+    - **Types Include:**  
+      - **A:** Maps a hostname to an IPv4 address.
+      - **MX:** Identifies the mail exchange server for the domain.
+      - **NS:** Specifies the authoritative name servers.
+      - **CNAME:** Provides canonical names or aliases for hosts.
+      - **SOA:** Indicates the start of a DNS zone, containing essential zone information.
+      - **SRV:** Lists available services and their locations.
+      - **PTR:** Used for reverse DNS lookups.
+      - **TXT:** Contains human-readable information or security configurations (e.g., SPF records).
+      - **HINFO:** Provides details about the host's hardware and operating system.
+  - **Brute Forcing:**  
+    - **Purpose:**  
+      - Employ DNS mapping tools to enumerate subdomains.
+    - **Details:**  
+      - Helps uncover hidden or non-public DNS entries.
+  - **Split DNS:**  
+    - **Concept:**  
+      - External and internal DNS servers may display different views of network resources.
+    - **Purpose:**  
+      - Prevent internal network details from being exposed to the public.
+
+## Methods for REC 
+**1. Public Information Gathering (Open-Source Intelligence or OSINT)**
+
+- **Method Description:** Attackers collect data from publicly available sources such as company websites, social media platforms, online forums, or regulatory filings (e.g., SEC’s Edgar). This helps them build a profile of the target organization’s infrastructure, personnel, and potential vulnerabilities.
+- **Security Measure:**
+    - **Limit Public Exposure:** Implement strict policies on what information employees can share publicly. Regularly review and sanitize sensitive data on websites, social media, and other public platforms.
+
+---
+
+**2. Whois and DNS Enumeration**
+
+- **Method Description:** Attackers query domain registration (Whois) records to discover ownership details, contact information, and name servers. They also attempt DNS zone transfers or brute-force subdomains to reveal hostnames, IP addresses, and network structures.
+- **Security Measure:**
+    - **Harden DNS Servers:** Disable or restrict DNS zone transfers (AXFR) to authorized hosts only. Maintain privacy by using registrar services that mask personal contact details in Whois records.
+
+---
+
+**3. Port Scanning (e.g., Using Nmap)**
+
+- **Method Description:** Attackers send probes (TCP/UDP packets) to a target’s IP address range to identify open ports and running services. This information is then used to find vulnerabilities in those services.
+- **Security Measure:**
+    - **Firewall and Intrusion Detection/Prevention Systems:** Configure firewalls to limit or block unauthorized inbound scanning. Use IDS/IPS solutions to detect and respond to suspicious scanning patterns, and employ network segmentation to minimize exposure of critical systems.
 
 ## Fields in a IP, TCP, UDP, and ICMP Header
 - **IP Header Fields:**  
