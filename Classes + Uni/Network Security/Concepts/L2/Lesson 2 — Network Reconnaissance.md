@@ -147,16 +147,26 @@ tags:
   - **RST/ACK:** Indicates a closed port.
   - **ICMP Unreachable:** May indicate filtered ports (blocked by firewall), route not found/host doesnt exist.
   - **No Response/Timeout**: May indicate filtered ports (blocked by not nice firewall), route not found/host doesnt exist.
-- **UDP Scanning Methods:**  
-  - Send UDP packets to target ports.
+
+### UDP Scan
+- **Purpose (Simple):**  
+  Uses UDP packets to probe target ports and determine service availability without establishing a connection.
+- **How It Works:**  
+  1. The scanner sends a UDP packet to the target port.  
+  2. If the port is closed, the target typically responds with an ICMP "port unreachable" message.  
+  3. If the port is open, there is usually no response, or an application-specific reply may be returned.
+- **Advantages:**  
+  - Simple, since UDP is connectionless and does not require a handshake.  
+  - Can detect services that might not respond to TCP-based scans.
+- **Disadvantages:**  
+  - Ambiguous results: a lack of response can mean open, filtered, or that packets were dropped.  
+  - Scanning can be slow due to rate limiting (e.g., some systems limit ICMP responses) and potential packet loss.  
+  - Many modern firewalls and IDS/IPS systems are configured to block or rate-limit ICMP messages, complicating analysis.
 - **Possible UDP Responses:**  
   - **No Response:** Could mean open or filtered.
   - **ICMP Unreachable (or Port Unreachable):** Indicates a closed port.
   - **Application-Specific Replies:** May provide further clues on service status.
-
 ## nmap Scan Types, Purposes, and Advantages/Disadvantages
-
-## Nmap Scan Types
 
 ---
 
