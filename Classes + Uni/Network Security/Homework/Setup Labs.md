@@ -59,3 +59,5 @@ Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State
 tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN
 tcp        0      0 127.0.0.11:40553        0.0.0.0:*               LISTEN]]
+
+https://github.com/seed-labs/seed-labs/blob/master/manuals/cloud/seedvm-cloud.md
