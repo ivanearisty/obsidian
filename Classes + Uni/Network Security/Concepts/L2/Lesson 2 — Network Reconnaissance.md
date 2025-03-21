@@ -100,6 +100,8 @@ tags:
     - **Purpose:**  
       - Prevent internal network details from being exposed to the public.
 
+
+
 ## Methods for REC 
 **1. Public Information Gathering (Open-Source Intelligence or OSINT)**
 
@@ -124,6 +126,7 @@ tags:
     - **Firewall and Intrusion Detection/Prevention Systems:** Configure firewalls to limit or block unauthorized inbound scanning. Use IDS/IPS solutions to detect and respond to suspicious scanning patterns, and employ network segmentation to minimize exposure of critical systems.
 
 ## Fields in a IP, TCP, UDP, and ICMP Header
+- *Hosts have 65k tcp/udp ports*
 - **IP Header Fields:**  
   - Version, Header Length, Type of Service, Total Length, Identification, Flags, Fragment Offset, Time to Live (TTL), Protocol, Header Checksum, Source IP, Destination IP, Options.
 - **TCP Header Fields:**  
@@ -133,6 +136,7 @@ tags:
 - **ICMP Header Fields:**  
   - Type, Code, Checksum, Identifier, Sequence Number (plus any additional data).
 
+![[Screenshot 2025-03-20 at 9.56.17 PM.jpg]]
 ## Method and Possible Responses for Port Scanning with TCP and UDP Packets
 - **TCP Scanning Methods:**  
   - **TCP Connect Scan:** Establishes a full TCP connection.
@@ -141,7 +145,8 @@ tags:
 - **Possible TCP Responses:**  
   - **SYN/ACK:** Indicates an open port.
   - **RST/ACK:** Indicates a closed port.
-  - **No Response/ICMP Unreachable:** May indicate filtered ports.
+  - **ICMP Unreachable:** May indicate filtered ports (blocked by firewall), route not found/host doesnt exist.
+  - **No Response/Timeout**: May indicate filtered ports (blocked by not nice firewall), route not found/host doesnt exist.
 - **UDP Scanning Methods:**  
   - Send UDP packets to target ports.
 - **Possible UDP Responses:**  
