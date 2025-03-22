@@ -103,17 +103,33 @@ Input | Output
 
 ---
 
-## 6. CBC Example
+## 6. CBC PCBC CFB
 
 - **Given** the same table from above and **IV = 110** for the first block:
     1. XOR the first plaintext block with `110`, then look up the result in the table.
     2. Use the **previous ciphertext block** as the XOR input for the next block, etc.
 - This ensures identical plaintext blocks yield different ciphertext because each block depends on the last.
-![[Screenshot 2025-03-21 at 4.48.40 PM.jpg | 400]]
+![[Screenshot 2025-03-21 at 4.48.40 PM.jpg | 700]]
 
-CT1 = encrypt(IV XOR PT1)
-CT2 = encrypt(PT2 XOR CT1)
-CT3 = encrypt(PT3 XOR CT2)
+**CT1 = encrypt(IV XOR PT1)**
+**CT2 = encrypt(PT2 XOR CT1)**
+**CT3 = encrypt(PT3 XOR CT2)**
+
+ERROR CHECKING:
+decrypt it.
+![[Screenshot 2025-03-21 at 8.31.27 PM.jpg]]
+
+### PCBC
+
+![[Screenshot 2025-03-21 at 8.33.03 PM.jpg | 900]]
+
+### CFB
+![[Screenshot 2025-03-21 at 8.33.46 PM.jpg | 90]]
+
+### OFB
+
+
+![[Screenshot 2025-03-21 at 8.34.42 PM.jpg | 900]]
 
 ---
 
