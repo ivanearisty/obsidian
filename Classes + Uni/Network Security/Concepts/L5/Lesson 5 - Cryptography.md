@@ -132,9 +132,13 @@ CT3 = encrypt(PT3 XOR CT2)
 ![[Screenshot 2025-03-21 at 5.10.06 PM.jpg | 500]]
 ![[Screenshot 2025-03-21 at 5.13.34 PM.jpg | 500]]
 
+DECRYPTION:
+![[Screenshot 2025-03-21 at 8.23.11 PM.jpg]]
 ## 8. Diffie-Hellman Key Exchange
 
-![[Screenshot 2025-03-21 at 6.02.52 PM.jpg | 500]]
+![[Screenshot 2025-03-21 at 8.08.23 PM.jpg]]
+
+![[Screenshot 2025-03-21 at 8.13.06 PM.jpg]]
 
 ![[Screenshot 2025-03-21 at 6.03.27 PM.jpg]]
 

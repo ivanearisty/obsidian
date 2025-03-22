@@ -148,7 +148,9 @@ tags:
   - **ICMP Unreachable:** May indicate filtered ports (blocked by firewall), route not found/host doesnt exist.
   - **No Response/Timeout**: May indicate filtered ports (blocked by not nice firewall), route not found/host doesnt exist.
 
+![[Screenshot 2025-03-21 at 8.01.12 PM.jpg | 800]]
 ### UDP Scan
+*harder*
 - **Purpose (Simple):**  
   Uses UDP packets to probe target ports and determine service availability without establishing a connection.
 - **How It Works:**  
@@ -162,9 +164,12 @@ tags:
   - Ambiguous results: a lack of response can mean open, filtered, or that packets were dropped.  
   - Scanning can be slow due to rate limiting (e.g., some systems limit ICMP responses) and potential packet loss.  
   - Many modern firewalls and IDS/IPS systems are configured to block or rate-limit ICMP messages, complicating analysis.
-- **Possible UDP Responses:**  
-  - **No Response:** Could mean open or filtered.
+- **Possible UDP Responses:** 
+  - **Response**: Port is open
+  - **No Response:** Could be filtered or improperly formatted package. Nmap characterizes this as you don't know, so it says that it's "**OPEN FILTERED**" 
   - **ICMP Unreachable (or Port Unreachable):** Indicates a closed port.
+	  - LIMITED 1s in linus 2s in windows because of an attack
+	  - takes 18 hours to scan all udp ports
   - **Application-Specific Replies:** May provide further clues on service status.
 ## nmap Scan Types, Purposes, and Advantages/Disadvantages
 
