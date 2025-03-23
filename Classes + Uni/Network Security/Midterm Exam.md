@@ -194,3 +194,25 @@ Cipher: 011
 ### vinegre
 ![[Screenshot 2025-03-21 at 4.33.59 PM.jpg]]
 ![[Screenshot 2025-03-21 at 4.33.59 PM copy.jpg]]
+
+
+## 8.6
+p is prime
+q is prime
+
+prime times prime
+
+3 5
+
+1. KeyExpansion – round keys are derived from the cipher key using the [AES key schedule](https://en.wikipedia.org/wiki/AES_key_schedule "AES key schedule"). AES requires a separate 128-bit round key block for each round plus one more.
+2. Initial round key addition:
+    1. AddRoundKey – each byte of the state is combined with a byte of the round key using [bitwise xor](https://en.wikipedia.org/wiki/Bitwise_xor "Bitwise xor").
+3. 9, 11 or 13 rounds:
+    1. SubBytes – a [non-linear](https://en.wikipedia.org/wiki/Linear_map "Linear map") substitution step where each byte is replaced with another according to a [lookup table](https://en.wikipedia.org/wiki/Rijndael_S-box "Rijndael S-box").
+    2. ShiftRows – a transposition step where the last three rows of the state are shifted cyclically a certain number of steps.
+    3. MixColumns – a linear mixing operation which operates on the columns of the state, combining the four bytes in each column.
+    4. AddRoundKey
+4. Final round (making 10, 12 or 14 rounds in total):
+    1. SubBytes
+    2. ShiftRows
+    3. AddRoundKey
