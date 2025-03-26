@@ -77,6 +77,8 @@ Using the skeleton code below, implement ICMP traceroute using scapy. Do NOT use
 - B: **8.8.8.8**
 - C: packet\[ICMP].type
 
+![[Screenshot 2025-03-25 at 8.28.59 PM.png]]
+
 ## Q4 Sniﬃng and then spoofing program
 
 Ubuntu traceroute gives:
