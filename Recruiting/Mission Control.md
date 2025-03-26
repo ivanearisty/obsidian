@@ -89,3 +89,7 @@ Congress Project
 5. Business logic (follow a senator, follow a bill, aka business functionality and what our users want to do) Chun-Ju
 
 [Congress Api ](https://api.congress.gov/)
+
+## LC TBD
+[Elevate Your Interviews - a list by karan_8082 - LeetCode](https://leetcode.com/list/p2ev53vt/) [Random Pick with Weight - LeetCode](https://leetcode.com/problems/random-pick-with-weight/description/) [Longest Univalue Path - LeetCode](https://leetcode.com/problems/longest-univalue-path/description/)
+
