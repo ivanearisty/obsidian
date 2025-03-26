@@ -320,9 +320,9 @@ pkt = sniff(filter="icmp and icmp[0] == 8", prn=sniff_and_spoof, iface="br-407b9
 1- packet\[IP].dst
 2- packet\[IP].src
 3- type=0
-4- packet\[ICMP].id
-5- packet\[ICMP].seq
-6- packet\[Raw].load
+4- pkt[ICMP].id
+5- pkt[ICMP].seq
+6- pkt[Raw].load
 7- ip/icmp/raw_data
 8- icmp and icmp\[0] == 8
 
