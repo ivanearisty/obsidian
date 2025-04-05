@@ -193,7 +193,7 @@ Cipher: 011
 
 ### vinegre
 ![[Screenshot 2025-03-21 at 4.33.59 PM.jpg]]
-![[Screenshot 2025-03-21 at 4.33.59 PM copy.jpg]]
+![[Screenshot 2025-03-21 at 4.33.59 PM copy 1.jpg]]
 
 
 ## 8.6
