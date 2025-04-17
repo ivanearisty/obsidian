@@ -348,3 +348,33 @@ bash
     - Go back to the **Host A terminal** where the Telnet session is active.
     - **Type a single uppercase 'Q'.**
 
+## 3
+- **Open two _new_ terminals connected to Host M.** (You'll now have one for `mitm_netcat.py`, one for poisoning A, and one for poisoning B).
+- **In the first new Host M terminal, run:**
+    
+    bash
+    
+- ```
+    # Terminal 1 (Poison A) - on Host M
+    while true; do sudo python3 poison_a.py; sleep 2; done
+    ```
+    
+    This will send a poison packet to Host A every 2 seconds.
+- **In the second new Host M terminal, run:**
+    
+    bash
+    
+- ```
+    # Terminal 2 (Poison B) - on Host M
+    while true; do sudo python3 poison_b.py; sleep 2; done
+    ```
+    
+    This will send a poison packet to Host B every 2 seconds.
+- **Now, follow the steps for the Netcat MITM again:**
+    - Ensure `ip_forward=1` (on Host M).
+    - Start `nc -lp 9090` (on Host B).
+    - Start `nc 10.9.0.6 9090` (on Host A).
+    - Set `ip_forward=0` (on Host M).
+    - Run `sudo python3 mitm_netcat.py` (in your original Host M terminal).
+    - Type your student ID (`iae225`) on Host A and press Enter.
+    - Check Host B's output.
