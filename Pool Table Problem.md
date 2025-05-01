@@ -1,1 +1,0 @@
-How many swaps do you need to get a pool table arrangement to the right position

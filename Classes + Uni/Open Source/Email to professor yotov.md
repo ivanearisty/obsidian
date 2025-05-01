@@ -1,3 +1,7 @@
+---
+tags:
+  - email
+---
 Hello Professor Yotov, 
 
 I wanted to take a moment to express how much I'm enjoying your course this semester. I came to Tandon exactly for a class like this, focused on modern development workflows and effective team collaboration.
