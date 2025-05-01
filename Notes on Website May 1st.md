@@ -1,3 +1,7 @@
+---
+tags:
+  - Leap
+---
 # Pages
 ## Main Page
 
@@ -25,3 +29,15 @@
 ## Communities
 - [ ] Communities section check availability right above the section for inputting details makes little to no sense...
 - [ ] Removed the button for CTA since the form is basically right there
+
+## Business
+
+- [ ] Should Custom create a modal for submitting a ticket like the ones in communities?
+![[Pasted image 20250501060641.png | 300]]
+
+- [ ] What should "partner with us" lead to?
+![[Pasted image 20250501060531.png]]
+
+- [ ] What should check availability of how to get started lead to?
+![[Pasted image 20250501062118.png | 400]]
+
