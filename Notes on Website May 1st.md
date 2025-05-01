@@ -5,8 +5,11 @@ tags:
 # Pages
 ## Main Page
 
-- [ ] Mirna indicated that she wants additional banners on this screen, not just additional photos. What is the content for the banners and what should they look like?
-- [ ] This picture needs to be updated to multigenerational family. This seems targeted to just one segment. -Mirna
+- [x] Mirna indicated that she wants additional banners on this screen, not just additional photos. What is the content for the banners and what should they look like?
+- [x] This picture needs to be updated to multigenerational family. This seems targeted to just one segment. -Mirna
+
+Should link to Communities
+Should link to MiFi
 ![[Screenshot 2025-05-01 at 3.46.40 AM.png]]
 
 - [ ] From Flor's comment: "I suggest to make these bigger and clickable to either a contact form or products page or something like that." I think this element is somewhat useless at the moment. We do not offer voice or streaming, just WiFi on the go. I propose removing it, or talking only about WiFi on the go. Maybe this can funnel into the product page for WiFi on the go.
@@ -42,6 +45,7 @@ tags:
 ![[Pasted image 20250501062118.png | 400]]
 
 ## Product
+Product Page should be a summary of all the products that we have.
 
 - [ ] We need the other banners for this:
 ![[Pasted image 20250501133318.png | 500]]
