@@ -18,7 +18,10 @@
 - [ ] FAQ button will be removed for now, since we do not have a dedicated FAQ yet. We will have it back when this is developed as copy.
 ![[Screenshot 2025-05-01 at 4.09.10 AM.png]]
 
-- [ ] Main modal has to be updated. Do we want to guide users to a specific page when the modal is pressed (like the checkout page?) instead of collecting their emails? Do we want to ask in the modal
+- [ ] Main modal has to be updated. Do we want to guide users to a specific page when the modal is pressed (like the checkout page?) instead of collecting their emails? Do we want to ask in the modal whether they are interested in business or community and guide them to the respective page for the product?
+![[Pasted image 20250501042422.png | 400]]
+![[Pasted image 20250501042413.png | 400]]
+
 ## Communities
 Communities section check availability right above the section for inputting details makes little to no sense...
 
