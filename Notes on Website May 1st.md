@@ -41,3 +41,7 @@ tags:
 - [ ] What should check availability of how to get started lead to?
 ![[Pasted image 20250501062118.png | 400]]
 
+## Product
+
+- [ ] We need the other banners for this:
+![[Pasted image 20250501133318.png | 500]]
