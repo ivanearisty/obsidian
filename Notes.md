@@ -23,5 +23,5 @@
 ![[Pasted image 20250501042413.png | 400]]
 
 ## Communities
-Communities section check availability right above the section for inputting details makes little to no sense...
-
+- [ ] Communities section check availability right above the section for inputting details makes little to no sense...
+- [ ] Removed the button for CTA since the form is basically right there
