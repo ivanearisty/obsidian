@@ -51,9 +51,9 @@ Allowing dev-containers traffic from host VM
 ```bash
 # Necessary rules to run vscode:dev-containers 
 # Allowing incoming tcp traffic from the Docker bridge IP
-sudo iptables -I INPUT 1 -s 172.17.0.1 -p tcp -j ACCEPT
+iptables -I INPUT 1 -s 172.17.0.1 -p tcp -j ACCEPT
 # Allowing outgoing tcp traffic to the Docker bridge IP 
-sudo iptables -I OUTPUT 1 -d 172.17.0.1 -p tcp -j ACCEPT
+iptables -I OUTPUT 1 -d 172.17.0.1 -p tcp -j ACCEPT
 # End of necessary rules
 
 # Start of default policy rules
@@ -87,4 +87,37 @@ iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 iptables -P OUTPUT DROP #Set default rule for OUTPUT
 iptables -P INPUT DROP #Set default rule for INPUT
+```
+
+### 2.2
+```bash
+#!/bin/bash
+# Necessary rules to run vscode:dev-containers 
+# Allowing incoming tcp traffic from the Docker bridge IP
+iptables -I INPUT 1 -s 172.17.0.1 -p tcp -j ACCEPT
+# Allowing outgoing tcp traffic to the Docker bridge IP 
+iptables -I OUTPUT 1 -d 172.17.0.1 -p tcp -j ACCEPT
+# End of necessary rules
+
+# Start of default policy rules
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+# End of default policy rules
+
+# Start of custom rules
+
+# Allow Internal -> External Ping Requests
+iptables -A FORWARD -i eth1 -o eth0 -p icmp --icmp-type echo-request -j ACCEPT
+
+# Allow External -> Internal Ping Replies
+iptables -A FORWARD -i eth0 -o eth1 -p icmp --icmp-type echo-reply -j ACCEPT
+
+# Allow the router to receive ping requests
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+# Allow the router to send ping replies
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+# End of custom rules
 ```
