@@ -74,7 +74,7 @@ iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
 iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 
-```
+```bash
 # Necessary rules to run vscode:dev-containers 
 # Allowing incoming tcp traffic from the Docker bridge IP
 iptables -I INPUT 1 -s 172.17.0.1 -p tcp -j ACCEPT
