@@ -25,4 +25,31 @@ iptables -t filter -D INPUT 2
 iptables -t filter -A INPUT <rule> -j DROP
 ```
 ## Tasks
+Showing rules
+iptables -L -v
+
+Flushing rules
+iptables -F
+
+iptables -F INPUT
+iptables -F OUTPUT
+
+Setting default policy:
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+Writing rules
+
+``` bash
+my.rules > vim
+chmod 755 my.rules # makes it executable
+./my.rules
+```
+
+### 2.1
+1. **Allow incoming ICMP echo requests (ping requests):**
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+ 2. **Allow outgoing ICMP echo replies (ping replies):**
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 

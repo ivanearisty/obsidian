@@ -73,3 +73,6 @@ b1004832e275 hostA-10.9.0.5
 9652715c8e0a hostC-10.9.0.7
 $ docksh 96
 root@9652715c8e0a:/#
+
+docker ps -a SHOW EVEN NOT RUNNING CONTAINERS 
+show 
