@@ -24,7 +24,7 @@ iptables -t filter -D INPUT 2
 // Drop all the incoming packets that satisfy the <rule>
 iptables -t filter -A INPUT <rule> -j DROP
 ```
-## Tasks
+
 Showing rules
 iptables -L -v
 
@@ -50,24 +50,29 @@ chmod 755 my.rules # makes it executable
 Allowing dev-containers traffic from host VM
 ```bash
 # Necessary rules to run vscode:dev-containers 
-# Allowing incoming tcp traffic from the Docker bridge IP
-iptables -I INPUT 1 -s 172.17.0.1 -p tcp -j ACCEPT
-# Allowing outgoing tcp traffic to the Docker bridge IP 
-iptables -I OUTPUT 1 -d 172.17.0.1 -p tcp -j ACCEPT
+echo "Allowing Loopback traffic..."
+# 1. Allow ALL loopback traffic 
+iptables -I INPUT 1 -i lo -j ACCEPT
+iptables -I OUTPUT 1 -o lo -j ACCEPT
+
+echo "Allowing Established/Related traffic..."
+# 2. Allow ALL established/related traffic
+iptables -I INPUT 2 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -I OUTPUT 2 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# 3. Allow traffic from the host bridge (needed for VS Code stability)
+echo "Allowing VS Code Dev Containers traffic..."
+iptables -I INPUT 3 -s 172.17.0.1 -p tcp -m conntrack --ctstate NEW -j ACCEPT
+
+# 4. Allow ICMP from host bridge (needed for VS Code stability)
+echo "Allowing ICMP traffic..."
+iptables -I INPUT 4 -s 172.17.0.1 -p icmp -j ACCEPT
+iptables -I OUTPUT 3 -d 172.17.0.1 -p icmp -j ACCEPT
 # End of necessary rules
-
-# Start of default policy rules
-iptables -P INPUT DROP
-iptables -P OUTPUT DROP
-iptables -P FORWARD DROP
-# End of default policy rules
-
-# Start of custom rules
-
-# End of custom rules
 ```
 
-### 2.1
+## Tasks
+### 2.a
 1. **Allow incoming ICMP echo requests (ping requests):**
 iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
  2. **Allow outgoing ICMP echo replies (ping replies):**
@@ -89,14 +94,47 @@ iptables -P OUTPUT DROP #Set default rule for OUTPUT
 iptables -P INPUT DROP #Set default rule for INPUT
 ```
 
-### 2.2
+![[2a.png]]
+
+**What is the purpose of each of the four rules?**
+The first two rules relate to packets that are echo-reply (ping). The first accepts them, the second allows sending them.
+Since there are no telnet rules, the default policy executes on telnet and therefore the packets get dropped.
+
+**Answer the following questions** 
+(1) Can you ping the router?
+(2) Can you telnet into the router?
+1-Yes
+2-No
+### 2.b
 ```bash
 #!/bin/bash
+
+# Flushing existing rules
+echo "Flushing existing rules..."
+iptables -F INPUT
+iptables -F OUTPUT
+iptables -F FORWARD
+# End of flushing existing rules
+
 # Necessary rules to run vscode:dev-containers 
-# Allowing incoming tcp traffic from the Docker bridge IP
-iptables -I INPUT 1 -s 172.17.0.1 -p tcp -j ACCEPT
-# Allowing outgoing tcp traffic to the Docker bridge IP 
-iptables -I OUTPUT 1 -d 172.17.0.1 -p tcp -j ACCEPT
+echo "Allowing Loopback traffic..."
+# 1. Allow ALL loopback traffic 
+iptables -I INPUT 1 -i lo -j ACCEPT
+iptables -I OUTPUT 1 -o lo -j ACCEPT
+
+echo "Allowing Established/Related traffic..."
+# 2. Allow ALL established/related traffic
+iptables -I INPUT 2 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -I OUTPUT 2 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# 3. Allow traffic from the host bridge (needed for VS Code stability)
+echo "Allowing VS Code Dev Containers traffic..."
+iptables -I INPUT 3 -s 172.17.0.1 -p tcp -m conntrack --ctstate NEW -j ACCEPT
+
+# 4. Allow ICMP from host bridge (needed for VS Code stability)
+echo "Allowing ICMP traffic..."
+iptables -I INPUT 4 -s 172.17.0.1 -p icmp -j ACCEPT
+iptables -I OUTPUT 3 -d 172.17.0.1 -p icmp -j ACCEPT
 # End of necessary rules
 
 # Start of default policy rules
@@ -121,3 +159,30 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 # End of custom rules
 ```
+![[Task 2.2 Lab 4]]
+
+txt:
+PLEASE UNDERSTAND THAT THERE ARE A LOT OF RULES THAT MUST BE ADDED TO EVEN ACCESS THE CONTAINER FROM MY VSCODE SERVER. 
+
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 5228 2359K ACCEPT     all  --  lo     any     anywhere             anywhere            
+   60  5178 ACCEPT     all  --  any    any     anywhere             anywhere             ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  any    any     rr-s-4vcpu-8gb-240gb-intel-nyc1-01  anywhere             ctstate NEW
+    0     0 ACCEPT     icmp --  any    any     rr-s-4vcpu-8gb-240gb-intel-nyc1-01  anywhere            
+    1    84 ACCEPT     icmp --  any    any     anywhere             anywhere             icmp echo-request
+
+Chain FORWARD (policy DROP 573 packets, 34476 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    4   336 ACCEPT     icmp --  eth1   eth0    anywhere             anywhere             icmp echo-request
+    4   336 ACCEPT     icmp --  eth0   eth1    anywhere             anywhere             icmp echo-reply
+
+Chain OUTPUT (policy DROP 434 packets, 26040 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 5228 2359K ACCEPT     all  --  any    lo      anywhere             anywhere            
+   54 31614 ACCEPT     all  --  any    any     anywhere             anywhere             ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     icmp --  any    any     anywhere             rr-s-4vcpu-8gb-240gb-intel-nyc1-01 
+    0     0 ACCEPT     icmp --  any    any     anywhere             anywhere             icmp echo-reply
+
+
+### 2.c

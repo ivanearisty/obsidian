@@ -1,0 +1,21 @@
+PLEASE UNDERSTAND THAT THERE ARE A LOT OF RULES THAT MUST BE ADDED TO EVEN ACCESS THE CONTAINER FROM MY VSCODE SERVER. 
+
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 5228 2359K ACCEPT     all  --  lo     any     anywhere             anywhere            
+   60  5178 ACCEPT     all  --  any    any     anywhere             anywhere             ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  any    any     rr-s-4vcpu-8gb-240gb-intel-nyc1-01  anywhere             ctstate NEW
+    0     0 ACCEPT     icmp --  any    any     rr-s-4vcpu-8gb-240gb-intel-nyc1-01  anywhere            
+    1    84 ACCEPT     icmp --  any    any     anywhere             anywhere             icmp echo-request
+
+Chain FORWARD (policy DROP 573 packets, 34476 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    4   336 ACCEPT     icmp --  eth1   eth0    anywhere             anywhere             icmp echo-request
+    4   336 ACCEPT     icmp --  eth0   eth1    anywhere             anywhere             icmp echo-reply
+
+Chain OUTPUT (policy DROP 434 packets, 26040 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 5228 2359K ACCEPT     all  --  any    lo      anywhere             anywhere            
+   54 31614 ACCEPT     all  --  any    any     anywhere             anywhere             ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     icmp --  any    any     anywhere             rr-s-4vcpu-8gb-240gb-intel-nyc1-01 
+    0     0 ACCEPT     icmp --  any    any     anywhere             anywhere             icmp echo-reply
