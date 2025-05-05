@@ -186,3 +186,23 @@ Chain OUTPUT (policy DROP 434 packets, 26040 bytes)
 
 
 ### 2.c
+![[Task 2.3 Lab 4]]
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 1160 70041 ACCEPT     all  --  lo     any     anywhere             anywhere            
+    0     0 ACCEPT     all  --  any    any     anywhere             anywhere             ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     tcp  --  any    any     rr-s-4vcpu-8gb-240gb-intel-nyc1-01  anywhere             ctstate NEW
+    0     0 ACCEPT     icmp --  any    any     rr-s-4vcpu-8gb-240gb-intel-nyc1-01  anywhere            
+
+Chain FORWARD (policy DROP 83 packets, 4980 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   24  1334 ACCEPT     tcp  --  eth0   eth1    anywhere             host1-192.168.60.5.net-192.168.60.0  tcp dpt:telnet
+   20  1183 ACCEPT     tcp  --  eth1   eth0    host1-192.168.60.5.net-192.168.60.0  anywhere             tcp spt:telnet
+
+Chain OUTPUT (policy DROP 1 packets, 60 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+ 1160 70041 ACCEPT     all  --  any    lo      anywhere             anywhere            
+    0     0 ACCEPT     all  --  any    any     anywhere             anywhere             ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     icmp --  any    any     anywhere             rr-s-4vcpu-8gb-240gb-intel-nyc1-01 
+
+### 3.a
