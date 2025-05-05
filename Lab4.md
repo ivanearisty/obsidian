@@ -206,3 +206,16 @@ Chain OUTPUT (policy DROP 1 packets, 60 bytes)
     0     0 ACCEPT     icmp --  any    any     anywhere             rr-s-4vcpu-8gb-240gb-intel-nyc1-01 
 
 ### 3.a
+
+**ICMP**
+![[Screenshot 2025-05-04 at 10.45.09 PM.png]]
+
+**Describe your observation for ICMP connection tracking**. Be sure to specify how long the tracking information is kept once a connection has been established.
+
+icmp     1 29 src=10.9.0.5 dst=192.168.60.5 type=8 code=0 id=6 src=192.168.60.5 dst=10.9.0.5 type=0 code=0 id=6 mark=0 use=1
+The number 29 represents the remaining lifetime of this connection tracking entry in seconds
+We have type=8 code=0 with type=0 code=0 (request/reply)
+
+**UDP**
+![[Screenshot 2025-05-04 at 11.07.46 PM.png]]
+
