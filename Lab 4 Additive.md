@@ -55,9 +55,29 @@ echo "Firewall rules applied."
 
 # List rules to verify
 echo "--- INPUT Chain ---"
-sudo iptables -L INPUT -v -n --line-numbers
+iptables -L INPUT -v -n --line-numbers
 echo "--- OUTPUT Chain ---"
-sudo iptables -L OUTPUT -v -n --line-numbers
+iptables -L OUTPUT -v -n --line-numbers
 echo "--- FORWARD Chain ---"
-sudo iptables -L FORWARD -v -n --line-numbers
+iptables -L FORWARD -v -n --line-numbers
+```
+
+```bash
+1        8   495 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+2        0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+3        0     0 ACCEPT     tcp  --  *      *       172.17.0.1           0.0.0.0/0            ctstate NEW
+4        0     0 ACCEPT     icmp --  *      *       172.17.0.1           0.0.0.0/0           
+5        0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8 ctstate NEW
+--- OUTPUT Chain ---
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1        6   368 ACCEPT     all  --  *      lo      0.0.0.0/0            0.0.0.0/0           
+2        0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+3        0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            172.17.0.1          
+--- FORWARD Chain ---
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1        0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+2        0     0 ACCEPT     all  --  eth1   eth0    192.168.60.0/24      10.9.0.0/24          ctstate NEW
+3        0     0 ACCEPT     tcp  --  eth0   eth1    10.9.0.5             192.168.60.5         tcp dpt:23 ctstate NEW
 ```
