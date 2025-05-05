@@ -219,3 +219,16 @@ We have type=8 code=0 with type=0 code=0 (request/reply)
 **UDP**
 ![[Screenshot 2025-05-04 at 11.07.46 PM.png]]
 
+Similar to ICMP, the entry tracks both the original packet flow and the expected reply flow.
+It shows \[UNREPLIED], matching the expectation that the simple nc -lu server didn't send a reply back.
+It has 26 seconds remaining, consistent with the short timeout for unreplied UDP flows...
+
+**TCP**
+![[Screenshot 2025-05-04 at 11.14.44 PM.png]]
+
+The state is ESTABLISHED. This indicates the initial 3-way handshake is complete and data transfer can occur.
+
+Timeout: is 431995 seconds remaining; very long timeout for TCP connections in the ESTABLISHED state.
+
+### 3.b
+![[Screenshot 2025-05-04 at 11.30.49 PM.png]]
