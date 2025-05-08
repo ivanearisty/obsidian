@@ -20,3 +20,7 @@ we need to choose one of the sectors and do customer discovery. we must talk to 
 form a reasonable hypothesis to see if there is a synergy in bringing expats to these businesses that are trying to get in front of them?
 
 revise it and send it in the next week or two
+
+talk with the opportunity not the expense
+what the money is going to unlock
+
