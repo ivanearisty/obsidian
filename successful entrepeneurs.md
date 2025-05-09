@@ -18,3 +18,9 @@ second bucket: followers or co-leads, next to another fund or investors that are
 
 sector agnostic: prefer software b2b saas
 
+
+Very key point:
+price point after the free trial
+not so high that people will not buy it right now
+so little that people dont see the value in it
+
