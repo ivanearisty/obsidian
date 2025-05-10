@@ -11,3 +11,7 @@ For any modified line:
 
 WDYT?
 ## Answer
+
+### HW 4 Coverage when pulling external repos
+
+### HW 4 Coverage of existing
