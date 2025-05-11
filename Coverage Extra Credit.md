@@ -12,6 +12,12 @@ For any modified line:
 WDYT?
 ## Answer
 
+I am going to analyze branch [hw-4-v2](https://github.com/khamseaffan/Inbox-Client/commits/hw4-v2/).
+
+This branch is directly off of the final pr for [hw3](https://github.com/khamseaffan/Inbox-Client/commit/4277bfd2c872eb85f84c68ff953cbd7311c4671f)
+
 ### HW 4 Coverage when pulling external repos
+
+For our (SHA 4277bfd2c872eb85f84c68ff953cbd7311c4671f)
 
 ### HW 4 Coverage of existing
