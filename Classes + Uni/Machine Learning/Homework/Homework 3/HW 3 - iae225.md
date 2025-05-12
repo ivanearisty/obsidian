@@ -179,4 +179,9 @@ $D_{i1} = \lVert x_{i} - x_{1} \rVert^{2} = \lVert x_{i} \rVert^{2}$
 
 then the dot product formula becomes:
 
-$\frac{1}{2}(d_{i}+d_{j}-D_{ij}) = \frac{1}{2}(D_{i1} + D_{j1}- D_{ij})$
+$<x_{i},x_{j}> = \frac{1}{2}(d_{i}+d_{j}-D_{ij}) = \frac{1}{2}(D_{i1} + D_{j1}- D_{ij})$
+
+Now, because every ||xi||^2 is known as D_i1, the formula only uses the distance, which we know, and we can reconstruct X * X transpose by filling the matrix 1 by 1
+### B
+
+Now that we have $XX^{T}$ 
