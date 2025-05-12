@@ -240,12 +240,21 @@ for i in range(n):
         D[i, j] = D[j, i] = new_dist
 ```
 
-That worked pretty much without issue
+That worked pretty much without issue. It seems like I am getting weird answers at anything above .15 though.
 
 ![[Pasted image 20250512084816.png]]
 
 with higher values:
 
+.15
+![[Pasted image 20250512085035.png]]
+
+.2
 ![[Pasted image 20250512084844.png]]
 
+.3
 ![[Pasted image 20250512084921.png]]
+
+.4
+![[Pasted image 20250512084943.png]]
+
