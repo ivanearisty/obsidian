@@ -189,3 +189,63 @@ Now that we have $XX^{T}$  we want to recover rank k loading vectors of X.
 I used svd compute on d.
 
 From what I understand, `U, S, Vt = svd(XXT)` gives us the columns U, which are the principal directions (the eigenvectors)
+
+Since this is symmetric, V=U, and the right singular vectors are the same as the left singular vectors. 
+
+So, when we want the loading vectors, each is just defined by $U_{k} \sqrt{ S_{k} }$
+
+### C
+
+Intuitively, PCA finds the d most important directions along which our points vary.
+
+Since our data lives on a d-dimensional space, there are exactly d nonzero directions.
+
+If we are setting k exactly to d, we can keep all of these nonzero directions, which means that we re-express points in a new coordinate system, but we don't actually drop any dimensions.
+
+It's like we're rotating or reflecting on the axes, but we can always get back our original points since these rotations and reflections still preserve euclidian distance.
+
+As soon as we set k to equal the true dimension, PCA will always give a distance preserving re-expression.
+
+### D
+
+```python
+D = np.array(dist_matrix)
+D2 = D ** 2
+n = D2.shape[0]
+# squared distance from city i to city 1
+d = D2[:, 0]
+# build the matrix 
+XXT = 0.5 * (d[:, None] + d[None, :] - D2)
+# Perform SVD
+U, S, Vt = svd(XXT)
+# top 2
+U_k = U[:, :2]
+S_k = S[:2]
+# Vt_k = Vt[:2, :]
+Z_plot = U_k * np.sqrt(S_k)
+# fix plot direction
+Z_plot[:, 1] *= -1
+```
+
+![[Pasted image 20250512084124.png | 600]]
+
+### E
+
+```python
+r = 0.1
+for i in range(n):
+    for j in range(i+1, n):
+        factor = np.random.uniform(1-r, 1+r)
+        new_dist = D[i, j] * factor
+        D[i, j] = D[j, i] = new_dist
+```
+
+That worked pretty much without issue
+
+![[Pasted image 20250512084816.png]]
+
+with higher values:
+
+![[Pasted image 20250512084844.png]]
+
+![[Pasted image 20250512084921.png]]
