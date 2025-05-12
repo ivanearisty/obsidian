@@ -38,7 +38,7 @@ Both of these are missclassified so the k-NN classifier fails.
 
 Just from the get go this seems like it will do better because some of the images are literally just shifted by some degrees. Let's test it out though:
 
-
+![[Screenshot 2025-05-12 at 4.27.26 AM.png | 400]]
 
 ![[Screenshot 2025-05-12 at 4.16.38 AM.png | 400]]
 Now:
@@ -51,3 +51,25 @@ K(I_{4}, I_{1}) \approx 0.2\\
 K(I_{4}, I_{2}) \approx 1.15\\
 \end{gather}
 $$
+And we're correctly classifying!
+
+### E
+
+![[Screenshot 2025-05-12 at 4.28.45 AM.png]]
+
+From: https://www.reddit.com/r/learnmath/comments/1es3i04/sum_of_positive_semidefinite_matrices/ 
+
+$$
+\begin{gather}
+\text{We know that } K_{g} \in PSD \\ \\
+\text{For any fixed shift operation, the mapping: } \\
+I \to I_{r} \land I \to I_{l} \\
+\text{yields some vector v} \in \mathbb{R}^{5\times 4} \\ 
+\text{this is then fed to } K_{g} \to \text{so each of the components are } \in PSD \\
+\\
+\text{The question then becomes whether sums of PSD are PSD} \\ \\
+
+\text{the compositions are PSD kernels and sums of PSD kernels remain PSD}
+\end{gather}
+$$
+
