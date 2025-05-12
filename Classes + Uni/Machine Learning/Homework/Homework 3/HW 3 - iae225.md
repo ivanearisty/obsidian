@@ -80,3 +80,60 @@ $$
 ### A 
 ![[Screenshot 2025-05-12 at 4.56.15 AM.png | 400]]
 
+Dataset 1: f(x) = 2 * abs(x-4)
+ReLUs at the slope changes:
+
+Hidden Unit 1:
+Wh1 = +1, bh1 = -4, h1(x) = ReLU(x-4)
+
+Hidden Unit 2:
+Wh2 = -1, bh2 = +4, h2(x) = ReLU(4-x)
+
+The others can be at 0.
+
+Wo1 = 2
+Wo2 = 2
+Wo3 = 0
+Wo4= 0
+b0 = 0
+
+For dataset 2:
+$$
+f(x)
+\begin{cases}
+x, & x \le 3 \\
+-x + 6, & 3 < x \le 5 \\
+0.5x - 1.5, & x > 5
+\end{cases}
+$$
+
+Hidden Layer:
+
+| Layer | weight | bias | Activations      |
+| ----- | ------ | ---- | ---------------- |
+| 1     | 1      | -3   | h1​(x)=ReLU(x−3) |
+| 2     | 1      | -5   | h2​(x)=ReLU(x−5) |
+| 3     | 1      | 0    | h3​(x)=ReLU(x)   |
+| 4     | -1     | 0    | h4​(x)=ReLU(−x)  |
+Output layer:
+
+b0 = 0
+Weights:
+1 = -2
+2 = 1.5
+3 = 1
+4 = -1
+
+![[Screenshot 2025-05-12 at 5.36.58 AM.png | 100]]
+
+### B
+
+![[Screenshot 2025-05-12 at 5.41.48 AM.png]]
+
+$$
+\begin{gather}
+L(\theta) = \sum ^{n}_{i=1}(y_{i} - f(x_{i}, \theta))^{2} \\ \\
+\text{Outer:} \\
+2(y_{i} - f(x_{i}, \theta)
+\end{gather}
+$$
