@@ -1,4 +1,3 @@
-
 People that have succeeded 
 
 pre-seed and seed venutre capital 
@@ -17,7 +16,6 @@ what's your funded status?
 second bucket: followers or co-leads, next to another fund or investors that are more locally based. 
 
 sector agnostic: prefer software b2b saas
-
 
 Very key point:
 price point after the free trial
