@@ -67,9 +67,16 @@ I \to I_{r} \land I \to I_{l} \\
 \text{yields some vector v} \in \mathbb{R}^{5\times 4} \\ 
 \text{this is then fed to } K_{g} \to \text{so each of the components are } \in PSD \\
 \\
-\text{The question then becomes whether sums of PSD are PSD} \\ \\
-
+\text{The question then becomes whether sums of PSD are PSD.} \\
+\text{But because you can concatenate their feature maps so that the sum of} \\ \text{kernels is just the inner product in the larger feature space, then} \\
 \text{the compositions are PSD kernels and sums of PSD kernels remain PSD}
 \end{gather}
 $$
+
+## Neural Networks for Curve Fitting
+
+![[Screenshot 2025-05-12 at 4.54.53 AM.png | 400]]
+![[Screenshot 2025-05-12 at 4.55.09 AM.png | 400]]
+### A 
+![[Screenshot 2025-05-12 at 4.56.15 AM.png | 400]]
 
