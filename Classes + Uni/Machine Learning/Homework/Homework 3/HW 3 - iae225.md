@@ -162,4 +162,5 @@ so f(2, $\theta_{0}$) = -3
 | 3          | 1              | 1                                 | -1                              | 1              | -1                              | 2                                       | **-2**                                | **-1**                                |
 | 4          | 0              | 0                                 | 1                               | 0              | 0                               | 2                                       | **0**                                 | **0**                                 |
 | h_i = bias | 1              | 1                                 | 1                               |                |                                 |                                         |                                   |                                   |
-## 
+## Triangulating Points via Principal Component Analysis
+
