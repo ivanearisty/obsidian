@@ -184,4 +184,8 @@ $<x_{i},x_{j}> = \frac{1}{2}(d_{i}+d_{j}-D_{ij}) = \frac{1}{2}(D_{i1} + D_{j1}- 
 Now, because every ||xi||^2 is known as D_i1, the formula only uses the distance, which we know, and we can reconstruct X * X transpose by filling the matrix 1 by 1
 ### B
 
-Now that we have $XX^{T}$ 
+Now that we have $XX^{T}$  we want to recover rank k loading vectors of X.
+
+I used svd compute on d.
+
+From what I understand, `U, S, Vt = svd(XXT)` gives us the columns U, which are the principal directions (the eigenvectors)
