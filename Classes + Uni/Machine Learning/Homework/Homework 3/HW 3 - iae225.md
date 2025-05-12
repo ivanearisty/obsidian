@@ -164,3 +164,19 @@ so f(2, $\theta_{0}$) = -3
 | h_i = bias | 1              | 1                                 | 1                               |                |                                 |                                         |                                   |                                   |
 ## Triangulating Points via Principal Component Analysis
 
+![[Screenshot 2025-05-12 at 6.59.13 AM.png]]
+### A
+
+We have a table D which contains the squared distances between every pair of unknown points x_i.
+
+For example we might have $D_{2,5} = \lVert x_{2}-x_{5} \rVert^{2}$ 
+
+We want to recover the dot product $x_{i} \cdot x_{j}$
+
+If we set x_1 to 0, then we know every $\lVert x_{i} \rVert^{2}$ from the distance to x1:
+
+$D_{i1} = \lVert x_{i} - x_{1} \rVert^{2} = \lVert x_{i} \rVert^{2}$
+
+then the dot product formula becomes:
+
+$\frac{1}{2}(d_{i}+d_{j}-D_{ij}) = \frac{1}{2}(D_{i1} + D_{j1}- D_{ij})$
