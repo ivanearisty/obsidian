@@ -87,6 +87,105 @@ I believe that approach B is a better idea. *Components should be responsible fo
 
 > The idea of relying on a higher level of abstraction to pass our coverage tests seems and, likely is, incorrect.
 
+Addendum: There is a further discrepancy caused by how we handle authentication in interactive (auth0 logins) vs environment (environment variables injected via CircleCI context) settings. This leads to tests running differently and we will explore this in [[Coverage Extra Credit#Analysis of Coverage Changes]] 
+
 ### Coverage changes upstream
 
-After pulling in the component from the external team, CircleCI (expectedly) does not pass. Hence, the relevant changes come after our fixes dedicated specifically to coverage in the final PR for HW4 (SHA )
+After pulling in the component from the external team, CircleCI (expectedly) does not pass. Hence, the relevant changes come after our fixes dedicated specifically to coverage in the final PR for HW4 (SHA e8e4dcb7ab5c70031f572c8bc18707980c0caa8d)
+
+Here are the 3 relevant coverage reports:
+
+CircleCI:
+```
+src/inbox_client_impl/src/inbox_client_impl/__init__.py              10      2    80%
+src/inbox_client_impl/src/inbox_client_impl/_impl.py                 88     14    84%
+src/inbox_client_protocol/src/inbox_client_protocol/__init__.py       3      0   100%
+src/message/src/message/__init__.py                                   1      0   100%
+src/message_impl/src/message_impl/__init__.py                         5      0   100%
+src/message_impl/src/message_impl/_impl.py                           80     24    70%
+-------------------------------------------------------------------------------------
+TOTAL                                                               187     40    79%
+```
+
+All Tests (- minus) Integration tests (local):
+```
+src/inbox_client_impl/src/inbox_client_impl/__init__.py              10      3    70%   18-20
+src/inbox_client_impl/src/inbox_client_impl/_impl.py                 88     26    70%   46-47, 76-85, 96-100, 105, 109, 121-125, 135-138, 160-162
+src/inbox_client_protocol/src/inbox_client_protocol/__init__.py       3      0   100%
+src/message/src/message/__init__.py                                   1      0   100%
+src/message_impl/src/message_impl/__init__.py                         5      0   100%
+src/message_impl/src/message_impl/_impl.py                           80     24    70%   31-39, 90, 93-95, 102-124, 134
+-----------------------------------------------------------------------------------------------
+TOTAL                                                               187     53    72%
+```
+
+All Tests (local):
+```
+src/inbox_client_impl/src/inbox_client_impl/__init__.py              10      3    70%   18-20
+src/inbox_client_impl/src/inbox_client_impl/_impl.py                 88     23    74%   46-47, 76-85, 96-100, 105, 109, 121-125, 135-138
+src/inbox_client_protocol/src/inbox_client_protocol/__init__.py       3      0   100%
+src/message/src/message/__init__.py                                   1      0   100%
+src/message_impl/src/message_impl/__init__.py                         5      0   100%
+src/message_impl/src/message_impl/_impl.py                           80     14    82%   31-39, 90, 93-95, 116-124, 134
+-----------------------------------------------------------------------------------------------
+TOTAL                                                               187     40    79%
+```
+
+I believe the particular settings for the CircleCI run are also relevant:
+```
+unit_test:
+    docker:
+      - image: cimg/python:3.11
+    steps:
+      - attach_workspace:
+          at: . # Attach the workspace persisted from 'build'
+      - run:
+          name: "Activate Venv and Create Test Results Directory"
+          command: |
+            source .venv/bin/activate
+            mkdir -p test-results/unit # Create directory for JUnit XML
+      - run:
+          name: "Execute Unit Test Suite (pytest + coverage)"
+          command: |
+            source .venv/bin/activate
+            # Run pytest, collecting coverage, excluding integration tests
+            # Ensure mocks are used for external calls in these tests
+            pytest . --cov=src --cov-report=xml --cov-report=term \
+                     -m "not integration" \
+                     --junitxml=test-results/unit/junit.xml
+      - run:
+          name: "Run Static Analysis (mypy)"
+          command: |
+            source .venv/bin/activate
+            # Target specific source and test directories for mypy
+            uv pip install types-requests
+            mypy src tests --explicit-package-bases
+      - run:
+          name: "Enforce Coverage Threshold and Generate Reports"
+          command: |
+            source .venv/bin/activate
+            # Use coverage CLI now that pytest has run it
+            coverage report --fail-under=70
+            coverage json -o test-results/unit/coverage.json # Generate JSON report
+            coverage html -d test-results/unit/htmlcov
+```
+
+... and we can clearly see that there are discrepancies between what gets run in CircleCI and what we see locally.
+
+### Analysis of Coverage Changes
+
+Upon running `git diff --stat -p 4277bfd2c872eb85f84c68ff953cbd7311c4671f e8e4dcb7ab5c70031f572c8bc18707980c0caa8d`, our output is quite large (~1400) lines and it is omitted for convenience.
+
+Nevertheless, the most significant takeaways are as follows:
+
+#### inbox_client_impl: Authentication Logic Generalized
+
+As previously stated:
+
+> There is a further discrepancy caused by how we handle authentication in interactive (auth0 logins) vs environment (environment variables injected via CircleCI context) settings. This leads to tests running differently.
+
+The most relevant sections are as follows (function/methods with some lines omitted for brevity):
+
+#### Issue 2
+
+#### Issue 3...
