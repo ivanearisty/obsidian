@@ -6,184 +6,156 @@ Always used with RSA because DH needs to be protected. It can't be used as plain
 
 ![[Screenshot 2025-05-16 at 10.21.37 AM.png]]
 
-**I. Core Concepts & Definitions**
+**I. CORE CONCEPTS (Quick Definitions)**
 
-*   **Message Integrity:** Ensures data hasn't been altered in transit.
-*   **Authentication:** Verifies the origin/identity of data or a user.
-*   **Non-repudiation:** Prevents a sender from denying they sent a message.
-*   **Confidentiality:** Ensures data is unreadable by unauthorized parties (encryption).
-*   **Nonce:** "Number used once." A random or pseudo-random number issued in an authentication protocol to ensure that old communications cannot be reused in replay attacks.
-*   **PFS (Perfect Forward Secrecy):** If a server's long-term private key is compromised, past session keys (and thus past encrypted traffic) are NOT compromised. Achieved using ephemeral key exchange methods (e.g., DHE, ECDHE).
+*   **Message Integrity:** Data unaltered?
+*   **Authentication:** Who are you? (Origin verification)
+*   **Non-repudiation:** Can't deny sending.
+*   **Confidentiality:** Secret? (Encryption)
+*   **Nonce:** Number-Used-Once (prevents replay).
+*   **PFS (Perfect Forward Secrecy):** Old sessions safe if server's long-term key is stolen.
+    *   **Achieved by:** DHE, ECDHE (ephemeral keys per session).
+    *   **NOT by:** Static RSA key exchange, static DH.
 
-**II. Message Integrity Mechanisms**
+---
 
-1.  **Hashing (Message Digest)**
-    *   **Function:** Takes arbitrary-length message -> fixed-length string (digest).
-    *   **Properties:**
-        *   One-way (hard to reverse).
-        *   Collision-resistant (hard to find two messages with the same hash).
-    *   **Algorithms:**
-        *   **MD5 (128-bit):** BROKEN, NOT collision-resistant. Do not use for security.
-        *   **SHA-1 (160-bit):** WEAK/BROKEN, NOT collision-resistant. Deprecated.
-        *   **SHA-2 (SHA-256, SHA-384, SHA-512):** Currently secure.
-    *   **Use:** Integrity checks, component of digital signatures & HMAC.
+**II. MESSAGE INTEGRITY: HASHING, HMAC, DIGITAL SIGNATURES**
 
-2.  **HMAC (Hash-based Message Authentication Code)**
-    *   **How it works:** `H( K XOR opad || H( K XOR ipad || message) )` (Don't need to memorize formula, understand concept).
-    *   **Requires:** A shared secret key (K) between parties.
-    *   **Provides:**
-        *   **Integrity:** Message hasn't changed.
-        *   **Authentication:** Message came from someone who knows the shared secret K.
-    *   **Does NOT provide:** Confidentiality (message is not encrypted by HMAC itself).
-    *   **Example:** `HMAC-SHA256`
+1.  **Hashing (e.g., SHA-256)**
+    *   Message -> Fixed-size Digest.
+    *   **Properties:** One-way, Collision-resistant.
+    *   **MD5/SHA-1: BROKEN!** Use SHA-2 (SHA-256+).
 
-3.  **Digital Signatures**
-    *   **How Alice signs message M:**
-        1.  Calculate `Hash(M)`.
-        2.  Encrypt `Hash(M)` with **Alice's Private Key** => Signature.
-        3.  Send `M + Signature`.
-    *   **How Bob verifies:**
-        1.  Decrypt Signature with **Alice's Public Key** => `Hash1`.
-        2.  Calculate `Hash(M)` from the received message => `Hash2`.
-        3.  If `Hash1 == Hash2`, signature is valid.
-    *   **Provides:**
-        *   **Integrity:** `Hash(M)` ensures M wasn't tampered.
-        *   **Authentication:** Only Alice could encrypt with her private key.
-        *   **Non-repudiation:** Alice cannot deny signing M.
-    *   **Algorithms:** RSA, DSA, ECDSA.
-    *   **Key Difference: HMAC vs. Digital Signature:**
-        *   **HMAC:** Symmetric (shared secret key). For authentication between two parties who already trust each other enough to share a key.
-        *   **Digital Signature:** Asymmetric (private/public key pair). For proving origin to anyone who has the public key and trusts its binding to the sender.
+2.  **HMAC (e.g., HMAC-SHA256)**
+    *   **Requires:** SHARED secret key.
+    *   **Provides:** Integrity + Authentication (knows shared key).
+    *   **NO Confidentiality.**
+    *   *Sample Q: Difference HMAC vs. Digital Sig? HMAC uses symmetric key.*
+
+3.  **Digital Signatures (e.g., RSA, ECDSA)**
+    *   **Alice Signs M:**
+        1.  `Digest = Hash(M)`
+        2.  `Signature = Encrypt(Digest, Alice's PRIVATE Key)`
+    *   **Bob Verifies:**
+        1.  `Digest1 = Decrypt(Signature, Alice's PUBLIC Key)`
+        2.  `Digest2 = Hash(M_received)`
+        3.  If `Digest1 == Digest2` -> VALID.
+    *   **Provides:** Integrity, Authentication, Non-repudiation.
+    *   *Sample Q: How Alice generates sig? Hashes msg, encrypts hash with her private key.*
+    *   *Sample Q: Difference HMAC vs. Digital Sig? Digital Sig uses asymmetric keys, provides non-repudiation.*
+
+---
 
 **III. PKI (Public Key Infrastructure)**
 
-*   **Purpose:** Manage and distribute public keys and bind them to identities.
-*   **Components:**
-    *   **CA (Certificate Authority):** Trusted entity that issues and signs digital certificates.
-        *   **Root CA:** Top-level, self-signed certificate. Must be implicitly trusted (e.g., pre-installed in browsers/OS).
-        *   **Intermediate CA:** Issues certs to end-entities or other CAs. Signed by a Root CA or another Intermediate CA. Forms a "chain of trust".
-    *   **RA (Registration Authority):** Verifies identity before CA issues cert (often part of CA).
-    *   **Certificate Repository:** Stores issued certs.
-    *   **CRL (Certificate Revocation List):** List of revoked certs.
-    *   **OCSP (Online Certificate Status Protocol):** Real-time check for cert revocation. (OCSP Stapling: server periodically gets signed OCSP response from CA and sends it to client with cert).
+*   **Purpose:** Manage public keys & bind to identities.
+*   **CA (Certificate Authority):** Issues & signs certs.
+    *   **Root CA:** Self-signed, implicitly trusted (in OS/browser).
+    *   **Intermediate CA:** Forms chain of trust.
+*   **CRL (Certificate Revocation List):** List of bad certs. *(Sample Q: What is a CRL? List of revoked certs before expiry).*
+*   **OCSP:** Real-time revocation check (OCSP Stapling = server provides fresh proof).
 
-*   **X.509 Certificate (v3 is standard):**
-    *   **Key Fields:**
-        *   **Version**
-        *   **Serial Number** (unique per CA)
-        *   **Signature Algorithm ID** (algo used by CA to sign *this* cert)
-        *   **Issuer:** CA's distinguished name (DN).
-        *   **Validity Period:** Not Before, Not After dates.
-        *   **Subject:** Certificate owner's DN (e.g., `CN=www.example.com`).
-        *   **Subject Public Key Info:** The public key itself and its algorithm.
-        *   **Extensions:**
-            *   **Basic Constraints:** `cA:TRUE` (this is a CA cert) or `cA:FALSE` (end-entity cert). Path length.
-            *   **Key Usage:** e.g., digitalSignature, keyEncipherment.
-            *   **Subject Alternative Name (SAN):** **Primary field for website identity.** Can list multiple hostnames (e.g., `example.com`, `www.example.com`, `mail.example.com`). *Supersedes CN for HTTPS.*
-            *   **CRL Distribution Points:** URL where CRL can be found.
-            *   **Authority Information Access (AIA):** URL for OCSP responder, URL for issuer's cert.
-    *   **CA Digital Signature:** The CA signs the entire certificate (except this field) with its private key.
+*   **X.509 CERTIFICATE (Key Fields for Exam)**
+    *   **Issuer:** Who signed *this* cert (CA's name). *(Sample Q: Issuer CN of server cert matches Subject CN of its issuing Intermediate CA cert).*
+    *   **Subject:** Who owns *this* cert (e.g., `CN=www.site.com`).
+    *   **Validity Period:** Not Before / Not After.
+    *   **Subject Public Key Info:** The actual public key.
+    *   **Extensions:**
+        *   **SAN (Subject Alternative Name):** **PRIMARY for website identity!** (e.g., `dns:www.site.com`, `dns:site.com`). *Supersedes CN for HTTPS. (Sample Q: What field for website identity? SAN).*
+        *   **Basic Constraints:** `cA:TRUE` (is a CA) or `cA:FALSE` (end-entity). *(Sample Q: What field says CA or End-Entity? Basic Constraints).*
+        *   **CRL Distribution Points:** URL to find CRL.
+    *   **CA Digital Signature:** CA signs the cert with *its own private key*.
 
-*   **Certificate Validation Process (e.g., Browser for HTTPS):**
-    1.  **Chain of Trust:** Build path from end-entity cert to a trusted Root CA in the browser/OS store.
-    2.  **Signature Verification:** For each cert in chain (except root), verify its signature using the public key of the *issuer* cert.
-    3.  **Validity Period:** Check "Not Before" and "Not After" dates against current time.
-    4.  **Revocation Status:** Check CRL or OCSP (often OCSP stapling is used; direct CRL checks by clients are rare and problematic).
-    5.  **Name Matching:** For HTTPS, check if requested hostname matches a name in the SAN (or CN if SAN absent, but SAN is standard).
-    6.  **Basic Constraints:** Ensure intermediate certs have `cA:TRUE`.
-    7.  **Key Usage/Extended Key Usage:** Check if cert is authorized for its purpose (e.g., server authentication for TLS).
+*   **CERTIFICATE VALIDATION (Browser for HTTPS)**
+    1.  **Chain of Trust:** To trusted Root CA.
+    2.  **Signatures:** Verify each cert in chain with issuer's public key.
+    3.  **Validity Dates:** Check.
+    4.  **Revocation:** Check (CRL/OCSP).
+    5.  **Name Match:** Hostname vs. SAN (or CN).
+    6.  **Basic Constraints:** Intermediates must be `cA:TRUE`.
 
-*   **Certificate Types (for web servers):**
-    *   **DV (Domain Validated):** CA only verifies control over the domain name (e.g., email to admin@domain, DNS record). Weakest.
-    *   **OV (Organization Validated):** CA verifies domain control + some vetting of the organization's existence.
-    *   **EV (Extended Validated):** Strictest vetting of the organization. Browsers often show special UI (e.g., green bar, organization name). *Provides no stronger encryption than DV/OV.*
+*   **CERTIFICATE TYPES (Web Server)**
+    *   **DV (Domain Validated):** Weakest. Only domain control verified.
+    *   **OV (Organization Validated):** Org existence checked.
+    *   **EV (Extended Validated):** Strictest org check (green bar). *No stronger encryption.*
 
-*   **Email (S/MIME) vs. Website (HTTPS) Certificate Validation:**
-    *   **HTTPS:** Browsers have strict, automated validation: domain match (SAN/CN), chain to trusted root, revocation (ideally). Goal: Authenticate the *server/domain*.
-    *   **S/MIME (Email):** Validates sender's *identity* based on email address in cert. Trust in CA is key. User often needs to manually trust sender's cert or its CA. Domain validation is not the primary goal as it is for HTTPS. Relies more on user discretion and MUA (Mail User Agent) configuration.
+*   **EMAIL (S/MIME) vs. WEBSITE (HTTPS) CERT VALIDATION**
+    *   **HTTPS:** Authenticates *server/domain*. Strict, automated.
+    *   **S/MIME:** Authenticates *sender's email identity*. Relies more on user trust/MUA config.
 
-**IV. SSL/TLS (Secure Sockets Layer / Transport Layer Security)**
+---
 ![[Screenshot 2025-05-16 at 12.01.56 PM.png]]
-*   **Purpose:** Provide secure communication channel over TCP.
-    *   Confidentiality (encryption), Integrity (MAC), Authentication (certs).
-*   **Versions:** SSLv2 (broken), SSLv3 (broken), TLS 1.0 (old), TLS 1.1 (old), TLS 1.2 (common), **TLS 1.3 (current best)**.
-*   **TLS Handshake (Simplified, TLS 1.2 & below):**
-    1.  **ClientHello:**
-        *   TLS version(s) supported.
-        *   Client Random (32 bytes).
-        *   Session ID (for resumption).
-        *   List of Cipher Suites supported by client.
-        *   Compression methods (usually NULL).
-        *   Extensions (e.g., SNI, ALPN).
-    2.  **ServerHello:**
-        *   Chosen TLS version.
-        *   Server Random (32 bytes).
-        *   Chosen Session ID.
-        *   Chosen Cipher Suite (from client's list).
-        *   Chosen Compression method.
-    3.  **Certificate (Server):** Server sends its X.509 certificate (and chain if needed).
-    4.  **(Optional) ServerKeyExchange:**
-        *   Needed for DHE/ECDHE. Contains ephemeral DH parameters signed by server's long-term certificate key (e.g., RSA private key).
-        *   Not needed if RSA key exchange is used (server's public key from cert is used directly).
-    5.  **(Optional) CertificateRequest:** Server requests client certificate (for mutual auth).
-    6.  **ServerHelloDone:** Server is done with its part of negotiation.
-    7.  **(Optional) Certificate (Client):** If server requested.
-    8.  **ClientKeyExchange:**
-        *   **RSA key exchange:** Client generates PreMasterSecret (PMS), encrypts with server's public key (from cert), sends it.
-        *   **DHE/ECDHE:** Client sends its ephemeral DH public key. Both sides can now compute PMS.
-    9.  **(Optional) CertificateVerify:** If client sent cert, client signs hash of previous handshake messages.
-    10. **ChangeCipherSpec (Client):** Client signals it will now switch to encrypted messages.
-    11. **Finished (Client):** ENCRYPTED. Hash of all preceding handshake messages. Verifies handshake integrity.
-    12. **ChangeCipherSpec (Server):** Server signals switch.
-    13. **Finished (Server):** ENCRYPTED. Hash of all preceding handshake messages (including client's Finished).
-    *   *Master Secret is derived from PreMasterSecret, Client Random, Server Random.* Session keys are derived from Master Secret.
 
-*   **TLS 1.3 Handshake Differences (Simplified):**
-    *   Faster: Often 1-RTT. Client sends ClientHello with key share (its ephemeral DH public key) and guesses ciphersuite.
-    *   Server can immediately send ServerHello, its key share, encrypted extensions, Certificate, Finished.
-    *   Removes static RSA key exchange (PFS is mandatory).
-    *   Removes weak/old ciphers.
-    *   Encrypts more of the handshake.
+**IV. SSL/TLS**
 
-*   **Cipher Suites (e.g., `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`)**
-    *   `TLS_`: Protocol.
-    *   `DHE`: Key Exchange (Diffie-Hellman Ephemeral). Provides PFS.
-    *   `RSA`: Authentication (Server's certificate uses RSA, signature on DHE params uses RSA).
-    *   `AES_128_CBC`: Bulk Encryption (AES 128-bit, CBC mode).
-    *   `SHA`: MAC/Hash algorithm (SHA-1 in this old example for integrity).
-    *   **Modern Example:** `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-        *   `ECDHE`: Elliptic Curve DHE (PFS).
-        *   `RSA`: Authentication.
-        *   `AES_256_GCM`: AES 256-bit, Galois/Counter Mode (AEAD - Authenticated Encryption with Associated Data; provides both encryption and integrity).
-        *   `SHA384`: Used for PRF (Pseudo-Random Function) in key derivation and handshake MAC. (GCM provides its own integrity).
+*   **Versions:** TLS 1.2 (common), **TLS 1.3 (best)**. SSLv2/3 BROKEN.
+*   **TLS HANDSHAKE (TLS 1.2 Overview - Key Steps for Questions)**
+    1.  **ClientHello:** Client ciphers, TLS versions, ClientRandom.
+    2.  **ServerHello:** Server chosen cipher, TLS version, ServerRandom.
+    3.  **Certificate (Server):** Server sends its X.509 cert (+ chain). Contains Server's **RSA Public Key**.
+    4.  **(Opt.) ServerKeyExchange:** For DHE/ECDHE. Server sends its public DHE params (e.g., `g`, `n`, `Server_DH_A`), signed by its **RSA Private Key**.
+    5.  **ClientKeyExchange:**
+        *   **DHE/ECDHE:** Client sends its public DHE param (e.g., `Client_DH_B`). Both derive PMS.
+        *   **RSA Key Exch:** Client sends PMS encrypted with Server's RSA Public Key.
+    6. **ChangeCipherSpec (Client):** Switch to encrypted.
+    7. **Finished (Client):** ENCRYPTED. Hash of *all preceding handshake messages*. *(Sample Q: What messages hashed in Finished? All previous handshake msgs).*
+    8. **ChangeCipherSpec (Server):**
+    9. **Finished (Server):** ENCRYPTED.
+    *   *Sample Q: What if Finished doesn't checksum? MITM can alter handshake (version/cipher rollback).*
 
-*   **Perfect Forward Secrecy (PFS):**
-    *   **Achieved with:** DHE, ECDHE (Ephemeral DH keys are generated per session).
-    *   **NOT achieved with:** Static RSA key exchange (if server's RSA private key is stolen, all past sessions encrypted with it can be decrypted).
-    *   `TLS_DH_RSA...` (no 'E') uses static DH parameters in server cert, no PFS.
+*   **TLS 1.3 Handshake:** Faster (1-RTT), PFS mandatory, more encrypted.
 
-*   **Record Layer Protocol:**
-    1.  Fragments application data.
-    2.  (Optional, RARELY USED, removed in TLS 1.3) Compresses.
-    3.  Adds MAC (e.g., HMAC-SHA256) for integrity (HMAC-then-Encrypt for TLS < 1.3).
-    4.  Encrypts (data + MAC) using symmetric session key.
-    5.  Adds SSL/TLS Record Header.
-    *   **TLS 1.3 uses AEAD ciphers (e.g., AES-GCM):** Encrypt-then-MAC principle is inherent.
+*   **CIPHER SUITES (e.g., `TLS_DHE_RSA_WITH_AES_128_CBC_SHA256`)**
+    *   `DHE`: **Key Exchange** (provides PFS).
+    *   `RSA`: **Authentication** (server cert type, DHE param signature).
+    *   `AES_128_CBC`: **Bulk Encryption** (symmetric).
+    *   `SHA256`: **MAC/Hash/PRF**.
+    *   *Sample Q: Describe components. Identify Key Exch, Auth, Bulk Enc, Hash.*
+    *   *Sample Q: Diff `TLS_DHE_...` vs `TLS_DH_...` (or `TLS_RSA_...`)? DHE = PFS.*
+    *   *Sample Q: Why not use ciphersuite X? No PFS, or uses weak crypto (RC4, SHA1).*
 
-*   **Key Vulnerabilities & Attacks:**
-    *   **Weak/Broken Crypto:** MD5, SHA-1, RC4, DES, small RSA keys (<2048), SSLv2/v3.
-    *   **Implementation Flaws:** Heartbleed (info leak), POODLE (padding oracle on SSLv3 CBC), BEAST/CRIME/BREACH (compression/CBC attacks).
-    *   **Version Rollback:** Attacker forces client/server to use older, weaker TLS/SSL version. (Finished message helps prevent this if implemented correctly).
-    *   **Ciphersuite Downgrade:** Attacker influences ciphersuite choice to a weaker one.
-    *   **Certificate Issues:**
-        *   Compromised CA private key (can sign any cert).
-        *   Rogue CA / Mis-issued certs.
-        *   Failure to check revocation.
-        *   Ignoring browser warnings.
-    *   **SSLStrip:** MITM attack. Attacker presents HTTP to client, HTTPS to server.
-    *   **TCP RST vs. `close_notify`:** If connection ends with TCP RST without a preceding `close_notify` alert, it's an unclean shutdown, possibly an attack. TLS expects `close_notify`.
+*   **SYMMETRIC (AES) KEY ESTABLISHMENT**
+    *   **NEVER sent directly.** Both sides **DERIVE** from **PreMasterSecret (PMS)**.
+    *   PMS established via Key Exchange (DHE or RSA method above).
+    *   `PMS + Rands => Master Secret => AES keys`.
+    *   *Sample Q: Where are DHE params exchanged? ServerKeyExchange (server's), ClientKeyExchange (client's).*
+    *   *Sample Q: Where is server's RSA public key? In Certificate msg.*
+    *   *Sample Q: Where is server's RSA private key used? To sign DHE params in ServerKeyExchange. NEVER SENT.*
 
-**V. Potential Exam Questions & How to Approach**
+*   **WHY SYMMETRIC KEYS (AES) FOR BULK DATA?**
+    *   **SPEED!** Much faster than asymmetric (RSA).
+
+*   **RECORD LAYER (TLS < 1.3):** Fragment -> (Opt. Compress) -> Add MAC -> Encrypt (Data+MAC) -> Add Header.
+    *   *Sample Q: How TLS ensures diff ciphertext for same plaintext (CBC)? Unique IV per record.*
+
+*   **KEY VULNERABILITIES / ATTACKS**
+    *   **Weak Crypto:** MD5, SHA-1, RC4, DES, SSLv2/3.
+    *   **No PFS:** `TLS_RSA_...` or `TLS_DH_...` (if server key stolen, past sessions decryptable. *Sample Q: Amazon uses TLS_RSA, key stolen, prior safe? NO.*)
+    *   **MITM with Stolen Private Key:** Attacker impersonates server. *(Sample Q: Trudy MITM with stolen key? Yes, browser sees valid handshake).*
+    *   **Version/Cipher Downgrade:** Attacker forces weaker.
+    *   **Cert Issues:** Compromised CA, rogue cert, no revocation check.
+    *   **SSLStrip:** HTTP to client, HTTPS to server.
+    *   **TCP RST vs. `close_notify`:** RST without `close_notify` = unclean, possible attack.
+
+*   **TLS & DNS POISONING**
+    *   DNS poisoning -> wrong IP.
+    *   TLS cert validation (domain name in SAN/CN vs. requested domain, trusted CA) -> **Browser WARNING** if cert invalid for domain. TLS verifies *domain authenticity*.
+
+*   **MULTI-CERTS FOR ONE DOMAIN?**
+    *   *Sample Q: CA issue multiple certs for amazon.com? YES (diff keys, expiry etc.).*
+
+*   **COMPROMISED ROOT CA (e.g., Heartbleed on CA)**
+    *   *Sample Q: User action? Remove Root from trust store. Hard to avoid sites. Change passwords.*
+
+---
+
+**TRUE/FALSE QUICK HITS (from Sample Finals)**
+
+*   **TLS Compression:** Generally NOT used (attacks).
+*   **Server Chooses Ciphersuite:** YES (from client's list).
+*   **DHCP Server & MAC:** Uses CHADDR in DHCP packet (not Ethernet header MAC directly).
+
+### EXAMPLE QUESTIONS
 
 *   **"How would Alice generate a digital signature?"**
     *   Alice hashes message M, then encrypts hash with her *private key*. (Sample Q1a)
@@ -226,7 +198,178 @@ Always used with RSA because DH needs to be protected. It can't be used as plain
 *   **"In server cert, Issuer CN is same as what field in Intermediate CA's cert?"**
     *   Subject CN of the Intermediate CA.
 
+
 ## Firewalls
+
+**I. FIREWALL FUNDAMENTALS**
+
+*   **Definition:** Enforces security policies *between networks of different security levels/policies*.
+*   **Goals:**
+    1.  All traffic between networks passes through the firewall.
+    2.  Only *authorized* traffic (per policy) is allowed.
+    3.  Firewall itself is immune to penetration.
+*   **Network Segmentation / Micro-segmentation:** Modern strategy. Isolate network portions; explicit allow rules needed for communication. (Previously done with VLANs).
+
+---
+
+**II. FIREWALL TYPES & TERMS**
+
+*   **Packet Filtering Firewall (Stateless / Traditional / Layer 2-4 FW):**
+    *   **Fast.** Examines individual packets based on:
+        *   Source/Destination IP Address
+        *   Source/Destination Port
+        *   Protocol (TCP, UDP, ICMP)
+        *   TCP Flags (SYN, ACK, etc.)
+        *   Direction (In/Out)
+        *   Interface
+    *   **Cannot** handle complex policies (e.g., user auth, connection state).
+    *   **Good for:** DDoS mitigation (e.g., drop UDP port 53 traffic).
+    *   **Rules:** Require bidirectional rules (one for outgoing, one for returning ACK packets).
+        *   *Example:* To allow inside web browsing (port 80):
+            1.  `Allow OUT: src_port >1023, dst_port 80, flag ANY` (for initial SYN)
+            2.  `Allow IN: src_port 80, dst_port >1023, flag ACK` (for return traffic)
+            *(Sample Q: Why two rules for stateless? Needs to handle both directions of TCP separately.)*
+
+*   **Stateful Firewall:**
+    *   **Maintains connection info (state table/queue).** Remembers active connections.
+    *   **Smarter:** Can allow return traffic *only if* it matches an established outgoing connection.
+    *   Handles complex traffic better than stateless.
+    *   **Connection State Table Example (IPtables `conntrack`):**
+        *   `NEW`: First packet of a new connection (e.g., TCP SYN).
+        *   `ESTABLISHED`: Connection is active (3-way handshake complete).
+        *   `RELATED`: Connection related to an existing one (e.g., FTP data channel).
+        *   `INVALID`: Packet doesn't match any known state.
+    *   *Sample Q: Stateful vs. Stateless? Stateful tracks connection state, stateless doesn't.*
+    *   *Sample Q: How stateful handles return traffic for web? Allows IN if ESTABLISHED state from an earlier NEW OUT.*
+
+*   **Proxies (Application Gateway):**
+    *   Server acting as intermediary between client and another server (e.g., web, email, FTP).
+    *   **Recreates connections.**
+    *   **Benefits:**
+        *   Logging, Caching, Content filtering (malware/virus scan), User-level auth, DLP.
+    *   **Web Proxy & HTTPS (Corporate MITM):**
+        1.  Corporate proxy acts as a CA (`Acme CA`).
+        2.  `Acme CA` root certificate is **pre-installed & trusted** on employee work laptops/browsers.
+        3.  Employee browses to `https://amazon.com`.
+        4.  Proxy intercepts, generates a *new certificate for amazon.com on-the-fly*, signed by `Acme CA`.
+        5.  Browser trusts this new cert because it chains to the trusted `Acme CA`.
+        6.  Proxy establishes its *own* HTTPS connection to the real `amazon.com`.
+        7.  Proxy can now decrypt, inspect, and re-encrypt all traffic.
+    *   **Disadvantages:** Performance, not all services proxied, client modification, *cannot see encrypted traffic UNLESS it performs MITM (like above)*.
+    *   *Sample Q: How corporate proxy views HTTPS? Installs its root CA on client, then MITM by re-signing certs.*
+    *   *Sample Q: How to bypass geo-blocking firewall? Use VPN/Proxy in another country.*
+
+*   **Bastion Host:** System designed to be **impenetrable**. Runs minimal services (reduces attack surface).
+*   **DMZ (Demilitarized Zone / Perimeter Network):**
+    *   Network segment for public-facing services (web servers, DNS, FTP).
+    *   Separate from internal network & Internet, usually with firewalls on both sides.
+    *   Today: Trend towards segmenting *each service* within the DMZ.
+*   **ACL (Access Control List):** Simple packet filtering on network devices (switches, routers). Basic allow/block by IP/port.
+
+---
+
+**III. IPTABLES (Linux Firewall - User Interface for Netfilter)**
+
+*   **Focus for Class: `filter` table.** (Ignore `nat`, `mangle`, `raw` for exam questions unless explicitly stated otherwise for NAT concepts like DNAT/SNAT).
+
+*   **`filter` Table Chains (MOST IMPORTANT CONCEPT):**
+    *   **`INPUT` Chain:** Packets **destined for the firewall host itself.** (Host-based firewall scenario).
+        *   *Sample Q: Web server on firewall host, allow port 80/443. Which chain? INPUT (and OUTPUT for return).*
+    *   **`OUTPUT` Chain:** Packets **originating from the firewall host itself.** (Host-based firewall).
+    *   **`FORWARD` Chain:** Packets **passing *through* the firewall** (firewall is routing between networks, not the source/destination). (Network-based firewall scenario).
+        *   *Sample Q: Linux host as network firewall/router. Which chain? FORWARD.*
+
+*   **Rule Evaluation:** **TOP-TO-BOTTOM.** First matching rule's action is taken (then stops, unless action is `LOG`).
+
+*   **Default Policy (`-P`):** **MUST SET!** What happens if no rule matches.
+    *   **Best Practice:** `iptables -P INPUT DROP`, `iptables -P OUTPUT DROP`, `iptables -P FORWARD DROP`.
+    *   *If not set, lose points! Assumes ALLOW ALL by default on some systems.*
+    *   Can also be set by a catch-all `DROP` rule at the end of a chain.
+
+*   **Common `iptables` Command Structure:**
+    `iptables [-t table] -OPERATION chain [rule_specifications] -j TARGET`
+    *   `-t filter`: (Default, often omitted).
+    *   **Operations:**
+        *   `-A`: Append rule to end of chain.
+        *   `-I chain [rulenum]`: Insert rule at position (default 1 = top).
+        *   `-D chain rulenum`: Delete rule.
+        *   `-F`: Flush (delete all rules in chain/table).
+        *   `-L [-v -n --line-numbers]`: List rules.
+    *   **Rule Specifications (Examples):**
+        *   `-p tcp|udp|icmp`: Protocol.
+        *   `-s <ip/cidr>`: Source IP.
+        *   `-d <ip/cidr>`: Destination IP.
+        *   `-i <interface>`: Input interface (e.g., `eth0`).
+        *   `-o <interface>`: Output interface.
+        *   `--sport <port>`: Source port.
+        *   `--dport <port>`: Destination port.
+        *   `--tcp-flags <mask> <comp>`: e.g., `--tcp-flags SYN,ACK,FIN,RST SYN` (often `--syn`).
+        *   `-m conntrack --ctstate NEW,ESTABLISHED,RELATED`: **For stateful rules.**
+    *   **Targets (`-j`):**
+        *   `ACCEPT`: Allow packet.
+        *   `DROP`: Silently discard. (Preferred over REJECT).
+        *   `REJECT`: Discard + send ICMP error (e.g., port-unreachable). *Gives info to attacker.*
+        *   `LOG [--log-prefix "text"]`: Log packet (continues to next rule).
+    *   *Sample Q: How to see iptables rules? `iptables -L -v`.*
+    *   *Sample Q: How to flush rules? `iptables -F`.*
+
+*   **Stateful `iptables` Example (Allow internal web access out):**
+    1.  `iptables -P FORWARD DROP` (Default policy)
+    2.  `iptables -A FORWARD -i eth_internal -o eth_external -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED,RELATED -j ACCEPT`
+        *   Allows internal network (`eth_internal`) to initiate NEW web connections to `eth_external`.
+    3.  `iptables -A FORWARD -i eth_external -o eth_internal -p tcp --sport 80 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT`
+        *   Allows returning traffic for ESTABLISHED/RELATED web connections.
+    *   *(Note: `-s` and `-d` would typically be used for more specificity. `RELATED` helps with protocols like FTP).*
+
+*   **Writing IPTables Rules (Tips from Lab):**
+    *   Set default policy to `DROP` first.
+    *   Write rules in a script file.
+    *   Start script with `iptables -F` (to clear previous rules).
+    *   End script with `iptables -L -v` (to see applied rules).
+    *   Make script executable (`chmod +x`).
+    *   Test incrementally.
+
+---
+
+**IV. TCP THREE-WAY HANDSHAKE (Firewall Context)**
+
+*   **Packet 1 (Client -> Server):**
+    *   Flags: **SYN** (only SYN!)
+    *   Src Port: Random high_port (X)
+    *   Dst Port: Service_port (e.g., 443)
+    *   Seq: Random (A)
+    *   Ack: 0
+*   **Packet 2 (Server -> Client):**
+    *   Flags: **SYN, ACK**
+    *   Src Port: Service_port (e.g., 443)
+    *   Dst Port: Random high_port (X)
+    *   Seq: Random (B)
+    *   Ack: A+1
+*   **Packet 3 (Client -> Server):**
+    *   Flags: **ACK**
+    *   Src Port: Random high_port (X)
+    *   Dst Port: Service_port (e.g., 443)
+    *   Seq: A+1
+    *   Ack: B+1
+*   *Stateless firewalls need to check TCP flags to distinguish initial SYN from other packets.*
+*   *Stateful firewalls use `NEW` for first SYN, `ESTABLISHED` after.*
+
+---
+
+**V. EXAM QUESTION STRATEGY**
+
+*   **Identify Firewall Type:** Is it stateless, stateful, or a proxy? This dictates how rules work.
+*   **IPTables: Which Chain?**
+    *   Packet TO the firewall box? -> `INPUT` (and `OUTPUT` for reply).
+    *   Packet FROM the firewall box? -> `OUTPUT` (and `INPUT` for reply).
+    *   Packet THROUGH the firewall box? -> `FORWARD` (bidirectional).
+*   **Default Policy:** Always assume you need to set it to `DROP`.
+*   **Bidirectional Rules:** For TCP/UDP, stateless firewalls *always* need rules for both directions. Stateful can be smarter with `ESTABLISHED,RELATED`.
+*   **Read Carefully:** "Outside" vs. "Internet" vs. specific network.
+*   **Stateful (`conntrack`):**
+    *   `NEW`: For connection initiating side.
+    *   `ESTABLISHED,RELATED`: For return traffic or related data connections.
+
 
 ## Layer 2 Security
 
