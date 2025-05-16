@@ -35,6 +35,7 @@ Okay, here's a "Summary / Top-Level" cheat sheet designed to cover ~80% of the l
         *   **Key Fields:** Subject (owner), Issuer (CA), Validity Period, Public Key, **SAN (Subject Alternative Name - PRIMARY for website ID)**, Basic Constraints (`cA:TRUE/FALSE`), CA Signature.
     *   **Validation (Browser):** Chain to trusted Root CA, check signatures, dates, revocation (CRL/OCSP), SAN matches hostname.
     *   *(See Detailed PKI section for full validation steps & cert types DV/OV/EV)*
+    * **Validation steps:**
 
 *   **TLS (Transport Layer Security):**
     *   **Purpose:** Secure TCP. Confidentiality (AES), Integrity (HMAC), Authentication (Certs).
@@ -52,9 +53,27 @@ Okay, here's a "Summary / Top-Level" cheat sheet designed to cover ~80% of the l
         *   **`TLS_RSA_...` (Exercise 1B Type):**
             *   **Step 3 (Certificate):** Server's RSA Public Key (n,e) for *key exchange & authentication*.
             *   **Step 4 (ServerKeyExchange):** **NOT USED** / Empty.
-            *   **Step 6 (ClientKeyExchange):** Client sends **PMS (Key K) *encrypted with server's RSA Public Key***.
+            *   **Step 6 (ClientKeyExchange):** Client sends **PMS (Key K) -> AES + HMAC Key *encrypted with server's RSA Public Key***.
     *   **Finished Message (Steps 8 & 10):** Hash of all *prior handshake messages*; first message encrypted with newly derived session keys (AES+HMAC). Validates entire handshake.
-    *   **TLS 1.3:** Faster (1-RTT), PFS mandatory, more encryption. Implemented as extension in Client/ServerHello (check "supported_versions"). Client sends key shares proactively.
+    *  Okay, here's the expanded section on TLS 1.3 based on the transcript:
+
+*   **TLS 1.3:**
+    *   **Faster:** Significantly faster handshake, often achieving 1-RTT (Round Trip Time) by condensing exchanges. (Professor mentioned shaving ~750ms vs 1.2).
+    *   **PFS Mandatory:** All key exchanges *must* provide Perfect Forward Secrecy (e.g., ephemeral Diffie-Hellman). Static RSA key exchange is removed.
+    *   **More Encryption:** Encrypts more of the handshake messages earlier in the process for better privacy.
+    *   **Secure Defaults:** Only allows secure cipher suites (AEAD ciphers are standard). Removes older, weaker algorithms.
+    *   **Implemented as an Extension:**
+        *   Due to existing internet appliances (middleboxes) not supporting TLS 1.3, the main part of the `ClientHello` and `ServerHello` often still indicates TLS 1.2 compatibility.
+        *   Actual TLS 1.3 support is signaled via an **extension called "supported_versions"**. You *must* check this extension field in Wireshark (as per HW#3) to determine if TLS 1.3 is truly being negotiated, not just the main version field in the Hello message.
+    *   **Client Proactively Sends Key Shares:**
+        *   In the *first* `ClientHello`, the client (e.g., Firefox) sends its DHE/ECDHE public key shares for *all* the TLS 1.3 cipher suites it supports (currently about six).
+        *   This is done *before* knowing if the server even supports TLS 1.3 or which ciphersuite the server will pick.
+        *   This allows the server, if it supports TLS 1.3 and one of the offered key shares/ciphers, to immediately compute the shared secret and send back its own key share, encrypted extensions, certificate, and Finished message in its first flight (1-RTT).
+        *   The client does the "extra work" of generating multiple key shares upfront to enable this speedup.
+    *   **Simplified Handshake Flow (Conceptual from transcript):**
+        1.  **Client -> Server:** `ClientHello` (includes TLS 1.2 in main header, TLS 1.3 in "supported_versions" extension, supported AEAD cipher suites, *and key shares for all its supported TLS 1.3 ciphersuites*).
+        2.  **Server -> Client:** `ServerHello` (selects TLS 1.3 via extension, chosen AEAD cipher suite, its key share for the chosen suite), Encrypted Extensions, Certificate, CertificateVerify (if needed), Finished.
+        3.  **Client -> Server:** (Potentially Authentication if server requested client cert), Finished. Application data can now flow.
     *   **Record Layer:** App Data -> Fragment (16KB) -> (No Compress) -> HMAC -> Encrypt -> Header.
     *   *(See Detailed TLS section for full handshake, ciphersuites, vulnerabilities)*
 
@@ -80,6 +99,12 @@ Okay, here's a "Summary / Top-Level" cheat sheet designed to cover ~80% of the l
         *   Allow `NEW` only from initiating side.
         *   Allow `ESTABLISHED,RELATED` for return/related traffic (can be a general rule at top of chain for simplicity after specific `NEW` rules).
     *   *(See Detailed Firewall section & Rule Table for examples)*
+
+POWERRULE ACCEPT ALL ESTABLISHED CONNECTIONS:
+![[Screenshot 2025-05-16 at 6.34.14 PM.png]]
+![[Screenshot 2025-05-16 at 6.35.18 PM.png]]
+
+![[Screenshot 2025-05-16 at 6.32.51 PM.png]]
 
 ---
 
@@ -565,11 +590,39 @@ Okay, here's a new section for your cheat sheet with a table of example `iptable
     *   Stateless: Explicit reverse rule.
     *   Stateful: `ESTABLISHED,RELATED` on the return path.
 
-This table covers the common patterns seen in the sample questions and labs. Adapt the IPs, interfaces, and ports as needed for specific exam questions.
-
-Okay, here's a focused cheat sheet for those "Exercise #1A / #1B" type questions, comparing `TLS_DHE_RSA...` and `TLS_RSA...` cipher suites in a TLS 1.2 handshake.
-
----
+- **Proxy (Application Gateway / Web Gateway):** Intermediary. Recreates connections. Can inspect content.
+    
+    - **HTTPS Inspection (Corporate MITM - Exercise G):**
+        
+        - **(1) Company-Issued Computer:**
+            
+            - **How:** The company's IT department pre-installs their own **custom Root CA certificate** (e.g., "ACME Corp CA") into the trusted root store of the operating system and browsers on the company-issued computer.
+                
+            - When Alice (on company computer) browses to https://facebook.com, her traffic is routed through the company's Web Gateway/Proxy.
+                
+            - The Web Gateway intercepts the request. It dynamically generates a new certificate for facebook.com and signs this fake facebook.com certificate with the **private key of the "ACME Corp CA"**.
+                
+            - This fake facebook.com certificate is sent to Alice's browser.
+                
+            - Alice's browser validates this fake certificate. It successfully chains up to the "ACME Corp CA", which it already trusts (because it was pre-installed). The browser sees a valid chain to a trusted root and does **not** show a certificate warning.
+                
+            - The Web Gateway then establishes its own, separate HTTPS connection to the real facebook.com.
+                
+            - **Result:** The Web Gateway sits in the middle, decrypting traffic from Alice, inspecting/logging it, and then re-encrypting it to send to the real Facebook (and vice-versa for responses). Alice's browser thinks it has a secure connection to Facebook, but it's actually to the proxy.
+                
+        - **(2) Alice's Own Computer (Harder for Company to Inspect Encrypted):**
+            
+            - **Direct Capture Difficult:** If Alice uses her own computer and connects to https://facebook.com, the company Web Gateway cannot transparently MITM the connection in the same way without Alice noticing. Her personal computer would not trust the "ACME Corp CA" by default.
+                
+            - If the gateway tried to present a fake facebook.com certificate signed by "ACME Corp CA", Alice's browser would show a **major certificate warning** (unknown issuer/untrusted CA).
+                
+            - **Possible (but detectable/intrusive) ways company might try (less common for personal devices without consent):**
+                
+                - **Forcing Proxy + Ignoring Warnings:** If company network policy forces all traffic through the proxy and Alice is instructed (or chooses) to ignore certificate warnings for facebook.com (very bad practice).
+                    
+                - **Software Installation on Personal Device:** If Alice is required to install company software/profiles on her personal device to access the network, that software could install the "ACME Corp CA" into her trusted roots, effectively turning her personal device into a "managed" one for this purpose.
+                    
+                - **SSLStrip (Less Effective Today):** Attacker downgrades HTTPS to HTTP. Modern browsers and HSTS largely prevent this.
 
 ## TLS Handshake Key Exchange Cheat Sheet (for Exercise 1A/1B Type Questions)
 
