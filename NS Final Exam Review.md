@@ -1,11 +1,5 @@
 ## Master
 
-Okay, here's a "Summary / Top-Level" cheat sheet designed to cover ~80% of the likely exam material for quick reference, based on the final review slides and transcript. It will point to the more detailed sections we've already created.
-
----
-
-**FINAL EXAM - TOP-LEVEL CHEAT SHEET (Key Concepts & Quick Find)**
-
 **I. LESSON 6: MESSAGE INTEGRITY, PKI, TLS**
 
 *   **Diffie-Hellman (DH):**
