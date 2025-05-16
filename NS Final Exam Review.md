@@ -369,6 +369,7 @@ Always used with RSA because DH needs to be protected. It can't be used as plain
 *   **Stateful (`conntrack`):**
     *   `NEW`: For connection initiating side.
     *   `ESTABLISHED,RELATED`: For return traffic or related data connections.
+    *  For example, if it's 443, then input should allow new.
 
 Okay, here's a new section for your cheat sheet with a table of example `iptables` scenarios and rules, based on the types of questions in the sample finals and common firewall tasks.
 
