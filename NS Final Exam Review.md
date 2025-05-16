@@ -1,3 +1,146 @@
+## Master
+
+Okay, here's a "Summary / Top-Level" cheat sheet designed to cover ~80% of the likely exam material for quick reference, based on the final review slides and transcript. It will point to the more detailed sections we've already created.
+
+---
+
+**FINAL EXAM - TOP-LEVEL CHEAT SHEET (Key Concepts & Quick Find)**
+
+**I. LESSON 6: MESSAGE INTEGRITY, PKI, TLS**
+
+*   **Diffie-Hellman (DH):**
+    *   **Purpose:** Securely establish a shared secret (Key K) over an insecure channel.
+    *   **Public Values:** `g, n, A (g^a mod n), B (g^b mod n)`.
+    *   **Private Values:** `a, b` (exponents, **NEVER EXCHANGED**).
+    *   **Vulnerability:** Susceptible to Man-in-the-Middle (MITM) if `g,n,A,B` are not authenticated (signed). *DH itself provides no authentication.*
+    *   **Protection:** Values `g,n,A,B` need to be *signed* (integrity & auth), not encrypted.
+    *   *(See Detailed TLS Handshake for integration)*
+
+*   **Hashing vs. Encryption:**
+    *   **Hashing (MD5(broken), SHA-1(weak), SHA-256(good)):** One-way. Message -> Fixed-size digest. For integrity.
+    *   **Encryption (AES, RSA):** Two-way (with key). For confidentiality.
+
+*   **Nonce:** Number-used-once. Prevents replay attacks by ensuring "liveness."
+    *   *Example: Alice -> Bob: "Hi"; Bob -> Alice: "Nonce R"; Alice -> Bob: Encrypt(R, SharedKey). Bob verifies R.*
+
+*   **Digital Signature vs. HMAC:**
+    *   **Digital Signature (RSA, ECDSA):** Asymmetric (Private Key to sign, Public Key to verify). Provides Integrity, Authentication, **Non-repudiation**.
+        *   *Process: Hash(message) -> Encrypt(hash, PrivateKey).*
+    *   **HMAC (HMAC-SHA256):** Symmetric (Shared Secret Key). Provides Integrity, Authentication. **Faster** than DigSig.
+        *   *Essentially: Hash(message + shared_key_elements).*
+
+*   **PKI (Public Key Infrastructure):**
+    *   **CA (Certificate Authority):** Trusted entity. Issues & signs X.509 certificates.
+    *   **X.509 Certificate:** Binds Public Key to an Identity (Subject).
+        *   **Key Fields:** Subject (owner), Issuer (CA), Validity Period, Public Key, **SAN (Subject Alternative Name - PRIMARY for website ID)**, Basic Constraints (`cA:TRUE/FALSE`), CA Signature.
+    *   **Validation (Browser):** Chain to trusted Root CA, check signatures, dates, revocation (CRL/OCSP), SAN matches hostname.
+    *   *(See Detailed PKI section for full validation steps & cert types DV/OV/EV)*
+
+*   **TLS (Transport Layer Security):**
+    *   **Purpose:** Secure TCP. Confidentiality (AES), Integrity (HMAC), Authentication (Certs).
+    *   **Perfect Forward Secrecy (PFS):** If server's long-term private key is compromised, *past* session keys (and thus traffic) are safe.
+        *   **Achieved by:** **Ephemeral** key exchange (DHE, ECDHE). `TLS_DHE_...`, `TLS_ECDHE_...`
+        *   **NOT by:** Static RSA key exchange (`TLS_RSA_...`) or static DH (`TLS_DH_...`).
+        *   *If server hacked tomorrow, can past DHE sessions be decrypted? NO. Can past RSA sessions? YES.*
+        *   *If server hacked YESTERDAY, can attacker see TODAY's DHE session? Only if active MITM. For RSA, can passively decrypt.*
+    *   **TLS 1.2 Handshake (Key Exchange Points):**
+        *   **`TLS_DHE_RSA_...` (Exercise 1A Type):**
+            *   **Step 3 (Certificate):** Server's RSA Public Key (n,e) for *authentication*.
+            *   **Step 4 (ServerKeyExchange):** Server's DHE Public Params (A,g,n) *signed by server's RSA Private Key*.
+            *   **Step 6 (ClientKeyExchange):** Client's DHE Public Param (B).
+            *   **PMS (Key K):** **Derived** by both from DH exchange, **NOT sent**.
+        *   **`TLS_RSA_...` (Exercise 1B Type):**
+            *   **Step 3 (Certificate):** Server's RSA Public Key (n,e) for *key exchange & authentication*.
+            *   **Step 4 (ServerKeyExchange):** **NOT USED** / Empty.
+            *   **Step 6 (ClientKeyExchange):** Client sends **PMS (Key K) *encrypted with server's RSA Public Key***.
+    *   **Finished Message (Steps 8 & 10):** Hash of all *prior handshake messages*; first message encrypted with newly derived session keys (AES+HMAC). Validates entire handshake.
+    *   **TLS 1.3:** Faster (1-RTT), PFS mandatory, more encryption. Implemented as extension in Client/ServerHello (check "supported_versions"). Client sends key shares proactively.
+    *   **Record Layer:** App Data -> Fragment (16KB) -> (No Compress) -> HMAC -> Encrypt -> Header.
+    *   *(See Detailed TLS section for full handshake, ciphersuites, vulnerabilities)*
+
+---
+
+**II. LESSON 7: FIREWALLS (IPTABLES)**
+
+*   **Types:**
+    *   **Stateless (Packet Filter):** Fast. IP/Port/Flags. Needs bidirectional rules.
+    *   **Stateful:** Tracks connections (NEW, ESTABLISHED, RELATED). Smarter.
+    *   **Proxy (App Gateway):** Intermediary. Recreates connections. Can inspect content.
+        *   *HTTPS Inspection (Corporate): Proxy CA cert trusted on client -> MITM.*
+*   **DMZ:** Perimeter network for public services.
+
+*   **IPTABLES (Linux `filter` table):**
+    *   **Chains:**
+        *   `INPUT`: To firewall host.
+        *   `OUTPUT`: From firewall host.
+        *   `FORWARD`: Through firewall (routing).
+    *   **Default Policy:** `iptables -P <CHAIN> DROP` **MUST SET FIRST!**
+    *   **Rules:** Top-to-bottom. `-A` (append), `-s` (src IP), `-d` (dst IP), `-i` (in-iface), `-o` (out-iface), `-p tcp/udp/icmp`, `--dport`, `--sport`, `-j ACCEPT/DROP/REJECT/LOG`.
+    *   **Stateful:** `-m conntrack --ctstate NEW,ESTABLISHED,RELATED`.
+        *   Allow `NEW` only from initiating side.
+        *   Allow `ESTABLISHED,RELATED` for return/related traffic (can be a general rule at top of chain for simplicity after specific `NEW` rules).
+    *   *(See Detailed Firewall section & Rule Table for examples)*
+
+---
+
+**III. LESSON 8: LAYER 2 SECURITY**
+
+*   **CAM Table (Switch MAC Table):**
+    *   **Overflow Attack:** Flood switch with fake source MACs -> switch acts like hub -> sniff traffic.
+    *   **Counter: Port Security** (limits MACs/port). *Admin overhead is a drawback.*
+
+*   **VLAN Hopping:**
+    *   **Switch Spoofing:** Attacker emulates switch, negotiates trunk -> access all VLANs. *Counter: Disable DTP (auto-trunking) on access ports.*
+    *   **Double Tagging:** Attacker on Native VLAN crafts frame with 2 VLAN tags (Outer=Native, Inner=Victim) -> Unidirectional access to victim VLAN. *Counter: Don't use native VLAN for users; tag native VLAN traffic.*
+
+*   **DHCP Attacks (Plaintext Protocol):**
+    *   **Rogue DHCP Server:** Attacker offers malicious IP config (bad Gateway, DNS, Proxy) -> MITM/DoS. *Client takes first offer.*
+        *   *Problematic info from Rogue DHCP: Default Router (MITM), DNS Server (Phishing/Redirect), Web Proxy (MITM).*
+    *   **DHCP Starvation:** Attacker requests all IPs using *spoofed CHADDRs* (client MAC in DHCP payload) -> DoS.
+    *   **Counters:**
+        *   **DHCP Snooping (Switch Feature):**
+            1.  **Trusted/Untrusted Ports:** Only trusted (to real DHCP server) can send Offers/ACKs.
+            2.  **Binding Table:** Learns `MAC|IP|Lease|VLAN|Interface` from valid ACKs.
+            3.  (Adv) Checks Ethernet MAC vs. CHADDR.
+            4.  Rate limit requests.
+        *   **Port Security:** Limits Ethernet source MACs (partial for starvation).
+        *   **VLAN ACLs:** Block UDP src_port 67 on client ports (basic rogue defense).
+
+*   **ARP Attacks (Plaintext Protocol):**
+    *   **ARP Spoofing/Poisoning:** Attacker sends fake ARP Replies -> redirects traffic -> MITM.
+    *   **Counter: Dynamic ARP Inspection (DAI)** (Switch Feature).
+        *   *Requires DHCP Snooping Binding Table.*
+        *   Validates (IP, MAC) in ARP packets against binding table. Drops mismatches.
+
+*   **IP/MAC Spoofing:**
+    *   **Counter: IP Source Guard (IPSG)** (Switch Feature).
+        *   *Requires DHCP Snooping Binding Table.*
+        *   Checks (Src IP, Src MAC, VLAN, Iface) of *every packet* against binding table. Drops mismatches. (Resource intensive).
+
+*   **STP (Spanning Tree Protocol) Attacks:**
+    *   **Attacker becomes Root Bridge:** Sends superior BPDUs -> MITM/DoS.
+    *   **Counters:** **BPDU Guard** (on access ports, shuts down if BPDU received), **Root Guard** (prevents port from becoming root path).
+
+*   **802.1X (Port-Based Network Access Control):**
+    *   Authenticates devices *before* L2 access. (Supplicant, Authenticator, Auth Server - RADIUS).
+    *   Uses EAP (EAP-TLS for certs, EAP-TTLS/PEAP for tunneled passwords).
+
+---
+
+**IV. LESSON 9: WIRELESS SECURITY (WPA2/3 Focus)**
+
+*   **802.11 Frame:** Has 3 MACs (Dst, Src, Router/BSSID). Address 4 for ad-hoc.
+*   **WEP: BROKEN.** (RC4 IV issues).
+*   **WPA/WPA2 (PSK - Pre-Shared Key / "Personal"):**
+    *   Uses a single password for all users.
+    *   **Vulnerability:** Password can be offline brute-forced if attacker captures 4-way handshake. *Strength depends entirely on password strength.*
+*   **WPA/WPA2 (Enterprise):** Uses 802.1X/RADIUS for individual authentication (stronger).
+*   **WPA3:**
+    *   **Major Improvement:** Protects against offline PSK brute-force attacks (uses SAE - Simultaneous Authentication of Equals).
+    *   Supports "Protected Management Frames" (802.11w) - prevents deauth/disassoc spoofing attacks.
+*   **MAC Address Randomization:** Modern devices change MACs periodically for privacy. *Enterprises may disable for auditing, creating tracking risk.*
+*   **Sniffing Wireless:** MACs (src, dst, BSSID/router) are visible even with WPA2/3 encryption.
+
 ## Message Integrity, PKI, and TLS
 
 ### Diffie-Hellman
