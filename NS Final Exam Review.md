@@ -1,5 +1,11 @@
 ## Message Integrity, PKI, and TLS
 
+### Diffie-Hellman
+
+Always used with RSA because DH needs to be protected. It can't be used as plain text.
+
+![[Screenshot 2025-05-16 at 10.21.37 AM.png]]
+
 ## Firewalls
 
 ## Layer 2 Security
