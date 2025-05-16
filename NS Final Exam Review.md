@@ -105,7 +105,7 @@ POWERRULE ACCEPT ALL ESTABLISHED CONNECTIONS:
 ![[Screenshot 2025-05-16 at 6.35.18 PM.png]]
 
 ![[Screenshot 2025-05-16 at 6.32.51 PM.png]]
-
+![[Screenshot 2025-05-16 at 6.40.19 PM.png]]
 ---
 
 **III. LESSON 8: LAYER 2 SECURITY**
