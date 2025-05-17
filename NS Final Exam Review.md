@@ -31,6 +31,17 @@
     *   *(See Detailed PKI section for full validation steps & cert types DV/OV/EV)*
     * **Validation steps:**
 
+- **Modification:** If not using Hash(message) Encrypt(hash, PrivateKey)
+    - Alice -> Bank: Hello
+    - Bank -> Alice: Here’s a nonce R
+    - Alice computes: Message = “Transfer $100 to Trudy” + R
+    - Alice computes: Signature = Sign_with_Alice's_Private_Key(Hash(Message))
+    - Alice -> Bank: encrypt_using_bank’s_public_key(Message, Alice’s_password, Signature)
+- **Improvement:**
+    - **Stronger Authentication:** The signature proves the message originated from someone possessing Alice's private key (presumably only Alice). This is stronger than just password authentication, especially if the password could be phished or guessed.
+    - **Integrity:** The hash within the signature ensures “Transfer $100 to Trudy” + R hasn't been tampered with after Alice signed it (though encryption already provides some protection against tampering by an outside party if the bank's private key is secure).
+    - **Non-repudiation:** Alice cannot later deny sending the transfer request if her signature is valid.
+
 *   **TLS (Transport Layer Security):**
     *   **Purpose:** Secure TCP. Confidentiality (AES), Integrity (HMAC), Authentication (Certs).
     *   **Perfect Forward Secrecy (PFS):** If server's long-term private key is compromised, *past* session keys (and thus traffic) are safe.
@@ -70,6 +81,62 @@
         3.  **Client -> Server:** (Potentially Authentication if server requested client cert), Finished. Application data can now flow.
     *   **Record Layer:** App Data -> Fragment (16KB) -> (No Compress) -> HMAC -> Encrypt -> Header.
     *   *(See Detailed TLS section for full handshake, ciphersuites, vulnerabilities)*
+
+Let's break down how these concepts relate at a high level:
+
+**1. Digital Signatures & HMAC: The "Tools" for Trust and Integrity**
+
+*   **Digital Signatures:**
+    *   **What it is:** A cryptographic method to verify the **authenticity** (who created/sent it) and **integrity** (it hasn't been tampered with) of a digital message or document, and provide **non-repudiation** (sender can't deny sending it).
+    *   **How it works (simplified):** Sender hashes the data, then encrypts that hash with their **private key**.
+    *   **Verification:** Anyone with the sender's **public key** can decrypt the signature (getting the original hash) and independently hash the data. If the hashes match, the signature is valid.
+    *   **Key type:** Asymmetric (public/private key pair).
+
+*   **HMAC (Hash-based Message Authentication Code):**
+    *   **What it is:** A cryptographic method to verify both the **data integrity** and **authenticity** of a message.
+    *   **How it works (simplified):** Combines a cryptographic hash function with a **shared secret key**. Both sender and receiver must know the same secret key.
+    *   **Verification:** Receiver performs the same HMAC calculation on the message with the shared secret key. If the results match, the message is authentic and unaltered.
+    *   **Key type:** Symmetric (shared secret key).
+    *   **Does NOT provide non-repudiation** because either party with the shared key could have created the HMAC.
+
+**How Digital Signatures & HMAC relate to PKI:**
+
+*   **Digital Signatures are FUNDAMENTAL to PKI:**
+    *   **Certificate Signing:** The most crucial use. A Certificate Authority (CA) uses its **private key** to digitally sign the certificates it issues. This signature is what binds a public key to an identity (e.g., a person, a website). When your browser receives a website's certificate, it verifies the CA's digital signature on that certificate using the CA's public key (which is hopefully already in your browser's trusted root store).
+    *   **CRL/OCSP Signing:** Certificate Revocation Lists (CRLs) and OCSP responses (which state if a certificate is still valid) are also digitally signed by the CA to ensure their authenticity and integrity.
+    *   **Authenticating Entities:** In some PKI-enabled systems, users or devices might digitally sign messages or authentication challenges to prove their identity.
+
+*   **HMAC is generally NOT a core component of the *public key infrastructure itself*** (which deals with public/private keys and certificates).
+    *   HMACs are used in protocols that might *operate alongside or be secured by* PKI-established trust, but usually for session-specific integrity/authentication *after* an initial trust (often established via PKI/certificates) is in place and a shared symmetric key has been derived. For example, in TLS, after the handshake (which uses certificates/digital signatures), HMACs (or AEAD modes which combine encryption and MAC) are used with derived symmetric session keys to protect application data.
+
+**2. PKI (Public Key Infrastructure): The "Framework" for Managing Trust in Public Keys**
+
+*   **What it is:** A set of roles, policies, hardware, software, and procedures needed to create, manage, distribute, use, store, and revoke **digital certificates** and manage **public-key encryption**.
+*   **Core Goal:** To securely associate public keys with their respective user or entity identities. It answers the question: "How do I know that this public key *really* belongs to `www.google.com` and not an attacker?"
+*   **High-Level Components:**
+    *   **Certificate Authority (CA):** The trusted entity that issues and digitally signs certificates.
+    *   **Registration Authority (RA):** Verifies the identity of entities requesting certificates (often part of the CA).
+    *   **Digital Certificates (X.509):** Electronic documents that use a digital signature to bind a public key with an identity. Contains info like subject name, issuer name, public key, validity period, CA's signature.
+    *   **Certificate Revocation List (CRL) / Online Certificate Status Protocol (OCSP):** Mechanisms to check if a certificate is still valid or has been revoked before its expiry.
+    *   **Certificate Store/Repository:** Where certificates are stored and can be retrieved (e.g., browser's trusted root store).
+
+**How PKI relates to TLS:**
+
+*   **PKI is ESSENTIAL for Server Authentication in TLS (and optional Client Authentication):**
+    *   **Server Authentication (Most Common Use):** When you connect to `https://www.example.com`, your browser initiates a TLS handshake.
+        1.  The `www.example.com` server sends its **digital certificate** to your browser.
+        2.  This certificate was issued and **digitally signed by a CA** (e.g., Let's Encrypt, DigiCert).
+        3.  Your browser uses its pre-installed list of trusted Root CA public keys to **verify the signature chain** on the server's certificate, all the way up to a trusted root. This is PKI in action.
+        4.  If the certificate is valid (correct domain name in SAN, not expired, not revoked, signed by a trusted CA), your browser trusts that the public key in the certificate genuinely belongs to `www.example.com`.
+    *   **Key Exchange:** Once the server's public key is trusted (thanks to PKI), it can be used in the TLS key exchange mechanism (e.g., for the client to encrypt a Pre-Master Secret in RSA key exchange, or for the server to sign its Diffie-Hellman parameters in DHE/ECDHE key exchanges).
+    *   **Client Authentication (Optional):** In some scenarios (e.g., corporate networks, high-security applications), the server might also request a certificate from the client. The client sends its certificate, and the server uses PKI principles to validate it.
+
+**In summary at a high level:**
+
+1.  **Digital Signatures** are a cryptographic tool using asymmetric keys to prove authenticity, integrity, and non-repudiation.
+2.  **HMACs** are a cryptographic tool using symmetric keys to prove authenticity and integrity.
+3.  **PKI** is a *framework* that heavily relies on **Digital Signatures** (especially from CAs signing certificates) to create and manage trust in the association between identities and public keys.
+4.  **TLS** is a *protocol* that uses **PKI** (and thus digital certificates and their signatures) primarily for authenticating the server (and optionally the client). Once authentication and key exchange are done (which involves asymmetric crypto and PKI), TLS then uses derived symmetric keys with mechanisms like **HMACs** (or AEAD ciphers which include MAC functionality) to secure the actual application data being transmitted.
 
 ---
 
@@ -972,3 +1039,103 @@ Choice 4 of 4: To provide a secure channel for the transmission of cookies over 
 The whole point of TLS and values must be signed is to prevent:
 ![[Screenshot 2025-05-16 at 5.38.55 PM.png]]
 
+## **WIRESHARK**
+Okay, I've analyzed the Wireshark capture images (Figure 1 - Frame #12 and Figure 2 - Frame #16).
+
+Here's how to interpret this for your cheat sheet, focusing on the type of questions usually asked (like in Midterm Q3 on page 7 of the `midtermguide.pdf`):
+
+---
+
+**WIRESHARK TLS HANDSHAKE ANALYSIS (Example based on provided images)**
+
+**Figure 1: Frame #12 - ClientHello**
+
+*   **Source IP:** `10.0.1.24` (Client)
+*   **Destination IP:** `40.122.129.128` (Server)
+*   **TLS Record Layer:**
+    *   **Content Type:** Handshake (22)
+*   **Handshake Protocol: Client Hello**
+    *   **Client's Highest Offered TLS Version:** `TLS 1.0 (0x0301)`
+        *   *Note:* The question asks "TLS version client *offer*". In a real modern capture, you'd also check for a "supported_versions" extension to see if it offers higher like TLS 1.2 or 1.3. This capture only shows TLS 1.0 as the main version field.
+    *   **Random:** (Present, specific value not critical for this type of question)
+    *   **Session ID:** (Present, specific value or length not critical here)
+    *   **Cipher Suites (Client Offers 12 suites):**
+        *   `TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)`
+        *   `TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)`
+        *   `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)`
+        *   `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)`
+        *   ... and others including `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, etc.
+    *   **Compression Methods:** `null (0)` (Client offers no compression, which is standard and good).
+
+**Figure 2: Frame #16 - ServerHello, Certificate, ServerKeyExchange** (This frame contains multiple handshake messages)
+
+*   **Source IP:** `40.122.129.128` (Server)
+*   **Destination IP:** `10.0.1.24` (Client)
+*   **TLS Record Layer:** Handshake Protocol: Multiple Handshake Messages
+    1.  **Handshake Protocol: Server Hello**
+        *   **Server's Chosen TLS Version:** `TLS 1.0 (0x0301)`
+        *   **Random:** (Present)
+        *   **Session ID:** (Present, server might echo client's or generate new)
+        *   **Chosen Cipher Suite:** `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)`
+            *   This is the cipher suite the server picked from the client's list.
+        *   **Compression Method:** `null (0)`
+        *   **Extensions:** Renegotiation Info, etc. (specifics depend on question type)
+    2.  **Handshake Protocol: Certificate**
+        *   **Certificates Length:** 3156 bytes
+        *   **Certificate 1 (Server's Certificate - End-Entity):** Length 1732
+            *   **Subject CN (Common Name):** `roaming.officeapps.live.com`
+                *   *This is typically what you'd look for if asked "What is the server certificate's Subject CN?"*
+        *   **Certificate 2 (Intermediate CA Certificate):** Length 1418
+            *   **Subject CN:** `Microsoft IT SSL SHA2` (This is the issuer of the server's cert and the subject of this intermediate cert)
+            *   *(There would usually be an Issuer CN field in the server's cert that matches this Subject CN).*
+        *   *(The chain continues until a root CA, which isn't fully shown here but would be trusted by the client).*
+    3.  **Handshake Protocol: Server Key Exchange**
+        *   *(Details of the Server Key Exchange would be here. Since `TLS_ECDHE_RSA...` was chosen, this message is **ESSENTIAL** and would contain the server's ephemeral ECDHE public key parameters, signed by the server's RSA private key linked to the certificate presented).*
+        *   *This message is present because an ECDHE (ephemeral) key exchange was chosen. If it was a simple `TLS_RSA_...` key exchange, this message might be absent or empty.*
+
+**Answering "Midterm Q3" Style Questions based on this data:**
+
+*   **3a. Which TLS version did the client offer and what version did the server choose? Specify exactly how you know this (which line).**
+    *   **Client Offered:** TLS 1.0.
+        *   *How you know:* In Frame #12 (ClientHello), under "Handshake Protocol: Client Hello", the field "Version: TLS 1.0 (0x0301)".
+    *   **Server Chose:** TLS 1.0.
+        *   *How you know:* In Frame #16 (ServerHello), under "Handshake Protocol: Server Hello", the field "Version: TLS 1.0 (0x0301)".
+
+*   **3b. Does the ciphersuite that the server chose have the property of Perfect Forward Security?**
+    *   **Yes.**
+    *   *How you know:* The server chose `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)`. The "ECDHE" part stands for Elliptic Curve Diffie-Hellman Ephemeral, which provides Perfect Forward Secrecy.
+
+*   **3c. What encryption method did the client offer and what did the server choose?**
+    *   *(This question usually refers to the **bulk encryption algorithm** within the cipher suite).*
+    *   **Client Offered (Examples from its list):** AES_256_CBC (in `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`), AES_128_CBC (in `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`), 3DES_EDE_CBC, etc.
+    *   **Server Chose:** AES_256_CBC.
+        *   *How you know:* From the chosen cipher suite `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`.
+
+*   **3d. Why should the encryption method always be the value in (3c)?**
+    *   *(This question is a bit oddly phrased in the sample. It likely means "Why should a strong encryption method like the one chosen in 3c be used?" or "Why is the chosen method preferred over others the client offered?").*
+    *   **Answer focus:** AES (especially AES-256) is a strong, modern, and widely trusted symmetric encryption algorithm, considered secure against known attacks when implemented correctly. It's preferred over older/weaker algorithms like 3DES or RC4 (which might have been in the client's full list but not shown in the snippet).
+
+*   **3e. Is this a session resumption or a full TLS handshake?**
+    *   **Full TLS Handshake.**
+    *   *How you know:* The server sent a `Certificate` message and a `ServerKeyExchange` message. In a session resumption, these are typically skipped, and the handshake is much shorter, relying on a previously established session ID and master secret. The presence of `ClientKeyExchange` later (Frame #17 in the overview, not detailed here) would also confirm a full handshake.
+
+*   **3f. What is the server certificate’s Subject CN?**
+    *   `roaming.officeapps.live.com`
+    *   *How you know:* In Frame #16, under "Handshake Protocol: Certificate", expand the first certificate (the server's end-entity certificate). Look for the "Subject" field and then the "commonName" (CN) attribute.
+
+*   **3g. Why should the server consider to disable the ciphersuite `TLS_RSA_WITH_RC4_128_MD5`?**
+    *   **Multiple reasons:**
+        1.  **RC4 is broken:** RC4 has known vulnerabilities and is considered insecure. It should not be used.
+        2.  **MD5 is broken:** MD5 is not collision-resistant and is insecure for use in message authentication or signature hashing.
+        3.  **No Perfect Forward Secrecy:** `TLS_RSA_...` means it uses RSA for key exchange, which does not provide PFS. If the server's private key is compromised, past sessions can be decrypted.
+
+*   **3h. Why is the Finished message not shown in this capture?**
+    *   The provided images only show details for Frame #12 (ClientHello) and Frame #16 (ServerHello, Certificate, ServerKeyExchange).
+    *   The `Finished` messages are sent later in the handshake:
+        *   Client's `ChangeCipherSpec` and `Finished` would be in a subsequent frame (like Frame #18 in the overview).
+        *   Server's `ChangeCipherSpec` and `Finished` would be in a frame after that (like Frame #19 in the overview).
+    *   These messages are encrypted, so their detailed contents wouldn't be visible in Wireshark without the session keys anyway, but the handshake message type itself would be listed.
+
+---
+
+This detailed breakdown should help you quickly find the relevant information in a Wireshark capture during an exam for these types of questions. Remember to look at the correct frame and expand the relevant protocol layers.
