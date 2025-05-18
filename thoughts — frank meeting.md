@@ -1,3 +1,8 @@
+---
+tags:
+  - Meeting
+  - accelerator
+---
 If i have no idea what you are doing, then i dont know what we're doing.
 
 Have to add mobile app
