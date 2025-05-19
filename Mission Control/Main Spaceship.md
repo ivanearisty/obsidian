@@ -7,6 +7,8 @@ kanban-plugin: board
 ## Hangar
 
 - [ ] Setup [[Federal Credit Union]]
+- [ ] Reach Out to [[People From Career Series]]
+- [ ] Reach out to [[Startup Founder Headstarter]]
 
 
 ## Pre-Flight
