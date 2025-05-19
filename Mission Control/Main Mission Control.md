@@ -2,6 +2,7 @@
 tags:
   - mission-control
 ---
+## Outbox
 ## Ships
 
 [[Main Spaceship]]

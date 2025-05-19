@@ -6,14 +6,11 @@ kanban-plugin: board
 
 ## Hangar
 
-- [ ] #Recruiting Setup Main Recruiting Board
-- [ ] #Misc Update Github Readme
+- [ ] Setup [[Federal Credit Union]]
 
 
 ## Pre-Flight
 
-- [ ] Setup Projects #Projects
-- [ ] Setup Recruiting #Recruiting
 
 
 ## Cruise
@@ -27,6 +24,10 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] #Recruiting Setup Main Recruiting Board
+- [x] Setup Recruiting #Recruiting
+- [x] Setup Projects #Projects
+- [x] #Misc Update Github Readme
 - [x] Setup Classes #Classes
 
 
