@@ -15,11 +15,11 @@ Idea:
 You don’t try to build a social platform. 
 Read Hoffman of how they grew LinkedIn.
 How to achieve scale very quickly.
+
 Legitimate path is no social graphing->
 1-1 single player of valuable for people.
 No friends no following no social features.
 Pinterest was solo -> I need to collaborate -> put in social features.
-
 
 pllyo -> solely used by people to find groups to play sports with. Everyone is there.  
 
