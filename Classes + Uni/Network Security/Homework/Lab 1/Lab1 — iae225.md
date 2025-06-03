@@ -330,7 +330,7 @@ PreHijack
 ## Q4 
 
 Setup
-![[Screenshot 2025-03-10 at 8.37.36 PM.jpg]]
+![[Screenshot 2025-03-10 at 8.37.36 PM 1.jpg]]
 
 ![[Screenshot 2025-03-10 at 8.46.04 PM.jpg]]
 ![[Screenshot 2025-03-10 at 8.46.15 PM.jpg]]
