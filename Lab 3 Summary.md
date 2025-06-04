@@ -77,7 +77,7 @@ Here we can also see a couple of frames where the gratuitous arp was sent out:
 I did not take pictures of the output of arp -n on host A at the time, but I distinctly remember troubleshooting it to test out scenarios where net.ipv4.conf.eth0.arp_accept and net.ipv4.conf.all.arp_accept where set to true. 
 
 And, again, the fact that there are two frames corroborates the testing of scenarios 1 and 2...
-### **Q2 Task 2: MITM Attack on Telnet using ARP Cache Poisoning**
+## Task 2: MITM Attack on Telnet using ARP Cache Poisoning
 
 Into the meat and potatoes now...
 
@@ -90,93 +90,29 @@ Here we have a very clear picture of the attack working when looking at the foll
 **663**
 ![[Screenshot 2025-06-04 at 12.54.10 PM.png]]
 **665**
-
+![[Screenshot 2025-06-04 at 12.55.20 PM.png]]
 **666**
+![[Screenshot 2025-06-04 at 12.55.37 PM.png]]
 
-- **Proof of Completion (Frames 662, 663, 665, 666):**
-    
-    - **Frame 662 (A->M with 'Q'):**
-        
-        - `Ethernet II, Src: 02:42:0a:09:00:05 (MAC_A), Dst: 02:42:0a:09:00:69 (MAC_M)`
-            
-        - `IP Src: 10.9.0.5 (IP_A), IP Dst: 10.9.0.6 (IP_B)`
-            
-        - `TCP Dst Port: 23, Telnet Data: Q`
-            
-    - **Frame 663 (M->B with 'Z'):**
-        
-        - `Ethernet II, Src: 02:42:0a:09:00:69 (MAC_M), Dst: 02:42:0a:09:00:06 (MAC_B)`
-            
-        - `IP Src: 10.9.0.5 (IP_A), IP Dst: 10.9.0.6 (IP_B)`
-            
-        - `TCP Dst Port: 23, Data: Z`
-            
-    - **Frame 665 (B->M with echoed 'Z'):**
-        
-        - `Ethernet II, Src: 02:42:0a:09:00:06 (MAC_B), Dst: 02:42:0a:09:00:69 (MAC_M)`
-            
-        - `IP Src: 10.9.0.6 (IP_B), IP Dst: 10.9.0.5 (IP_A)`
-            
-        - `TCP Src Port: 23, Telnet Data: Z`
-            
-    - **Frame 666 (M->A with forwarded echoed 'Z'):**
-        
-        - `Ethernet II, Src: 02:42:0a:09:00:69 (MAC_M), Dst: 02:42:0a:09:00:05 (MAC_A)`
-            
-        - `IP Src: 10.9.0.6 (IP_B), IP Dst: 10.9.0.5 (IP_A)`
-            
-        - `TCP Src Port: 23, Data: Z`
-            
-- **Reasoning for Sufficiency:** This sequence of four frames perfectly demonstrates the successful MITM attack on Telnet.
-    
-    - Frame 662 shows Host A sending 'Q', which is routed to Host M due to ARP poisoning (Eth Dst is `MAC_M`).
-        
-    - Frame 663 shows Host M changing the payload to 'Z' and forwarding it to Host B (Eth Src `MAC_M`, Eth Dst `MAC_B`).
-        
-    - Frame 665 shows Host B echoing the 'Z' it received, with this packet also being routed to Host M (Eth Dst `MAC_M`).
-        
-    - Frame 666 shows Host M forwarding Host B's echo of 'Z' back to Host A (Eth Src MAC_M, Eth Dst MAC_A).
-        
-        This fulfills all specified packet capture requirements for Task 2 ("Packet from A->M (with a 'Q')", "Packet from M->B (with a 'Z')", "Packet from B->M (with a 'Z')", "Packet from M->A (with a 'Z')").
-        
+This sequence of four frames perfectly demonstrates the successful MITM attack on Telnet.
 
-### **Q3 Task 3: MITM Attack on Netcat using ARP Cache Poisoning**
+Frame 662 shows Host A sending 'Q', which is routed to Host M due to ARP poisoning (**Eth Dst is `MAC_M`**).
 
-- **Task Objective (from Gradescope):** "This task is similar to Task 2, except that Hosts A and B are communicating using Netcat, instead of Telnet. Host M wants to intercept their communication, so it can make changes to the data sent between A and B... Your task is to replace every occurrence of your student id in the message with a sequence of lowercase a’s."
-    
-- **Simplified Understood Requirements:**
-    
-    - Intercept Netcat (port 9090) traffic between A and B via M.
-        
-    - Replace student ID (from A to B) with a string of 'a's of the same length.
-        
-    - Capture specific packet sequence showing the modification.
-        
-- **Proof of Completion (Frames 1315, 1316):**
-    
-    - **Frame 1315 (A->M with student ID 'iae225'):**
-        
-        - `Ethernet II, Src: 02:42:0a:09:00:05 (MAC_A), Dst: 02:42:0a:09:00:69 (MAC_M)`
-            
-        - `IP Src: 10.9.0.5 (IP_A), IP Dst: 10.9.0.6 (IP_B)`
-            
-        - `TCP Dst Port: 9090, Data: iae225\n`
-            
-    - **Frame 1316 (M->B with 'aaaaaa'):**
-        
-        - `Ethernet II, Src: 02:42:0a:09:00:69 (MAC_M), Dst: 02:42:0a:09:00:06 (MAC_B)`
-            
-        - `IP Src: 10.9.0.5 (IP_A), IP Dst: 10.9.0.6 (IP_B)`
-            
-        - `TCP Dst Port: 9090, Data: aaaaaa\n`
-            
-- **Reasoning for Sufficiency:**
-    
-    - Frame 1315 shows Host A sending the student ID "iae225" (plus a newline) to port 9090. Due to ARP poisoning, this packet is routed to Host M (Eth Dst is `MAC_M`).
-        
-    - Frame 1316 immediately follows, showing Host M sending a packet to Host B (Eth Src MAC_M, Eth Dst MAC_B) on port 9090, with the original IP source and destination. The payload has been successfully modified from "iae225\n" to "aaaaaa\n", which is the same length.
-        
-        This sequence directly demonstrates the interception and modification as required by Task 3 ("Packet from A->M (with your netID)", "Packet from M->B (with "aaaaaa")").
-        
+Frame 663 shows Host M changing the payload to 'Z' and **forwarding** it to Host B (Eth Src `MAC_M`, Eth Dst `MAC_B`).
 
-This detailed breakdown, referencing specific frames and their contents, confirms that all tasks were executed correctly, and the required evidence is present in the submitted `.pcap` file.
+Frame 665 shows Host B **echoing the 'Z' it received**, with this packet also being routed to Host M (Eth Dst `MAC_M`).
+
+***Frame 666 shows Host M forwarding Host B's echo of 'Z' back to Host A (Eth Src MAC_M, Eth Dst MAC_A).***
+
+And, from the gradescope requirements, we had:
+
+> To complete this task, you will need the following in your Wireshark capture:
+> 
+    Packet from A->M (with a 'Q')
+    Packet from M->B (with a 'Z')
+    Packet from B->M (with a 'Z')
+    Packet from M->A (with a 'Z')
+
+Finally, this was not highlighted on the submission, but the process for the MITM involved manipulating the `net.ipv4.ip_forward` flag to start the telnet connection (turning it on) and then running our script and immediately disabling the flag.
+## Task 3: MITM Attack on Netcat using ARP Cache Poisoning
+
