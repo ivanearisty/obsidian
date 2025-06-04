@@ -4,22 +4,11 @@ tags:
 ---
 # Proof of Lab Completion: ARP Cache Poisoning and MITM Attacks
 
-This document outlines the successful completion of each task in the lab, referencing specific frames within the submitted `netID.pcap` file as evidence. The `settings.txt` file used for this lab is:
+## Q1.1 Task 1.A: ARP Cache Poisoning (using ARP request)
 
-```
-IP_A=10.9.0.5
-MAC_A=02:42:0a:09:00:05
-IP_B=10.9.0.6
-MAC_B=02:42:0a:09:00:06
-MAC_M=02:42:0a:09:00:69
-payload=iae225
-```
+### Objective
 
----
-
-### **Q1.1 Task 1.A: ARP Cache Poisoning (using ARP request)**
-
-- **Task Objective:** On Host M, construct an ARP _request_ packet and send it to Host A. This packet should be crafted to poison Host A’s ARP cache, making Host A map Host B’s IP address (`10.9.0.6`) to Host M’s MAC address (`02:42:0a:09:00:69`).
+ On Host M, construct an ARP _request_ packet and send it to Host A. This packet should be crafted to poison Host A’s ARP cache, making Host A map Host B’s IP address (`10.9.0.6`) to Host M’s MAC address (`02:42:0a:09:00:69`).
 - **Understood Requirements:**
     1. The packet must be an ARP Request (`opcode=1`).
     2. It must be sent from Host M to Host A.
