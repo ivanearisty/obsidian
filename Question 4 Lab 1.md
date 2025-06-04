@@ -54,7 +54,9 @@ where, the netcat listener (netcat -nlvp 9090) is started on the attacker machin
 ![[Screenshot 2025-06-04 at 2.44.41 PM.png]]
 
 Then we see the outcome of the hijack script:
-![[Screenshot 2025-06-04 at 2.52.43 PM.png]]
+![[Screenshot 2025-06-04 at 2.52.43 PM 1.png]]
 
-And as we saw before, 51 is our victim.
+And as we saw before, 51 is our victim and we did get a reverse shell onto them from our seed attacker!!
 
+Finally, in our Wireshark, we see the successful establishment of the reverse shell and that the packet was successfully crafted and sent with the correct SEQ/ACK numbers.
+![[Screenshot_2025-03-10_at_8.46.15_PM.jpg]]
