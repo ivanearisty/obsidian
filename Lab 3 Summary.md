@@ -3,11 +3,8 @@ tags:
   - ns
 ---
 # Proof of Lab Completion: ARP Cache Poisoning and MITM Attacks
-## Q1.1 Task 1.A: ARP Cache Poisoning (using ARP request)
-
-### Task Objective
+## Q1.1 ARP Cache Poisoning (using ARP request)
 We want to poison Host A's ARP cache so that it incorrectly maps Host B's IP address (`10.9.0.6`) to Host M's MAC address (`02:42:0a:09:00:69`).
-### Proof of Completion
 
 My code identifies:
 
@@ -30,17 +27,13 @@ It is an ARP request (`opcode=1`) originating from Host M's MAC, targeting Host 
 Furthermore, even though just in the pcap we can't see the result of arp -n on A, the second frame makes it very clear that it was indeed tricked:
 
 ![[Screenshot 2025-06-04 at 1.03.09 AM.png]]
-### **Q1.2 Task 1.B: ARP Cache Poisoning (using ARP reply)**
+## Q1.2 ARP Cache Poisoning (using ARP reply)
 
-- **Task Objective (from Gradescope):** "On host M, construct an ARP reply packet and send to host A. Check A’s ARP cache, and see whether M’s MAC address is mapped to B’s IP address. Try the attack for two different scenarios: Scenario 1: B’s IP is already in A’s cache. Scenario 2: B’s IP is not in A’s cache."
-    
-- **Simplified Understood Requirements:**
-    
-    - Craft an ARP Reply from M to A.
-        
-    - Packet should make A map IP_B to MAC_M.
-        
-    - Key ARP fields: `opcode=2`, `arp.hw.src=MAC_M`, `arp.src.proto_ipv4=IP_B`, `arp.hw.dst=MAC_A`, `arp.dst.proto_ipv4=IP_A`.
+On host M, construct an ARP reply packet and send to host A. Check A’s ARP cache, and see whether M’s MAC address is mapped to B’s IP address. Try the attack for two different scenarios: Scenario 1: B’s IP is already in A’s cache. Scenario 2: B’s IP is not in A’s cache."
+
+- Craft an ARP Reply from M to A.
+- Packet should make A map IP_B to MAC_M.
+- Key ARP fields: `opcode=2`, `arp.hw.src=MAC_M`, `arp.src.proto_ipv4=IP_B`, `arp.hw.dst=MAC_A`, `arp.dst.proto_ipv4=IP_A`.
         
 - **Proof of Completion (Frame 224 or Frame 24):**
     
