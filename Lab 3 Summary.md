@@ -5,26 +5,31 @@ tags:
 # Proof of Lab Completion: ARP Cache Poisoning and MITM Attacks
 ## Q1.1 Task 1.A: ARP Cache Poisoning (using ARP request)
 
-### Task Objective (from Gradescope): 
-"On host M, construct an ARP request packet and send to host A. Check A’s ARP cache, and see whether M’s MAC address is mapped to B’s IP address."
-### Simplified Understood Requirements:
-- Craft an ARP Request from M to A.
-- Packet should make A map IP_B to MAC_M.
-- Key ARP fields: `opcode=1`, `arp.hw.src=MAC_M`, `arp.src.proto_ipv4=IP_B`, `arp.dst.proto_ipv4=IP_A`.
-        
+### Task Objective
+We want to poison Host A's ARP cache so that it incorrectly maps Host B's IP address (`10.9.0.6`) to Host M's MAC address (`02:42:0a:09:00:69`).
 ### Proof of Completion
-Frame 1 Details:
-- Ethernet II, Src: 02:42:0a:09:00:69 (MAC_M), Dst: 02:42:0a:09:00:05 (MAC_A)
-- Address Resolution Protocol (request)
-- Opcode: request (1)
-- Sender MAC address: 02:42:0a:09:00:69 (MAC_M)
-- Sender IP address: 10.9.0.6 (IP_B)
-- Target MAC address: 00:00:00:00:00:00
-- Target IP address: 10.9.0.5 (IP_A)
-            
-- **Reasoning for Sufficiency:** Frame 1 precisely matches all the characteristics of the malicious ARP request required for Task 1.A. It is an ARP request (`opcode=1`) originating from Host M's MAC, targeting Host A's MAC. Crucially, within the ARP payload, it falsely claims that the sender IP is `10.9.0.6` (`IP_B`) while providing `MAC_M` as the sender MAC. This packet is designed to trick Host A into mapping `IP_B` to `MAC_M`.
-    
 
+My code identifies:
+
+```python
+    IP_A = "10.9.0.5"
+    MAC_A = "02:42:0a:09:00:05"
+    IP_B = "10.9.0.6"
+    MAC_B = "02:42:0a:09:00:06"
+    MAC_M = "02:42:0a:09:00:69"
+```
+
+Looking at Frame 1 and 2, this is the ARP request from Host M to Host A, where M is asking for A's MAC address but providing B's IP (10.9.0.6) as the sender IP and M's MAC.
+
+![[Screenshot 2025-06-04 at 1.02.07 AM.png]]
+
+Frame 1 precisely matches all the characteristics of the malicious ARP request.
+
+It is an ARP request (`opcode=1`) originating from Host M's MAC, targeting Host A's MAC. Crucially, within the ARP payload, it falsely claims that the sender IP is `10.9.0.6` (`IP_B`) while providing `MAC_M` as the sender MAC.
+
+Furthermore, even though just in the pcap we can't see the result of arp -n on A, the second frame makes it very clear that it was indeed tricked:
+
+![[Screenshot 2025-06-04 at 1.03.09 AM.png]]
 ### **Q1.2 Task 1.B: ARP Cache Poisoning (using ARP reply)**
 
 - **Task Objective (from Gradescope):** "On host M, construct an ARP reply packet and send to host A. Check A’s ARP cache, and see whether M’s MAC address is mapped to B’s IP address. Try the attack for two different scenarios: Scenario 1: B’s IP is already in A’s cache. Scenario 2: B’s IP is not in A’s cache."
