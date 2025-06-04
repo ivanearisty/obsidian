@@ -3,8 +3,7 @@ tags:
   - ns
 ---
 # Proof of Lab Completion: ARP Cache Poisoning and MITM Attacks
-
-This was compiled from some of the notes that I took while doing the lab, and relating them to submission 2.
+This was compiled from some of the notes that I took while doing the lab and relating them to submission 2. My notes are publicly available and always accessible on my [Github](https://github.com/ivanearisty/obsidian/tree/master ).
 ## Q1.1 ARP Cache Poisoning (using ARP request)
 We want to poison Host A's ARP cache so that it incorrectly maps Host B's IP address (`10.9.0.6`) to Host M's MAC address (`02:42:0a:09:00:69`).
 
@@ -72,6 +71,7 @@ for host A should accept the gratuitous ARP packet.
 Here we can also see a couple of frames where the gratuitous arp was sent out:
 
 ![[Screenshot 2025-06-04 at 12.47.09 PM.png]]
+
 ![[Screenshot 2025-06-04 at 12.47.26 PM.png]]
 
 I did not take pictures of the output of arp -n on host A at the time, but I distinctly remember troubleshooting it to test out scenarios where net.ipv4.conf.eth0.arp_accept and net.ipv4.conf.all.arp_accept where set to true. 
@@ -116,3 +116,23 @@ And, from the gradescope requirements, we had:
 Finally, this was not highlighted on the submission, but the process for the MITM involved manipulating the `net.ipv4.ip_forward` flag to start the telnet connection (turning it on) and then running our script and immediately disabling the flag.
 ## Task 3: MITM Attack on Netcat using ARP Cache Poisoning
 
+This task is similar to Task 2, except we're using Netcat. We want to intercept communication and replace every occurrence of my student ID (iae225) with a sequence of lowercase 'a's of the same length (aaaaaa)
+
+Frames **1315** and **1316** clearly demonstrate this attack was successful:
+![[Screenshot 2025-06-04 at 1.33.39 PM.png]]
+
+This frame shows Host A sending my student ID. Due to ARP poisoning, it's routed to Host M (MAC_M) instead of directly to Host B.
+
+This frame immediately follows:
+![[Screenshot 2025-06-04 at 1.34.19 PM.png]]
+showing Host M sending a packet to Host B. 
+
+The Ethernet source is now MAC_M, and the destination is MAC_B, but the IP headers still indicate the original sender (A) and receiver (B).  Most importantly, the payload has been successfully modified from my student ID to "aaaaaa\n".
+
+The Gradescope requirements for this task were:
+
+> To complete this task, you will need the following in your Wireshark capture:
+    Packet from A->M (with your netID)
+    Packet from M->B (with "aaaaaa" (length depends on your netID)
+
+These two frames, 1315 and 1316, directly satisfy these requirements...
