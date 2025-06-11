@@ -1,0 +1,3 @@
+[submodule "web0nd-notes"]
+	path = web0nd-notes
+	url = https://github.com/ivanearisty/web0nd-notes.git
