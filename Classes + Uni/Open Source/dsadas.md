@@ -89,7 +89,7 @@ You will create two main components for the Mail Client.
 **Part 3: Testing**
 
 1.  **Unit Tests:**
-    *   Create unit tests for the `GmailClient` implementation. Use `unittest.mock` to mock the `googleapiclient` so that no real network calls are made.
+    *   Create unit tests for the `GmailClient` implementation.
     *   These tests should live in `src/mail_client_gmail_impl/tests/`.
 2.  **Integration Test:**
     *   Create one integration test that validates the dependency injection and real-world authentication.

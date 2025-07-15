@@ -3,7 +3,7 @@
 ## Assignment Summary
 
 ### Summary
-Welcome to your first major assignment in Open Source & Professional Software Development. Your team's mission is to create a **template repository** for a modern Python project. This repository will serve as the foundation for all subsequent project work in this course.
+Welcome to your first major assignment in Open Source & Professional Software Development. Your team's mission is to create a repository for a modern Python project. This repository will serve as the foundation for all subsequent project work in this course.
 
 This assignment is not just about writing code; it is about establishing the **structure, processes, and tooling** that enable sustainable, high-quality software development. You will build a small, multi-component system, but the primary deliverables are the repository structure, the CI/CD pipeline, and the clear separation of concerns.
 
@@ -15,7 +15,7 @@ The task is to create two core components: a **Mail Client API** and a **Gmail I
 - **Implement Component-Based Architecture:** Structure your code into distinct, reusable components with clearly defined interfaces and implementations.
 - **Understand and Apply Dependency Injection:** Decouple components by defining abstract interfaces and injecting concrete implementations at runtime.
 - **Embrace Test-Driven Development:** Write unit tests for your interfaces before the implementation exists, using mocks to validate the contract.
-- **Build a CI/CD Pipeline:** Configure CircleCI to automatically enforce code quality, run tests, and report on code coverage, creating a safety net for all future development.
+- **Build a CI/CD Pipeline:** Configure CircleCI to automatically enforce code quality, run tests, and report on code coverage, creating a safety net for future development.
 - **Practice Professional Documentation:** Learn to write clear README.md and component.md files that make your project understandable and usable by others.
 
 ## Best Practices and General Guidelines
@@ -36,61 +36,70 @@ The second pillar is the establishment of **rigorous, automated processes as gua
 ### On Teamwork and Collaboration
 Finally, Professor Yotov's philosophy is grounded in the reality that software development is a **socio-technical system**. He extends the concept of structured design from code to human interaction. The emphasis on small, self-contained pull requests, detailed PR descriptions, and structured peer review is designed to manage the "cognitive load" of collaboration. By making changes digestible and their intent clear, the process becomes more efficient and less error-prone. His anecdotes about hiring, team dynamics, and the true cost of bad hires underscore a critical lesson: the most elegant code is worthless if the team building and maintaining it is dysfunctional. The structure of the class, with its emphasis on teamwork, peer feedback, and clear communication in weekly updates, is a direct simulation of the professional environment he seeks to prepare students for—one where success is defined not just by what you build, but by how you build it with others.
 
-## Requirements
+## Deliverables
 
-Your team will create a single GitHub repository that serves as a template for a Python-based AI-powered email client.
+Your final submission will be a single GitHub repository configured as a **Project Template**. This repository must be self-contained and ready for a new developer to clone and begin working immediately.
 
-**Part 1: Repository & Tooling Setup**
+### Repository & Tooling Setup
 
-1.  **Repository Structure:**
-    *   Create a root `src` directory. All components will live inside this directory.
-    *   Create a root `tests` directory. Integration and End-to-End tests will live here.
-    *   Create a `.github/` directory for issue and pull request templates.
-2.  **Configuration (`pyproject.toml`):**
-    *   At the root of the repo, create a `pyproject.toml`.
-    *   Configure it as a `uv` workspace, declaring each of your components in the `[tool.uv.workspace.members]` section. (Note: this is not the only way to handle ___ in uv. )
-    *   Add and configure `ruff`, `mypy`, `pytest`, and `coverage.py` in the `[tool.*]` sections. **Enable all `ruff` rules (`select = ["ALL"]`) and `mypy`'s `strict` mode.** You must explicitly `ignore` rules you disagree with and provide a comment in the `pyproject.toml` file explaining why.
-3.  **Documentation:**
-    *   **Root `README.md`:** A comprehensive guide on how to clone, set up, test, and use the template. Include sections for each tool.
-    *   **`component.md`:** A file in the root directory that defines what a "component" is in your project, its required file structure (e.g., `pyproject.toml`, `src/`, `tests/`), and the dependency injection pattern you are using.
+- **Git Configuration:**
+  - A clean, well-documented pull request that merges all work from a feature branch into the `root` commit of your repository.
+  - A `.gitignore` file properly configured for a Python project, excluding virtual environments, IDE files, and sensitive credentials (`token.json`, `.env`).
+- **Standardized Templates:**
+	In a `.github/` directory:
+	- A `pull_request_template.md` that guides contributors.
+	- Issue templates for both `bug_report` and `feature_request`.
+- **Repository Structure:**
+    * Create a root `src` directory. All components will live inside this directory.
+    * Create a root `tests` directory. Integration and End-to-End tests will live here.
+    * Create a `.github/` directory for issue and pull request templates.
+*   **Root `pyproject.toml`:**
+    * Initialized as a `uv` workspace.
+    * **Workspace Members:** The `[tool.uv.workspace]` section must declare all component packages (e.g., `src/mail_client_api`).
+    * **Tool Configuration:** All tool configurations (`ruff`, `mypy`, `pytest`, `coverage.py`) must be in this file.
+        * **Ruff:** `select = ["ALL"]`. *All disabled rules must be justified with a comment.*
+        * **MyPy:** `strict = true`.
+        * **Coverage:**
+### Documentation
 
-**Part 2: Component Creation**
+Documentation is a primary design tool. The repository must include:
 
-You will create two main components for the Mail Client.
+*   **Root `README.md`:** A comprehensive guide detailing the template's purpose, setup (`uv sync`), and usage of all integrated tools.
+*   **`component.md`:** A design document in the root directory explaining the component architecture and the dependency injection strategy.
+*   **Component `README.md` files:** Each component package must have its own `README.md` describing its specific API, purpose, and usage.
 
-1.  **The Mail Interface (`src/mail_client_api`)**
-    *   This is a Python package. It must have its own `pyproject.toml`.
-    *   It should contain a `message_api.py` and a `client_api.py` (or similar) defining the following as `typing.Protocol`:
-        *   `Message`: A protocol with read-only properties like `id: str`, `subject: str`, `sender: str`, `body: str`.
-        *   `MailClient`: A protocol with methods like `get_messages() -> Iterator[Message]`.
-    *   It **must not** have any dependencies on Google's libraries.
-    *   Include a factory function `get_client() -> MailClient` which raises `NotImplementedError`.
+### Component Creation
+The repository must contain the following components, demonstrating a clear separation of interface and implementation.
 
-2.  **The Gmail Implementation (`src/mail_client_gmail_impl`)**
-    *   This is a separate Python package with its own `pyproject.toml`.
-    *   It must depend on the `mail_client_api` as a workspace dependency.
-    *   It will contain a `_impl.py` file with a `GmailClient` class that implements the `MailClient` protocol.
-    *   In its `__init__.py`, it must **inject** its implementation into the API package by overwriting `mail_client_api.get_client`.
+#### Mail Interface Component (`src/mail_client_api`)
+- A self-contained Python package with its own `pyproject.toml` and `README.md`.
+- Defines abstract `Message` and `MailClient` `Protocol` classes.
+- NOTE: **This package must have no dependencies on any concrete mail provider library.**
 
-**Part 3: Testing**
+#### Gmail Implementation Component (`src/mail_client_gmail_impl`):
+- A self-contained Python package with its own `pyproject.toml` and `README.md`.
+- Depends on `mail_client_api` as a workspace dependency.
+- Provides a concrete `GmailClient` class that implements the `MailClient` protocol.
+- **Performs dependency injection.**
 
+### Testing
 1.  **Unit Tests:**
-    *   Create unit tests for the `GmailClient` implementation. Use `unittest.mock` to mock the `googleapiclient` so that no real network calls are made.
-    *   These tests should live in `src/mail_client_gmail_impl/tests/`.
+    * Located within each component's `tests/` directory (e.g., `src/mail_client_gmail_impl/tests/`).
+    * Tests for the `GmailClient` must use mocks to isolate it from the live Google API.
 2.  **Integration Test:**
-    *   Create one integration test that validates the dependency injection and real-world authentication.
-    *   This test should live in the root `tests/integration/` directory.
-    *   It should call `mail_client_api.get_client()` and assert that it receives a functioning `GmailClient` instance capable of connecting to Gmail.
-    *   This test will be marked with `@pytest.mark.integration` and will be skipped in the main CI test run.
+    * Located in the root `tests/integration/` directory.
+    * Must validate the dependency injection mechanism by using `mail_client_api.get_client()` and receiving a `GmailClient` instance.
+    * Must include at least one test that makes a real, authenticated call to the Gmail API (marked with `@pytest.mark.integration`). (You might want to ignore this test in CircleCI)
 
-**Part 4: Continuous Integration (CircleCI)**
+### CI/CD
+The repository must have a working `.circleci/config.yml` pipeline that automates quality control.
 
-*   Create a `.circleci/config.yml` that defines a workflow to:
-    1.  Install dependencies using `uv sync`.
-    2.  Run `ruff` and `mypy` checks.
-    3.  Run the **unit tests** with `pytest` and `coverage`.
-    4.  Generate and store both test results and a coverage report (e.g., XML or HTML) as artifacts.
-    5.  Enforce a minimum of **80%** test coverage.
+*   **Automated Jobs:** The pipeline must execute jobs for linting (`ruff`), static analysis (`mypy`), and unit testing (`pytest`).
+*   **Quality Gates:** The build **must fail** if any check fails or if code coverage is below a certain % threshold which *you must justify*.
+*   **Reporting:**
+    *   Test results must be parsed and displayed in the CircleCI **"Tests"** tab.
+    *   The coverage report must be uploaded as a browsable **artifact**.
+    *   **Links to successful/failed CircleCI builds and the coverage report must be included in your pull request description.**
 
 ## Tooling Guides (Python)
 
