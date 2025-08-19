@@ -8,6 +8,7 @@ tags:
 ![[Screenshot 2025-02-26 at 5.07.51 AM.jpg]]
 ### Answers
 #### A
+
 $$
 \begin{gather}
 \text{We had: } L(\beta_{0},\beta_{1}) = \sum_{i=1}^{n}(y_{i} - \beta_{0} - \beta_{1}\times x_{i})^{2} \\
