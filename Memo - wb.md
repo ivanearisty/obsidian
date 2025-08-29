@@ -1,9 +1,8 @@
-This memo outlines our current features and, more importantly, the strategic thinking behind them. It also frames the critical question we are all working together to answer.
-
+This memo outlines our current features and, more importantly, the strategic thinking behind them. 
 ### Tests
 
 1.  **Dev Tests (Functionality):** Does the feature work? Is it bug-free? This is the baseline for quality.
-2.  **UI/UX Tests (Feel):** How does the app look and feel? We learn this by observing how people actually use it, identifying points of friction or delight.
+2.  **UI/UX Tests (Feel):** How does the app look and feel? We learn this by observing how people actually use it, identifying points of friction in the process.
 3.  **Value Tests (The Why):** This is the most important test. Does this feature actually solve a real problem for our users? Is it valuable enough to bring them back day after day?
 
 On that last point, we need to be honest with ourselves. The biggest thing right now is that we haven't quite figured out our "secret sauce." We have some cool features that add value, but for a social network to succeed, it needs a pattern that consistently provides value and keeps the app top-of-mind. Think of the fire streaks on Snapchat or the daily BeReal moment.
