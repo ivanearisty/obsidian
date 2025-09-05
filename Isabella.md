@@ -1,1 +1,0 @@
-support aws startups org 
