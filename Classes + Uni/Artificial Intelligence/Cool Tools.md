@@ -1,95 +1,106 @@
+# API design, testing & mocking
 
+* **Top picks:**
+  * **OpenAPI** (spec as single source of truth) + **Swagger UI/Redoc** (docs)
+  * **Insomnia** or **Bruno** (lighter alternatives to Postman)
+  * **Prism (Stoplight)** (mock servers from OpenAPI)
+  * **MSW (Mock Service Worker)** (frontend API mocking)
+  * **Pact** (contract testing)
+* **Nice:** **HTTPie/curlie** (human-friendly HTTP), **Hoppscotch** (web client)
 
-Redux
-trpc
-grpc
-convex
-posthog
+# Frontend platform & DX
 
-java 
-python
-cpp
-ts
+* **Top picks:**
 
-django flask
-MySQL
-MongoDB
-Amazon RDS 
-mongodb
-supabase
-firebase
+  * **Next.js** (SSR/ISR, API routes) + **Vite** (fast builds)
+  * **TanStack Query** (server cache/data fetching) + **Zustand** (simple state)
+  * **Storybook** or **Ladle** (component sandbox)
+* **Nice:** **Remix**, **Bun** or **Deno** (alt runtimes)
 
-Spring Boot
-Spring Security
-FastAPI
-Angular 
+# Mobile shipping & push
 
-vercel
+* **Top picks:**
 
-Git — CLI & GitHub
-Domain-Driven Design
-Object Oriented Design
-SOLID | Microservices
-Agile | REST | Docker
+  * **Expo** (EAS builds, OTA updates)
+  * **OneSignal** or **Expo Notifications** (multi-platform push)
+* **Nice:** **Firebase Cloud Messaging** (Android), direct **APNs** (iOS) for full control
 
-## What is the Composable Architecture?
+# Data layer, ORM, migrations
 
-[](https://github.com/pointfreeco/swift-composable-architecture#what-is-the-composable-architecture)
+* **Top picks (TS/Node):** **Prisma** or **Drizzle ORM** (+ **Zod** schemas)
+* **Top picks (Java):** **jOOQ** (type-safe SQL), **Flyway/Liquibase** (migrations)
+* **Top picks (Python):** **SQLAlchemy** + **Alembic**
+* **Search:** **Meilisearch** or **Typesense**
+* **Vector:** **pgvector**, **Qdrant** (if you go beyond Postgres)
 
-This library provides a few core tools that can be used to build applications of varying purpose and complexity. It provides compelling stories that you can follow to solve many problems you encounter day-to-day when building applications, such as:
+# Queues, jobs & workflows
 
-- **State management**  
-    How to manage the state of your application using simple value types, and share state across many screens so that mutations in one screen can be immediately observed in another screen.
-    
-- **Composition**  
-    How to break down large features into smaller components that can be extracted to their own, isolated modules and be easily glued back together to form the feature.
-    
-- **Side effects**  
-    How to let certain parts of the application talk to the outside world in the most testable and understandable way possible.
-    
-- **Testing**  
-    How to not only test a feature built in the architecture, but also write integration tests for features that have been composed of many parts, and write end-to-end tests to understand how side effects influence your application. This allows you to make strong guarantees that your business logic is running in the way you expect.
-    
-- **Ergonomics**  
-    How to accomplish all of the above in a simple API with as few concepts and moving parts as possible.
+* **Top picks:**
 
+  * **Redis** (queues, cache) + **BullMQ** (Node) / **Celery/RQ** (Python) / **Spring Batch** (Java)
+  * **Temporal.io** (durable workflows, retries, schedules)
+* **Cloud options:** **SQS/SNS**, **EventBridge**
 
-React 
+# Realtime & streaming
 
-pnpm
-npm 
-uv
+* **Top picks:** **Socket.IO** / **SSE**, managed **Ably** or **Pusher**
+* **Heavy hitters:** **Kafka** / **Redpanda** (when you truly need streams)
 
-stripe
+# Observability, logs & uptime
 
-clerk 
-autumn
+* **Top picks:**
 
-stripe
+  * **OpenTelemetry** (traces/metrics/logs)
+  * **Sentry** (errors + perf)
+  * **Prometheus/Grafana** (metrics) + **Loki** (logs)
+  * **Uptime Kuma** or **Checkly** (synthetic checks)
 
-gcp 
-aws
+# Security, secrets & supply-chain
 
-tailwindcss
+* **Top picks:**
 
-html 
-css
+  * **SOPS (+ age)** or **AWS Secrets Manager/SSM** (secrets)
+  * **Gitleaks** (secret scanning), **Dependabot/Renovate** (deps), **Trivy** (container scans)
+  * **OWASP ZAP** (DAST), **OPA** (policy as code)
 
-radix 
-shadcn 
-daisyui
+# CI/CD, infra & ops
 
-react native
+* **Top picks:**
 
-rust 
+  * **GitHub Actions** (CI), **Changesets** (versioning/release notes)
+  * **Terraform** or **Pulumi** (IaC)
+  * **Caddy** or **Traefik** (reverse proxy)
+  * **Cloudflare** (**Workers**, **KV**, **R2**, **D1**) for edge & CDN
+* **You already have:** Docker, Docker Desktop, OrbStack, ngrok, Watchman (nice!)
 
-svgl
+# Email, comms & notifications
 
-digitalocean
-orbstack
-figma
+* **Top picks:** **Resend** or **Postmark** (transactional), **AWS SES** (cost-effective)
+* **Event-driven notif orchestration:** **Novu** or **Courier**
 
-authjs
-openauth
+# Documentation & portals
 
+* **Top picks:** **Docusaurus** (product/dev docs), **Mintlify** (API docs), **OpenAPI Generator** (SDKs)
 
+# Data/analytics engineering (lightweight)
+
+* **Top picks:** **DuckDB** (local/embedded analytics), **dbt** (transformations)
+* **Pipelines:** **Airbyte** (ELT)
+
+# Terminal & CLI quality-of-life (worth adding to your brew set)
+
+* **fzf**, **ripgrep (rg)**, **fd**, **eza**, **zoxide**, **jq/yq**, **delta** (git diffs)
+
+# Edge & image/media utilities
+
+* **imgproxy** or **Thumbor** (on-the-fly image resize), **Sharp** (Node image ops)
+
+---
+
+## Quick cross-check with your Brew/Casks
+
+You already have many foundations covered: **Postman**, **Supabase CLI**, **Stripe CLI**, **Docker** + **Docker Desktop**, **pnpm**, **uv**, **Node**, **MongoDB**, **MySQL**, **pgAdmin4**, **ngrok**, **Wireshark**, **VS Code**, **IntelliJ**, **Raycast**, **iTerm2**, **Xcodes**. Great baseline.
+
+---
+
+If you want, I can **append these picks to your CSV** and **tag top recommendations** so you can track adoption per project (WeBond vs Wavelink), plus add “Owner,” “Env,” and “Status” columns.
