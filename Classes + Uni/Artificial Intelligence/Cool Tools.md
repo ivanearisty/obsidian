@@ -94,13 +94,3 @@
 # Edge & image/media utilities
 
 * **imgproxy** or **Thumbor** (on-the-fly image resize), **Sharp** (Node image ops)
-
----
-
-## Quick cross-check with your Brew/Casks
-
-You already have many foundations covered: **Postman**, **Supabase CLI**, **Stripe CLI**, **Docker** + **Docker Desktop**, **pnpm**, **uv**, **Node**, **MongoDB**, **MySQL**, **pgAdmin4**, **ngrok**, **Wireshark**, **VS Code**, **IntelliJ**, **Raycast**, **iTerm2**, **Xcodes**. Great baseline.
-
----
-
-If you want, I can **append these picks to your CSV** and **tag top recommendations** so you can track adoption per project (WeBond vs Wavelink), plus add “Owner,” “Env,” and “Status” columns.
