@@ -6,6 +6,8 @@ kanban-plugin: board
 
 ## Hangar
 
+- [ ] Do [[Problem Set 1.pdf]]
+- [ ] Do [[Linear_Algebra_Lecture_1.pdf]]
 
 
 ## Cruise
