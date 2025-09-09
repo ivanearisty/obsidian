@@ -6,3 +6,4 @@ Update calendar with TA Office Hours schedule
 Done:
 Update calendar with class schedule
 Homework 0 First Draft
+Homework 1 First Draft
