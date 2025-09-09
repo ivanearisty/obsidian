@@ -38,3 +38,5 @@ the best argument is you had to be a partner and you had these obligations and y
 
 something that we can gather that they're not telling the truth or missled us. "we do not have technical capability to do something" but at the same time they developed it with resq line. <-- this would help in dissolving.
 
+
+everything would roll into wavelink, albion will merge into albion, wavelink is main company -> he ended up taking actions not leaing to that
