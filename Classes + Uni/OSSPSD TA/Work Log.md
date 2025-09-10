@@ -7,4 +7,4 @@ Done:
 Update calendar with class schedule
 Homework 0 First Draft
 Homework 1 First Draft
-Made a quick sketch of a fastapi implementation https://github.com/ivanearisty/oss-taapp/tree/fastapi-test 
+Made a quick sketch of a fastapi implementation https://github.com/ivanearisty/oss-taapp/tree/fastapi-test
