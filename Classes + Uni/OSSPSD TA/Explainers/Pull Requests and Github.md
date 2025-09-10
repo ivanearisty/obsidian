@@ -28,7 +28,8 @@ A practical guide to the workflow and best practices for submitting your assignm
 There are two main types of merges:
 - **Fast-Forward Merge**
 - **Three-Way Merge:** When the branches have diverged, Git finds a common ancestor commit and creates a new merge commit that combines the changes from both branches since that common ancestor.
-![[Pasted image 20250910134520.png]]
+
+![[Pasted image 20250910134520.png | 700]]
 
 
 ---
@@ -39,9 +40,9 @@ There are two main types of merges:
 
 Instead of creating a merge commit, rebasing takes the commits from your current branch and replays them, one by one, on top of the latest commit of the target branch. This results in a linear and cleaner commit history.
 
-> **Never rebase a branch that has been shared with others and that they are actively working on.**  People will hate you, and nobody likes to be hated.
+![[Pasted image 20250910160326.png | 400]]
 
-![[Pasted image 20250910160326.png]]
+> & **Never rebase a branch that has been shared with others and that they are actively working on.**  People will hate you, and nobody likes to be hated.
 
 ---
 
@@ -101,6 +102,7 @@ This keeps your history clean and integrates the corrections seamlessly into you
 
 ---
 ### What not to do
+
 - **Don't branch off of main:** Never target main or root for your HW2, HW3, etc. PRs. This clutters your PR with changes from all previous assignments, making it impossible to review effectively.
 - **Don't make massive PRs:** Keep PRs "minimal and relevant." A pull request should contain work for a single, specific task.
 - **Don't submit with failing CI:** The Continuous Integration (CI) checks must pass before your PR is considered ready for review.
