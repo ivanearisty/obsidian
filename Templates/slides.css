@@ -1,0 +1,32 @@
+<style>
+p {
+  line-height: 0.2; /* Adjust this value as needed */
+}
+li {
+  margin-bottom: 0.5em; /* Adjust this value as needed */
+}
+/* Sets a tighter default line height for all text in the slides */
+.reveal .slides {
+  line-height: 1.2;
+}
+
+/* Reduces the bottom margin of paragraphs */
+.reveal p {
+  margin-bottom: 0.25em; /* Controls space between paragraphs */
+}
+
+/* Reduces the bottom margin of lists (both ordered and unordered) */
+.reveal ul, .reveal ol {
+  margin-bottom: 0.25em; /* Controls space after an entire list */
+}
+
+/* Reduces the bottom margin of individual list items */
+.reveal li {
+   margin-bottom: 0.1em; /* Controls space between list items */
+}
+
+/* Reduces the bottom margin of all heading levels */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  margin-bottom: 0.2em; /* Controls space after a heading */
+}
+</style>
