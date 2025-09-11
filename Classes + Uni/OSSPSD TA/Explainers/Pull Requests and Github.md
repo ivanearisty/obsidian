@@ -117,4 +117,4 @@ The branching strategy we use (hw2 -> hw1, etc.) is designed to keep your develo
 This can result in the main branch having just a single, clean commit representing the entire finished project. This is highly desirable in a template repository, as it ensures future users don't inherit a long and messy development history.
 
 ---
-### Final Tip: lazygit
+### Final Tip: use [lazygit](https://github.com/jesseduffield/lazygit)
