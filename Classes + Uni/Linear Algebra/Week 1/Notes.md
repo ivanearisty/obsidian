@@ -56,7 +56,25 @@ $$
 \;\;\Longleftrightarrow\;\;
 x+14y+16z=33.
 $$
-
+  
+## What is a vector/parametric equation of a line?  
+  
+* Pick an **anchor point** $P$ that lies on the line.  
+* Pick a **direction vector** $\mathbf{d}$ that points along the line.  
+* Then every point on the line is reached by “start at $P$, walk $t$ steps along $\mathbf{d}$”:  
+  
+  $$  
+  \mathbf{r}(t)=P+t\,\mathbf{d},\qquad t\in\mathbb{R}.  
+  $$  
+  
+  Here $t$ is the **parameter**. Changing $t$ slides you along the line.  
+  
+Why it matters:  
+  
+* Works perfectly in 3D (and higher), where “$y=mx+b$” doesn’t exist.  
+* Makes intersection problems easy (solve two param equations together).  
+* Lets you restrict to a **segment** by bounding $t$ (e.g., $t\in[0,1]$ gives the segment from $P$ to $Q$).  
+  
 ## About the “eight properties”
 
 The passage alludes to the standard vector space axioms (closure, associativity/commutativity of $+$, additive identity/inverses, distributivity and associativity for scalar multiplication, and the scalar identity). Any structure satisfying them is a **vector space**—$\mathbb{R}^2$, $\mathbb{R}^3$, and many others.
@@ -162,15 +180,56 @@ Find a vector/parametric equation of the line through each pair of points.
 
 **(a)** $(3,\,-2,\,4)$ and $(-5,\,7,\,1)$
 
+Let $P=(3,-2,4)$ and $Q=(-5,7,1)$.  
+Direction $\mathbf{d}=Q-P=(-8,\,9,\,-3)$.  
+  
+**Vector/parametric form**  
+  
+$$  
+\boxed{\;\mathbf{r}(t)= (3,-2,4)+t\,(-8,\,9,\,-3),\quad t\in\mathbb{R}\;}  
+$$  
+  
+**Component form**  
+  
+$$  
+\boxed{\;x=3-8t,\quad y=-2+9t,\quad z=4-3t\;}  
+$$  
+  
+**(Optional) Symmetric form** (since all direction components are nonzero)  
+  
+$$  
+\boxed{\;\frac{x-3}{-8}=\frac{y+2}{9}=\frac{z-4}{-3}\;}  
+$$  
+  Visualization: ![[line_PQ.html]]
+https://www.desmos.com/3d/xpz7oapwbj
+
+**(b)** $(2,\,4,\,0)$ and $(-3,\,-6,\,0)$
+
 $$
 \begin{gather}
-u = (3,\,-2,\,4) , v = (-5,\,7,\,1)
+P = (2,\,4,\,0) \space,  Q = (-3,\,-6,\,0) \\
+\text{Direction } d = Q - P = (-5,\, -10,\, 0) \\
+r(t) = (2,\,4,\,0) + t (-5,\, -10,\, 0),\, t \in \mathbb{R}
 \end{gather}
 $$
 
-**(b)** $(2,\,4,\,0)$ and $(-3,\,-6,\,0)$
 **(c)** $(3,\,7,\,2)$ and $(3,\,7,\,-8)$
+
+$$
+\begin{gather}
+P = (3,\,7,\,2) \text{ and } Q = (3,\,7,\,-8) \\
+\text{Direction } d = Q - P = (0,\,0,\,-10) \\
+r(t) = (3,\,7,\,2) + t(0,\,0,\,-10)
+\end{gather}
+$$
+
 **(d)** $(-2,\,-1,\,5)$ and $(3,\,9,\,7)$
+
+$$
+\begin{gather}
+P = (-2,\,-1,\,5) \text{ and } Q = (3,\,9,\,7) \\
+\end{gather}
+$$
 
 *Answer idea:* Use $\mathbf{x} = P + t(Q-P)$.
 
