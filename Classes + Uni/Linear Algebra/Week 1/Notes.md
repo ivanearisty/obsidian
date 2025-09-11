@@ -240,6 +240,21 @@ $$
 Find a parametric equation (and optionally a scalar/normal form) of the plane containing each triple of points.
 
 **(a)** $(2,\,-5,\,-1),\ (0,\,4,\,6),\ (-3,\,7,\,1)$
+
+$$
+\begin{gather}
+P = (2,-5,-1), \space Q = (0,4,6), \space R = (-3,7,1) \\ \\
+u = Q - P = (0-2, 4- (-5), 6 - (-1)) = (-2, 9, 7) \\
+v = (-3 - 2, 7 - (-5), 1 - (-1)) = (-5, 12, 2) \\
+u = (-2, 9, 7) , v = (-5, 12, 2) \\
+\\
+\text{Parametric form}: \\
+r(s,t) = P + su + tv = (2,-5,-1) + s(-2, 9, 7) + t(-5, 12, 2) \\ \\
+\text{Normal vector and scalar form} \\
+
+\end{gather}
+$$
+![[Screenshot 2025-09-11 at 11.23.07 AM.png]]
 **(b)** $(3,\,-6,\,7),\ (-2,\,0,\,-4),\ (5,\,-9,\,-2)$
 **(c)** $(-8,\,2,\,0),\ (1,\,3,\,0),\ (6,\,-5,\,0)$
 **(d)** $(1,\,1,\,1),\ (5,\,5,\,5),\ (-6,\,4,\,2)$
