@@ -19,6 +19,11 @@ I hope I’m wrong, and that these features deliver the value we promise. My hea
 
 Below is my read of what the devs have shipped (based on the latest diffs) and what’s still missing.
 
+1. if a flow is not clear, you must reach out to me, not elisa, about how this flow is implemented
+2. notifications are not relevant
+3. GCS is implemented, gc ai is implemented, everything is there exept for ur vm.
+4. coomi history
+
 What’s implemented in front:
 - **Settings Screen**
 - **User Profile Screen** 
