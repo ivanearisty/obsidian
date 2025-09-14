@@ -1,8 +1,8 @@
-I need to be direct. I don’t believe there’s sufficient trust in our working relationship, and I don’t see a realistic path to rebuilding it.
+In an attempt to be direct, I don’t believe there’s sufficient trust in our working relationship, and I don’t see a realistic path to rebuilding it.
 
 Strategically, I’m misaligned with the current direction. We’re scattering resources on events and peripheral initiatives, when I think we should be figuring out how to deliver on our core value prop. I don't agree with Dhruv or you on trying out this version, our initial approach likely wont hold; however, we still hired development to dress the Figma spec. Our current feature set doesn’t address the core problem, it doesn't create habit, nor offers a solution to cold start problems; nevertheless, we’ve moved forward anyway. As a result, we’re still far from what I'd consider "app completion" despite the spend.
 
-In all honesty, the breaking point for me was today, feeling that my firsthand assessments were discounted. When that happens repeatedly, it becomes impossible for me to carry the responsibilities of a CTO. Hence, I don’t believe I can continue as a co-founder. 
+In all honesty, the breaking point for me was earlier this week, when I felt that my firsthand assessments of our progress were discounted. When that happens repeatedly, it becomes impossible for me to carry the responsibilities of a CTO. I'm not interested in building a company where my co-founder doesn't trust my professional perspective. Hence, I don’t believe I can continue as a co-founder. 
 
 That said, I do not think it’s viable for We b0nd to halt development right now. Out of respect for you, the team, and the work to date, I’m willing to stay on with a narrower scope to get this version of the app deployed. The role I can commit to is as a Technical Delivery Lead.
 
@@ -12,8 +12,9 @@ I'd:
 - Personally tackle code areas they’re avoiding (like basic error handling).
 - Ensure they deliver minimum QA for a deployable build.
 - Facilitate our dev-ops and manage our cloud resources.
+- Manage and deploy peripheral services (i.e. Webflow site).
 
-If you prefer, we can stop here and arrange a clean handoff. If you agree with the scoped role above, we should notify the team of the change and proceed.
+If you agree with the scoped role above, we should notify the team of the change and proceed.
 
 I hope I’m wrong, and that these features deliver the value we promise. My heart, however, isn’t aligned with our current strategy, and it wouldn’t be honest to keep the CTO title under those conditions. I’m offering the above to help you get this version over the line.
 
