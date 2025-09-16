@@ -1,7 +1,3 @@
-This "Swiss Army Knife" document consolidates and expands upon all the technologies, tools, and methodologies from our conversations. It's structured for clarity, providing descriptions and common use cases to serve as a comprehensive reference for your technical stack.
-
-***
-
 # Technology Stack & Skillset
 
 ## **I. Programming Languages**
