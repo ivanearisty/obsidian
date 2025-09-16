@@ -268,12 +268,27 @@ $$
 
 **(a) Zero vector in the Euclidean plane**
 What are the coordinates of the vector $\mathbf{0}$ in $\mathbb{R}^2$ that satisfies *condition 3 on page 3* (the additive identity property: $\mathbf{x} + \mathbf{0} = \mathbf{x}$)?
-*Prove that your choice satisfies this condition.*
+
+$$
+\begin{gather}
+\text{There exists a vector denoted 0 such that x + 0 = x for each vector x.} \\ \\
+\text{For any } x = (a_{1}, a_{2}) \in \mathbb{R}^{2}, \text{ vector addition in coordinates is component-wise, so:} \\
+x+0 = (a_{1},a_{2}) + (0,0) = (a_{1}+0, a_{2}+0) = (a_{1},a_{2}) = 0
+\end{gather}
+$$
+
 
 **(b) Scaling endpoints**
 Let $\mathbf{x}$ be the vector from the origin to $(a_1, a_2)$ in $\mathbb{R}^2$. Prove that for any real $t$, the vector $t\mathbf{x}$ (from the origin) terminates at $(ta_1, ta_2)$.
 
+$$
+\begin{gather}
+x = (a_{1}, a_{2}) \\
+xt = t(a_{1},a_{2})
+\end{gather}
+$$
+
 **(c) Parallelogram diagonals**
 Prove that the diagonals of a parallelogram bisect each other.
 
----
+
