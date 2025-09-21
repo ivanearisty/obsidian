@@ -44,7 +44,10 @@ $$
 0x & \text{start} \\
 0x = 0x + \mathbf{0} & \text{additive identity} \\
 0x + \mathbf{0} = 0x + (0x + (-0x)) & \text{additive inverse} \\
-0x + (0x + (-0x)) 
+0x + (0x + (-0x)) = (0x + 0x) + (-0x) & \text{associativity} \\
+(0x + 0x) + (-0x) = (0+ 0)x + (-0x) & \text{distributive property 2} \\
+(0+ 0)x + (-0x) = 0x+ (-0x) & \text{properties of scalars in } \mathbb{R} \land \mathbb{C} \\
+0x+ (-0x) = \mathbf{0} & \text{additive inverse}
 \end{gather}
 $$
 
@@ -53,14 +56,35 @@ $$
 ### (iii) For any $a \in F$, $a0 = 0$.
 
 **Proof:**
-*Your proof here*
+$$
+\begin{gather}
+a\mathbf{0} & \text{start} \\
+a\mathbf{0} = a\mathbf{0} + \mathbf{0} & \text{additive identity} \\
+a\mathbf{0} + \mathbf{0} 
+\end{gather}
+$$
+
+#Note-for-prof isnt 2 a0+0=a0+(a0+(−a0)) exactly what we're trying to prove? how come it's not circular?
+
+![[Screenshot 2025-09-20 at 10.17.22 PM.png | 400]]
 
 ---
 
 ### (iv) If $a \in F$, $x \in V$ such that $ax = 0$, then either $a=0$ (in $F$) or $x=0$ (in $V$).
 
 **Proof:**
-*Your proof here*
+
+$$
+\begin{gather}
+\text{Case 1: } \\
+\text{If } v = \mathbf{0}, \text{we know that for any } a \in F, a\mathbf{0} = \mathbf{0} \text{ (from ) iii} \\
+\\
+\text{Case 2:} \\
+\text{If } v \neq \mathbf{0} \text{ we must show that } a \text{ must be } 0. \\
+av = \mathbf{0} \\
+av = v + (-v)
+\end{gather}
+$$
 
 ---
 
