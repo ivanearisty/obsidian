@@ -39,7 +39,7 @@ kanban-plugin: board
 - [x] Finish [[Hashing]] to finish [[Practice Set 2 — Answers]] #DAA
 - [x] [[Classes + Uni/Archive/DAA/Week 1/Class 1]] #DAA
 - [x] Hand in [[Assignment 1 DAA — Answers]] #DAA
-- [x] Review [[Notes Week 1|Notes Week 1]]
+- [x] Review [[Classes + Uni/Archive/DAA/Week 1/Notes Week 1|Notes Week 1]]
 - [x] Review [[Recursive Algorithm Analysis|Recursive Algorithm Analysis]]
 - [x] Finish [[Practice Set 1 — Answers]]
 

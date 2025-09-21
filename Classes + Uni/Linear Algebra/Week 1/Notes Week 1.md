@@ -1,3 +1,87 @@
+# Lecture Notes
+
+## Vector Spaces
+
+### Axioms
+
+(I) $x + y = y + x$, commutativity
+(II) $(x + y) + z = x + (y + z)$, associativity
+(III) There exists $0 \in V$ such that $x + 0 = x$, additive identity
+(IV) For any $x \in V$, there exists $-x \in V$ such that $x + (-x) = 0$, additive inverse
+(V) $a(bx) = (ab)x$, multiplicative associativity
+(VI) $1x = x$, multiplicative identity
+(VII) $a(x + y) = ax + ay$, distributive property 1
+(VIII) $(a + b)x = ax + bx$, distributive property 2
+
+An element $x \in V$ is called a *vector* and an element $a \in F$ is called a *scalar*.
+
+### (i) The element $0 \in V$ is unique.
+#Note-for-prof: How can I be sure that I actually proved something without question. For example:
+
+I would've said:
+$$
+\begin{gather}
+\text{Let both } 0 \in V \text{ and } 0' \in V \\
+\text{Then } x + 0 = x \text{ and } x + 0' = x \\
+\text{Then } x + 0 = x + 0',\\
+\text{ if we subtract x from both sides we get:} \\
+0 = 0'
+\end{gather}
+$$
+
+Would this be valid? What rigor do I need to prove? Do I need to call axioms specifically? 
+
+Compare to chatgpt proof:
+![[Screenshot 2025-09-20 at 9.23.33 PM.png | 400]]
+
+---
+
+### (ii) For any $x \in V$, $0x = 0$.
+
+**Proof:**
+$$
+\begin{gather}
+0x & \text{start} \\
+0x = 0x + \mathbf{0} & \text{additive identity} \\
+0x + \mathbf{0} = 0x + (0x + (-0x)) & \text{additive inverse} \\
+0x + (0x + (-0x)) 
+\end{gather}
+$$
+
+---
+
+### (iii) For any $a \in F$, $a0 = 0$.
+
+**Proof:**
+*Your proof here*
+
+---
+
+### (iv) If $a \in F$, $x \in V$ such that $ax = 0$, then either $a=0$ (in $F$) or $x=0$ (in $V$).
+
+**Proof:**
+*Your proof here*
+
+---
+
+### (v) For any $x \in V$, the element $-x$ is unique.
+
+**Proof:**
+*Your proof here*
+
+---
+
+### (vi) For any $x \in V$, $(-1)x = -x$.
+
+**Proof:**
+*Your proof here*
+
+---
+
+### (vii) If $x+z = y+z$, then $x=y$.
+
+**Proof:**
+*Your proof here*
 # Introduction
 
 The familiar “vector rules” (add tip-to-tail, scale to stretch/shrink, parallelogram picture, etc.) work the same in 3-D space as in the plane. Using those rules, we can write compact vector equations for lines and planes.
