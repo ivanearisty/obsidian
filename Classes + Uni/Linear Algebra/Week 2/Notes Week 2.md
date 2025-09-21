@@ -62,6 +62,74 @@ If $v_1,\dots,v_n$ is a basis of $V$ and $w_1,\dots,w_m$ are linearly independen
 
 **Why it matters:** This is the engine behind the uniqueness of dimension.
 
+#### The Goal
+
+The theorem's main goal is to prove that in any given vector space, a **linearly independent set cannot have more vectors than a basis**. This is what ultimately guarantees that the dimension of a space is a unique number.
+
+#### The Setup
+
+Imagine you have two sets of vectors in a space `V`:
+
+1. **A Basis:** B={v1​,v2​,…,vn​}. This is your "gold standard" set. It has `n` vectors, it spans the entire space, and none of its vectors are redundant.
+    
+2. **An Independent Set:** W={w1​,w2​,…,wm​}. All we know about this set is that it has `m` vectors and none of them can be written as a combination of the others.
+    
+
+The theorem shows how to systematically "swap" the independent `w` vectors into the basis `B`, one by one.
+
+---
+
+#### The Step-by-Step Process
+
+Here's the procedure, which is essentially applying the "one-vector replacement trick" (Lemma 2.12) over and over.
+
+##### Step 1: Swap in the first vector, w1​.
+
+- Since B is a basis, it spans the entire space. This means we can definitely write w1​ as a linear combination of the basis vectors:
+    
+    w1​=a1​v1​+a2​v2​+⋯+an​vn​
+    
+- At least one of the coefficients (a1​,…,an​) must be non-zero (otherwise w1​ would be the zero vector, which can't be in an independent set). Let's assume a1​=0.
+    
+- Because a1​=0, we can rearrange the equation to solve for v1​. This shows that v1​ is in the span of {w1​,v2​,…,vn​}.
+    
+- This means we can **replace v1​ with w1​**, and the new set B1​={w1​,v2​,…,vn​} is still a basis.
+    
+
+##### Step 2: Swap in the second vector, w2​.
+
+- Now we repeat the process with our new basis, B1​. Since it's a basis, we can write w2​ as a combination of its vectors:
+    
+    w2​=c1​w1​+c2​v2​+⋯+cn​vn​
+    
+- At least one of the coefficients for the remaining `v` vectors (c2​,…,cn​) must be non-zero. If they were all zero, we'd have w2​=c1​w1​, which would mean {w1​,w2​} is linearly dependent, contradicting our initial assumption about set `W`.
+    
+- So, let's assume c2​=0. We can now **replace v2​ with w2​** to get another new basis: B2​={w1​,w2​,v3​,…,vn​}.
+    
+
+##### Step 3: Continue the Process...
+
+- You can continue this process, swapping one `w` vector for one `v` vector at each step, until you run out of `w` vectors.
+    
+
+---
+
+#### The Main Conclusion: Why n≥m
+
+This replacement process leads to the most important conclusion of the theorem.
+
+- What would happen if the independent set `W` was larger than the basis `B` (i.e., if m>n)?
+    
+- We could perform the replacement `n` times, swapping all the `v` vectors for the first `n` vectors from `W`. This would give us a new basis: {w1​,w2​,…,wn​}.
+    
+- But since we assumed m>n, we still have at least one more vector, wn+1​, left over in our independent set.
+    
+- Because {w1​,…,wn​} is a basis, it spans the entire space. This means we must be able to write wn+1​ as a linear combination of {w1​,…,wn​}.
+    
+- This creates a **contradiction**! If wn+1​ is a combination of the other `w` vectors, then the set W cannot be linearly independent, which violates our initial setup.
+    
+
+Therefore, the assumption that an independent set can be larger than a basis (m>n) must be false. The only possibility is that **n≥m**.
 ### Corollary 2.14 (All bases have the same length)
 In a finite-dimensional space, any two bases have the same number of vectors.
 
