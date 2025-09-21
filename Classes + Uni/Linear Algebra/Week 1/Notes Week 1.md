@@ -113,14 +113,23 @@ A more rigorous proof will stick only to the axioms we've been given.
 ### (vi) For any $x \in V$, $(-1)x = -x$.
 
 **Proof:**
-*Your proof here*
+How does this not just follow?
 
 ---
 
 ### (vii) If $x+z = y+z$, then $x=y$.
 
 **Proof:**
-*Your proof here*
+$$
+\begin{gather}
+x + z = y + z \\
+x + z + (-z) = y + z + (-z) \\
+z + (-z) = \mathbf{0} \\
+x + \mathbf{0} = x \\
+y + \mathbf{0} = y \\ \\
+x = y
+\end{gather}
+$$
 # Introduction
 
 The familiar “vector rules” (add tip-to-tail, scale to stretch/shrink, parallelogram picture, etc.) work the same in 3-D space as in the plane. Using those rules, we can write compact vector equations for lines and planes.
