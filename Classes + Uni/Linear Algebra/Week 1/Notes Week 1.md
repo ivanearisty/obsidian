@@ -2,6 +2,9 @@
 
 ## Vector Spaces
 
+A set V is called a vector space (linear space) over F if it is equipped with addition V × V → V, (x, y) 7 → x + y and scalar multiplication F × V → V, (a, x) 7 → ax
+
+satisfying the following axioms: for any a, b ∈ F , x, y, z ∈ V :
 ### Axioms
 
 (I) $x + y = y + x$, commutativity
@@ -130,6 +133,36 @@ y + \mathbf{0} = y \\ \\
 x = y
 \end{gather}
 $$
+## 1.6
+
+The main idea is that sets of well-behaved functions (in this case, continuous and differentiable ones) follow the exact same 8 rules of a vector space that lists of numbers ($F^n$) and matrices do.
+
+This notation describes the specific set of functions we're dealing with:
+
+* **$C$** stands for **Continuous**.
+* **$k$** is a number that tells you how many times you can **differentiate** the function and still have the result be a continuous function.
+* **$(\mathbb{R})$** means the functions map real numbers to real numbers ($f: \mathbb{R} \to \mathbb{R}$).
+
+#### Examples:
+* **$C^0(\mathbb{R})$**: This is the set of all functions that are simply **continuous**. The absolute value function, $f(x)=|x|$, is in this set. .
+* **$C^1(\mathbb{R})$**: This is the set of functions that you can differentiate once, and the resulting derivative is *also* a continuous function. For example, $f(x) = x^3$ is in $C^1(\mathbb{R})$ because its derivative, $f'(x) = 3x^2$, is a smooth, continuous parabola.
+* The function $f(x)=|x|$ is in $C^0(\mathbb{R})$ but it is **not** in $C^1(\mathbb{R})$ because its derivative has a "jump" at $x=0$ and is not continuous there.
+
+To treat this set of functions as a vector space, we define addition and scalar multiplication in a "pointwise" manner:
+
+* **Function Addition:** The sum of two functions, $f$ and $g$, is a new function `(f+g)` whose value at any point `x` is just the sum of the individual function values at that point: `(f+g)(x) = f(x) + g(x)`. Visually, you're just adding the heights of the two graphs at every point. .
+* **Scalar Multiplication:** To multiply a function `f` by a scalar `c`, you create a new function `(cf)` whose value at `x` is `c` times the value of `f(x)`: `(cf)(x) = c * f(x)`. Visually, this stretches or shrinks the graph of the function vertically.
+
+In this function vector space:
+* The **"zero vector"** is the zero function, $f(x) = 0$.
+* The **additive inverse** of a function $f(x)$ is the function $-f(x)$.
+
+This concept is huge in physics and engineering, as it allows the powerful tools of linear algebra to be used to solve problems involving functions, like differential equations.
+
+
+## Subspaces
+![[Screenshot 2025-09-21 at 1.40.32 AM.png]]
+
 # Introduction
 
 The familiar “vector rules” (add tip-to-tail, scale to stretch/shrink, parallelogram picture, etc.) work the same in 3-D space as in the plane. Using those rules, we can write compact vector equations for lines and planes.
