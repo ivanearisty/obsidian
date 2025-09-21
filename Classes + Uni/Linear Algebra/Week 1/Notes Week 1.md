@@ -91,7 +91,22 @@ $$
 ### (v) For any $x \in V$, the element $-x$ is unique.
 
 **Proof:**
-*Your proof here*
+$$
+\begin{gather}
+\text{Let } (-x) \text{ and } (-x)'\\
+x + (-x) = \mathbf{0} \\
+x + (-x)' = \mathbf{0} \\
+(-x) = \mathbf{0} - x \\
+(-x)' = \mathbf{0} - x\\
+\therefore (-x) = (-x)'
+\end{gather}
+$$
+
+The axioms we have only define addition and scalar multiplication. Subtraction is an operation that we typically _define_ later as a−b=a+(−b). Since this definition itself relies on the existence of a unique inverse (−b), using it in the proof would be circular reasoning.
+
+A more rigorous proof will stick only to the axioms we've been given.
+
+![[Screenshot 2025-09-20 at 11.02.14 PM.png]]
 
 ---
 
