@@ -51,7 +51,30 @@ Any subset of linearly independent vectors is linearly independent.
 
 $$
 \begin{gather}
-\text{Let } S = \{ v_{1},v_{2},\dots,v_{n} \} \text{ be an arbitrary linearly dependent set of vectors.} \\
-\text{Let } T \subseteq S \to 
+\text{Let } S = \{ v_{1},v_{2},\dots,v_{n} \} \text{ be an arbitrary linearly independent set of vectors.} \\
+\text{Let } T \subseteq S \text{ such that } \{  v_{1},v_{2},\dots,v_{k} \} \text{ where } k \leq n. \\ \\
+\text{For the sake of contradiction, let's assume that } T \text{ is linearly dependent.} \\ 
+\text{This means that } \exists \{ a_{1},a_{2},\dots, a_{k} \} \in F \text{ such that: } \\ 
+(a_{1}v_{1} + a_{2},v_{2} + \dots + a_{k}v_{k} = 0) \land (\exists a_{g} \in \{ a_{1},a_{2},\dots, a_{k} \} \rightarrow a_{g} \neq 0) \\ \\
+\text{We could then construct S as these vectors  } \{ a_{1}v_{1},a_{2}v_{2},\dots, a_{k}v_{k} \} : k \leq n \\
+\text{and for the missing vectors } \text{, since }  \exists a_{g} \in \{ a_{1},a_{2},\dots, a_{k} \} \rightarrow a_{g} \neq 0 \\
+\{ a_{k+1}v_{k+1},a_{k+2}v_{k+2},\dots, a_{n }v_{kn} \} \text{ we can set the scalars to 0.}  \\ \\
+\text{Hence, we have now constructed } S \text{ as a dependent set of vectors.} \\
+\text{However, this contradicts our initial assumption that } S \text{ was lineraly independent}
+\end{gather} 
+$$
+
+### iii 
+
+Any set containing a set of linearly dependent vectors is linearly dependent. In particular, if a set of vectors contain a zero vector then it is linearly dependent. 
+
+$$
+\begin{gather}
+\text{Let } T = \{ v_{1},v_{2},\dots ,v_{k} \} \text{ be a linearly dependent set.} \\
+\text{Let } S \text{ be any set containing } T. \\
+\text{For example: } S = \{ v_{1},v_{2},\dots ,v_{k}, v_{k+1},\dots,v_{n} \} \\
+\text{Since } T \text{ is linearly dependent, we know there exists scalars } \{c_{1},c_{2},\dots,c_{k} \} \\
+\text{such that: } \\
+c_{1}v_{1}+c_{2}v_{2}+\dots c_{k}v_{k}
 \end{gather}
 $$
