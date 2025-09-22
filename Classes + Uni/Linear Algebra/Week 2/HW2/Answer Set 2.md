@@ -107,12 +107,13 @@ a_{1}(v_{1}+w) + a_{2}(v_{2}+w)+\dots+a_{n}(v_{n}+w) = 0 \\
 a_{1}v_{1}+a_{1}w + a_{2}v_{2}+a_{2}w+\dots+a_{n}v_{n}+a_{n}w = 0 \\
 \text{which in turn:} \\
 a_{1}v_{1}+ a_{2}v_{2}+\dots+a_{n}v_{n} = -(a_{1}w + a_{2}w+\dots++a_{n}w)\\
-a_{1}v_{1}+ a_{2}v_{2}+\dots+a_{n}v_{n}  = w(-(a_{1},a_{2},\dots,a_{n})) \\
-\text{Call } (a_{1},a_{2},\dots,a_{n}) \text{ some constant } C \\
+a_{1}v_{1}+ a_{2}v_{2}+\dots+a_{n}v_{n}  = w(-(a_{1}+a_{2}+\dots+a_{n})) \\
+\text{Call } \sum(a_{1},a_{2},\dots,a_{n}) \text{ some constant } C \\
 \text{Since this constant is non-zero, then: } \\
 \left( -\left( \frac{a_{1}}{c} \right) \right)v_{1}+ \left( -\left( \frac{a_{2}}{c} \right) \right)v_{2}+\dots+\left( -\left( \frac{a_{n}}{c} \right) \right)v_{n} = w \\ 
 \end{gather}
 $$
+#Note-for-prof   Figure out why this ^ is not 
 
 The final equation shows that w can be written as a linear combination of the vectors​. By definition, this means that $w\in span(S)$
 
@@ -124,5 +125,6 @@ $$
 \begin{gather}
 \text{Let u be an arbitrary vector in } span(v_{1}​,v_{2},v_{3}​,v_{4}​) \\
 \text{By definition, we can write u as a linear combination:} \\
+\text{If } span(v_{1},v_{2},v_{3},v_{4}) \subseteq span(v_{1}-v_{2},v_{2}-v_{3},v_{3}-v_{4},v_{4})
 \end{gather}
 $$

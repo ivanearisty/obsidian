@@ -69,7 +69,7 @@ $$
 
 #Note-for-prof isnt 2 a0+0=a0+(a0+(−a0)) exactly what we're trying to prove? how come it's not circular?
 
-![[Screenshot 2025-09-20 at 10.17.22 PM.png | 400]]
+![[Screenshot 2025-09-20 at 10.17.22 PM.png ]]
 
 ---
 
