@@ -98,12 +98,30 @@ Then, $w\in span(v_{1},\dots,v_{n})$
 
 $$
 \begin{gather}
-\text{A vector } + 
+\text{Let } S \text{ be the set of vectors } v_{1},v_{2},\dots,v_{n} \\
+\text{A vector } w \text{ is in } span(S) \text{ if a combination of the vectors in } S \\
+\text{can construct it with some coefficients } \{ a_{1},a_{2},\dots,a_{n} \} \in \mathbb{R} \\ \\
+\text{If } v_{1}+w, v_{2}+\mathbf{w},\dots,v_{n}+w\text{ is linearly dependent, then:} \\
+a_{1}(v_{1}+w) + a_{2}(v_{2}+w)+\dots+a_{n}(v_{n}+w) = 0 \\
+\text{Distributing we have: } \\
+a_{1}v_{1}+a_{1}w + a_{2}v_{2}+a_{2}w+\dots+a_{n}v_{n}+a_{n}w = 0 \\
+\text{which in turn:} \\
+a_{1}v_{1}+ a_{2}v_{2}+\dots+a_{n}v_{n} = -(a_{1}w + a_{2}w+\dots++a_{n}w)\\
+a_{1}v_{1}+ a_{2}v_{2}+\dots+a_{n}v_{n}  = w(-(a_{1},a_{2},\dots,a_{n})) \\
+\text{Call } (a_{1},a_{2},\dots,a_{n}) \text{ some constant } C \\
+\text{Since this constant is non-zero, then: } \\
+\left( -\left( \frac{a_{1}}{c} \right) \right)v_{1}+ \left( -\left( \frac{a_{2}}{c} \right) \right)v_{2}+\dots+\left( -\left( \frac{a_{n}}{c} \right) \right)v_{n} = w \\ 
 \end{gather}
 $$
 
+The final equation shows that w can be written as a linear combination of the vectors​. By definition, this means that $w\in span(S)$
+
+### v
+
+![[Screenshot 2025-09-21 at 9.29.20 PM.png]]
+
 $$
 \begin{gather}
-
+\text{Let u be an arbitrary vector in } span(v_{1}​,v_{2},v_{3}​,v_{4}​) \text{ By definition, we can write u as a linear combination:}
 \end{gather}
 $$
