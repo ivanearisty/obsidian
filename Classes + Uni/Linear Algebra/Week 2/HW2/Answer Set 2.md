@@ -75,6 +75,35 @@ $$
 \text{For example: } S = \{ v_{1},v_{2},\dots ,v_{k}, v_{k+1},\dots,v_{n} \} \\
 \text{Since } T \text{ is linearly dependent, we know there exists scalars } \{c_{1},c_{2},\dots,c_{k} \} \\
 \text{such that: } \\
-c_{1}v_{1}+c_{2}v_{2}+\dots c_{k}v_{k}
+c_{1}v_{1}+c_{2}v_{2}+\dots + c_{k}v_{k} = \mathbf{0} \\
+\text{We then extend this to a linear combination of all vectors in } S \\
+c_{1}v_{1}+c_{2}v_{2}+\dots + c_{k}v_{k} + \mathbf{0}v_{k+1} + \dots + \mathbf{0}v_{n}= \mathbf{0} \\
+\text{by giving the remaining vectors a coefficient of 0.} \\
+\text{Since we know that at least one of the scalars from } c_{1} \text{ to } c_{k} \text{ is not zero.} \\
+\text{The definition of a linearly dependent set holds for } S. \\
+\\
+\text{Let } S \text{ be a set containing the zero vector.} \\
+\text{Consider: } (1)\mathbf{0} + 0v_{2}+0v_{3}+\dots+v_{n} \\
+\text{this sum is equal to the zero vector and not all coefficients are 0.} \\
+\text{By definition it's linearly dependent.}
+\end{gather}
+$$
+
+### iv
+
+Let $v_{1},v_{2},\dots,v_{n}$ be linearly independent.
+Suppose $v_{1}+w, v_{2}+\mathbf{w},\dots,v_{n}+w$ are linearly dependent.
+Then, $w\in span(v_{1},\dots,v_{n})$
+
+
+$$
+\begin{gather}
+\text{A vector } + 
+\end{gather}
+$$
+
+$$
+\begin{gather}
+
 \end{gather}
 $$
