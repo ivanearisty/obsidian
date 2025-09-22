@@ -122,6 +122,7 @@ The final equation shows that w can be written as a linear combination of the ve
 
 $$
 \begin{gather}
-\text{Let u be an arbitrary vector in } span(v_{1}​,v_{2},v_{3}​,v_{4}​) \text{ By definition, we can write u as a linear combination:}
+\text{Let u be an arbitrary vector in } span(v_{1}​,v_{2},v_{3}​,v_{4}​) \\
+\text{By definition, we can write u as a linear combination:}
 \end{gather}
 $$
