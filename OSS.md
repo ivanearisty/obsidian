@@ -1,0 +1,1 @@
+·       **ObjectOrientedSpotify (Java, Spring, MySQL, Angular)** — In-dev playlist manager with OOP “inheritance” model for playlist operations (sort/merge/split). [GitHub](https://github.com/ivanearisty/ObjectOrientedSpotify)
