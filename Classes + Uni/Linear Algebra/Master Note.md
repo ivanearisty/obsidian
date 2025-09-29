@@ -1,25 +1,25 @@
 # Lecture 1
 
-**1) [[Vector spaces]] (axioms, basic consequences)**
+**1) Vector spaces (axioms, basic consequences)**
 
 * Uniqueness of Zero and Additive Inverses
 * Cancellation Law (x + z = y + z ⇒ x = y)
 * Scalar-0 and 0-Vector Identities (0·v = 0, a·0 = 0)
 * Negation/Distributive Identities (−1·v = −v)
 
-**2) [[Subspaces]] (definition + examples)**
+**2) Subspaces (definition + examples)**
 
 * Subspace Test (aka Subspace Criterion)
 * Intersection of Subspaces is a Subspace
 * Span is a Subspace (and is the smallest subspace containing a set)
 
-**3) [[Span & linear combinations]]**
+**3) Span & linear combinations**
 
 * Characterization of Span (as all finite linear combinations)
 * “Smallest Subspace Containing S” Property of Span
 * Redundancy Lemma (removing a vector that’s a combo of others preserves span)
 
-**4) [[Linear dependence vs. independence]]**
+**4) Linear dependence vs. independence**
 
 * Linear Dependence Criterion (a set is dependent ⇔ one vector is a linear combo of the others)
 * Nonzero Singleton is Independent
@@ -28,17 +28,17 @@
 
 # Lecture 2
 
-**1) [[Span]] (revisited, with examples)**
+**1) Span (revisited, with examples)**
 
 * Trimming a Spanning Set to a Basis (remove redundant vectors)
 * Extending Independent Sets to Bases
 
-**2) [[Linear dependence & independence (characterizations)]]**
+**2) Linear dependence & independence (characterizations)**
 
 * Steinitz Exchange Lemma (Replacement Theorem)
 * Size Bounds: Independent Sets ≤ any Basis (in finite dimension)
 
-**3) [[Basis]] (definition, trimming; replacement)**
+**3) Basis (definition, trimming; replacement)**
 
 * All Bases Have the Same Cardinality (Dimension is Well-Defined)
 * Basis Extension (any independent set can be extended to a basis)
