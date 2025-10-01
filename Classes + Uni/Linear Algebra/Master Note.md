@@ -73,5 +73,3 @@
 * L(V, W) is a Vector Space (closure under + and scalar mult.)
 * Linearity of Composition; Associativity of Composition
 * “Determined by a Basis” Theorem (a linear map is fixed by its values on a basis)
-
-want me to turn these into ready-to-search YouTube/lecture queries (one per item) so you can just copy/paste?

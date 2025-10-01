@@ -10,7 +10,6 @@ kanban-plugin: board
 
 ## Cruise
 
-- [ ] Read and understand [[Classes + Uni/Linear Algebra/Syllabus.pdf|Syllabus]]
 
 
 ## Orbiting
@@ -20,6 +19,7 @@ kanban-plugin: board
 ## Landed
 
 **Complete**
+- [x] Read and understand [[Classes + Uni/Linear Algebra/Syllabus.pdf|Syllabus]]
 
 
 ## Aborted

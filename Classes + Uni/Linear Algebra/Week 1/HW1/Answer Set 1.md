@@ -16,6 +16,22 @@ z(x) = 1 \\
 \text{The additive inverse of a function } f(x) \in V, \text{ denoted as } -f, \\
 \text{is a function such that: } (f+(-f))(x) = z(x), \text{where } z(x) \text{ is the additive identity.} \\ \\
 \text{Using the definitions of addition and the additive idenity, we have: } \\(f+(−f))(x)=f(x)(−f)(x)=1 \\ \\
+\end{gather}
+$$
+
+### Problem 2
+
+$$
+\begin{gather}
+\text{Let S be the set of polynomials of degree exactly }  n \text{ i.e. } \\
+S = \{ a_{n}t^{n} + \dots + a_{0} \in \mathcal{P}_{n}(F) : a_{n} \neq 0\} \\ 
+\text{Is } S \text{ a subspace of } \mathcal{P}_{n}(F) \\ \\
+(i) 0 ∈ S \\ \\
+\text{}
+\\
+(ii) \text{For any } x, y ∈ S , \text{ we have } x + y ∈ S \\
+(iii) \text{For any } a ∈ F , x ∈ S , \text{ we have } ax ∈ S \\ \\
 
 \end{gather}
 $$
+
