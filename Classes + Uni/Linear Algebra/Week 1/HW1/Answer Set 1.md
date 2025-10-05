@@ -40,6 +40,48 @@ $$
 #### 1
 $$
 \begin{gather}
+\text{The element } \mathbf{0} \in V \text{ is unique.}\\
+\text{Assume, for the sake of contradiction, that } \mathbf{0} \text{ is not unique.} \\
+\text{Then there must be a vector } \mathbf{0}' \in V \text{ such that: } \\
+\forall x \neq 0 \in V : x + \mathbf{0}' = x. \\
+\text{However we have that } x + \mathbf{0} = x. \\
+\text{Then } x + \mathbf{0}' = x + \mathbf{0} \\ 
+\text{Removing x we see that: } \mathbf{0}' = \mathbf{0} \\
+\text{So } \mathbf{0} \text{ must be unique.}
+\end{gather}
+$$
 
+#### 2
+$$
+\begin{gather}
+\text{For any } x ∈ V , 0x = \mathbf{0} \\
+(a+b)x = ax + bx \\
+(0+0)x = ax + bx \\
+0x = 0x + 0x \\
+\mathbf{0} = 0x 
+\end{gather}
+$$
+#### 3
+$$
+\begin{gather}
+\text{For any } a \in F, a \mathbf{0} = \mathbf{0} \\
+a(x+y) = ax+ax \\
+a(\mathbf{0} + \mathbf{0}) = a\mathbf{0}+a\mathbf{0} \\
+a\mathbf{0} = a\mathbf{0}+a\mathbf{0} \\
+\mathbf{0} = a\mathbf{0}
+\end{gather}
+$$
+#### 4
+![[Screenshot 2025-10-04 at 11.32.14 PM.png]]
+$$
+\begin{gather}
+\text{If } a = 0 \\
+\text{Then } a\mathbf{0} = \mathbf{0} \text{ which we proved above} \\
+\text{If } a \neq 0 \\
+a^{-1}(ax) = a^{-1}\mathbf{0}\\
+(a^{-1}a)x = a^{-1}\mathbf{0}\\
+1x = a^{-1}\mathbf{0}\\
+1x = \mathbf{0} \\
+x = \mathbf{0}
 \end{gather}
 $$
