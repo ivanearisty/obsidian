@@ -1,5 +1,3 @@
-# Obsidian MathJax
-
 ## Problem 1
 
 ### (i)
@@ -41,7 +39,7 @@ $$[T]_\beta^\gamma = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \c
 
 ---
 
-### (iii)
+###(iii)
 Let tr : $M_{2\times2}(\mathbb{F}) \rightarrow \mathbb{F}$ be the trace map defined by tr$\begin{pmatrix} a & b \\ c & d \end{pmatrix} = a + d$,
 $\beta = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} \right\}$ and $\gamma = \{1\}$.
 
@@ -74,7 +72,7 @@ To find the matrix representation $[T]_\beta^\beta$ for the linear transformatio
 
 * $T(x^3) = (x^3)' - x^3 = 3x^2 - x^3$.
     In terms of the basis, this is $0 \cdot (1) + 0 \cdot (x) + 3 \cdot (x^2) + (-1) \cdot (x^3)$.
-    The fourth column is $\begin{pmatrix} 0 \\ 0 \\ 3 \\ -1 \end{pmatrix}$.
+    e fourth column is $\begin{pmatrix} 0 \\ 0 \\ 3 \\ -1 \end{pmatrix}$.
 
 Combining these columns gives the matrix:
 $$[T]_\beta^\beta = \begin{pmatrix} -1 & 1 & 0 & 0 \\ 0 & -1 & 2 & 0 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & -1 \end{pmatrix}$$
@@ -239,11 +237,9 @@ Therefore, $\varphi$ is surjective.
 
 ---
 
-### (iv) Show that $U/(U \cap W) \cong (U+W)/W$ by applying the First Isomorphism Theorem.
+### (iv)
 
-The First Isomorphism Theorem for vector spaces states that for a linear transformation $\varphi: V \rightarrow W$, the quotient space $V/\text{ker}\varphi$ is isomorphic to the image of $\varphi$, $\text{Im}(\varphi)$. That is, $V/\text{ker}\varphi \cong \text{Im}(\varphi)$.
-
-In our case, the domain is $V=U$ and the codomain is $W=(U+W)/W$.
+The domain is  and the codomain is .
 * We found in part (ii) that the kernel is $\text{ker}\varphi = U \cap W$.
 * We found in part (iii) that the transformation is surjective, which means its image is equal to its codomain: $\text{Im}(\varphi) = (U+W)/W$.
 
@@ -253,19 +249,22 @@ This proves the Second Isomorphism Theorem for vector spaces.
 
 ---
 
-### (v) Show that $\text{dim} U - \text{dim}(U \cap W) = \text{dim}(U+W) - \text{dim} W$ using Theorem 3.16.
+### (v) 
 
-Theorem 3.16 is the **Rank-Nullity Theorem** for vector spaces, which states that $\text{dim}(\text{ker}\varphi) + \text{dim}(\text{Im}\varphi) = \text{dim}(\text{domain})$.
+1.  **Apply the Rank-Nullity Theorem**: The theorem states that for a linear transformation, the dimension of the domain is equal to the sum of the dimension of the kernel and the dimension of the image. For our map $\varphi$:
+    $$\text{dim}(\text{ker } \varphi) + \text{dim}(\text{Im } \varphi) = \text{dim } U$$
 
-Applying this theorem to our map $\varphi: U \rightarrow (U+W)/W$:
-$$\text{dim}(\text{ker}\varphi) + \text{dim}(\text{Im}\varphi) = \text{dim} U$$
-From parts (ii) and (iii):
-* $\text{dim}(\text{ker}\varphi) = \text{dim}(U \cap W)$.
-* Since $\varphi$ is surjective, its image is the codomain, so $\text{dim}(\text{Im}\varphi) = \text{dim}((U+W)/W)$.
+2.  **Substitute known results**:
+    * From part (ii), we know that the kernel of $\varphi$ is the intersection of the two subspaces, so $\text{ker } \varphi = U \cap W$. This means $\text{dim}(\text{ker } \varphi) = \text{dim}(U \cap W)$.
+    * From part (iii), we know that $\varphi$ is surjective, which means its image is the entire codomain, so $\text{Im } \varphi = (U+W)/W$. This means $\text{dim}(\text{Im } \varphi) = \text{dim}((U+W)/W)$.
 
-Substituting these into the Rank-Nullity Theorem:
-$$\text{dim}(U \cap W) + \text{dim}((U+W)/W) = \text{dim} U$$
-Now, we use a key property of quotient spaces: $\text{dim}(V/W) = \text{dim} V - \text{dim} W$.
-Applying this to our quotient space $(U+W)/W$:
-$$\text{dim}((U+W)/W) = \text{dim}(U+W) - \text{dim} W$$Substituting this into our equation:$$\text{dim}(U \cap W) + (\text{dim}(U+W) - \text{dim} W) = \text{dim} U$$Rearranging the terms to match the desired form, we get:$$\text{dim}(U+W) - \text{dim} W = \text{dim} U - \text{dim}(U \cap W)$$
-This result is an alternative proof of the dimension formula for sums of subspaces, which is often stated as $\text{dim}(U+W) = \text{dim} U + \text{dim} W - \text{dim}(U \cap W)$.
+    Substituting these results into the Rank-Nullity Theorem gives:
+    $$\text{dim}(U \cap W) + \text{dim}((U+W)/W) = \text{dim } U$$
+
+3.  **Use the dimension formula for quotient spaces**: A key property of quotient spaces is that the dimension of the quotient space is the dimension of the original space minus the dimension of the subspace.
+    $$\text{dim}((U+W)/W) = \text{dim}(U+W) - \text{dim } W$$
+
+4.  **Final substitution**: We substitute this expression back into the equation from step 2:
+    $$\text{dim}(U \cap W) + (\text{dim}(U+W) - \text{dim } W) = \text{dim } U$$
+    Rearranging the terms to match the required format proves the statement:
+    $$\text{dim}(U+W) - \text{dim } W = \text{dim } U - \text{dim}(U \cap W)$$
