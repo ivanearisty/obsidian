@@ -181,15 +181,91 @@ Since $RST$ is the identity map, it is an isomorphism, which implies it is both 
     $S(\text{id}_V) = R^{-1}T^{-1}$
     $S = R^{-1}T^{-1}$
     Since $R^{-1}$ and $T^{-1}$ exist, their product $S$ must also be invertible.
+$$
+\begin{gather}
+\text{From before: }S = R^{-1}T^{-1} \\
+S^{-1} = (R^{-1}T^{-1})^{-1} \\
+S^{-1} = (T^{-1})^{-1}(R^{-1})^{-1} \\
+S^{-1} = TR
+\end{gather}
+$$
 
-Now we need to show that $S^{-1} = TR$.
-Starting from $RST = \text{id}_V$, we can multiply by $S^{-1}$ on the right to get rid of $S$.
-$(RST)S^{-1} = (\text{id}_V)S^{-1}$
-$R(ST)S^{-1} = S^{-1}$
-$R(T S S^{-1}) = S^{-1}$ This is incorrect because matrix multiplication is not commutative.
+## Problem 4
 
-Let's use our previous result: $S = R^{-1}T^{-1}$.
-Taking the inverse of both sides:
-$S^{-1} = (R^{-1}T^{-1})^{-1}$
-The inverse of a product of matrices is the product of the inverses in the reverse order: $(AB)^{-1} = B^{-1}A^{-1}$.
-So, $S^{-1} = (T^{-1})^{-1}(R^{-1})^{-1} = TR$.
+### (i) Show that $\varphi$ is a linear transformation.
+
+To show that $\varphi: U \rightarrow (U+W)/W$ is a linear transformation, we must verify two properties: additivity and homogeneity.
+
+1.  **Additivity**: For any $u_1, u_2 \in U$, we need to show $\varphi(u_1 + u_2) = \varphi(u_1) + \varphi(u_2)$.
+    * By definition, $\varphi(u_1 + u_2) = (u_1 + u_2) + W$.
+    * Using the properties of coset addition, $(u_1 + u_2) + W = (u_1 + W) + (u_2 + W)$.
+    * By definition, this equals $\varphi(u_1) + \varphi(u_2)$.
+    * So, $\varphi(u_1 + u_2) = \varphi(u_1) + \varphi(u_2)$.
+
+2.  **Homogeneity**: For any $u \in U$ and any scalar $c$, we need to show $\varphi(cu) = c\varphi(u)$.
+    * By definition, $\varphi(cu) = cu + W$.
+    * Using the properties of scalar multiplication on cosets, $cu + W = c(u+W)$.
+    * By definition, this equals $c\varphi(u)$.
+    * So, $\varphi(cu) = c\varphi(u)$.
+
+Since both properties hold, $\varphi$ is a linear transformation.
+
+---
+
+### (ii) Find $\text{ker}\varphi$.
+
+The **kernel** of $\varphi$ is the set of all vectors in the domain $U$ that are mapped to the zero vector in the codomain $(U+W)/W$. The zero vector in a quotient space is the coset $W$ itself (since $0+W=W$).
+
+So, we are looking for all $u \in U$ such that $\varphi(u) = W$.
+By definition of $\varphi$, this means $u+W = W$.
+A coset $u+W$ is equal to the subspace $W$ if and only if the vector $u$ is an element of $W$.
+Since $u$ must also be an element of the domain $U$, the condition is that $u$ must be in both $U$ and $W$.
+Therefore, the kernel of $\varphi$ is the intersection of the two subspaces.
+$$\text{ker}\varphi = U \cap W$$
+
+---
+
+### (iii) Prove that $\varphi$ is surjective.
+
+To prove that $\varphi$ is surjective, we must show that for any element in the codomain $(U+W)/W$, there exists an element in the domain $U$ that maps to it.
+
+An arbitrary element in the quotient space $(U+W)/W$ has the form $(u+w)+W$, where $u \in U$ and $w \in W$.
+By the properties of cosets, $(u+w)+W = u+(w+W)$.
+Since $w \in W$, the coset $w+W$ is just the subspace $W$ itself.
+So, $(u+w)+W = u+W$.
+By the definition of $\varphi$, $u+W = \varphi(u)$.
+Since $u$ is an element of the domain $U$, we have shown that any element in $(U+W)/W$ can be written as $\varphi(u)$ for some $u \in U$.
+Therefore, $\varphi$ is surjective.
+
+---
+
+### (iv) Show that $U/(U \cap W) \cong (U+W)/W$ by applying the First Isomorphism Theorem.
+
+The First Isomorphism Theorem for vector spaces states that for a linear transformation $\varphi: V \rightarrow W$, the quotient space $V/\text{ker}\varphi$ is isomorphic to the image of $\varphi$, $\text{Im}(\varphi)$. That is, $V/\text{ker}\varphi \cong \text{Im}(\varphi)$.
+
+In our case, the domain is $V=U$ and the codomain is $W=(U+W)/W$.
+* We found in part (ii) that the kernel is $\text{ker}\varphi = U \cap W$.
+* We found in part (iii) that the transformation is surjective, which means its image is equal to its codomain: $\text{Im}(\varphi) = (U+W)/W$.
+
+Applying the First Isomorphism Theorem to our map $\varphi: U \rightarrow (U+W)/W$, we get:
+$$U/\text{ker}\varphi \cong \text{Im}(\varphi)$$Substituting our results for the kernel and image, we have:$$U/(U \cap W) \cong (U+W)/W$$
+This proves the Second Isomorphism Theorem for vector spaces.
+
+---
+
+### (v) Show that $\text{dim} U - \text{dim}(U \cap W) = \text{dim}(U+W) - \text{dim} W$ using Theorem 3.16.
+
+Theorem 3.16 is the **Rank-Nullity Theorem** for vector spaces, which states that $\text{dim}(\text{ker}\varphi) + \text{dim}(\text{Im}\varphi) = \text{dim}(\text{domain})$.
+
+Applying this theorem to our map $\varphi: U \rightarrow (U+W)/W$:
+$$\text{dim}(\text{ker}\varphi) + \text{dim}(\text{Im}\varphi) = \text{dim} U$$
+From parts (ii) and (iii):
+* $\text{dim}(\text{ker}\varphi) = \text{dim}(U \cap W)$.
+* Since $\varphi$ is surjective, its image is the codomain, so $\text{dim}(\text{Im}\varphi) = \text{dim}((U+W)/W)$.
+
+Substituting these into the Rank-Nullity Theorem:
+$$\text{dim}(U \cap W) + \text{dim}((U+W)/W) = \text{dim} U$$
+Now, we use a key property of quotient spaces: $\text{dim}(V/W) = \text{dim} V - \text{dim} W$.
+Applying this to our quotient space $(U+W)/W$:
+$$\text{dim}((U+W)/W) = \text{dim}(U+W) - \text{dim} W$$Substituting this into our equation:$$\text{dim}(U \cap W) + (\text{dim}(U+W) - \text{dim} W) = \text{dim} U$$Rearranging the terms to match the desired form, we get:$$\text{dim}(U+W) - \text{dim} W = \text{dim} U - \text{dim}(U \cap W)$$
+This result is an alternative proof of the dimension formula for sums of subspaces, which is often stated as $\text{dim}(U+W) = \text{dim} U + \text{dim} W - \text{dim}(U \cap W)$.
