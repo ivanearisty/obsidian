@@ -32,4 +32,10 @@ siguieron con european high end brands
 psychobunny was strong but not anymore
 the store in person is very luxurious
 euromoda vs euromoda sport
-custom 
+custom suits, zapatos, botones, pantalones en euromoda
+sport es atado a lower end brands
+main pos es suits and tuxedos
+
+canali
+zegna
+atelier monroe
