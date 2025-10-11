@@ -2,7 +2,7 @@
 ### Base
 
 [[dp1.pdf]]
-![[Screenshot 2024-11-17 at 7.24.14 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 7.24.14 PM.jpg]]
 s array to keep track of best solution is also here
 ### Ways to Cut Rods CountCuts(n)
 
@@ -13,7 +13,7 @@ Question 2 [[Practice Set 9 — Solutions.pdf]]
 
 ### WalkThrough
 [[Practice Set 9 — Questions.pdf]] q5.2
-![[Screenshot 2024-11-18 at 12.36.28 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 12.36.28 PM.jpg]]
 ## Toll
 
 Getting from point a to point b on a 3d grid by minimizing the amount of tolls we take
@@ -96,8 +96,8 @@ Function LongestIncreasingSubsequence(H[])
 ```
 ## Longest Common Subsequence
 [[Practice Set 9 — Solutions.pdf]] Q 5.1
-![[Screenshot 2024-11-18 at 12.26.06 PM.jpg]]
-[[dp2.pdf]]![[Screenshot 2024-11-17 at 7.52.03 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 12.26.06 PM.jpg]]
+[[dp2.pdf]]![[z/z ScreenShots/Screenshot 2024-11-17 at 7.52.03 PM.jpg]]
 ## Palindromic Substring
 
 [[dp3.pdf]]
@@ -107,12 +107,12 @@ Function LongestIncreasingSubsequence(H[])
 ## Weight Set
 
 [[Practice Set 10 — Solutions.pdf]] q3
-![[Screenshot 2024-11-18 at 3.52.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 3.52.15 PM.jpg]]
 ## Max Weight Set
 
 [[Practice Set 10 — Solutions.pdf]] q4
 
-![[Screenshot 2024-11-18 at 4.59.14 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 4.59.14 PM.jpg]]
 
 ## Combo Above
 

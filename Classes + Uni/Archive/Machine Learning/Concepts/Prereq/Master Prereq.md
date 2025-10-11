@@ -55,12 +55,12 @@ The set of all possible vectors reachable with a linear combination of two vecto
 #### Addition
 Add corresponding elements of two vectors.
 
-![[Pasted image 20250217235844.png]]
+![[z/z ScreenShots/Pasted image 20250217235844.png]]
 
 #### Scalar Multiplication
 Multiply each element by a scalar.
-![[Pasted image 20250217235914.png]]
-![[Pasted image 20250217235930.png | 400]]
+![[z/z ScreenShots/Pasted image 20250217235914.png]]
+![[z/z ScreenShots/Pasted image 20250217235930.png| 400]]
 
 
 
@@ -72,7 +72,7 @@ Multiply each element by a scalar.
     - Matrix-vector multiplication
     - Matrix-matrix multiplication
 
-![[Screenshot 2025-02-18 at 12.31.35 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-02-18 at 12.31.35 AM.jpg]]
 #### Inner Product (Dot Product)
 
 The **inner product** (commonly known as the dot product) of two vectors is the sum of the products of their corresponding entries. It gives a single scalar value.
@@ -83,7 +83,7 @@ $$
 \vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i b_i
 \end{gather}
 $$
-![[Screenshot 2025-02-18 at 12.05.36 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-02-18 at 12.05.36 AM.jpg]]
 
 
 
@@ -108,7 +108,7 @@ $$
     - The concept of the null space
     - Properties and applications of orthogonal matrices
 
-![[Screenshot 2025-02-18 at 2.02.45 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-02-18 at 2.02.45 AM.jpg]]
 
 **Lesson 6: Eigenvectors, Eigenvalues, and Eigendecomposition**
 

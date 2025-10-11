@@ -274,7 +274,7 @@ where
 
 #### Ignore
 
-![[Screenshot 2024-10-25 at 7.19.23 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-25 at 7.19.23 PM.jpg]]
 
 ```sql
 SELECT

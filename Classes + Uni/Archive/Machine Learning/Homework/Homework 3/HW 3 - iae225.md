@@ -2,7 +2,7 @@
 
 ## Kernels for Shifted Images
 ### A
-![[Screenshot 2025-05-12 at 3.52.03 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 3.52.03 AM.png]]
 
 ```python
 images = [I1, I2, I3, I4]
@@ -16,7 +16,7 @@ for i in range(n):
 K = np.exp(-d2 / 2)
 ```
 
-![[Screenshot 2025-05-12 at 4.04.16 AM.png | 400]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.04.16 AM.png| 400]]
 
 ### B
 Looking at the similarities above we get:
@@ -38,9 +38,9 @@ Both of these are missclassified so the k-NN classifier fails.
 
 Just from the get go this seems like it will do better because some of the images are literally just shifted by some degrees. Let's test it out though:
 
-![[Screenshot 2025-05-12 at 4.27.26 AM.png | 400]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.27.26 AM.png| 400]]
 
-![[Screenshot 2025-05-12 at 4.16.38 AM.png | 400]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.16.38 AM.png| 400]]
 Now:
 $$
 \begin{gather}
@@ -55,7 +55,7 @@ And we're correctly classifying!
 
 ### E
 
-![[Screenshot 2025-05-12 at 4.28.45 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.28.45 AM.png]]
 
 From: https://www.reddit.com/r/learnmath/comments/1es3i04/sum_of_positive_semidefinite_matrices/ 
 
@@ -75,10 +75,10 @@ $$
 
 ## Neural Networks for Curve Fitting
 
-![[Screenshot 2025-05-12 at 4.54.53 AM.png | 400]]
-![[Screenshot 2025-05-12 at 4.55.09 AM.png | 400]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.54.53 AM.png| 400]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.55.09 AM.png| 400]]
 ### A 
-![[Screenshot 2025-05-12 at 4.56.15 AM.png | 400]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 4.56.15 AM.png| 400]]
 
 Dataset 1: f(x) = 2 * abs(x-4)
 ReLUs at the slope changes:
@@ -124,11 +124,11 @@ Weights:
 3 = 1
 4 = -1
 
-![[Screenshot 2025-05-12 at 5.36.58 AM.png | 100]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 5.36.58 AM.png| 100]]
 
 ### B
 
-![[Screenshot 2025-05-12 at 5.41.48 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 5.41.48 AM.png]]
 
 $$
 \begin{gather}
@@ -164,7 +164,7 @@ so f(2, $\theta_{0}$) = -3
 | h_i = bias | 1              | 1                                 | 1                               |                |                                 |                                         |                                   |                                   |
 ## Triangulating Points via Principal Component Analysis
 
-![[Screenshot 2025-05-12 at 6.59.13 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-12 at 6.59.13 AM.png]]
 ### A
 
 We have a table D which contains the squared distances between every pair of unknown points x_i.
@@ -227,7 +227,7 @@ Z_plot = U_k * np.sqrt(S_k)
 Z_plot[:, 1] *= -1
 ```
 
-![[Pasted image 20250512084124.png | 600]]
+![[z/z ScreenShots/Pasted image 20250512084124.png| 600]]
 
 ### E
 
@@ -242,19 +242,19 @@ for i in range(n):
 
 That worked pretty much without issue. It seems like I am getting weird answers at anything above .15 though.
 
-![[Pasted image 20250512084816.png]]
+![[z/z ScreenShots/Pasted image 20250512084816.png]]
 
 with higher values:
 
 .15
-![[Pasted image 20250512085035.png]]
+![[z/z ScreenShots/Pasted image 20250512085035.png]]
 
 .2
-![[Pasted image 20250512084844.png]]
+![[z/z ScreenShots/Pasted image 20250512084844.png]]
 
 .3
-![[Pasted image 20250512084921.png]]
+![[z/z ScreenShots/Pasted image 20250512084921.png]]
 
 .4
-![[Pasted image 20250512084943.png]]
+![[z/z ScreenShots/Pasted image 20250512084943.png]]
 

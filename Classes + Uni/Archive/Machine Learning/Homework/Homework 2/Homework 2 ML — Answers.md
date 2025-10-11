@@ -1,6 +1,6 @@
 # iae225
 ## Problem 1: Regularization (12pts)
-![[Screenshot 2025-03-12 at 3.25.31 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-12 at 3.25.31 AM.jpg]]
 ### A
 ```python
 best = None
@@ -61,7 +61,7 @@ $$
 
 ## Problem 2: Impacts of Regularization (12pts)
 
-![[Screenshot 2025-03-12 at 3.42.24 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-12 at 3.42.24 AM.jpg]]
 ### A
 $$
 \begin{gather}
@@ -127,7 +127,7 @@ P('send, us, your, account' | spam) \times P(spam) =  \frac{3+1}{13+6} \times \f
 $$
 ## Problem 4: Logistic Regression (12pts)
 ### A
-![[Screenshot 2025-03-13 at 8.48.43 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-13 at 8.48.43 PM.jpg]]
 ### B
 $$
 \begin{gather}

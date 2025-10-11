@@ -1,6 +1,6 @@
 ## Task 6
 
-![[Screenshot 2025-05-05 at 12.07.23 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-05 at 12.07.23 AM.png]]
 
 ## Task 7
 
@@ -87,7 +87,7 @@ num   pkts bytes target     prot opt in     out     source               destina
 
 ## Extra Credit
 
-![[iptables 1.svg]]
+![[z/z ScreenShots/iptables 1.svg]]
 ```bash
 (.venv) root@rr-s-4vcpu-8gb-240gb-intel-nyc1-01:/home/seed/viz# uv init
 Initialized project `viz`

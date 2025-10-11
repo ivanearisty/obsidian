@@ -10,11 +10,11 @@ tags:
 
 A **relational database** consists of a collection of **tables**, each of which is assigned a  *unique name*.
 
-![[Screenshot 2024-10-09 at 5.34.14 PM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 5.34.14 PM.jpg| 400]]
 
 Note that each instructor is identified by the value of the *column ID*.
 
-![[Screenshot 2024-10-09 at 5.36.28 PM.jpg | 450]]![[Screenshot 2024-10-09 at 5.37.04 PM.jpg | 200]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 5.36.28 PM.jpg| 450]]![[z/z ScreenShots/Screenshot 2024-10-09 at 5.37.04 PM.jpg| 200]]
 
 Here, courses are identified by *course_id*, and the prereq table identifies the prereq by listing two variables that refer to course_id.
 
@@ -43,7 +43,7 @@ The **null value** is a special value that signifies that the value is unknown o
 A **relation schema** consists of a list of attributes and their corresponding domains.
 
 Consider the department relation:
-![[Screenshot 2024-10-09 at 5.59.13 PM.jpg|300]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 5.59.13 PM.jpg|300]]
 
 The relation schema would be:
 	*department (dept name, building, budget)*
@@ -52,13 +52,13 @@ As another example, each course in a university may be offered multiple times, a
 	*section (course id, sec id, semester, year, building, room number, time slot id)*
 
 And the relation instance:
-![[Screenshot 2024-10-09 at 6.01.25 PM.jpg | 600]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 6.01.25 PM.jpg| 600]]
 
 We then might need a relation to describe the association between instructors and the class sections that they teach. The relation schema to describe this association is:
 	*teaches (ID, course id, sec id, semester, year)*
 
 And here's an instance:
-![[Screenshot 2024-10-09 at 6.05.22 PM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 6.05.22 PM.jpg| 400]]
 
 ## Keys
 
@@ -141,7 +141,7 @@ In the schema diagram for our university organization, each relation appears as 
 - Foreign-key constraints appear as arrows ***from** the foreign-key attributes of the referencing relation* ***to** the primary key of the referenced relation*.
 - A referential integrity constraint that is not a foreign-key constraint appears as a *two-headed arrow*, instead of a single-headed arrow.
 
-![[Screenshot 2024-10-09 at 7.02.20 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 7.02.20 PM.jpg]]
 
 ## Relational Query Languages
 
@@ -163,7 +163,7 @@ Query languages used in practice, such as the SQL query language, include elemen
 - Relation — like a variable
 - Relation instance — like a particular “snapshot” of a variable, it’s value at some point in - time
 - Database schema / database /database instance
-![[Screenshot 2024-09-16 at 3.45.01 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-16 at 3.45.01 PM.jpg]]
 ## Attributes
 - The set of allowed values for each attribute is called the domain of the attribute
 - Attribute values are required to be atomic; that is, indivisible

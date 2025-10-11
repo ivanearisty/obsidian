@@ -55,7 +55,7 @@ ALE = 50,000 x .05 = $12,500
 1. Establish Impact: Low, medium, high. (Under 10k, between 10k-1m, over 1m) or type of loss (SSN breach)
 2. Establish Likelihood: Low, medium, high likelihood
 
-![[Screenshot 2025-03-20 at 8.16.52 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2025-03-20 at 8.16.52 PM.jpg| 500]]
 
 ## CIA 
 

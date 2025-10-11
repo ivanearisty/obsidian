@@ -4,18 +4,18 @@ tags:
 ---
 ## Overview
 
- ![[Screenshot 2024-10-22 at 11.47.30 AM.jpg]]
+ ![[z/z ScreenShots/Screenshot 2024-10-22 at 11.47.30 AM.jpg]]
 
 ## Definition
 
-![[Screenshot 2024-10-22 at 11.49.17 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-22 at 11.49.17 AM.jpg]]
 
 Notice the differnt amount of black nodes:
-![[Screenshot 2024-10-22 at 11.49.59 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-22 at 11.49.59 AM.jpg]]
 
 ## Height
 
-![[Screenshot 2024-10-22 at 11.55.52 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-22 at 11.55.52 AM.jpg]]
 
 Max Black Height of a RB Tree Bind
 
@@ -37,14 +37,14 @@ h(x) \le \log(n)
 \end{gather}
 $$
 
-![[Screenshot 2024-11-18 at 5.03.00 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 5.03.00 AM.jpg]]
 **The shortest RB tree we can build is when all the nodes are black**. For example, when then black-height of the tree is 3, the height of the tree is 2. 
 *For a tree with black-height b, the shortest tree has height b − 1.*
-![[Screenshot 2024-11-17 at 11.04.08 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 11.04.08 PM.jpg]]
 
 **The longest red-black path we can build in a tree is a path that alternates red and black nodes.** For example, when the black-height is 3, the maximum height of the tree is 5. An example of each case is shown below. 
 Therefore *when the black height is b, the tree with the maximum height has height 2b − 1.*
-![[Screenshot 2024-11-17 at 11.05.38 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 11.05.38 PM.jpg]]
 
 It is impossible to have a path of length 5 with only 2 black nodes.
 ## RB Repair
@@ -53,19 +53,19 @@ It is impossible to have a path of length 5 with only 2 black nodes.
 
 Parent is Black
 
-![[Screenshot 2024-11-17 at 5.00.21 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 5.00.21 PM.jpg]]
 
 ### Case 1
 
 Parent and Uncle are Red
 
-![[Screenshot 2024-11-17 at 5.02.21 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 5.02.21 PM.jpg]]
 
 ### Case 2
 
 [[2 - rb trees.pdf]]
 
-![[Screenshot 2024-11-17 at 10.42.11 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 10.42.11 PM.jpg]]
 
 ### Runtime of RB-repair
 Case 1 and Case 2 together represent our RB-repair algorithm. In Case 1, we make a recursive call to the grandparent. In Case 2, there is no recursive call. Both Case 1 and Case 2 only take constant amount of time for the work they do
@@ -76,7 +76,7 @@ Case 1 and Case 2 together represent our RB-repair algorithm. In Case 1, we make
 Pre-order traversal: 10, 5, 2, 7, 6, 15, 12, 14, 20, 25
 Post-order traversal: 2, 6, 7, 5, 14, 12, 25, 20, 15, 10
 ```
-![[Screenshot 2024-11-17 at 10.37.55 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 10.37.55 PM.jpg]]
 
 ## When does the height of rb tree change? 
 
@@ -87,7 +87,7 @@ Post-order traversal: 2, 6, 7, 5, 14, 12, 25, 20, 15, 10
  In this case, the grandparent is left as a black node. The black height of the entire tree has increased by one.
 
 ## BlackHeight(x)
-![[Screenshot 2024-11-17 at 11.28.34 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-17 at 11.28.34 PM.jpg]]
 
 ## RedHeight(x)
 

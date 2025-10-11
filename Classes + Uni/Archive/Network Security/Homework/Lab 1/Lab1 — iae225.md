@@ -307,32 +307,32 @@ telnet <target-ip> <port>
 
 ### Not Working:
 
-![[Screenshot 2025-02-24 at 6.44.24 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-02-24 at 6.44.24 PM.jpg]]
 
 ### Working
-![[Screenshot 2025-02-24 at 6.55.16 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-02-24 at 6.55.16 PM.jpg]]
 ## Q2 Task 2: TCP RST Attacks on telnet Connections
 
 ### Established Connection
-![[Screenshot 2025-03-10 at 4.55.32 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 4.55.32 PM.jpg]]
 
-![[Screenshot 2025-03-10 at 6.29.19 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 6.29.19 PM.jpg]]
 
-![[Screenshot 2025-03-10 at 6.42.07 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 6.42.07 PM.jpg]]
 
 ## Q3 TCP Session Hijacking
 
 PreHijack
-![[Screenshot 2025-03-10 at 7.16.15 PM.jpg]]
-![[Screenshot 2025-03-10 at 7.23.20 PM.jpg]]
-![[Screenshot 2025-03-10 at 7.23.37 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 7.16.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 7.23.20 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 7.23.37 PM.jpg]]
 
 ## Q4 
 
 Setup
-![[Screenshot 2025-03-10 at 8.37.36 PM 1.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 8.37.36 PM 1.jpg]]
 
-![[Screenshot 2025-03-10 at 8.46.04 PM.jpg]]
-![[Screenshot 2025-03-10 at 8.46.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 8.46.04 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 8.46.15 PM.jpg]]
 
-![[Screenshot 2025-03-10 at 8.50.55 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-10 at 8.50.55 PM.jpg]]

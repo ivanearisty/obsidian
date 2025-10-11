@@ -53,11 +53,11 @@ PrintTree(u)
 
 ## Problem 6
 Valid:
-![[Screenshot 2024-12-18 at 1.15.19 AM.jpg]]
-![[Screenshot 2024-12-18 at 1.17.22 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 1.15.19 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 1.17.22 AM.jpg]]
 Not valid:
-![[Screenshot 2024-12-18 at 1.15.56 AM.jpg]]
-![[Screenshot 2024-12-18 at 1.16.59 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 1.15.56 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 1.16.59 AM.jpg]]
 
 Insight:
 Cycles are allowed, but they have to be of an even number of nodes, which means colors have to be iterating.

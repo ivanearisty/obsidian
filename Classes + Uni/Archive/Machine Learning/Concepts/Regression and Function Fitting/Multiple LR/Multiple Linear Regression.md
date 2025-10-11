@@ -115,5 +115,5 @@ This slide sets the stage for **ordinary least-squares** linear regression, wher
 - **Gradient Descent:** To minimize $L(\beta)$, we update $\beta$ in the direction opposite to the gradient: $$ \beta \leftarrow \beta - \eta \, \nabla L(\beta), $$ where $\eta$ is the learning rate that controls the step size. 
 - **Closed-Form for Squared Loss:** For the squared error loss, $$ L(\beta) = \|y - X\beta\|_2^2, $$ the gradient is derived as: $$ \nabla L(\beta) = -2 \, X^T (y - X\beta). $$
 - Setting $\nabla L(\beta) = 0$ leads to the **normal equations**: $$ X^T X\, \beta = X^T y, $$ and solving these gives the closed-form solution: $$ \beta = (X^T X)^{-1} X^T y. $$
-![[Screenshot 2025-03-02 at 3.45.26 AM.jpg]]
-![[Screenshot 2025-03-02 at 3.46.09 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 3.45.26 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 3.46.09 AM.jpg]]

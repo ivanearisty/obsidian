@@ -1,6 +1,6 @@
 *Use this Restaurant database for Problem 2. The database represents dishes the restaurant offers (Dishes), their sizes and prices (DishSize), customer data (Customer), and data about who placed orders and the status of orders (Order) and data about how many of which items and sizes are in each order (OrderItems):*
 
-![[Screenshot 2024-11-04 at 11.38.15 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-04 at 11.38.15 AM.jpg]]
 
 List foreign key constraints that this database should have. Your answer should indicate the referencing table (the one in whose table definition the constraint should be included), the referenced table, and the attribute(s). You may use a format like the following without writing out the whole table definition or keywords FOREIGN KEY ...
 

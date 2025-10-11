@@ -26,7 +26,7 @@ into two parts:
 1. Title
 2. Attributes (Attributes that are part of the *primary key are underlined*)
 
-![[Screenshot 2024-09-27 at 11.28.23 PM.jpg|350]]
+![[z/z ScreenShots/Screenshot 2024-09-27 at 11.28.23 PM.jpg|350]]
 
 ### Relationship Sets
 
@@ -37,12 +37,12 @@ A **relationship set** is a set of relationships of the same type.
 Consider two entity sets instructor and student. We define the relationship set advisor to denote the associations between students and the instructors who act as their advisors.
 
 A **relationship instance** *in an E-R schema* represents an association between the named entities in the real-world enterprise that is being modeled. As an illustration, the individual instructor entity Katz, who has instructor ID 45565, and the student entity Shankar, who has student ID 12345, participate in a relationship instance of advisor. 
-![[Screenshot 2024-09-27 at 11.32.22 PM.jpg | 300]]
+![[z/z ScreenShots/Screenshot 2024-09-27 at 11.32.22 PM.jpg| 300]]
 
 A **relationship set** is represented in an ER diagram by a *diamond*, which is *linked*  
 via lines to a number of different entity sets. 
 
-| This ER diagram shows two entity sets, instructor and student, related through a binary relationship set advisor: | ![[Screenshot 2024-09-27 at 11.36.53 PM.jpg \| 400]] |
+| This ER diagram shows two entity sets, instructor and student, related through a binary relationship set advisor: | ![[z/z ScreenShots/Screenshot 2024-09-27 at 11.36.53 PM.jpg\| 400]] |
 | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
 
 A relationship set may denote the association of *more than two* entity sets
@@ -54,10 +54,10 @@ The association between entity sets is referred to as participation; i.e., the e
 The *function that an entity plays* in a relationship is called that entity’s **role**.
 
 In a recursive relationship set, explicit role names are necessary to specify how an entity participates in a relationship instance: 
-![[Screenshot 2024-09-28 at 12.08.03 AM.jpg | 300]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 12.08.03 AM.jpg| 300]]
 
 A relationship may also have attributes called **descriptive attributes**. An attribute of a relationship set is represented in an E-R diagram by an **undivided rectangle**.
-![[Screenshot 2024-09-28 at 12.10.02 AM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 12.10.02 AM.jpg| 400]]
 
 The number of entity sets that participate in a relationship set is the **degree of the** **relationship set**. A **binary relationship set** is of degree 2; a **ternary relationship set** is of degree 3.
 
@@ -66,7 +66,7 @@ The number of entity sets that participate in a relationship set is the **degree
 For each attribute, there is a set of *permitted values*, called the **domain**, or value set, of  
 that attribute.
 
-![[Screenshot 2024-09-28 at 12.51.43 AM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 12.51.43 AM.jpg| 500]]
 
 - **Single vs Composite** attributes. Composites can be divided into subparts (i.e., other attributes). For example, an attribute name could be structured as a composite attribute consisting of first name, middle initial, and last name.
 - **Single-valued and multivalued** attributes. There may be instances where an attribute has a set of values for a specific entity, like owning multiple phone numbers, making it multivalued.
@@ -76,7 +76,7 @@ An attribute takes a **null value** when an entity does not have a value for it.
 
 | Entity Set                                          | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![[Screenshot 2024-09-28 at 1.30.24 AM.jpg \| 200]] | *Composite attribute* **name** with component attributes *first name, middle initial, and last name* replaces the simple attribute name of instructor. <br><br>Address can be defined as the **composite attribute address** with the attributes *street, city, state, and postal code*. The attribute **street** is itself a composite attribute whose component attributes are *street number, street name, and apartment number*. <br><br>The figure also illustrates a *multivalued attribute* phone number, denoted by “**{phone number}**”<br><br>**Derived attribute age** depicted by “ age ( )” from *date of birth* |
+| ![[z/z ScreenShots/Screenshot 2024-09-28 at 1.30.24 AM.jpg\| 200]] | *Composite attribute* **name** with component attributes *first name, middle initial, and last name* replaces the simple attribute name of instructor. <br><br>Address can be defined as the **composite attribute address** with the attributes *street, city, state, and postal code*. The attribute **street** is itself a composite attribute whose component attributes are *street number, street name, and apartment number*. <br><br>The figure also illustrates a *multivalued attribute* phone number, denoted by “**{phone number}**”<br><br>**Derived attribute age** depicted by “ age ( )” from *date of birth* |
 
 ### Mapping Cardinalities
 
@@ -95,18 +95,18 @@ Mapping cardinalities are most useful in describing binary relationship sets, al
 - **Many-to-One **: (0..1) or (1..1) in one direction and (0..N) or (1..N) in the other.
 - **Many-to-Many**: (0..N) or (1..N) in both directions.
 
-![[Screenshot 2024-09-28 at 2.04.34 AM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 2.04.34 AM.jpg| 400]]
 
 The participation of an entity set E in a relationship set R is said to be **total** if *every entity in E must participate in at least one relationship in R*. If it is possible that *some entities in E do not participate in relationships in R*, the participation of entity set E in relationship R is said to be **partial**.
 
 We indicate **total participation** of an entity in a relationship set **using double lines.**
 
->![[Screenshot 2024-09-28 at 2.11.19 AM.jpg | 500]]
+>![[z/z ScreenShots/Screenshot 2024-09-28 at 2.11.19 AM.jpg| 500]]
 >Example of the advisor relationship set where the double line indicates that a student must have an advisor.
 
 ER diagrams also provide a way to indicate more complex constraints on the number of times each entity participates in relationships in a relationship set. A line may have an associated minimum and maximum cardinality, shown in the form l..h, where l is the minimum and h the maximum cardinality. A minimum value of 1 indicates total participation of the entity set in the relationship set; that is, each entity in the entity set occurs in at least one relationship in that relationship set. A maximum value of 1 indicates that the entity participates in at most one relationship, while a maximum value ∗ indicates no limit. 
 
-![[Screenshot 2024-09-28 at 3.34.41 AM.jpg|500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.34.41 AM.jpg|500]]
 The line between advisor and student has a cardinality constraint of 1..1, meaning the minimum and the maximum cardinality are both 1. That is, each student must have exactly one advisor. The limit 0..∗ on the line between advisor and instructor indicates that an instructor can have zero or more students. Thus, the relationship advisor is one-to-many from instructor to student, and further the participation of student in advisor is total, implying that a student must have an advisor.
 
 ### Primary Key
@@ -147,7 +147,7 @@ such attributes can instead be associated with the weak entity set.
 
 A weak entity set is depicted via a **double rectangle** with the *discriminator being underlined with a dashed line.*
 
-![[Screenshot 2024-09-28 at 1.26.41 PM.jpg|500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 1.26.41 PM.jpg|500]]
 Note: The primary key of section is formed by the primary key of the identifying entity set (that is, course), plus the discriminator of the weak entity set (that is, section). Thus, the primary key is {course id, sec id, year, semester}.
 
 The weak entity set section depends on the strong entity set course via the relationship set sec course.
@@ -204,8 +204,8 @@ A good entity-relationship design does not contain redundant attributes.
 
 You need to verify that none of the entity sets has any attribute that is made redundant by one of the relationship sets.
 
-![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
-![[Pasted image 20240928140552.png | 400]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
+![[z/z ScreenShots/Pasted image 20240928140552.png| 400]]
 
 ### Reducing E-R to Relationship Schemas
 
@@ -218,18 +218,18 @@ For schemas derived from strong entity sets, the primary key of the entity set s
 As an illustration, consider the entity set student of the E-R diagram. 
 
 This entity set has three attributes: ID, name, tot_cred. We represent this entity set by a schema called student with three attributes: **student** *(_ID_, name, tot_cred)*
-![[Screenshot 2024-09-28 at 2.12.42 PM.jpg | 300]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 2.12.42 PM.jpg| 300]]
 
 When a strong entity set has *non-simple attributes*, things are a bit more complex. We handle composite attributes by creating a *separate attribute for each of the component* *attributes*; we do not create a separate attribute for the composite attribute itself.
 
-![[Screenshot 2024-09-28 at 2.15.08 PM.jpg| 400]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 2.15.08 PM.jpg| 400]]
 - For the composite attribute name, the schema generated for instructor contains the attributes that composed it.
 
 #### Multivalued Attributes
 
 For a **multivalued attribute M** , we create a relation schema R with an attribute A that corresponds to M and attributes corresponding to the primary key of the entity set or relationship set of which M is an attribute.
 
-Relation Schema: ![[Screenshot 2024-09-28 at 2.17.26 PM.jpg | 300]]
+Relation Schema: ![[z/z ScreenShots/Screenshot 2024-09-28 at 2.17.26 PM.jpg| 300]]
 
 In addition, we create a foreign-key constraint on the relation schema created from  
 the multivalued attribute.
@@ -238,8 +238,8 @@ the multivalued attribute.
 
 In the case that an entity set consists of only two attributes—a single primary-key attribute B and a single multivalued attribute M—the relation schema for the entity set would contain only one attribute, namely, the primary-key attribute B. --> We can drop this relation, while retaining the relation schema with the attribute B and attribute A that corresponds to M .
 
-![[Screenshot 2024-11-03 at 6.12.26 PM.jpg | 500]]
-![[Screenshot 2024-11-03 at 6.12.39 PM.jpg | 300]]
+![[z/z ScreenShots/Screenshot 2024-11-03 at 6.12.26 PM.jpg| 500]]
+![[z/z ScreenShots/Screenshot 2024-11-03 at 6.12.39 PM.jpg| 300]]
 #### Weak Entity Sets
 
 If you have a weak entity set A, and a strong entity set B that identifies it, then you can represent A by a relation schema with one attribute of each:
@@ -252,7 +252,7 @@ In addition to creating a primary key, we also create a **foreign-key constraint
 
 The primary key attributes of the relationship set are also used as the primary key attributes of the relational schema.
 
-![[Screenshot 2024-11-03 at 7.13.55 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-03 at 7.13.55 PM.jpg]]
 
 #### Weak Relationship Sets
 
@@ -267,7 +267,7 @@ Hence, in general, the schema for the relationship set linking a weak entity set
 
 Only works for total participation
 
-![[Screenshot 2024-11-03 at 7.25.47 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-11-03 at 7.25.47 PM.jpg| 500]]
 
 In the case of one-to-one relationships, the relation schema for the relationship set can be combined with the schemas for either of the entity sets.
 
@@ -289,7 +289,7 @@ For an overlapping specialization (as is the case for student and employee as sp
 
 The specialization relationship may also be referred to as a superclass-subclass relationship.
 
-![[Screenshot 2024-09-28 at 2.53.25 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 2.53.25 PM.jpg]]
 
 The refinement from an initial entity set into successive levels of entity subgroupings represents a top-down design process in which distinctions are made explicit. The design process may also proceed in a bottom-up manner, in which multiple entity sets are synthesized into a higher-level entity set on the basis of common features, this is called **generalization**.
 
@@ -308,12 +308,12 @@ One limitation of the E-R model is that it cannot express relationships among re
 ships.
 
 The best way to model a situation such as the one just described is to use **aggregation**. Aggregation is an abstraction through which relationships are treated as higherlevel entities.
-![[Screenshot 2024-09-28 at 3.02.04 PM.jpg | 300]] ---> ![[Screenshot 2024-09-28 at 3.02.21 PM.jpg | 300]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.02.04 PM.jpg| 300]] ---> ![[z/z ScreenShots/Screenshot 2024-09-28 at 3.02.21 PM.jpg| 300]]
 
 #### Common Issues
 
-![[Screenshot 2024-09-28 at 3.06.57 PM.jpg | 400]]
-![[Screenshot 2024-09-28 at 3.07.27 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.06.57 PM.jpg| 400]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.07.27 PM.jpg| 500]]
 ##### Primary Key as an Attribute of Another Entity
 A common mistake when creating E-R models is the use of the primary key of an entity set as an attribute of another entity set, instead of using a relationship.
 
@@ -339,7 +339,7 @@ The problem with this design is that we can only represent a single assignment f
 
 ##### Making Attributes into Entity Sets
 
-![[Screenshot 2024-09-28 at 3.26.42 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.26.42 PM.jpg| 500]]
 
 Treating a phone as an attribute phone number implies that instructors have precisely one phone number each. Treating a phone as an entity phone permits instructors to have several phone numbers (including zero) associated with them. However, we could instead easily define phone number as a multivalued attribute to allow multiple phones per instructor.  
 
@@ -352,7 +352,7 @@ In contrast, it would not be appropriate to treat the attribute name (of an inst
 It is not always clear whether an object is best expressed by an entity set or a relationship  
 set.
 
-Re-consider: ![[Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
+Re-consider: ![[z/z ScreenShots/Screenshot 2024-09-28 at 2.03.55 PM.jpg|500]]
 
 Here we modelled the takes relationship set to model the situation where student takes a (section of a) course.
 
@@ -360,7 +360,7 @@ An alternative is to imagine that there is a course registration record for each
 
 Then, we have an entity set to represent the course-registration record. Let us call that entity set registration. Each registration entity is related to exactly one student and to exactly one section, so we have *two relationship sets*, one to relate course-registration records to students and one to relate course-registration records to sections.
 
-![[Screenshot 2024-09-28 at 3.30.08 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.30.08 PM.jpg| 500]]
 Note that we use double lines to indicate total participation by registration entities.
 
 Both the approach of Figure 6.15 and that of Figure 6.24 accurately represent the university’s information, but the use of takes is more compact and probably preferable. However, if the registrar’s office associates other information with a course-registration record, it might be best to make it an entity in its own right.
@@ -377,7 +377,7 @@ It is always possible to replace a nonbinary (n-ary, for n >2) relationship set 
 
 Conceptually, we can restrict the E-R model to include only binary relationship sets. However, this restriction is not always desirable:
 
-![[Screenshot 2024-09-28 at 3.35.52 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.35.52 PM.jpg| 500]]
 
 Consider: 
 - An identifying attribute may have to be created for the entity set created to represent the relationship set. This attribute, along with the extra relationship sets required, increases the complexity of the design and overall storage requirements.  
@@ -386,10 +386,10 @@ Consider:
 
 #### Notation
 
-![[Screenshot 2024-09-28 at 3.37.50 PM.jpg | 600]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.37.50 PM.jpg| 600]]
 
 Alternative Notations:
-![[Screenshot 2024-09-28 at 3.38.11 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 3.38.11 PM.jpg| 500]]
 
 # Lectures
 
@@ -419,7 +419,7 @@ Relationship set has a primary key composed of the union of the primary keys of 
 
 ## Ternary Entity Sets
 Allows us to have "duplicates" by adding more nuance to what describes the relationship.
-![[Screenshot 2024-09-16 at 2.52.31 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-16 at 2.52.31 PM.jpg]]
 ## Weak entity sets
 Sometimes there isn't a suitable choice for primary key for an entity set without associating it with another entity set:
 
@@ -430,7 +430,7 @@ Some situations where this often happens:
 - Want to represent multiple copies or instances of entities
 - Want to avoid coordination that might be needed to create unique ID
 ![[PDS Weak Entity Sets]]
-Occasionally it is useful to associate a weak entity set with multiple strong entity sets or with another weak entity![[Screenshot 2024-09-16 at 3.15.31 PM.jpg]]
+Occasionally it is useful to associate a weak entity set with multiple strong entity sets or with another weak entity![[z/z ScreenShots/Screenshot 2024-09-16 at 3.15.31 PM.jpg]]
 ^ Update above with the notes from post class.
 Book example:
 ![[PDS Full Example of ER Model From Book]]

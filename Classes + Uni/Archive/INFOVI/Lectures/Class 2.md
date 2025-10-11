@@ -12,7 +12,7 @@ tags:
 
 ## Dataset Types
 
-![[Screenshot 2024-10-01 at 1.28.31 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-01 at 1.28.31 AM.jpg]]
 
 ### Tables
 
@@ -32,11 +32,11 @@ Rule of thumb:
 - Variables often map to aesthetics
 - Observations can be compared
 
-![[Pasted image 20241001013036.png | 200]] ![[Pasted image 20241001013040.png | 200]] ![[Pasted image 20241001013045.png | 200]] 
+![[z/z ScreenShots/Pasted image 20241001013036.png| 200]] ![[z/z ScreenShots/Pasted image 20241001013040.png| 200]] ![[z/z ScreenShots/Pasted image 20241001013045.png| 200]] 
 
 ### Networks
 
-![[Pasted image 20241001013149.png | 300]]
+![[z/z ScreenShots/Pasted image 20241001013149.png| 300]]
 
 - Good for specifying relationships between items
 - A **node** is an item in a network (vertex)
@@ -51,7 +51,7 @@ Rule of thumb:
 Trees:
 - A tree is a special type of network
 - Trees have hierarchical structure
-![[Pasted image 20241001013721.png|500]]
+![[z/z ScreenShots/Pasted image 20241001013721.png|500]]
 
 ### Fields
 
@@ -61,7 +61,7 @@ Trees:
 	- Don’t want to mislead the reader
 	- Interpolation can help (can be misleading!)
 
-![[Pasted image 20241001013904.png]]
+![[z/z ScreenShots/Pasted image 20241001013904.png]]
 
 - Each cell is a measurement/calculation from a continuous domain
 	- Infinite number of possible measurements, but fields discretize the domain
@@ -72,9 +72,9 @@ Trees:
 	- Medical scans
 	- Aerodynamic Data
 
-![[Pasted image 20241001014211.png | 300]]
+![[z/z ScreenShots/Pasted image 20241001014211.png| 300]]
 
-![[Pasted image 20241001014143.png | 300]] ![[Pasted image 20241001014147.png | 300]]
+![[z/z ScreenShots/Pasted image 20241001014143.png| 300]] ![[z/z ScreenShots/Pasted image 20241001014147.png| 300]]
 
 
 ### Geometry
@@ -85,11 +85,11 @@ Trees:
 - May or may not have attributes!
 	- Examples: Roads, Lidar scans
 
-![[Pasted image 20241001014342.png | 300]] ![[Pasted image 20241001014346.png | 300]]
+![[z/z ScreenShots/Pasted image 20241001014342.png| 300]] ![[z/z ScreenShots/Pasted image 20241001014346.png| 300]]
 
 ## Attributes
 
-![[Pasted image 20241001014455.png]]
+![[z/z ScreenShots/Pasted image 20241001014455.png]]
 
 ### Categorical
 
@@ -130,7 +130,7 @@ Ordered data has an implicit ordering
 Attributes can often be grouped hierarchically
 Interesting patterns may emerge at different hierarchy levels
 
-![[Pasted image 20241001015005.png]]
+![[z/z ScreenShots/Pasted image 20241001015005.png]]
 
 Also makes sense to group into **dependent** and **independent**
 - **Independent attributes**:

@@ -162,11 +162,11 @@ Let's break down how these concepts relate at a high level:
     *   *(See Detailed Firewall section & Rule Table for examples)*
 
 POWERRULE ACCEPT ALL ESTABLISHED CONNECTIONS:
-![[Screenshot 2025-05-16 at 6.34.14 PM.png]]
-![[Screenshot 2025-05-16 at 6.35.18 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 6.34.14 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 6.35.18 PM.png]]
 
-![[Screenshot 2025-05-16 at 6.32.51 PM.png]]
-![[Screenshot 2025-05-16 at 6.40.19 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 6.32.51 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 6.40.19 PM.png]]
 ---
 
 **III. LESSON 8: LAYER 2 SECURITY**
@@ -233,7 +233,7 @@ POWERRULE ACCEPT ALL ESTABLISHED CONNECTIONS:
 
 Always used with RSA because DH needs to be protected. It can't be used as plain text.
 
-![[Screenshot 2025-05-16 at 10.21.37 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 10.21.37 AM.png]]
 
 **I. CORE CONCEPTS (Quick Definitions)**
 
@@ -313,7 +313,7 @@ Always used with RSA because DH needs to be protected. It can't be used as plain
     *   **S/MIME:** Authenticates *sender's email identity*. Relies more on user trust/MUA config.
 
 ---
-![[Screenshot 2025-05-16 at 12.01.56 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 12.01.56 PM.png]]
 
 **IV. SSL/TLS**
 
@@ -720,7 +720,7 @@ Okay, here's a new section for your cheat sheet with a table of example `iptable
 **Visualizing the Handshake Differences:**
 
 **Scenario 1: `TLS_DHE_RSA_WITH_AES_128_CBC_SHA256` (Exercise 1A - Ephemeral Diffie-Hellman)**
-![[Screenshot 2025-05-16 at 5.23.25 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 5.23.25 PM.png]]
 
 **Key Points for `DHE_RSA`:**
 *   **Step 3:** Server's **RSA Public Key (n,e)** is in the certificate.
@@ -739,7 +739,7 @@ Okay, here's a new section for your cheat sheet with a table of example `iptable
 
 **Scenario 2: `TLS_RSA_WITH_AES_128_CBC_SHA256` (Exercise 1B - RSA Key Exchange)**
 
-![[Screenshot 2025-05-16 at 5.23.43 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 5.23.43 PM.png]]
 
 **Key Points for `RSA` Key Exchange:**
 *   **Step 3:** Server's **RSA Public Key (n,e)** is in the certificate.
@@ -847,7 +847,7 @@ This part happens after Step 6 in both scenarios, allowing both sides to compute
         *   `sudo sysctl net.ipv4.ip_forward=1` (Enable: to establish initial connection)
         *   `sudo sysctl net.ipv4.ip_forward=0` (Disable: to let Scapy script intercept & modify)
 
-![[Screenshot 2025-05-16 at 9.51.24 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 9.51.24 AM.png]]
 
 2.  **Scapy Sniff-and-Spoof (Skeleton for `mitm_telnet.py` / `mitm_netcat.py`):**
     ```python
@@ -1031,13 +1031,13 @@ Choice 3 of 4: To authenticate websites and confirm they are the ones they claim
 Choice 4 of 4: To provide a secure channel for the transmission of cookies over HTTP connections.
 
 ## Review
-![[Screenshot 2025-05-16 at 5.36.36 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 5.36.36 PM.png]]
 
 1. g, n, A, and B need to be signed but not encrypted
 2. small a and small b are the private keys and they are not shared
 
 The whole point of TLS and values must be signed is to prevent:
-![[Screenshot 2025-05-16 at 5.38.55 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-16 at 5.38.55 PM.png]]
 
 ## **WIRESHARK**
 Okay, I've analyzed the Wireshark capture images (Figure 1 - Frame #12 and Figure 2 - Frame #16).

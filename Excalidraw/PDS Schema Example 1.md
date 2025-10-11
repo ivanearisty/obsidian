@@ -38,7 +38,7 @@ Year pk ^800TS1Wh
 This should have two ">>" ^fDFmMkWt
 
 ## Embedded Files
-a50ab6ef9d16cbf1f46124b4ae188f007af687e2: [[Screenshot 2024-09-16 at 3.57.44 PM.jpg]]
+a50ab6ef9d16cbf1f46124b4ae188f007af687e2: [[z/z ScreenShots/Screenshot 2024-09-16 at 3.57.44 PM.jpg]]
 
 %%
 ## Drawing

@@ -19,12 +19,12 @@ tags:
 	- Are ternary operators allowed in pseudocode?
 	- Would've it been fine to do selection of max.
 - Problem 9: What does O(2-e) and $\Omega$n+e mean?
-![[Screenshot 2024-10-06 at 3.19.32 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-06 at 3.19.32 AM.jpg]]
 # Practice Set 2
 ## Problem 1
 ### Question
 
-![[Screenshot 2024-10-05 at 10.15.16 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-05 at 10.15.16 PM.jpg]]
 
 ### Answer
 
@@ -97,7 +97,7 @@ $$
 ## Problem 2 
 ### Question
 
-![[Screenshot 2024-10-05 at 11.34.58 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-05 at 11.34.58 PM.jpg]]
 ### Answer
 ```java
 BSearch(A, s, f, k):
@@ -141,7 +141,7 @@ BSearch(A, s, f, k):
 
 ### Question
 
-![[Screenshot 2024-10-06 at 12.29.29 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-06 at 12.29.29 AM.jpg]]
 
 ### Answer
 
@@ -151,7 +151,7 @@ T(n) = T(n/2) + c \* log(n/2) = T(n/2) + c \* log(n)
 
 ### Question
 
-![[Screenshot 2024-10-06 at 12.51.24 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-06 at 12.51.24 AM.jpg]]
 
 Algorithm a is $T(n) = 2T(n/2) + c$
 Algorithm b is T(n) = T(n-1) + c
@@ -175,7 +175,7 @@ Cant do master method on b because it is not of the form $n/b$
 
 ## Problem 6
 
-![[Screenshot 2024-10-06 at 1.08.57 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-06 at 1.08.57 AM.jpg]]
 
 $T(n) = T(n/2) + c \times \log n$
 $T(n) = T(n-1) + c\times \log n$
@@ -184,7 +184,7 @@ $T(n) = T(n-1) + c\times \log n$
 
 ### Question
 
-![[Screenshot 2024-10-06 at 1.15.34 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-06 at 1.15.34 AM.jpg]]
 
 ### Answer
 
@@ -210,7 +210,7 @@ BubbleSort(A, s, f):
 
 ### Question
 
-![[Screenshot 2024-10-06 at 1.40.29 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-06 at 1.40.29 AM.jpg]]
 
 ### Answer
 
@@ -231,7 +231,7 @@ SelectionSort(A,s,f):
 
 ## Problem 11
 
-![[Screenshot 2024-10-14 at 1.24.08 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-14 at 1.24.08 AM.jpg]]
 ### Chaining
 
 ```code

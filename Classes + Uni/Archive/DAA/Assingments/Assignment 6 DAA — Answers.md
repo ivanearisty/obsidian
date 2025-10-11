@@ -1,6 +1,6 @@
 ## Question 1: Complexity Classes
 
-![[Screenshot 2024-12-16 at 5.26.12 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-16 at 5.26.12 PM.jpg]]
 
 **Travelling Salesman**
 TSP is NP-complete.
@@ -70,10 +70,10 @@ k \subseteq m
 $$
 
 We can create a graph where the vertices are the issues in m.
-![[Screenshot 2024-12-16 at 8.21.14 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-16 at 8.21.14 PM.jpg]]
 
 And then we can draw edges between issues to show that a person, n, has selected those two issues:
-![[Screenshot 2024-12-16 at 8.22.57 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-16 at 8.22.57 PM.jpg]]
 
 Now, we have to select k vertices such that every edge is incident to at least one of the selcted vertices.
 
@@ -187,7 +187,7 @@ Visiting all edges in this scenario is hamiltonian path, again, so we can't poss
 
 ## Question 4
 
-![[Screenshot 2024-12-16 at 9.40.44 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-16 at 9.40.44 PM.jpg]]
 
 Prove that the following problem is NP-complete using a reduction from either : Vertex Cover, Inde- pendent Set, Dominating Set, or Clique. Recall the two steps that are necessary in order to show that a problem is NP complete. A set of n people attend a political meeting, where m issues are to be discussed. Each person attending has created a sublist of issues (selected from the main set of m issues) that they are most interested in. The organisers would like to select at most k issues so that each person is interested in at least one of the selected issues. The problem is to determine if it possible or not.
 
@@ -226,7 +226,7 @@ If it is NOT possible to select k vertices to cover all edges, then no set of k 
 
 ## Question 5
 
-![[Screenshot 2024-12-16 at 9.41.00 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-16 at 9.41.00 PM.jpg]]
 
 Step 1: show that question 5 is in NP.
 We must show that given the input, we can verify if the solution is true.

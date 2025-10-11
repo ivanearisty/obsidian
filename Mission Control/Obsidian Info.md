@@ -13,7 +13,7 @@ Mission control should contain dataview information
 ## DataView.
 Filter notes: 
 
-![[Screenshot 2024-08-29 at 2.32.48 PM.jpg]]![[Screenshot 2024-08-29 at 2.32.54 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-08-29 at 2.32.48 PM.jpg]]![[z/z ScreenShots/Screenshot 2024-08-29 at 2.32.54 PM.jpg]]
 ## Advanced Tables
 Used to make tables
 ## Excalidraw
@@ -29,7 +29,7 @@ Some shortcuts need to be edited.
 Use // for new lines instead of & 
 ## Omnisearch
 Try to get this to work by installing the following:
-![[Screenshot 2024-08-31 at 5.44.04 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-08-31 at 5.44.04 PM.jpg]]
 ## Pandoc
 Pandoc is installed with brew, so the path should be in the cellar
 ## Tasks 

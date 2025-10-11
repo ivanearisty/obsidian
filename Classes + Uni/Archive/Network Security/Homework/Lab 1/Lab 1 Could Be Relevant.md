@@ -1,1 +1,1 @@
-Screenshots that could be relevant for lab 1 in network security![[Screenshot 2025-02-24 at 6.53.39 PM 1.jpg]]![[Screenshot 2025-03-10 at 4.41.44 PM 1.jpg]]![[Screenshot 2025-03-10 at 8.37.36 PM 1.jpg]]![[Screenshot 2025-03-10 at 8.48.19 PM.jpg]]
+Screenshots that could be relevant for lab 1 in network security![[z/z ScreenShots/Screenshot 2025-02-24 at 6.53.39 PM 1.jpg]]![[z/z ScreenShots/Screenshot 2025-03-10 at 4.41.44 PM 1.jpg]]![[z/z ScreenShots/Screenshot 2025-03-10 at 8.37.36 PM 1.jpg]]![[z/z ScreenShots/Screenshot 2025-03-10 at 8.48.19 PM.jpg]]

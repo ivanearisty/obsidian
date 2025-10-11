@@ -68,7 +68,7 @@ There's plenty:
 
 ## Question 2
 
-![[Screenshot 2024-11-22 at 3.33.36 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-22 at 3.33.36 AM.jpg]]
 
 Trivial: styleID, brand -> brand
 
@@ -76,7 +76,7 @@ Superkey: brand, styleID, size, color, email, orderDate -> basePrice, pricePaid,
 
 ## Question 3
 
-![[Screenshot 2024-11-22 at 3.36.33 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-22 at 3.36.33 AM.jpg]]
 
 1. brand, styleID, size, color -> qInStock
 2. brand, styleID -> basePrice
@@ -211,7 +211,7 @@ email -> phone, bonusPts
 Then, our schema is still in BCNF since we do not have to recompute any joins to guarantee our dependencies check out 
 ## Question 10
 
-![[Screenshot 2024-11-22 at 4.42.55 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-22 at 4.42.55 AM.jpg]]
 
 Inventory (brand, styleID, size, color, qInStock)
 ShoePrice (brand, styleID, basePrice)

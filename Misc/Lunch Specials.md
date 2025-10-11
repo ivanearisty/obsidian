@@ -11,13 +11,13 @@
 	- 2 Dim Sum + Appetizer **18**
 	- 5 Soup Dumplings + 4 Scallion Pancakes **10**
 - [Khaosan Thai 128 Montague St](https://www.khaosannyc.com/delivery)
-		![[Screenshot 2024-10-24 at 11.39.07 AM.jpg]]
+		![[z/z ScreenShots/Screenshot 2024-10-24 at 11.39.07 AM.jpg]]
 - https://www.pollodorobk.com/menu
 - [Osteria](https://www.osteriabrooklyn.com/menus/)
-	- **25**  For Full Italian Meal![[Screenshot 2024-10-24 at 11.54.49 AM.jpg]]
+	- **25**  For Full Italian Meal![[z/z ScreenShots/Screenshot 2024-10-24 at 11.54.49 AM.jpg]]
 - [Bacchus Bistro Brunch](https://bacchusbistro.com/brunch/)
 	- Bottomelss Mimosas + Lunch **45**
-		![[Screenshot 2024-10-24 at 11.57.56 AM.jpg | 450]]
+		![[z/z ScreenShots/Screenshot 2024-10-24 at 11.57.56 AM.jpg| 450]]
 - [Fat Fowl](https://www.thefatfowl.com/fat-fowl-menu)
 	- Somewhat pricey jerk/caribbean but they have daily specials
 - 

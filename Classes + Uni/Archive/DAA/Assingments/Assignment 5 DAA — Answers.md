@@ -6,25 +6,25 @@ tags:
 
 ### Part A
 
-![[Screenshot 2024-12-10 at 11.34.34 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-10 at 11.34.34 PM.jpg]]
 ### Part B
 
-![[Screenshot 2024-12-11 at 12.05.19 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.05.19 AM.jpg]]
 
 ### Part C
 
-![[Screenshot 2024-12-11 at 12.29.46 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.33.25 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.34.01 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.35.32 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.37.12 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.37.54 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.38.31 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.39.22 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.39.40 AM.jpg]]
-![[Screenshot 2024-12-11 at 12.39.57 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.29.46 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.33.25 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.34.01 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.35.32 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.37.12 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.37.54 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.38.31 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.39.22 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.39.40 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 12.39.57 AM.jpg]]
 ### Part D
-![[Screenshot 2024-12-11 at 1.01.44 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.01.44 AM.jpg]]
 Order:
 AB,AD
 BC,BD,BK
@@ -39,19 +39,19 @@ KF, KH
 See under second iteration for explanation
 
 **FIRST ITERATION**
-![[Screenshot 2024-12-11 at 1.06.33 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.12.12 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.12.19 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.12.26 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.13.05 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.13.15 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.13.23 AM.jpg]]![[Screenshot 2024-12-11 at 1.13.30 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.13.40 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.13.49 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.13.58 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.14.06 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.14.49 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.15.16 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.06.33 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.12.12 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.12.19 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.12.26 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.05 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.15 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.23 AM.jpg]]![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.30 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.40 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.49 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.13.58 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.14.06 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.14.49 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.15.16 AM.jpg]]
 
 After the first iteration we can already see that there is going to be a problem around edged B, D, and E, since they will continue to decrease forever.
 
@@ -60,22 +60,22 @@ On the second iteration we get:
 **SECOND ITERATION**
 
 On Edge E to B:
-![[Screenshot 2024-12-11 at 1.18.24 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.18.24 AM.jpg]]
 
 Which will trickle down into infinite updates...
 
 We'll prove this on the next outer loop execution. For now these are the next updates: 
 
-![[Screenshot 2024-12-11 at 1.19.36 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.20.05 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.20.35 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.19.36 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.20.05 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.20.35 AM.jpg]]
 
 **THIRD ITERATION**
 
 To save myself and you from drawing 30 more of these... see how in the first few updates for BC,BD,BK we get:
 
-![[Screenshot 2024-12-11 at 1.21.56 AM.jpg]]
-![[Screenshot 2024-12-11 at 1.22.14 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.21.56 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.22.14 AM.jpg]]
 
 **Which I hope you see will trickle down into a further reduction when we get to edge DE, making E -11 from DE.** 
 
@@ -85,7 +85,7 @@ To save myself and you from drawing 30 more of these... see how in the first few
 
 ### Part A
 
-![[Screenshot 2024-12-11 at 1.24.43 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 1.24.43 AM.jpg]]
 
 ```python
 Init(v):
@@ -114,7 +114,7 @@ DFS-visit runs in O(V+E) from the lecture notes. The core logic of the code runs
 
 ### Part B
 
-![[Screenshot 2024-12-11 at 4.24.47 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 4.24.47 AM.jpg]]
 
 ```python
 CountLeaves(u):
@@ -134,12 +134,12 @@ Here the runtime is still O(V+E) since we didnt update the core logic of dfs and
 
 ### Part C
 
-![[Screenshot 2024-12-11 at 4.30.44 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 4.30.44 AM.jpg]]
 
 If we have exactly two SCC, call them S1 and S2, in a directed graph, then this means that we must have edges going in exactly one direction from either S1 to S2 or from S2 to S1. 
 
 Take this graph for example:
-![[Screenshot 2024-12-11 at 4.46.03 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 4.46.03 AM.jpg]]
 
 The fact that there can only be two strongly connected components means that once we leave some component to the other we can never go back; however, it is key to realize that we can leave in the first place.
 
@@ -155,7 +155,7 @@ Finding SCCs will take O(n^2); however, our specific algorithm will also take O(
 
 ### Part D
 
-![[Screenshot 2024-12-11 at 5.00.53 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 5.00.53 AM.jpg]]
 
 ```python
 DFS-Routes(u):
@@ -192,7 +192,7 @@ DFS-Routes(u, usingBridge, visited);
 	return False
 ```
 
-![[Screenshot 2024-12-11 at 5.11.19 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 5.11.19 AM.jpg]]
 
 Time complexity is O(V+E) since each vertex can be visited in at most two states. Additionally, every edge is considered twice per state.
 
@@ -202,7 +202,7 @@ If the trail node connecting the two cyclic graphs was a bridge, then we would e
 
 ### Part E 
 
-![[Screenshot 2024-12-11 at 5.41.35 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 5.41.35 AM.jpg]]
 
 Assuming my code above is correct, and it's recursive nature, we can keep track of a new parent array:
 
@@ -276,7 +276,7 @@ PrettyPrinting(s, currentVertex, parent, visited, currentState):
 
 ### Part A
 
-![[Screenshot 2024-12-11 at 6.09.07 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.09.07 AM.jpg]]
 
 Since we ran Kruskal's algorithm on the tree, we can expect there to be no cycles. 
 
@@ -291,16 +291,16 @@ We will add a slight modification though, we will keep track of the weight of ea
 Then, when we detect the cycle, we will know at which node it starts, ends, and the nodes in the middle thanks to their stopping time.
 
 Take this MST for example:
-![[Screenshot 2024-12-11 at 6.24.34 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.24.34 AM.jpg]]
 
 When adding this new edge:
-![[Screenshot 2024-12-11 at 6.25.50 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.25.50 AM.jpg]]
 
 DFS will detect a cycle at some point. 
 
 The other nodes which could be a problem would've stopped processing by then, like these ones:
 
-![[Screenshot 2024-12-11 at 6.27.35 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.27.35 AM.jpg]]
 
 And we would also know what nodes not to consider because their start times would be earlier than the node where the cycle was detected (not the one we are at, but the one at the end of the edge we would've compared to).
 
@@ -310,7 +310,7 @@ Since we have $E \approx V$, DFS runs in O(V+V) time. Additionally, our procedur
 
 ### Part B
 
-![[Screenshot 2024-12-11 at 6.33.45 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.33.45 AM.jpg]]
 
 Assume that this were the case for the sake of contradiction.
 
@@ -332,15 +332,15 @@ Since we know two MSTs must have the same total edge weight, we know it's not po
 
 ### Part C
 
-![[Screenshot 2024-12-11 at 6.46.12 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.46.12 AM.jpg]]
 
-![[Screenshot 2024-12-11 at 6.57.13 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.57.13 AM.jpg]]
 
 ## Question 4: Weighted graphs
 
 ### Part A
 
-![[Screenshot 2024-12-11 at 6.59.30 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.59.30 AM.jpg]]
 
 ```python
 DIJTAX(Graph, start, end):
@@ -372,7 +372,7 @@ This is a modified version of Dijkstra’s, which is O(E log V), and would make 
 
 ### Part B
 
-![[Screenshot 2024-12-11 at 6.59.50 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-11 at 6.59.50 AM.jpg]]
 
 We will do a succession of Dijkstras to solve this problem.
 

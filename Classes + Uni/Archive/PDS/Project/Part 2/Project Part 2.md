@@ -225,12 +225,12 @@ take the additional insertions to be those made for the last question.
 
 Record a new item that has been donated. It’s a two-piece yellow sofa (category ‘furniture’, subcategory ‘sofa’), donated by someone from your group. Their username should be their name as a single string, optionally with some numbers at the end. You may assign any itemID you’d like (or may look up how to use AutoIncrement). The pieces are the ‘sofa body’ and one ‘cushion’. It will be stored in Room 5, without a shelf designated.
 
-![[Screenshot 2024-11-08 at 4.54.11 PM.jpg]]
-![[Screenshot 2024-11-08 at 4.54.48 PM.jpg]]
-![[Screenshot 2024-11-08 at 4.56.03 PM.jpg]]
-![[Screenshot 2024-11-08 at 5.00.22 PM.jpg]]
-![[Screenshot 2024-11-08 at 5.08.32 PM.jpg]]
-![[Screenshot 2024-11-08 at 5.10.33 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 4.54.11 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 4.54.48 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 4.56.03 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 5.00.22 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 5.08.32 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 5.10.33 PM.jpg]]
 
 ```sql
 insert ignore into Category values ('furniture', 'sofa', 'Sofas for Living ROoms');
@@ -286,4 +286,4 @@ order by
     Item.itemID;
 ```
 
-![[Screenshot 2024-11-08 at 6.58.54 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-08 at 6.58.54 PM.jpg]]

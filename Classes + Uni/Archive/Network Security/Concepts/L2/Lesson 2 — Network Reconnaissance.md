@@ -136,7 +136,7 @@ tags:
 - **ICMP Header Fields:**  
   - Type, Code, Checksum, Identifier, Sequence Number (plus any additional data).
 
-![[Screenshot 2025-03-20 at 9.56.17 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-20 at 9.56.17 PM.jpg]]
 ## Method and Possible Responses for Port Scanning with TCP and UDP Packets
 - **TCP Scanning Methods:**  
   - **TCP Connect Scan:** Establishes a full TCP connection.
@@ -148,7 +148,7 @@ tags:
   - **ICMP Unreachable:** May indicate filtered ports (blocked by firewall), route not found/host doesnt exist.
   - **No Response/Timeout**: May indicate filtered ports (blocked by not nice firewall), route not found/host doesnt exist.
 
-![[Screenshot 2025-03-21 at 8.01.12 PM.jpg | 800]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.01.12 PM.jpg| 800]]
 ### UDP Scan
 *harder*
 - **Purpose (Simple):**  
@@ -298,7 +298,7 @@ tags:
   - Requires a suitable zombie host with predictable behavior.  
   - Complex to set up and dependent on consistent IP ID incrementation.
 
-![[Screenshot 2025-03-21 at 2.25.51 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 2.25.51 AM.jpg]]
 
 ## Misc 
 ### Attacks

@@ -1,11 +1,11 @@
 
 Ubuntu traceroute gives:
 
-![[Screenshot 2025-03-21 at 7.25.59 AM.jpg]] 
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.25.59 AM.jpg]] 
 
 or 
 
-![[Screenshot 2025-03-21 at 7.26.20 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.26.20 AM.jpg]]
 
 depending on how it feels...
 
@@ -149,7 +149,7 @@ while True:
 ```
 
 V4 Out:
-![[Screenshot 2025-03-21 at 7.06.51 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.06.51 AM.jpg]]
 
 Final Version:
 ```python
@@ -180,12 +180,12 @@ while True:
         ttl+= 1
 ```
 
-![[Screenshot 2025-03-21 at 7.10.10 AM.jpg | 600]]
-![[Screenshot 2025-03-21 at 7.22.20 AM.jpg]]
-![[Screenshot 2025-03-21 at 7.25.03 AM.jpg | 1000]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.10.10 AM.jpg| 600]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.22.20 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.25.03 AM.jpg| 1000]]
 
 And I got a bunch of "Host administratively prohibited" messages along the way. 
 
 I think they don't like me :D 
 
-![[Screenshot 2025-03-21 at 7.29.17 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.29.17 AM.jpg]]

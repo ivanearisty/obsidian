@@ -19,7 +19,7 @@ My code identifies:
 
 Looking at Frame 1 and 2, this is the ARP request from Host M to Host A, where M is asking for A's MAC address but providing B's IP (10.9.0.6) as the sender IP and M's MAC.
 
-![[Screenshot 2025-06-04 at 1.02.07 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 1.02.07 AM.png]]
 
 Frame 1 precisely matches all the characteristics of the malicious ARP request.
 
@@ -27,7 +27,7 @@ It is an ARP request (`opcode=1`) originating from Host M's MAC, targeting Host 
 
 Furthermore, even though just in the pcap we can't see the result of arp -n on A, the second frame makes it very clear that it was indeed tricked:
 
-![[Screenshot 2025-06-04 at 1.03.09 AM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 1.03.09 AM.png]]
 ## Q1.2 ARP Cache Poisoning (using ARP reply)
 
 We want to construct an ARP reply packet and send to host A, this should poison A and make M’s MAC address point to B’s IP address. 
@@ -46,7 +46,7 @@ MAC_M = "02:42:0a:09:00:69"
 and set an opcode of 2 (the reply):
 
 Looking at the frame in question:
-![[Screenshot 2025-06-04 at 12.34.09 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.34.09 PM.png]]
 
 Everything is set correctly.
 
@@ -70,9 +70,9 @@ for host A should accept the gratuitous ARP packet.
 
 Here we can also see a couple of frames where the gratuitous arp was sent out:
 
-![[Screenshot 2025-06-04 at 12.47.09 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.47.09 PM.png]]
 
-![[Screenshot 2025-06-04 at 12.47.26 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.47.26 PM.png]]
 
 I did not take pictures of the output of arp -n on host A at the time, but I distinctly remember troubleshooting it to test out scenarios where net.ipv4.conf.eth0.arp_accept and net.ipv4.conf.all.arp_accept where set to true. 
 
@@ -86,13 +86,13 @@ We want to intercept the communication and change data sent between A and B... W
 Here we have a very clear picture of the attack working when looking at the following frames:
 
 **662**
-![[Screenshot 2025-06-04 at 12.53.30 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.53.30 PM.png]]
 **663**
-![[Screenshot 2025-06-04 at 12.54.10 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.54.10 PM.png]]
 **665**
-![[Screenshot 2025-06-04 at 12.55.20 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.55.20 PM.png]]
 **666**
-![[Screenshot 2025-06-04 at 12.55.37 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 12.55.37 PM.png]]
 
 This sequence of four frames perfectly demonstrates the successful MITM attack on Telnet.
 
@@ -119,12 +119,12 @@ Finally, this was not highlighted on the submission, but the process for the MIT
 This task is similar to Task 2, except we're using Netcat. We want to intercept communication and replace every occurrence of my student ID (iae225) with a sequence of lowercase 'a's of the same length (aaaaaa)
 
 Frames **1315** and **1316** clearly demonstrate this attack was successful:
-![[Screenshot 2025-06-04 at 1.33.39 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 1.33.39 PM.png]]
 
 This frame shows Host A sending my student ID. Due to ARP poisoning, it's routed to Host M (MAC_M) instead of directly to Host B.
 
 This frame immediately follows:
-![[Screenshot 2025-06-04 at 1.34.19 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 1.34.19 PM.png]]
 showing Host M sending a packet to Host B. 
 
 The Ethernet source is now MAC_M, and the destination is MAC_B, but the IP headers still indicate the original sender (A) and receiver (B).  Most importantly, the payload has been successfully modified from my student ID to "aaaaaa\n".

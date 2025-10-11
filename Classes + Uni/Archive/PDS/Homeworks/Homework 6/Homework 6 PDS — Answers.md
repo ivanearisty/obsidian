@@ -21,9 +21,9 @@ Draw an expression tree illustrating the following relational algebra query, wit
 
 $\Pi_{title, grade}(\sigma_{sID=12345\land building=\text{"JAB"}}((\text{section}\bowtie\text{takes})\bowtie\text{course}))$
 
-![[Screenshot 2024-12-13 at 7.35.32 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-13 at 7.35.32 PM.jpg]]
 ### Question 3
-![[Screenshot 2024-12-13 at 10.28.25 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-13 at 10.28.25 PM.jpg]]
 ### Question 4
 
 I was confused about whether we are projecting here or not.

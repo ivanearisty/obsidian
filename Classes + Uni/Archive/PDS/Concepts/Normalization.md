@@ -12,17 +12,17 @@ This is accomplished by designing schemas that are in an **appropriate normal fo
 
 In general, a schema that exhibits repetition of information may have to be decomposed into several smaller schemas.
 
-![[Screenshot 2024-11-20 at 6.09.02 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.09.02 PM.jpg]]
 
 ### Lossless Decomposition
 
-![[Screenshot 2024-11-20 at 6.11.26 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.11.26 PM.jpg]]
 
-![[Screenshot 2024-11-20 at 6.12.13 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.12.13 PM.jpg]]
 
 For example, if we decompose employee into employee 1 and employee 2 as shown above, we get a lossy decomposition:
 
-![[Screenshot 2024-11-20 at 6.15.13 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.15.13 PM.jpg]]
 
 ### Normalization Theory
 
@@ -49,7 +49,7 @@ An instance of a relation that satisfies all such real-world constraints is call
 
 ### Notational Conventions
 
-![[Screenshot 2024-11-20 at 6.30.03 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.30.03 PM.jpg]]
 
 ### Keys and Functional Dependencies
 A superkey is a set of attributes that uniquely identifies an entire tuple, a functional dependency allows us to express constraints that uniquely identify the values of certain attributes.
@@ -59,11 +59,11 @@ Consider a relation schema r(R), and let α ⊆ R and β ⊆ R.
 - Given an instance of r(R), we say that the instance satisfies the functional dependency α →β if for all pairs of tuples t1 and t2 in the instance such that  t1\[α] = t2\[α], it is also the case that t1\[β] = t2\[β].  
 - We say that the functional dependency α →β holds on schema r(R) if, every legal instance of r(R) satisfies the functional dependency.
 
-![[Screenshot 2024-11-20 at 6.51.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.51.15 PM.jpg]]
 
-![[Screenshot 2024-11-20 at 6.52.27 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.52.27 PM.jpg]]
 #### Sample Instance
-![[Screenshot 2024-11-20 at 6.54.46 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 6.54.46 PM.jpg]]
 
 #### Trivial Functional Dependency
 
@@ -83,20 +83,20 @@ Similarly, AB →A is satisfied by all relations involving attribute A. In gener
 
 #### Unrequired and Satisfied Functional Dependencies
 
-![[Screenshot 2024-11-20 at 7.32.55 PM.jpg]]
-![[Screenshot 2024-11-20 at 7.34.07 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.32.55 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.34.07 PM.jpg]]
 
 #### Inference
 
-![[Screenshot 2024-11-20 at 7.35.39 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.35.39 PM.jpg]]
 
 ### Lossless Decomposition
 
-![[Screenshot 2024-11-20 at 7.37.06 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.37.06 PM.jpg]]
 
-![[Screenshot 2024-11-20 at 7.37.21 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.37.21 PM.jpg]]
 #### SQL
-![[Screenshot 2024-11-20 at 7.39.01 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.39.01 PM.jpg]]
 
 ## Normal Forms
 
@@ -113,11 +113,11 @@ A database design is in BCNF if each member of the set of relation schemas that 
 
 ### BCNF DEF
 
-![[Screenshot 2024-11-20 at 7.46.10 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.46.10 PM.jpg]]
 
 ### Decomposition to BCNF
 
-![[Screenshot 2024-11-20 at 7.51.17 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-20 at 7.51.17 PM.jpg]]
 
 ### Intro to Third Form
 
@@ -143,8 +143,8 @@ Note that the third condition above does not say that a single candidate key mus
 
 Observe that any schema that satisfies BCNF also satisfies 3NF, since each of its functional dependencies would satisfy one of the first two alternatives.
 
-![[Screenshot 2024-11-21 at 2.50.35 AM.jpg]]
-![[Screenshot 2024-11-21 at 2.53.49 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-21 at 2.50.35 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-21 at 2.53.49 AM.jpg]]
 
 ### BCNF vs 3NF
 

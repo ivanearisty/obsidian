@@ -19,9 +19,9 @@ https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3
 - We need luminance for edge detection
 - Fine grained details only visible via luminence contrast
 - Legible test requires luminence contrast
-![[Screenshot 2024-09-26 at 12.15.49 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-26 at 12.15.49 PM.jpg]]
 
-Colorblind -> degreaded acuity along one axis: ![[Screenshot 2024-09-26 at 12.16.13 PM.jpg]]
+Colorblind -> degreaded acuity along one axis: ![[z/z ScreenShots/Screenshot 2024-09-26 at 12.16.13 PM.jpg]]
 
 Essentially reduing color to 2 dimensions.
 
@@ -33,7 +33,7 @@ Blue orange is pretty safe.
 ### Color Spaces
 
 All colors available to you are the color space.
-![[Screenshot 2024-09-26 at 12.35.19 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-26 at 12.35.19 PM.jpg]]
 
 The hex-code is technically gibberish since it doesn't intuitively tell you anything.
 

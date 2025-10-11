@@ -13,7 +13,7 @@ data from Brazil's largest department store, containing 100,000 orders from 2016
 
 ### Dataset Structure
 
-![[Screenshot 2024-12-19 at 3.35.18 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 3.35.18 AM.jpg]]
 
 ### Query
 
@@ -51,15 +51,15 @@ olist_products_dataset
 olist_customers_dataset
 
 From Customers:
-![[Screenshot 2024-12-19 at 7.14.33 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 7.14.33 PM.jpg]]
 From Orders:
-![[Screenshot 2024-12-19 at 7.15.08 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 7.15.08 PM.jpg]]
 
 For products:
-![[Screenshot 2024-12-19 at 7.31.42 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 7.31.42 PM.jpg]]
 
 For order_items:
-![[Screenshot 2024-12-19 at 7.32.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 7.32.41 PM.jpg]]
 
 So it seems that the reference goes from orders -> customers.
 
@@ -172,7 +172,7 @@ Seems like we have all the valid IDs but, upon further inspection, some ids have
 
 Let's fix this for both tables, ignoring any quotation marks that happen when inserting ids.
 
-![[Screenshot 2024-12-19 at 8.14.29 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 8.14.29 PM.jpg]]
 
 We'll do the following for every file:
 ```python
@@ -194,7 +194,7 @@ for table_name, input_path in files.items():
 ```
 
 Cleaned versions look like:
-![[Screenshot 2024-12-19 at 8.21.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 8.21.15 PM.jpg]]
 
 Even after doing this we get the same error. So we are going to create a temporary table and only insert relevant values:
 
@@ -423,7 +423,7 @@ create index idx_customer_unique_id on olist_customers_dataset(customer_unique_i
 ```
 
 Much better now: 
-![[Screenshot 2024-12-19 at 10.07.17 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-19 at 10.07.17 PM.jpg]]
 
 ```txt
 -> Sort: o.order_purchase_timestamp DESC  (actual time=2.21..2.22 rows=16 loops=1)

@@ -10,7 +10,7 @@ Signature: Ivan Ernesto Aristy Eusebio
 
 ## Question 1
 
-![[Screenshot 2024-12-18 at 5.58.44 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 5.58.44 PM.jpg]]
 
 Order:
 AB, AD
@@ -19,7 +19,7 @@ CE
 DC
 EB, ED
 
-![[Screenshot 2024-12-18 at 6.03.08 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.03.08 PM.jpg]]
 Show:
 - distance attribute
 - parent attribute
@@ -27,21 +27,21 @@ Show:
 - no changes
 
 Init:
-![[Screenshot 2024-12-18 at 6.05.49 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.05.49 PM.jpg]]
 
 V-1 iterations:
 
 Iteration 1:
 AB
-![[Screenshot 2024-12-18 at 6.08.50 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.08.50 PM.jpg]]
 AD
-![[Screenshot 2024-12-18 at 6.09.11 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.09.11 PM.jpg]]
 BC
-![[Screenshot 2024-12-18 at 6.09.48 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.09.48 PM.jpg]]
 BD
-![[Screenshot 2024-12-18 at 6.10.37 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.10.37 PM.jpg]]
 BE
-![[Screenshot 2024-12-18 at 6.11.02 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.11.02 PM.jpg]]
 CE
 No changes made
 DC
@@ -50,7 +50,7 @@ EB
 No changes made
 ED
 **HERE I FORGOT TO CHANGE THE PARENT POINTER BUT WE FIX LATER**
-![[Screenshot 2024-12-18 at 6.15.57 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.15.57 PM.jpg]]
 
 Iteration 2:
 AB
@@ -67,7 +67,7 @@ CE
 No changes
 DC
 **HERE I FORGOT TO CHANGE THE PARENT POINTER BUT WE FIX LATER**
-![[Screenshot 2024-12-18 at 6.18.05 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.18.05 PM.jpg]]
 **So we will probably have an issue**
 EB
 No changes
@@ -97,7 +97,7 @@ No changes
 
 Iteration 4:
 **Here is when i realized that I forgot to change parent pointers, graph looks like this right now:**
-![[Screenshot 2024-12-18 at 6.22.39 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.22.39 PM.jpg]]
 AB
 No changes
 AD
@@ -119,7 +119,7 @@ No changes
 
 Final Iteration:
 **Graph looks like this:**
-![[Screenshot 2024-12-18 at 6.24.17 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.24.17 PM.jpg]]
 AB
 No changes
 AD
@@ -144,14 +144,14 @@ No changes made: Graph is valid
 ## Question 2
 
 ### Part A
-![[Screenshot 2024-12-18 at 6.26.08 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.26.08 PM.jpg]]
 - color is either red or green 
 - any path from s to t that is:
 	- all one color
 	- start with red and switches to green
 
-![[Screenshot 2024-12-18 at 6.27.41 PM.jpg]]
-![[Screenshot 2024-12-18 at 6.34.19 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.27.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.34.19 PM.jpg]]
 First DFS consideration with state might work but it produces a solution that uses backtracking and way too much space.
 
 Plain BFS doesn't work because we can go back to visit nodes at previous levels.
@@ -175,7 +175,7 @@ However, if (u, u.parent) was red, we will explore all paths from the edges of v
 This will guarantee that if a route through a red path exists we will explore it.
 
 For example:
-![[Screenshot 2024-12-18 at 6.57.28 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 6.57.28 PM.jpg]]
 We might have an issue here by incorrectly marking the paths from the selected node as explored if we did not process red paths first. However, by exploring the red path we can find the solution.
 
 The key to a O(V+E) time complexity is that we will ignore visited nodes.
@@ -210,7 +210,7 @@ The time complexity is still O(V+E) because we have not changed the core logic o
 
 ## Question 3
 
-![[Screenshot 2024-12-18 at 7.07.30 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.07.30 PM.jpg]]
 
 ```python
 DFS(n): # if it's all connected
@@ -249,9 +249,9 @@ DFS-visit(u, fromColor):
 
 ## Question 4
 
-![[Screenshot 2024-12-18 at 7.25.19 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.25.19 PM.jpg]]
 
-![[Screenshot 2024-12-18 at 7.31.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.31.15 PM.jpg]]
 
 In the example above, we can apply Kruskals to see that the there is only one configuration that would make the case on the left work. Any other configuration would choose a higher weight node.
 
@@ -259,7 +259,7 @@ On the chart on the left, we have to include the middle node, and we have option
 
 ## Question 5
 
-![[Screenshot 2024-12-18 at 7.33.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.33.41 PM.jpg]]
 
 ```python
 LongPath(T):
@@ -286,8 +286,8 @@ Over all vertices in the graph, we keep a distance attribute which takes constan
 Hence, the total runtime is Θ(V + E).
 
 ## Question 6
-![[Screenshot 2024-12-18 at 7.42.09 PM.jpg]]
-![[Screenshot 2024-12-18 at 7.50.29 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.42.09 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.50.29 PM.jpg]]
 It does not work.
 
 Dijstra removes nodes from Q when it evaluates their path because that *must* be the shortest path to get to them.
@@ -300,7 +300,7 @@ The above would work if paths "could not get any bigger" which would be when all
 
 ## Question 7
 
-![[Screenshot 2024-12-18 at 7.55.33 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 7.55.33 PM.jpg]]
 
 - A person can make both pickups.
 
@@ -351,7 +351,7 @@ At the end, we will have our results stored in an array.
 We will pick the minimum and keep track of the index and output which scenario erin and ivan should follow based on what minimized the time.
 ## Question 8
 
-![[Screenshot 2024-12-18 at 8.11.03 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.11.03 PM.jpg]]
 
 If we have 5 strongly connected components, we would like to make a loop between all 5 of them.
 
@@ -361,11 +361,11 @@ You can think of the SCCs as nodes really.
 
 We can have them as such
 
-![[Screenshot 2024-12-18 at 8.15.27 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.15.27 PM.jpg]]
 or like this
-![[Screenshot 2024-12-18 at 8.16.47 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.16.47 PM.jpg]]
 or this:
-![[Screenshot 2024-12-18 at 8.17.10 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.17.10 PM.jpg]]
 
 This is non-exhaustive, but it illustrates the idea.
 
@@ -396,7 +396,7 @@ The next step will complete the task:
 **We will run a loop 5 times that creates a new edge from array\[i] to array\[i+1]**
 
 At the end we will have completed a cycle between all the sccs, and NO MATTER WHAT was the state of our initial graph, it will, by definition, look like this:
-![[Screenshot 2024-12-18 at 8.31.00 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.31.00 PM.jpg]]
 
 Given that from any SCC you can get to any node within it, and the sccs are now in a loop, it must be the case that we have created only 1 scc.
 
@@ -405,7 +405,7 @@ The steps of the final algorithm are always 5, so O(1)
 The dominant term, and therefore the total runtime, is Θ(V + E)
 ## Question 9
 
-![[Screenshot 2024-12-18 at 8.33.25 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.33.25 PM.jpg]]
 
 ### Problem 1
 
@@ -440,7 +440,7 @@ Vertex cover specifies that we select a set of at most k vertices such that each
 Since we can make every child go home with 1 toy, there is no poly time algorithm since this can be an instance of vertex cover.
 
 ## Question 10
-![[Screenshot 2024-12-18 at 8.33.33 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 8.33.33 PM.jpg]]
 Let G be a directed unweighted graph on n vertices, where each vertex is colored either black or white. The goal is to find a a simple cycle through at least k vertices where all vertices are of the same color. Show that this problem is NP complete, using a reduction from a problem from class.
 
 directed unweighted graph on n vertices

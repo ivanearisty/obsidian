@@ -5,7 +5,7 @@ tags:
 # Ivan Aristy — iae225
 ## Question 1: Hashing
 ### Problem A
-![[Screenshot 2024-10-12 at 12.57.26 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-12 at 12.57.26 PM.jpg]]
 
 ```
 index
@@ -82,7 +82,7 @@ h2(8) = 14
 
 ### Problem B
 
-![[Screenshot 2024-10-12 at 10.47.48 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-12 at 10.47.48 PM.jpg]]
 
 ```
 h(k,i) = k + 2i + 3i^2 mod 17
@@ -169,7 +169,7 @@ h(49,2) = k + 2i + 3i^2 mod 17 = 7
 
 ### Problem C
 
-![[Screenshot 2024-10-12 at 11.17.49 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-12 at 11.17.49 PM.jpg]]
 
 ```
 [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16]
@@ -184,7 +184,7 @@ h(49,2) = k + 2i + 3i^2 mod 17 = 7
 
 ### Problem D
 
-![[Screenshot 2024-10-12 at 11.25.12 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-12 at 11.25.12 PM.jpg]]
 
 The hash table in 1b requires the most probes. 
 
@@ -217,7 +217,7 @@ h2(15) = k^2 + 1 mod 17 = 5
 
 ### Problem E
 
-![[Screenshot 2024-10-12 at 11.39.52 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-12 at 11.39.52 PM.jpg]]
 
 We should do 17 attempts because 17 is prime and our table size is also 17, which... is prime. For bad double hashing, we'd need a secondary hash function with a step size that leads to cycling, but, in our case, due to the prime table size, and the mod 17 with a +1 inside the function, we can be fairly certain that we're ok.
 
@@ -225,7 +225,7 @@ We should do 17 attempts because 17 is prime and our table size is also 17, whic
 
 ### Problem A
 
-![[Screenshot 2024-10-12 at 11.48.21 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-12 at 11.48.21 PM.jpg]]
 
 ```
 array pablo = 25, 37, 52, 14, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 22, 2, 8, 90, 30, 68, 21, 17, 84, 29, 77, 45, 33, 41, 19, 53, 42, 93, 23, 18, 91
@@ -358,7 +358,7 @@ Base case reached, we only have 29 and 30 left. Return 30.
 ```
 
 ### Problem B
-![[Screenshot 2024-10-13 at 7.12.15 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-13 at 7.12.15 AM.jpg]]
 
 ```
 array pablo = 25, 37, 52, 14, 89, 35, 83, 53, 31, 86, 99, 46, 66, 34, 22, 2, 8, 90, 30, 68, 21, 17, 84, 29, 77, 45, 33, 41, 19, 53, 42, 93, 23, 18, 91
@@ -428,7 +428,7 @@ $$
 
 ### Problem A
 
-![[Screenshot 2024-10-13 at 12.30.56 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-13 at 12.30.56 AM.jpg]]
 
 Method 1:
 We call on an array with a heap size of n
@@ -454,7 +454,7 @@ they do happen to be sorted here,
 but this is just regular bubble up insertion.
 ### Problem B
 
-![[Screenshot 2024-10-13 at 2.55.03 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-13 at 2.55.03 AM.jpg]]
 
 ```java
 MinMaxInsert(A, k):
@@ -471,7 +471,7 @@ getgrandparent(A, k)
 
 ### Problem C
 
-![[Screenshot 2024-10-13 at 7.26.55 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-13 at 7.26.55 AM.jpg]]
 
 Student 1:
 Adding all elements to the new array is just O(n).

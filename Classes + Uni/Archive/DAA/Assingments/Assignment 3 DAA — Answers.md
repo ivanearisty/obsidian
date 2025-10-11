@@ -95,7 +95,7 @@ Since we have n - 1 nodes, we can insert into n locations.
 
 ### Problem 3
 #### Question
-![[Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
 
 #### Answer
 
@@ -135,7 +135,7 @@ Indents are recursive tree but also the bolds are the values we print, and, yes,
 			92
 			99
 ```
-![[Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
 PrintTree2(T):
 Now, to even go left or right, we have to first pass the has left tree check. So, it's similar to the above, but, if your ancestors are not leftchilds, we wont be hearing from you.
 
@@ -160,7 +160,7 @@ Now, to even go left or right, we have to first pass the has left tree check. So
 		90
 ```
 
-![[Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 12.31.41 PM.jpg]]
 
 PrintTree3(T)
 
@@ -185,7 +185,7 @@ so 25 and 50 now print 4 and 5 respectively.
 
 ### Problem 4
 #### Question
-![[Screenshot 2024-11-06 at 1.29.16 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 1.29.16 PM.jpg]]
 #### Answer
 
 This can be done in 3 steps: 
@@ -197,7 +197,7 @@ This can be done in 3 steps:
 ## Question 2
 ### Problem 1
 #### Question
-![[Screenshot 2024-11-06 at 1.46.53 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 1.46.53 PM.jpg]]
 #### Answer
 (assuming that boolean values get converted to 0 or 1 as integers)
 ```
@@ -225,7 +225,7 @@ So T(n) = O(n)
 
 ### Problem 2
 #### Question
-![[Screenshot 2024-11-06 at 3.35.58 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 3.35.58 PM.jpg]]
 
 #### Answer
 
@@ -248,7 +248,7 @@ RecreateBST(A,i,n):
 
 ### Problem 3
 #### Question
-![[Screenshot 2024-11-06 at 3.50.28 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 3.50.28 PM.jpg]]
 
 #### Answer
 
@@ -269,7 +269,7 @@ maxDepth(T):
 
 ### Problem 4
 
-![[Screenshot 2024-11-06 at 4.03.35 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 4.03.35 PM.jpg]]
 
 ```
 MyNeighbour(T,y):
@@ -293,13 +293,13 @@ MyNeighbour(T,y):
 	return T;
 ```
 
-![[Screenshot 2024-11-06 at 5.11.36 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 5.11.36 PM.jpg]]
 
 We go up the tree once, and down the tree once, only going through a path that is at most H\*2, one H for each of the traversals, which is O(H).
 ## Question 3
 ### Problem 1
 #### Question
-![[Screenshot 2024-11-06 at 5.14.41 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 5.14.41 PM.jpg]]
 
 #### Answer
 If we insert 17 we have the straight case and rb repair performs the rotation straight up.
@@ -350,7 +350,7 @@ An addition would only cause the black height to increase if it
 
 ### Problem 2
 #### Question
-![[Screenshot 2024-11-06 at 8.04.55 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 8.04.55 PM.jpg]]
 
 #### Answer
 1. For a rb tree thats all black, we know the max will be $n=2^{bh(x)}-1$ If for every black node, we assume that it has 2 red children, in alternating order. If we assume that every node has two red children, then the formula for a maxed out tree is $2^{bh(x)}-1 + 2(2^{bh(x)}-1)$ or 45
@@ -362,7 +362,7 @@ An addition would only cause the black height to increase if it
 ### Problem 3
 #### Question
 
-![[Screenshot 2024-11-06 at 8.26.15 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 8.26.15 PM.jpg]]
 #### Answer
 
 bh is upper bounder by 
@@ -383,13 +383,13 @@ since every black node can have two red children, we would multiply
 #### Question
 Draw an example of a RBT on 16 nodes with black height 3 that has two different possible colorings. Show the different possible colorings.
 #### Answer
-![[Screenshot 2024-11-06 at 9.55.50 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 9.55.50 PM.jpg]]
 Node 30 can be recolored as black and 25 as red
 This is because we kept one side of the tree alternating, and on the other side kept the black height at 3. Adding the new red node to the leftmost node allows us the flexibility of recolloring however we want. We could have added to 25 or 81 in this case.
 
 ### Problem 5
 #### Question
-![[Screenshot 2024-11-06 at 9.59.12 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 9.59.12 PM.jpg]]
 
 #### Answer
 It takes O(nlogn) because: Insertions to the tree take logn time and we have to insert n nodes. 
@@ -403,7 +403,7 @@ We could store the nodes and remove and re attach all pointers, or just store va
 
 ### Problem 1
 #### Question
-![[Screenshot 2024-11-06 at 10.13.33 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 10.13.33 PM.jpg]]
 #### Answer
 
 ```
@@ -418,7 +418,7 @@ SetDiff(T):
 As soon as we hit a null node, we return -1 to the parent, and then they can resume calculations. All calculations happen in O(1) and we do this for n nodes. Hence, this will run in O(n) because we visit every node at most once and perform constant calculations while there.
 ### Problem 2
 #### Question
-![[Screenshot 2024-11-06 at 10.22.29 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 10.22.29 PM.jpg]]
 #### Answer
 The first thing to realize, is that a tree being inserted will only impact it's ancestors, it will have no effect on the rest of the tree. So, at most we are going to have to change h nodes, where h is the height of the tree, making this O(h)
 
@@ -444,7 +444,7 @@ I assume we dont have access to height because we didnt have it either for the q
 I thought about setting a boolean flag to see if the diff had changed or not, and then re-running insert but updating the diff based on the new heights, but it's just no possible without having access to a height variable.
 ### Problem 3
 #### Question
-![[Screenshot 2024-11-06 at 10.45.38 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 10.45.38 PM.jpg]]
 #### Answer
 1. Since 9,25 and 1,24 overlap with 15,16, we will always find those first.
 2. now we can insert something like 8,27 in the pink node, and it will be found since nothing to it's left will overlap.
@@ -487,7 +487,7 @@ Hence insertions and deletions will be O(logn) since h = log(n)
 
 ### Problem 1
 #### Question
-![[Screenshot 2024-11-06 at 11.29.30 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 11.29.30 PM.jpg]]
 #### Answer
 
 The first thing is to realize that all the projects from some interval will be valuable to us, if it's start time is before the start time of our project; hence, in this scenario, we don't have to even check the left subtree, we just take btotal immediately.
@@ -514,7 +514,7 @@ So, the algorithm is O(h)
 
 ### Problem 2
 #### Question
-![[Screenshot 2024-11-06 at 11.38.56 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 11.38.56 PM.jpg]]
 #### Answer
 
 ```
@@ -535,7 +535,7 @@ Looking by start dates (or the min) is O(h) for interval trees.
 
 ### Problem 3
 #### Question
-![[Screenshot 2024-11-06 at 11.48.06 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-06 at 11.48.06 PM.jpg]]
 #### Answer
 ```
 IntervalTotal(T,a,b):

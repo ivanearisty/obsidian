@@ -185,7 +185,7 @@ $$
 
 Every year, the NYC marathon inspires people to run competitively, or perhaps, to design databases for runners. A race club has the following ER diagram (shown in both notations we studied) for a database about their races this year. Events are identified by an eID and a division. Runners are identified by an rID. Each runner who enters an event has a bib number (bibNum) and their time to complete the event is recorded as eTime.
 
-![[runningclub2.drawio.png]]
+![[z/z ScreenShots/runningclub2.drawio.png]]
 
 ### Part 1
 
@@ -203,7 +203,7 @@ Because we have 0 to many from runner to winning
 Two runners in the same event can have the same bib number
 True
 Because my notes saved me:
-![[Screenshot 2024-11-04 at 7.53.51 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-04 at 7.53.51 PM.jpg]]
 ### Part 4
 
 A runner can have two entries in the same event with different bib numbers

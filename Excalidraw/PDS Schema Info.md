@@ -84,12 +84,12 @@ NO DISCRIMINATOR IN A SCHEMA DIAGRAM ^zAxazAuW
 Instead of... ^hgkjhkVo
 
 ## Embedded Files
-e12c1abb5756ac919b23458f1a5aa9da1c3cd3f2: [[Screenshot 2024-09-16 at 4.01.32 PM.jpg]]
-e9a0d71207c40c2d0327c0e8d4e51846c3430cb3: [[Screenshot 2024-09-16 at 4.02.49 PM.jpg]]
-86c3ecbb02d911795df17fd12a6aa52a6129caca: [[Screenshot 2024-09-16 at 4.07.00 PM.jpg]]
-12e805aecb599e9cd78a99cb75da318f6812abd4: [[Screenshot 2024-09-16 at 4.12.00 PM.jpg]]
-87541c5bfcd497aaa1a131d246eacda493359cda: [[Screenshot 2024-09-16 at 4.16.08 PM.jpg]]
-2bb768e2c5ca5cacd02ce4cfe4e09995afb22d26: [[Screenshot 2024-09-16 at 4.16.33 PM.jpg]]
+e12c1abb5756ac919b23458f1a5aa9da1c3cd3f2: [[z/z ScreenShots/Screenshot 2024-09-16 at 4.01.32 PM.jpg]]
+e9a0d71207c40c2d0327c0e8d4e51846c3430cb3: [[z/z ScreenShots/Screenshot 2024-09-16 at 4.02.49 PM.jpg]]
+86c3ecbb02d911795df17fd12a6aa52a6129caca: [[z/z ScreenShots/Screenshot 2024-09-16 at 4.07.00 PM.jpg]]
+12e805aecb599e9cd78a99cb75da318f6812abd4: [[z/z ScreenShots/Screenshot 2024-09-16 at 4.12.00 PM.jpg]]
+87541c5bfcd497aaa1a131d246eacda493359cda: [[z/z ScreenShots/Screenshot 2024-09-16 at 4.16.08 PM.jpg]]
+2bb768e2c5ca5cacd02ce4cfe4e09995afb22d26: [[z/z ScreenShots/Screenshot 2024-09-16 at 4.16.33 PM.jpg]]
 
 %%
 ## Drawing

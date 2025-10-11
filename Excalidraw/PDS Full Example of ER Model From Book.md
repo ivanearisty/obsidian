@@ -31,7 +31,7 @@ but the discriminator + the course is unique
 THIS IS WHAT STUDENTS WOULD TAKE... ^9oOCuHTb
 
 ## Embedded Files
-c4356bd743a56b0fc564f294b0b89d055dd5be7e: [[Screenshot 2024-09-16 at 3.18.44 PM.jpg]]
+c4356bd743a56b0fc564f294b0b89d055dd5be7e: [[z/z ScreenShots/Screenshot 2024-09-16 at 3.18.44 PM.jpg]]
 
 %%
 ## Drawing

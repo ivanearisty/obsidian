@@ -16,7 +16,7 @@ ICMP
 ### 1.3
 "ping" command uses the Internet Control Message Protocol (ICMP) to test network connectivity:
 we ping seed@5f6ab58c1854 from seed@a5e78c282aa2
-![[Screenshot 2025-03-21 at 5.52.13 AM.jpg | 600]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.52.13 AM.jpg| 600]]
 ### 1.4
 Capture any TCP packet that comes from a specific IP and with a destination port number 23.
 
@@ -33,7 +33,7 @@ def print_pkt(pkt):
 pkt = sniff(iface="br-407b98f0a521", filter="tcp and host 10.9.0.5 and port 23", prn=print_pkt)
 ```
 Used one of the machines for simplicity:
-![[Screenshot 2025-03-21 at 6.00.37 AM.jpg | 600]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 6.00.37 AM.jpg| 600]]
 
 ### 1.6
 net 10.9.0.0/24
@@ -44,7 +44,7 @@ def print_pkt(pkt):
 pkt = sniff(iface="br-407b98f0a521", filter="net 10.9.0.0/24", prn=print_pkt)
 ```
 Used one of the machines for simplicity:
-![[Screenshot 2025-03-21 at 6.03.03 AM.jpg | 600]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 6.03.03 AM.jpg| 600]]
 
 ## Q2 Spoofing ICMP Packets
 
@@ -77,17 +77,17 @@ Using the skeleton code below, implement ICMP traceroute using scapy. Do NOT use
 - B: **8.8.8.8**
 - C: packet\[ICMP].type
 
-![[Screenshot 2025-03-25 at 8.28.59 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-03-25 at 8.28.59 PM.png]]
 
 ## Q4 Sniﬃng and then spoofing program
 
 Ubuntu traceroute gives:
 
-![[Screenshot 2025-03-21 at 7.25.59 AM.jpg]] 
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.25.59 AM.jpg]] 
 
 or 
 
-![[Screenshot 2025-03-21 at 7.26.20 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.26.20 AM.jpg]]
 
 depending on how it feels...
 
@@ -231,7 +231,7 @@ while True:
 ```
 
 V4 Out:
-![[Screenshot 2025-03-21 at 7.06.51 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.06.51 AM.jpg]]
 
 Final Version:
 ```python
@@ -262,15 +262,15 @@ while True:
         ttl+= 1
 ```
 
-![[Screenshot 2025-03-21 at 7.10.10 AM.jpg | 600]]
-![[Screenshot 2025-03-21 at 7.22.20 AM.jpg]]
-![[Screenshot 2025-03-21 at 7.25.03 AM.jpg | 1000]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.10.10 AM.jpg| 600]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.22.20 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.25.03 AM.jpg| 1000]]
 
 And I got a bunch of "Host administratively prohibited" messages along the way. 
 
 I think they don't like me :D 
 
-![[Screenshot 2025-03-21 at 7.29.17 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 7.29.17 AM.jpg]]
 ## Q4 Sniﬃng and-then Spoofing
 
 Sniﬃng and-then Spoofing. You need two machines on the same LAN: the VM and the user container.
@@ -334,7 +334,7 @@ pkt = sniff(filter="icmp and icmp[0] == 8", prn=sniff_and_spoof, iface="br-407b9
 
 Ping 10.9.0.99 and show screenshots of the output from your program and with the ping from the terminal. If this does not work, please explain why.
 
-![[Screenshot 2025-03-21 at 2.28.46 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 2.28.46 PM.jpg]]
 
 When our host pings an IP on the LAN, it wants to resolve the MAC from IP through ARP. Since no machine actually owns 10.9.0.99, ARP gets no reply. 
 
@@ -344,4 +344,4 @@ When ip is outside LAN, the default gateway is the one tasked with responding to
 
 ### 4.4
 
-![[Screenshot 2025-03-21 at 2.30.46 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 2.30.46 PM.jpg]]

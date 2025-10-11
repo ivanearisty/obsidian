@@ -65,7 +65,7 @@ Show a little sample data for a few shows, a few award categories and which show
 #### Reasoning
 
 I see this in the book:
-![[Screenshot 2024-09-28 at 4.35.54 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 4.35.54 PM.jpg]]
 Which seems appropriate to show some sample data.
 
 But I am not to sure about how to show multiple relationship instances without making duplicates.
@@ -297,7 +297,7 @@ The United States Congress consists of two houses, the Senate and the House of R
 The number of Districts in a state is based on the state's population (as of the most recent US Census). Each congressional district has a district number and a population. A congressional district is uniquely identified by its number along with its state. For example, New York 2, New York 39, Pennsylvania 2, etc. (See link for more info about Congressional Districts.)
 ### Section A
 #### Question
-![[Screenshot 2024-09-28 at 10.04.09 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-28 at 10.04.09 PM.jpg]]
 Which of the following aspects of the data are represented in this model? 
 1. Each district has exactly one representative. **True.** 
 2. Each state has exactly two senators. **False.**

@@ -41,22 +41,22 @@ The description above shows how you can set up a reverse shell if you have the a
 
 The right panel of these screenshots displays the Python hijacking script.
 The code screenshot I submitted:
-![[Screenshot 2025-06-04 at 1.48.49 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 1.48.49 PM.png]]
 
 From the same screenshot we can see what docker containers we have, namely:
-![[Screenshot 2025-06-04 at 1.49.28 PM.png | 400]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 1.49.28 PM.png| 400]]
 
 Even though it is hard to follow, the collective set of screenshots illustrates the stages of the attack.
 
 Tis demonstrates the initial setup: 
-![[Screenshot 2025-06-04 at 2.48.01 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 2.48.01 PM.png]]
 where, the netcat listener (netcat -nlvp 9090) is started on the attacker machine (10.9.0.1) in the bottom-left terminal, and a Telnet session from seed@VM to 10.9.0.6 is active in the middle-left terminal.
-![[Screenshot 2025-06-04 at 2.44.41 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 2.44.41 PM.png]]
 
 Then we see the outcome of the hijack script:
-![[Screenshot 2025-06-04 at 2.52.43 PM 1.png]]
+![[z/z ScreenShots/Screenshot 2025-06-04 at 2.52.43 PM 1.png]]
 
 And as we saw before, 51 is our victim and we did get a reverse shell onto them from our seed attacker!!
 
 Finally, in our Wireshark, we see the successful establishment of the reverse shell and that the packet was successfully crafted and sent with the correct SEQ/ACK numbers.
-![[Screenshot_2025-03-10_at_8.46.15_PM.jpg]]
+![[z/z ScreenShots/Screenshot_2025-03-10_at_8.46.15_PM.jpg]]

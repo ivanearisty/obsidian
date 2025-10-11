@@ -59,7 +59,7 @@ The Cartesian-product operation, denoted by a cross (×), allows us to **combine
 
 $instructor \times teaches$ :
 
-![[Screenshot 2024-10-09 at 10.16.54 PM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.16.54 PM.jpg| 400]]
 
 Here, we add the name of the schema were something came from to the final output:
 
@@ -68,7 +68,7 @@ teaches.ID, teaches.course id, teaches.sec id, teaches.semester, teaches.year)
 
 For those attributes that appear in only one of the two schemas, we shall usually drop the relation-name prefix: (instructor.ID, name, dept name, salary, teaches.ID, course id, sec id, semester, year)
 
-![[Screenshot 2024-10-09 at 10.22.12 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.22.12 PM.jpg| 500]]
 
 ### Join (Binary)
 
@@ -82,7 +82,7 @@ $$
 then, we get only those tuples of instructor × teaches that pertain to instructors and the  
 courses that they taught.
 
-![[Screenshot 2024-10-09 at 10.32.35 PM.jpg|400]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.32.35 PM.jpg|400]]
 
 If something does not have a relation, it does not appear.
 
@@ -128,17 +128,17 @@ The **intersection** operation, denoted by $\cap$, allows us to find tuples that
 The **set-difference** operation, denoted by $-$, allows us to find tuples that are in one  
 relation but are not in another.
 
-![[Screenshot 2024-10-09 at 10.45.48 PM.jpg| 500]]
-![[Screenshot 2024-10-09 at 10.46.29 PM.jpg|500]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.45.48 PM.jpg| 500]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.46.29 PM.jpg|500]]
 
 ### Assignment
 
 It is convenient at times to write a relational-algebra expression by assigning parts of it to temporary relation variables. The assignment operation, denoted by $\leftarrow$, works like assignment in a programming language. To illustrate this operation, consider the query to find courses that run in Fall 2017 as well as Spring 2018, which we saw earlier. We could write it as:
 
-![[Screenshot 2024-10-09 at 10.48.55 PM.jpg | 100]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.48.55 PM.jpg| 100]]
 
 We can combine and take use of this as such:
-![[Screenshot 2024-10-09 at 10.49.21 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-10-09 at 10.49.21 PM.jpg| 500]]
 
 With the assignment operation, a query can be written as a sequential program consisting of a series of assignments followed by an expression whose value is displayed as the result of the query
 

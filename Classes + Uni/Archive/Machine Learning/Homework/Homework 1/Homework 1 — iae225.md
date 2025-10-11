@@ -5,7 +5,7 @@ tags:
 # iae225
 ## Problem 1 — Practice Minimizing a Loss Function
 ### Question
-![[Screenshot 2025-02-26 at 5.07.51 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-02-26 at 5.07.51 AM.jpg]]
 ### Answers
 #### A
 
@@ -18,7 +18,7 @@ L(\beta) = \sum_{i=1}^{n}(y_{i} - \beta \times x_{i})^{2} \\
 \end{gather}
 $$
 #### B
-![[Screenshot 2025-02-26 at 5.22.53 AM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2025-02-26 at 5.22.53 AM.jpg| 500]]
 $\text{To find the value of } \beta \text{ that minimizes } L(\beta), \text{we take the derivative of } L(\beta) \text{ with respect to }\beta \text{ and set it to zero}:$
 $$
 \begin{gather}
@@ -49,7 +49,7 @@ $$
 $$
 ## Problem 2 — Machine Learning Does Averages
 ### Question
-![[Screenshot 2025-03-02 at 12.25.35 AM.jpg | 1000]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 12.25.35 AM.jpg| 1000]]
 ### Answers
 #### A
 This kind of makes sense if you think about it a bit, if we want to pick some value m that is the most representative of the dataset, it would make sense that this value is the mean.
@@ -87,7 +87,7 @@ m = \frac{y_{min} + y_{max}}{2} \\
 \text{At this point, both errors are equal, and hence the worst-case error is minimized}
 \end{gather}
 $$
-![[Pasted image 20250302010916.png]]
+![[z/z ScreenShots/Pasted image 20250302010916.png]]
 
 #### C
 Consider the loss function $L(m) = \sum_{i=1}^{n}|y_{i}-m|$. Prove that L(m) is minimized by setting m to the median of the data.
@@ -171,7 +171,7 @@ The maximum loss might be good when you want to make sure that the worst case er
 
 ## Practice with Non-linear Transformations
 ### Question
-![[Screenshot 2025-03-02 at 3.50.51 AM.jpg | 1000]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 3.50.51 AM.jpg| 1000]]
 ### Answer
 #### A
 $$
@@ -210,11 +210,11 @@ X.T @ X computes the matrix product X^T X. Similarly for X^T y
 
 	return np.exp(beta_0), -beta_1
 ```
-![[Screenshot 2025-03-02 at 4.48.44 AM.jpg]]
-![[Screenshot 2025-03-02 at 4.50.14 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 4.48.44 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 4.50.14 AM.jpg]]
 ## Problem 4: Practice With Gradients 
 ### Question
-![[Screenshot 2025-03-02 at 4.54.37 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 4.54.37 AM.jpg]]
 ### Answer
 #### A
 
@@ -228,7 +228,7 @@ $$
 ##### Notes
 https://en.wikipedia.org/wiki/Lp_space 
 Restricting for even integer values of $p$ is likely made for two important reasons: **to ensure full differentiability** of $g(z)$ in all real directions and to align with the definition of an $\ell_p$ norm without ambiguity.
-![[Screenshot 2025-03-02 at 10.24.16 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 10.24.16 PM.jpg]]
 - **Differentiability:** When $p$ is even (e.g. $2,4,6,\dots$), the function $g(z)=\sum_i (z_i)^p$ is a polynomial in the components of $z$. Polynomials are smooth (infinitely differentiable) everywhere on $\mathbb{R}^n$. In particular, there is no cusp or nondifferentiable point at $z_i=0$ because an even power eliminates any sign change issues. For example, $|x|^2 = x^2$ is differentiable for all $x$, including at $x=0$ 
 - **Norm Properties:** Norms, by definition, are **absolutely homogeneous** and **positive definite** (always non-negative, and zero only at the origin). For this to equal $(\sum_i z_i^p)^{p}$ without absolute values, we must have $z_i^p = |z_i|^p$ for each term. This equality holds true **only when $p$ is an even integer**, because raising to an even power automatically yields a non-negative result
 
@@ -239,7 +239,7 @@ $$
 \end{gather}
 $$
 We know that 
-![[Screenshot 2025-03-02 at 10.11.38 PM.jpg |400]]
+![[z/z ScreenShots/Screenshot 2025-03-02 at 10.11.38 PM.jpg|400]]
 but this is for the case where we are doing an l-2 norm.
 
 $$
@@ -285,9 +285,9 @@ From the Matrix‐Vector Perspective we:
 
 ## Piecewise Linear Regression via Feature Transformations
 ### Question
-![[Screenshot 2025-03-03 at 9.24.50 AM.jpg]]
-![[Screenshot 2025-03-03 at 9.25.02 AM.jpg]]
-![[Screenshot 2025-03-03 at 9.25.20 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-03 at 9.24.50 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-03 at 9.25.02 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-03 at 9.25.20 AM.jpg]]
 ### Answer
 #### A
 $$
@@ -319,4 +319,4 @@ I tried to get some help with AI but I don't understand if the parameters should
 
 Is this just algebra or is something more advanced going on here? From what I was thinking, it seems like $a_{1}$ is just the intercept so sure it should be $\beta_{0}$, but $s_{2}$ being $\beta_{1}+\beta_{2}$ is such because we need s1 and s2 to meet up due to $a_{1} + s_{1}\lambda = a_{2} + s_{2}$??
 
-![[Screenshot 2025-03-03 at 11.27.43 AM.jpg | 400]]![[Screenshot 2025-03-03 at 11.27.55 AM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2025-03-03 at 11.27.43 AM.jpg| 400]]![[z/z ScreenShots/Screenshot 2025-03-03 at 11.27.55 AM.jpg| 400]]

@@ -18,7 +18,7 @@
     - Goal: derive the key from how the algorithm encrypts known or custom-chosen data.
     - Example: Submitting a special plaintext block to an encryption oracle and analyzing the resulting ciphertext.
 
-![[Screenshot 2025-03-21 at 4.42.17 PM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 4.42.17 PM.jpg| 400]]
 ---
 
 ## 2. Block Ciphers & Modes of Operation
@@ -109,7 +109,7 @@ Input | Output
     1. XOR the first plaintext block with `110`, then look up the result in the table.
     2. Use the **previous ciphertext block** as the XOR input for the next block, etc.
 - This ensures identical plaintext blocks yield different ciphertext because each block depends on the last.
-![[Screenshot 2025-03-21 at 4.48.40 PM.jpg | 700]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 4.48.40 PM.jpg| 700]]
 
 **CT1 = encrypt(IV XOR PT1)**
 **CT2 = encrypt(PT2 XOR CT1)**
@@ -117,46 +117,46 @@ Input | Output
 
 ERROR CHECKING:
 decrypt it.
-![[Screenshot 2025-03-21 at 8.31.27 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.31.27 PM.jpg]]
 
 ### PCBC
 
-![[Screenshot 2025-03-21 at 8.33.03 PM.jpg | 900]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.33.03 PM.jpg| 900]]
 
 ### CFB
-![[Screenshot 2025-03-21 at 8.33.46 PM.jpg | 90]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.33.46 PM.jpg| 90]]
 
 ### OFB
 
 
-![[Screenshot 2025-03-21 at 8.34.42 PM.jpg | 900]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.34.42 PM.jpg| 900]]
 
 ---
 
 ## 7. RSA Key Generation & Encryption
 
-![[Screenshot 2025-03-21 at 4.54.44 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 4.54.44 PM.jpg| 500]]
 
-![[Screenshot 2025-03-21 at 4.57.02 PM.jpg | 600]]
-![[Screenshot 2025-03-21 at 5.00.17 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 4.57.02 PM.jpg| 600]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.00.17 PM.jpg| 500]]
 
 
-![[Screenshot 2025-03-21 at 5.05.17 PM.jpg | 500]]
-![[Screenshot 2025-03-21 at 5.06.47 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.05.17 PM.jpg| 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.06.47 PM.jpg| 500]]
 
-![[Screenshot 2025-03-21 at 5.07.24 PM.jpg | 500]]
-![[Screenshot 2025-03-21 at 5.10.06 PM.jpg | 500]]
-![[Screenshot 2025-03-21 at 5.13.34 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.07.24 PM.jpg| 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.10.06 PM.jpg| 500]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 5.13.34 PM.jpg| 500]]
 
 DECRYPTION:
-![[Screenshot 2025-03-21 at 8.23.11 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.23.11 PM.jpg]]
 ## 8. Diffie-Hellman Key Exchange
 
-![[Screenshot 2025-03-21 at 8.08.23 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.08.23 PM.jpg]]
 
-![[Screenshot 2025-03-21 at 8.13.06 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 8.13.06 PM.jpg]]
 
-![[Screenshot 2025-03-21 at 6.03.27 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 6.03.27 PM.jpg]]
 
 ---
 
@@ -188,4 +188,4 @@ DECRYPTION:
     
     - Compute a shared secret from provided parameters (g,n,a,b)(g, n, a, b).
 
-![[Screenshot 2025-03-21 at 4.33.59 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2025-03-21 at 4.33.59 PM.jpg]]

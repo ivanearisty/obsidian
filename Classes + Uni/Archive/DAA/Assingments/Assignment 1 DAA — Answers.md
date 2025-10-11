@@ -272,7 +272,7 @@ I found it to be strand sort with O(n^2) complexity from these sources:
 
 Below is a non-recursive variation of MergeSort, which is intended to sort array A between indices s and f . Note that it makes reference to the Merge procedure from week 2. You should remind yourself of the specific parameters of the Merge algorithm.
 
-![[Screenshot 2024-09-27 at 3.01.04 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-27 at 3.01.04 AM.jpg]]
 
 - Procedure Execution:
 Start:
@@ -471,7 +471,7 @@ $$
 
 8 points Consider the the pseudo-code below for the recursive algorithm MyPrint(A, s, f ), which takes as input an array A, indexed between s and f .
 
-![[Screenshot 2024-09-27 at 8.03.29 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-09-27 at 8.03.29 AM.jpg]]
 
 - Trace the recursive algorithm on the input A = \[5, 4, 3, 2, 1] indexed from s = 1 to f = 5. Ensure that you show the state of the array during the recursive calls, and detail the parameters passed at each stage of the recursion. Clearly show the final state of the array A. 
 

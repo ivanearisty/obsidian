@@ -45,4 +45,4 @@ https://www.linkedin.com/in/farwai/
 ### Spriha
 https://www.linkedin.com/in/sprihajha/
 
-![[Screenshot 2024-10-01 at 1.20.45 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-01 at 1.20.45 PM.jpg]]

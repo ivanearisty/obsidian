@@ -39,7 +39,7 @@ Order_item(**item_id**, **ISBN**, **order_id**, price_per_item)
 	order_id references Order(order_id)
 
 **WRONG**, realize that we don't have to make the when removing redundancy of many to one sets, we don't have to include them in the primary key
-![[Screenshot 2024-11-03 at 8.17.19 PM.jpg | 512]]
+![[z/z ScreenShots/Screenshot 2024-11-03 at 8.17.19 PM.jpg| 512]]
 
 ### Problem 3
 
@@ -127,5 +127,5 @@ group by
 
 Output the IDs of any packages that were last scanned with label “Arrival scan, Miami airport” more than 5 days ago, and that were never scanned afterwards. (In other words, look for packages that were last scanned at the Miami airport but then got lost for the next 5+ days.)
 
-![[Screenshot 2024-11-03 at 11.04.55 PM.jpg | 500]]
+![[z/z ScreenShots/Screenshot 2024-11-03 at 11.04.55 PM.jpg| 500]]
 

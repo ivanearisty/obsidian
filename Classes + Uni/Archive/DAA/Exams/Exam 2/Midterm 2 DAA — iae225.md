@@ -13,9 +13,9 @@ Signature: Ivan Ernesto Aristy Eusebio
 Show how to insert the new node 43. 
 You must show both the initial insertion, and any changes made by RB-repair. 
 
-![[3D91F9D0-C7AC-48EC-A619-28DAFA8F8C96.jpg]]
-![[7C512BD2-7C28-4921-9318-79DFA4D4EE32.jpg]]
-![[627ED480-232E-4928-A94C-F06D6A9912B6.jpg]]
+![[z/z ScreenShots/3D91F9D0-C7AC-48EC-A619-28DAFA8F8C96.jpg]]
+![[z/z ScreenShots/7C512BD2-7C28-4921-9318-79DFA4D4EE32.jpg]]
+![[z/z ScreenShots/627ED480-232E-4928-A94C-F06D6A9912B6.jpg]]
 
 The tree now has 14 nodes. What is the maximum number of nodes that can be added before the black height increases?
 
@@ -37,7 +37,7 @@ So we can have at most
 
 ### B
 
-![[Screenshot 2024-11-18 at 6.18.43 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 6.18.43 PM.jpg]]
 
 1. Not possible, the 14 interval is too far below and when checking there is no way to make the max height from the left subtree of 10 be equal to that of the right. We would need to apply a rotation.
 
@@ -179,7 +179,7 @@ Our algorithm is O(n) since we visit every node once, and the init maxheight is 
 More justified, this is the same time complexity as inorder traversal since
 T(n) leq t(lx) + t(rx) + c where l and r denote the left and right subtrees. And we have proved before that this runtime is indeed O(n)
 From lecture notes:
-![[Screenshot 2024-11-18 at 6.57.08 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 6.57.08 PM.jpg]]
 
 ## Part 6
 
@@ -243,7 +243,7 @@ MaxPregrade(T):
 Same as above, runtime is O(logn) because a rb tree has height bound by logn and we are executing an algorithm that at most will go all the way to right, or to the left, but it will traverse down one path. From root to leaf, and that leaf is at most h away from root.
 
 ### d
-![[Screenshot 2024-11-18 at 7.23.01 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 7.23.01 PM.jpg]]
 ```python
 AboveBest(T):
 	if T == null return 0
@@ -273,7 +273,7 @@ AboveBest(T, target):
 ## Part 7
 
 ### A
-![[Screenshot 2024-11-18 at 7.29.31 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 7.29.31 PM.jpg]]
 
 Why not just level order? Anyways...
 
@@ -295,7 +295,7 @@ Nevertheless, we werent asked to optimize for runtime or to hit a specific one.
 
 ## Question 8
 
-![[Screenshot 2024-11-18 at 7.41.09 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 7.41.09 PM.jpg]]
 
 ### Reasoning
 
@@ -343,13 +343,13 @@ return M[n,T]
 We loop through a table of size n · T performing a constant number of steps for each entry. Therefore the overall runtime is O(n · T ).
 ## Question 9
 
-![[Screenshot 2024-11-18 at 8.04.11 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 8.04.11 PM.jpg]]
 
 Ok so this is longest palindromic subsequence, but now we get more money for certain types of joins on the table.
 
 Let's look at what palindromic subsequence is:
 
-![[Screenshot 2024-11-18 at 8.06.49 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 8.06.49 PM.jpg]]
 
 Let's define a convenience function called getValue(i) so that for input i, where i is in {R, B, G, Y, P } we will get the respective price. 
 
@@ -361,7 +361,7 @@ Then, for the second diagonal table, we can assign if there exists a palindrome 
 
 After drawing a quick example
 
-![[IMG_6308.jpeg]]
+![[z/z ScreenShots/IMG_6308.jpeg]]
 
 Our algorithm does work in selecting the best case, and we know LPS wont make any bad rainbows by the nature of how it works, so:
 
@@ -395,7 +395,7 @@ Since we have $\mathcal{O}(n^{2})$ entries in the table, the algorithm runs in t
 Just like regular lps
 ## Question 10
 
-![[Screenshot 2024-11-18 at 8.27.19 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 8.27.19 PM.jpg]]
 
 Facts:
 - If we pick up a rock at mile marker i and carry itto mile marker j, we get paid j-i * weight
@@ -415,7 +415,7 @@ I mean, we can pick up and drop at any point, so the problem just becomes a sort
 So yes, it definitely works, always hold the rock that is making you the most money on each discrete step, no reason to downgrade your rock moneymaking potential, there is only a reason to upgrade it.
 
 ## Question 11
-![[Screenshot 2024-11-18 at 8.27.25 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-18 at 8.27.25 PM.jpg]]
 
 
 ### Reasoning
@@ -456,7 +456,7 @@ The cost of rock 2 is 1 + OH!
 The benefit of rock 2 is 1 + the benefit of all rocks after 5!
 
 Ok let's try to write something:
-![[A7200E56-F1AA-486B-9069-355724635AA4.jpg]]
+![[z/z ScreenShots/A7200E56-F1AA-486B-9069-355724635AA4.jpg]]
 
 **Table:**
 
@@ -515,4 +515,4 @@ return dp[0]
 ```
 
 Sanity check:
-![[A2992652-EE5F-4F87-B724-BE2B806731D1.jpg]]
+![[z/z ScreenShots/A2992652-EE5F-4F87-B724-BE2B806731D1.jpg]]

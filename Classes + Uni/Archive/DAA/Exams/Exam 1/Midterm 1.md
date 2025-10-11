@@ -18,8 +18,8 @@ Signature: Ivan Ernesto Aristy Eusebio
 
 ## Q1
 ### A
-![[Screenshot 2024-11-24 at 5.56.09 PM.jpg]]
-![[Screenshot 2024-10-13 at 8.49.36 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 5.56.09 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-13 at 8.49.36 PM.jpg]]
 $$
 \begin{gather}
 \sqrt{ 3n^{4} + \log n } \\
@@ -55,7 +55,7 @@ n^{n} + 3^{n/2} , \mathcal{O}(n^{n})\\
 $$
 
 ### B
-![[Screenshot 2024-11-24 at 6.04.46 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 6.04.46 PM.jpg]]
 
 $$
 \begin{gather}
@@ -106,7 +106,7 @@ $$
 
 ### C
 
-![[Screenshot 2024-11-24 at 6.15.59 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 6.15.59 PM.jpg]]
 
 $$
 \begin{gather}
@@ -143,7 +143,7 @@ $$
 ## Q2
 
 ### A REVISE TODO
-![[Screenshot 2024-11-24 at 6.33.13 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 6.33.13 PM.jpg]]
 
 $2T\left( \frac{n}{4} \right) + \log(n^{3})$
 
@@ -170,7 +170,7 @@ $$
 Hence, the master method applies and $T(n) = \Theta(\sqrt{ n })$
 
 ## Q3
-![[Screenshot 2024-11-24 at 6.40.10 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 6.40.10 PM.jpg]]
 
 ```python
 findMin(A, i):
@@ -184,7 +184,7 @@ findMin(A, i):
 The runtime is $T(n) = 2T\left( \frac{n}{2} \right) + c$ or $\Theta(n)$ (n^k = n, fn = c, hence n) since we are potentially going through every single node in the heap to find our minimum value.
 
 ## Q4
-![[Screenshot 2024-11-24 at 6.45.57 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 6.45.57 PM.jpg]]
 
 Quadratic Probing
 
@@ -240,14 +240,14 @@ END
 
 ## Q5
 
-![[Screenshot 2024-11-24 at 6.54.23 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 6.54.23 PM.jpg]]
 
 ### Reasoning
 
 Let's remind ourselves of what bubble sort is:
 This is naive bubble sort:
 
-![[Screenshot 2024-11-23 at 10.06.54 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-23 at 10.06.54 PM.jpg]]
 
 And this is the more advanced version where we only verify swaps up to the second last element.
 
@@ -286,7 +286,7 @@ We haven't performed a single swap and we break.
 
 Trying a reverse order, we realize that this dream couple, has not made a worse sorting algorithm in terms of swaps, because each pass takes turns in bubbling up 1 element to the correct spot:
 
-![[D613D457-4685-4654-8B3E-8FD234CECEA6 Large.jpeg | 450]]
+![[z/z ScreenShots/D613D457-4685-4654-8B3E-8FD234CECEA6 Large.jpeg| 450]]
 
 Hence, the total number of swaps is still:
 
@@ -298,7 +298,7 @@ $$
 
 ## Question 6
 
-![[Screenshot 2024-11-24 at 7.09.46 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 7.09.46 PM.jpg]]
 
 By steps:
 divide into 4 quarters
@@ -323,11 +323,11 @@ $T(n) = \Theta(\log n\times \sqrt{ n })$
 
 Ok, now we know what we're looking for and it doesnt look like it matters if i remove that constant either:
 
-![[3BFE51BD-8AB0-4ADA-932A-FF175AA08BA8 Large.jpeg | 450]]
+![[z/z ScreenShots/3BFE51BD-8AB0-4ADA-932A-FF175AA08BA8 Large.jpeg| 450]]
 And we get the same result
 
 ## Question 7
-![[Screenshot 2024-11-24 at 7.26.33 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 7.26.33 PM.jpg]]
 
 Randomize select is not very random if we know that we're going to make the second worst choice at any point in time always (expect for perhaps the last time where we want the max rank right)
 
@@ -361,7 +361,7 @@ $$
 
 ## Question 8
 
-![[Screenshot 2024-11-24 at 7.39.24 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 7.39.24 PM.jpg]]
 
 - There are no exact duplicates
 - They are not rounded and include all decimals (real numbers cant use radix and stuff)
@@ -399,7 +399,7 @@ Elements below varLow, varLow, sweet spot, median, sweet spot, varHigh, Elements
 All these operations are O(n) time, and, although a bit convoluted, it would guarantee O(n) because we are doing a series of O(n) steps (2 selects, 2 partitions, maybe 2 O(n) searches to find the index if we didn't modify select).
 ## Question 9
 
-![[Screenshot 2024-11-24 at 7.59.42 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 7.59.42 PM.jpg]]
 
 Insertion sort has a path of length n-1 which represents the best case scenario (where the array is already sorted). Likewise, bubble sort has another n-1 path that represents the same thing.
 
@@ -415,7 +415,7 @@ Selection sort work by "selecting" and to "select" something to go at pos 1, we 
 
 ## Question 10
 
-![[Screenshot 2024-11-24 at 7.59.50 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-11-24 at 7.59.50 PM.jpg]]
 
 ```
 Quicksort:

@@ -71,7 +71,7 @@ BFS(G,s):
 ```
 
 Resultant Tree:
-![[Screenshot 2024-12-18 at 4.40.47 AM.jpg | 300]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 4.40.47 AM.jpg| 300]]
 ### Runtime
 - Step 1 runs in O(V)
 - Step 2 is O(1)
@@ -292,13 +292,13 @@ Merge(u, v):
             parent[rootV] = rootU           # Attach one tree under the other
             rank[rootU] += 1                # Increment the rank of the new root
 ```
-![[Screenshot 2024-12-18 at 4.34.53 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 4.34.53 PM.jpg]]
 
 Optimization:
 
 Using counting sort [[Practice Set 13 — Solutions.pdf]] Problem 5
 
-![[Screenshot 2024-12-18 at 4.36.39 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 4.36.39 PM.jpg]]
 
 ## Dijkstra’s algorithm
 
@@ -318,7 +318,7 @@ Dijkstra(G,s):
 				v.parent = u
 ```
 
-![[Screenshot 2024-12-18 at 4.41.37 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 4.41.37 PM.jpg]]
 
 ## Bellman Ford
 
@@ -341,12 +341,12 @@ To iterate, set the order first
 update every node in iteration
 if no new updates break early
 Always look at the outgoing edges, if you don't know how to reach something skip it for now.
-![[Screenshot 2024-12-18 at 4.48.24 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 4.48.24 PM.jpg]]
 
 ## Reduction
 
 It's ok as long as we represent a valid input. Don't represent all inputs but it's valid input:
-![[Screenshot 2024-12-18 at 5.01.31 PM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-12-18 at 5.01.31 PM.jpg]]
 ## Care
 To get home from finish to other edges:
 	reverse edges

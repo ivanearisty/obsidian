@@ -4,7 +4,7 @@ tags:
 ---
 ## Commands
 
-![[Screenshot 2025-05-02 at 10.03.24 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-02 at 10.03.24 PM.png]]
 
 ```bash
 iptables 
@@ -94,7 +94,7 @@ iptables -P OUTPUT DROP #Set default rule for OUTPUT
 iptables -P INPUT DROP #Set default rule for INPUT
 ```
 
-![[2a.png]]
+![[z/z ScreenShots/2a.png]]
 
 **What is the purpose of each of the four rules?**
 The first two rules relate to packets that are echo-reply (ping). The first accepts them, the second allows sending them.
@@ -208,7 +208,7 @@ Chain OUTPUT (policy DROP 1 packets, 60 bytes)
 ### 3.a
 
 **ICMP**
-![[Screenshot 2025-05-04 at 10.45.09 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-04 at 10.45.09 PM.png]]
 
 **Describe your observation for ICMP connection tracking**. Be sure to specify how long the tracking information is kept once a connection has been established.
 
@@ -217,18 +217,18 @@ The number 29 represents the remaining lifetime of this connection tracking entr
 We have type=8 code=0 with type=0 code=0 (request/reply)
 
 **UDP**
-![[Screenshot 2025-05-04 at 11.07.46 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-04 at 11.07.46 PM.png]]
 
 Similar to ICMP, the entry tracks both the original packet flow and the expected reply flow.
 It shows \[UNREPLIED], matching the expectation that the simple nc -lu server didn't send a reply back.
 It has 26 seconds remaining, consistent with the short timeout for unreplied UDP flows...
 
 **TCP**
-![[Screenshot 2025-05-04 at 11.14.44 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-04 at 11.14.44 PM.png]]
 
 The state is ESTABLISHED. This indicates the initial 3-way handshake is complete and data transfer can occur.
 
 Timeout: is 431995 seconds remaining; very long timeout for TCP connections in the ESTABLISHED state.
 
 ### 3.b
-![[Screenshot 2025-05-04 at 11.30.49 PM.png]]
+![[z/z ScreenShots/Screenshot 2025-05-04 at 11.30.49 PM.png]]

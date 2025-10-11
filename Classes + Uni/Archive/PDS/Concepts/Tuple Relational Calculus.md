@@ -38,7 +38,7 @@ tags:
 
   Notice that a relation on schema $(ID, name, dept\_name, salary)$ is implicitly defined by the query.
 
-![[Screenshot 2024-10-10 at 1.34.27 AM.jpg | 400]]
+![[z/z ScreenShots/Screenshot 2024-10-10 at 1.34.27 AM.jpg| 400]]
 
 ---
 
@@ -83,19 +83,19 @@ English: There is a row in the instructor table such that the name of s and t ma
 
 - **Find the set of all courses taught in the Fall 2009 semester, or in the Spring 2010 semester, or both**:
 
-![[Screenshot 2024-10-10 at 1.55.15 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-10 at 1.55.15 AM.jpg]]
 
-![[Screenshot 2024-10-10 at 1.51.00 AM.jpg | 200]]
+![[z/z ScreenShots/Screenshot 2024-10-10 at 1.51.00 AM.jpg| 200]]
 
 ---
 
 - **Find the set of all courses taught in the Fall 2009 semester, and in the Spring 2010 semester**:
 
-![[Screenshot 2024-10-10 at 1.57.06 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-10 at 1.57.06 AM.jpg]]
 
 - **Find the set of all courses taught in the Fall 2009 semester, but not in the Spring 2010 semester**:
 
-![[Screenshot 2024-10-10 at 1.57.29 AM.jpg]]
+![[z/z ScreenShots/Screenshot 2024-10-10 at 1.57.29 AM.jpg]]
 
 ---
 
@@ -104,7 +104,7 @@ English: There is a row in the instructor table such that the name of s and t ma
 - **Find all students who have taken *all courses* offered in the Biology department**:
 
 So far predicates have been looking row by row, but sometimes we have questions that involve looking at a whole bunch of rows together to find a set and then find if that subset of some other set.
-  ![[Screenshot 2024-10-10 at 1.59.18 AM.jpg]]
+  ![[z/z ScreenShots/Screenshot 2024-10-10 at 1.59.18 AM.jpg]]
 
 If u is a biology course, then student r took course u.
 
