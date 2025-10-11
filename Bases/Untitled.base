@@ -1,0 +1,13 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.folder == "Recruiting/Applications"
+    order:
+      - file.name
+      - company
+      - position
+      - status
+    columnSize:
+      note.position: 207
