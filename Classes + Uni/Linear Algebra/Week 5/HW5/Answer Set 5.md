@@ -1,7 +1,5 @@
 ### Problem 1
 
-**Find the matrix representation $[T]_{\beta}^{\beta}$ for the linear transformation $T: M_{2\times2}(F) \rightarrow M_{2\times2}(F)$ defined by $T(B) = AB$, where $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $\beta$ is the standard basis for $M_{2\times2}(F)$.**
-
 The standard basis for $M_{2\times2}(F)$ is $\beta = \{v_1, v_2, v_3, v_4\}$, where:
 $v_1 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, v_2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, v_3 = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, v_4 = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$
 
@@ -15,18 +13,9 @@ $v_1 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, v_2 = \begin{pmatrix} 0 & 1
 * $T(v_4) = 0v_1 + 2v_2 + 0v_3 + 4v_4 \implies [T(v_4)]_{\beta} = \begin{pmatrix} 0 \\ 2 \\ 0 \\ 4 \end{pmatrix}$
 $[T]_{\beta}^{\beta} = \begin{pmatrix} 1 & 0 & 2 & 0 \\ 0 & 1 & 0 & 2 \\ 3 & 0 & 4 & 0 \\ 0 & 3 & 0 & 4 \end{pmatrix}$
 
-***
-
 ### Problem 2
 
-**Let $\beta=(1,x,x^{2})$ and $\gamma=(1,x+1,(x+1)^{2})$ be two bases of $\mathcal{P}_{2}(\mathbb{R})$.**
-
-#### (i) Find the change of basis matrix P from $\gamma$ to $\beta$ and the change of basis matrix $P^{-1}$ from $\beta$ to $\gamma$.
-
-The change of basis matrix from $\gamma$ to $\beta$ is $P = [id]_{\beta}^{\gamma}$ 
-Its columns are the coordinate vectors of the basis vectors of $\beta$ with respect to the basis $\gamma$
-
-* **Finding P:** We express the vectors of $\beta = (v_1, v_2, v_3)$ in terms of $\gamma = (w_1, w_2, w_3)$.
+- P: We express the vectors of $\beta = (v_1, v_2, v_3)$ in terms of $\gamma = (w_1, w_2, w_3)$.
     * $v_1 = 1 = w_1$. So, $[v_1]_{\gamma} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$.
     * $v_2 = x = (x+1) - 1 = w_2 - w_1$. So, $[v_2]_{\gamma} = \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}$.
     * $v_3 = x^2 = ((x+1)-1)^2 = (x+1)^2 - 2(x+1) + 1 = w_3 - 2w_2 + w_1$. So, $[v_3]_{\gamma} = \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}$.
@@ -36,7 +25,7 @@ Its columns are the coordinate vectors of the basis vectors of $\beta$ with resp
     P = [id]_{\beta}^{\gamma} = \begin{pmatrix} 1 & -1 & 1 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{pmatrix}
     $$
 
-* [cite_start]**Finding $P^{-1}$:** The change of basis matrix from $\beta$ to $\gamma$ is $P^{-1} = [id]_{\gamma}^{\beta}$[cite: 65]. We express the vectors of $\gamma$ in terms of $\beta$.
+* $P^{-1}$: The change of basis matrix from $\beta$ to $\gamma$ is $P^{-1} = [id]_{\gamma}^{\beta}$. We express the vectors of $\gamma$ in terms of $\beta$.
     * $w_1 = 1 = 1 \cdot v_1 + 0 \cdot v_2 + 0 \cdot v_3$. So, $[w_1]_{\beta} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$.
     * $w_2 = x+1 = 1 \cdot v_1 + 1 \cdot v_2 + 0 \cdot v_3$. So, $[w_2]_{\beta} = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}$.
     * $w_3 = (x+1)^2 = x^2 + 2x + 1 = 1 \cdot v_1 + 2 \cdot v_2 + 1 \cdot v_3$. So, $[w_3]_{\beta} = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}$.
@@ -45,36 +34,30 @@ Its columns are the coordinate vectors of the basis vectors of $\beta$ with resp
     $$
     P^{-1} = [id]_{\gamma}^{\beta} = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}
     $$
+#### (ii)
 
----
-
-#### (ii) Let $T:\mathcal{P}_{2}(\mathbb{R})\rightarrow\mathcal{P}_{2}(\mathbb{R})$ be defined as $T(f)=(3+x)f^{\prime}(x)+f(x)$. Find $[T]_{\beta}^{\beta}$ and $[T]_{\gamma}^{\gamma}$.
-
-* **Finding $[T]_{\beta}^{\beta}$:** We apply T to the vectors in $\beta=(1,x,x^2)$.
+* $[T]_{\beta}^{\beta}$: We apply T to the vectors in $\beta=(1,x,x^2)$.
     * $T(1) = (3+x)(0) + 1 = 1 = 1 \cdot 1 + 0 \cdot x + 0 \cdot x^2$. So, $[T(1)]_{\beta} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$.
     * $T(x) = (3+x)(1) + x = 3+2x = 3 \cdot 1 + 2 \cdot x + 0 \cdot x^2$. So, $[T(x)]_{\beta} = \begin{pmatrix} 3 \\ 2 \\ 0 \end{pmatrix}$.
     * $T(x^2) = (3+x)(2x) + x^2 = 6x + 3x^2 = 0 \cdot 1 + 6 \cdot x + 3 \cdot x^2$. So, $[T(x^2)]_{\beta} = \begin{pmatrix} 0 \\ 6 \\ 3 \end{pmatrix}$.
-
     $$
     [T]_{\beta}^{\beta} = \begin{pmatrix} 1 & 3 & 0 \\ 0 & 2 & 6 \\ 0 & 0 & 3 \end{pmatrix}
     $$
 
-* **Finding $[T]_{\gamma}^{\gamma}$:** We apply T to the vectors in $\gamma=(1, x+1, (x+1)^2)$.
+* $[T]_{\gamma}^{\gamma}$: We apply T to the vectors in $\gamma=(1, x+1, (x+1)^2)$.
     * $T(1) = 1 = 1 \cdot 1 + 0 \cdot (x+1) + 0 \cdot (x+1)^2$. So, $[T(1)]_{\gamma} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$.
     * $T(x+1) = (3+x)(1) + (x+1) = 4+2x = 2(x+1) + 2 = 2 \cdot 1 + 2 \cdot (x+1) + 0 \cdot (x+1)^2$. So, $[T(x+1)]_{\gamma} = \begin{pmatrix} 2 \\ 2 \\ 0 \end{pmatrix}$.
-    * $T((x+1)^2) = (3+x)(2(x+1)) + (x+1)^2 = (2+(x+1))(2(x+1)) + (x+1)^2 = 4(x+1) + 3(x+1)^2 = 0 \cdot 1 + 4 \cdot (x+1) + 3 \cdot (x+1)^2$. So, $[T((x+1)^2)]_{\gamma} = \begin{pmatrix} 0 \\ 4 \\ 3 \end{pmatrix}$.
+    - $$
+\begin{gather}
+T((x+1)^2) = (3+x)(2(x+1)) + (x+1)^2 = (2+(x+1))(2(x+1)) \\
+(x+1)^2 = 4(x+1) + 3(x+1)^2 = 0 \cdot 1 + 4 \cdot (x+1) + 3 \cdot (x+1)^2 \\
+    So, [T((x+1)^2)]_{\gamma} = \begin{pmatrix} 0 \\ 4 \\ 3 \end{pmatrix}
+\end{gather}
+$$
+$$ [T]_{\gamma}^{\gamma} = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 2 & 4 \\ 0 & 0 & 3 \end{pmatrix} $$
 
-    $$
-    [T]_{\gamma}^{\gamma} = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 2 & 4 \\ 0 & 0 & 3 \end{pmatrix}
-    $$
+#### (iii)
 
----
-
-#### (iii) Compute $P^{-1}[T]_{\beta}^{\beta}P$ and see that it is equal to $[T]_{\gamma}^{\gamma}$.
-
-[cite_start]According to Corollary 5.19, if $A=[T]_{\beta}^{\beta}$, $B=[T]_{\gamma}^{\gamma}$, and $P=[id]_{\gamma}^{\beta}$, then $B = P^{-1}AP$[cite: 77]. In our notation from part (i), the change of basis matrix from $\gamma$ to $\beta$ is $P=[id]_{\beta}^{\gamma}$. The matrix needed for the formula is $[id]_{\gamma}^{\beta}$, which we called $P^{-1}$. So we need to verify that $[T]_{\gamma}^{\gamma} = (P^{-1})^{-1}[T]_{\beta}^{\beta}P^{-1} = P[T]_{\beta}^{\beta}P^{-1}$.
-
-Let's compute $P[T]_{\beta}^{\beta}P^{-1}$:
 $$
 P[T]_{\beta}^{\beta}P^{-1} = \begin{pmatrix} 1 & -1 & 1 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 3 & 0 \\ 0 & 2 & 6 \\ 0 & 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}
 $$
@@ -82,23 +65,22 @@ First, multiply $P[T]_{\beta}^{\beta}$:
 $$
 \begin{pmatrix} 1 & -1 & 1 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 3 & 0 \\ 0 & 2 & 6 \\ 0 & 0 & 3 \end{pmatrix} = \begin{pmatrix} 1 & 1 & -3 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}
 $$
-Now, multiply the result by $P^{-1}$:
+Then, multiply the result by $P^{-1}$:
 $$
 \begin{pmatrix} 1 & 1 & -3 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 2 & 4 \\ 0 & 0 & 3 \end{pmatrix}
 $$
-This result is equal to $[T]_{\gamma}^{\gamma}$ as calculated in part (ii), verifying the change of basis formula.
-
-***
+Which is equal to $[T]_{\gamma}^{\gamma}$ as calculated in part (ii).
 
 ### Problem 3
 
-#### (i) Show that $\{\varphi_{0},\varphi_{1},...,\varphi_{n}\}$ is the dual basis corresponding to the basis $\{1, (x-a), (x-a)^{2},...,(x-a)^{n}\}$ of $\mathcal{P}_{n}(\mathbb{R})$.
+#### (i)
 
-Let $\beta = \{v_0, v_1, ..., v_n\}$ where $v_j(x)=(x-a)^j$. [cite_start]The set $\beta^* = \{\varphi_0, \varphi_1, ..., \varphi_n\}$ is the dual basis to $\beta$ if $\varphi_i(v_j) = \delta_{ij}$ for all $i,j \in \{0, ..., n\}$[cite: 105].
+Let $\beta = \{v_0, v_1, ..., v_n\}$ where $v_j(x)=(x-a)^j$. 
+The set $\beta^* = \{\varphi_0, \varphi_1, ..., \varphi_n\}$ is the dual basis to $\beta$ if $\varphi_i(v_j) = \delta_{ij}$ for all $i,j \in \{0, ..., n\}$
 
-Let's compute $\varphi_i(v_j)$:
+We compute $\varphi_i(v_j)$:
 $$
-\varphi_i(v_j) = \frac{1}{i!} v_j^{(i)}(a) = \frac{1}{i!} \frac{d^i}{dx^i}((x-a)^j)\bigg|_{x=a}
+\varphi_i(v_j) = \frac{1}{i!} v_j^{(i)}(a) = \frac{1}{i!} \frac{d^i}{dx^i}((x-a)^j)
 $$
 The $i$-th derivative of $(x-a)^j$ is:
 * If $i < j$: $\frac{j!}{(j-i)!}(x-a)^{j-i}$. At $x=a$, this is 0.
@@ -111,28 +93,26 @@ $$
 $$
 Since $\varphi_i(v_j) = \delta_{ij}$, the set $\{\varphi_{0},\varphi_{1},...,\varphi_{n}\}$ is the dual basis.
 
----
-
-#### (ii) Use this dual basis to find the coordinate of $f(x)\in\mathcal{P}_{n}(\mathbb{R})$ under the basis $\{1,(x-a),(x-a)^{2},...,(x-a)^{n}\}$.
+#### (ii)
 
 Any polynomial $f(x) \in \mathcal{P}_n(\mathbb{R})$ can be written as a linear combination of the basis vectors:
 $$
 f(x) = \sum_{i=0}^{n} c_i v_i(x) = \sum_{i=0}^{n} c_i (x-a)^i
 $$
-The coefficients $c_i$ form the coordinate vector of $f(x)$. [cite_start]As shown in Remark 5.28, the coordinates of a vector $v$ are given by applying the dual basis functionals to $v$[cite: 112]. Thus, the $i$-th coordinate $c_i$ is given by $\varphi_i(f)$.
+The coefficients $c_i$ form the coordinate vector of $f(x)$. 
+
+As shown in \[[Lecture 5#Remark 5.28]], the coordinates of a vector $v$ are given by applying the dual basis functionals to $v$. Thus, the $i$-th coordinate $c_i$ is given by $\varphi_i(f)$.
 
 Substituting this back into the expansion for $f(x)$:
 $$
 f(x) = \sum_{i=0}^{n} \varphi_i(f) (x-a)^i
 $$
-This is the Taylor expansion for the polynomial $f(x)$ centered at $a$.
 
----
-
-#### (iii) Express $l_{b}$ as a linear combination of the dual basis $\{\varphi_{0},...,\varphi_{n}\}$.
+#### (iii)
 
 We want to find scalars $c_i$ such that $l_b = \sum_{i=0}^{n} c_i \varphi_i$.
-[cite_start]As shown in the proof of Proposition 5.27, for any linear functional $\varphi$, its coordinates with respect to the dual basis $\{\varphi_i\}$ are given by applying $\varphi$ to the primal basis vectors $\{v_i\}$[cite: 110, 111].
+
+As shown in the proof of \[[Lecture 5#Proposition 5.27]], for any linear functional $\varphi$, its coordinates with respect to the dual basis $\{\varphi_i\}$ are given by applying $\varphi$ to the primal basis vectors $\{v_i\}$.
 
 So, the coefficient $c_i$ is given by $l_b(v_i)$.
 $$
@@ -143,38 +123,28 @@ $$
 l_b = \sum_{i=0}^{n} (b-a)^i \varphi_i
 $$
 
-***
-
 ### Problem 4
 
-**Let $T:\mathcal{P}_{3}(\mathbb{R})\rightarrow\mathcal{P}_{3}(\mathbb{R})$ be the differentiation map $Tf=f^{\prime}$. Find two bases $\beta$ and $\gamma$ of $\mathcal{P}_{3}(\mathbb{R})$ such that $[T]_{\beta}^{\gamma}=(\begin{smallmatrix}I_{3}&0\\ 0&0\end{smallmatrix})$.**
-
-[cite_start]We will follow the constructive proof of Theorem 5.21[cite: 86, 87, 88, 89, 90]. The dimension of the space is $n=4$.
-
-1.  **Find Rank and Nullity:**
+1.  Find Rank and Nullity:
     * The image of T is $\text{im } T = \text{span}\{T(1), T(x), T(x^2), T(x^3)\} = \text{span}\{0, 1, 2x, 3x^2\} = \mathcal{P}_2(\mathbb{R})$.
-    * [cite_start]The rank of T is $r = \dim(\text{im } T) = 3$[cite: 560].
+    * The rank of T is $r = \dim(\text{im } T) = 3$.
     * The kernel of T is $\ker T = \{f \in \mathcal{P}_3(\mathbb{R}) | f' = 0\}$, which is the space of constant polynomials $\mathcal{P}_0(\mathbb{R})$.
-    * [cite_start]The nullity of T is $\dim(\ker T) = 1$[cite: 557].
-    * The target matrix will have a $3 \times 3$ identity block, $I_3$.
+    * The nullity of T is $\dim(\ker T) = 1$.
 
-2.  **Construct Bases $\beta$ and $\gamma$:**
-    * **Choose a basis for $\gamma$:** Start with a basis for $\text{im } T$, such as $\{1, x, x^2\}$, and extend it to a basis for the codomain $\mathcal{P}_3(\mathbb{R})$. We can add $x^3$.
+2.  Construct Bases $\beta$ and $\gamma$:
+    * Choose a basis for $\gamma$: Start with a basis for $\text{im } T$, such as $\{1, x, x^2\}$, and extend it to a basis for the codomain $\mathcal{P}_3(\mathbb{R})$. We can add $x^3$.
         Let $\gamma = (1, x, x^2, x^3)$.
-
-    * **Choose a basis for $\beta$:** We need to find a basis $\beta=(v_1, v_2, v_3, v_4)$ such that the matrix representation has the desired form. This means:
+    * Choose a basis for $\beta$: We need to find a basis $\beta=(v_1, v_2, v_3, v_4)$ such that the matrix representation has the desired form. This means:
         * $T(v_1) = 1 \cdot \gamma_1 = 1$
         * $T(v_2) = 1 \cdot \gamma_2 = x$
         * $T(v_3) = 1 \cdot \gamma_3 = x^2$
         * $T(v_4) = 0$ (so $v_4 \in \ker T$)
-
-    * **Find the vectors for $\beta$:**
+    * Find the vectors for $\beta$:
         * For $T(v_1) = 1$, we can choose $v_1 = x$.
         * For $T(v_2) = x$, we can choose $v_2 = \frac{1}{2}x^2$.
         * For $T(v_3) = x^2$, we can choose $v_3 = \frac{1}{3}x^3$.
         * For $T(v_4) = 0$, we need a vector in the kernel of T. We can choose $v_4 = 1$.
-
-    * **Verify $\beta$ is a basis:** The set $\beta = (x, \frac{1}{2}x^2, \frac{1}{3}x^3, 1)$ consists of four polynomials of distinct degrees (1, 2, 3, 0). [cite_start]They are linearly independent and thus form a basis for $\mathcal{P}_3(\mathbb{R})$[cite: 172].
+    * Verify $\beta$ is a basis: The set $\beta = (x, \frac{1}{2}x^2, \frac{1}{3}x^3, 1)$ consists of four polynomials of distinct degrees (1, 2, 3, 0). They are linearly independent and thus form a basis for $\mathcal{P}_3(\mathbb{R})$.
 
 The desired bases are:
 $$
