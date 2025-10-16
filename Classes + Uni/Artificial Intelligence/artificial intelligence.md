@@ -1,7 +1,1 @@
 - Maximum likelihood problem (probability distribution -> come up wiht expression about w*'s for that distribution)
-
-$$
-\begin{gather}
-
-\end{gather}
-$$

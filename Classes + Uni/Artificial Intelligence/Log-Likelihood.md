@@ -1,5 +1,5 @@
 
-You are building a Cheet Sheet for an [[artificial intelligence]] exam. 
+You are building a Cheet Sheet for an [[Artificial Intelligence]] exam. 
 
 There are 5 topics.
 1. [[Log-Likelihood]],
