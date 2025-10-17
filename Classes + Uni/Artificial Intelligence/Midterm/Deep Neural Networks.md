@@ -1,10 +1,7 @@
 # [[Deep Neural Networks]] — Midterm Cheat Sheet
 
-> [!NOTE] Focus Area
-> This cheat sheet is laser-focused on feed-forward (fully-connected) DNNs and tuned for short, concept-plus-math, and quick derivation questions based on sample midterms.
+**Why are dominant features bad?**
 
----
-Why are dominant features bad?
 If one of the features of my input dominates the others, the gradient will be pointing towards dominating feature direction. then the gradient will be shooting towards that feature only. this is bad because then we can't move around that much to find a better local minimum.
 
 ## 1. Forward Pass, Shapes, and Parameter Counts
@@ -156,24 +153,4 @@ A residual block computes $h(x) = x + F(x)$, forcing the stacked layers ($F(x)$)
     $$\boxed{ \nabla_W L=\delta x^\top, \quad \nabla_b L=\delta, \quad \nabla_x L=W^\top\delta }$$
 5.  **Chain through activations.** Multiply element-wise by the activation's derivative:
     $$\delta_{\text{prev}}=(W_{\text{next}}^\top\delta_{\text{next}})\odot \phi'(z_{\text{prev}})$$
-
----
-
-## 10. Final Checklists
-
-> [!TODO] Pre-Submission Checklist
-> - [ ] Are all matrix and vector shapes consistent?
-> - [ ] Did I count both **weights and biases** for parameter counts?
-> - [ ] Did I use a numerically stable method for softmax?
-> - [ ] Did I justify "why" (for residuals, BN, etc.) in one clear sentence?
-> - [ ] Did I write the two core backprop identities correctly?
-
-> [!TODO] Problem-Solving Checklist
-> - [ ] Draw the computation graph and label all nodes and shapes.
-> - [ ] Compute the forward pass values first.
-> - [ ] Start with the correct output delta (usually $\hat y-y$).
-> - [ ] For each linear map, use the outer-product rule: $\nabla_W=\delta(\text{input})^\top$.
-> - [ ] For each activation, gate the incoming gradient with $\phi'(z)$.
-> - [ ] If something feels off, **check your shapes** before doing more algebra.
-
 

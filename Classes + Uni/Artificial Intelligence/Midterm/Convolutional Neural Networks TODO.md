@@ -1,5 +1,5 @@
 
-# [[Convolutional Neural Networks]]
+# [[Convolutional Neural Networks TODO]]
 
 add using covnets with small datasets
 

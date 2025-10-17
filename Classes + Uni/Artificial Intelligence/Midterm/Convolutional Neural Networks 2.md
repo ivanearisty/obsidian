@@ -103,26 +103,7 @@ Use this to answer “walk-me-through” questions quickly.
 > [!QUESTION] Why $\sqrt{w}$ and $\sqrt{h}$ in the YOLO loss?
 > It gives more weight to errors in small boxes. A 5-pixel error is much more significant for a 20x20 box than for a 200x200 box. The square root helps normalize this effect.
 
----
-
-## Mini Derivations & Formulas
-
-- **Smooth L1 Loss**:
-$$\text{smooth}_{L1}(x) = \begin{cases} 0.5x^2, & \text{if } |x|<1 \\ |x|-0.5, & \text{otherwise} \end{cases}$$
-- **Fast R-CNN Multi-Task Loss**:
-$$L = L_{cls} + \lambda [y\ge 1] L_{loc}$$
-- **YOLO Class Score**:
-$$s_{ijc} = p_i(c) \cdot C_{ij}$$
-- **Anchor Regression (Concept)**: The model learns deltas $(\Delta x, \Delta y, \Delta w, \Delta h)$ to refine an anchor's position and size to better fit the ground truth object.
-
----
-
 > [!WARNING] Pitfalls & Common Gotchas
 > - **NMS Threshold**: Too high → duplicate detections. Too low → suppresses correct detections in crowded scenes.
 > - **Evaluation IoU**: Always state the IoU threshold (`t`) you are using for evaluation (e.g., AP@0.5). Conclusions can change dramatically at different thresholds.
 > - **mAP vs. AP**: Reporting only mAP can hide catastrophic failures on individual classes. Always inspect per-class AP when possible.
-
-> [!SUCCESS] Final Check
-> - Can you explain, in 60s, the key difference between R-CNN, Fast R-CNN, and Faster R-CNN?
-> - Given a set of boxes, scores, and an IoU threshold, can you perform one iteration of NMS by hand?
-> - Good luck!

@@ -48,7 +48,7 @@ Accuracy alone can be misleading, especially on imbalanced datasets. Other key m
 
 ---
 
-## Deep Neural Networks ([[DNN Pics]])
+## Deep Neural Networks ([[DNN Examples]])
 
 ### Concept
 A **deep neural network** is an artificial neural network with multiple **hidden layers** between the input and output. The "deep" aspect allows the network to learn complex, hierarchical features from data by composing many simple non-linear transformations.
