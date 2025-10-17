@@ -58,7 +58,7 @@ Minimizing **Mean Squared Error (MSE)** in regression is a special case of MLE u
 
 ---
 
-## ✍️ Exam Templates & "What to Write"
+## ✍️ Exam Templates
 
 ### A) Generic MLE Template
 
@@ -98,11 +98,7 @@ For questions like "find the MLE for parameter $w^*$":
   \text{CE} = -\frac{1}{m}\sum_{i=1}^m \sum_{k} y_k^{(i)}\log \hat p_k^{(i)}
   $$
 
----
-
-## ✅ Canonical Closed-Form MLEs
-
-### 1) Gaussian Distribution Parameters
+### Gaussian Distribution Parameters
 
 Given i.i.d. samples $x^{(1)}, \dots, x^{(N)}$ from $\mathcal{N}(\mu, \sigma^2)$:
 - **Mean**: $\displaystyle \hat\mu = \frac{1}{N}\sum_{n=1}^N x^{(n)}$
@@ -115,7 +111,7 @@ Given i.i.d. samples $x^{(1)}, \dots, x^{(N)}$ from $\mathcal{N}(\mu, \sigma^2)$
 > $$
 > Setting derivatives $\frac{\partial\ell}{\partial\mu}=0$ and $\frac{\partial\ell}{\partial\sigma^2}=0$ yields the estimators above.
 
-### 2) General Result to Cite
+### General Result to Cite
 
 For any supervised model, the loss function you minimize is the **cross-entropy**, which is the **negative conditional log-likelihood** of the model $p_{\text{model}}(y|x;w)$. You don't redesign the loss for a new architecture; you change the model $p_{\text{model}}$.
 
@@ -132,11 +128,3 @@ For any supervised model, the loss function you minimize is the **cross-entropy*
 3.  **Differentiate w.r.t. second parameter**:
     $\partial \ell/\partial \sigma^2=0 \implies \hat\sigma^{2}=\frac{1}{N}\sum_n(x^{(n)}-\hat\mu)^2$
 4.  **Conclude**: State that these estimators maximize the Log-Likelihood (and minimize NLL/CE).
-
----
-
-## 📖 Tiny Glossary
-
-- **LL (Log-Likelihood)**: $\ell(w)=\sum \log p_{\text{model}}(\cdot;w)$. The quantity to maximize.
-- **NLL (Negative Log-Likelihood)**: $-\ell(w)$. The loss function to minimize.
-- **CE (Cross-Entropy)**: The expected NLL. Minimizing CE is equivalent to minimizing KL divergence and maximizing LL.
