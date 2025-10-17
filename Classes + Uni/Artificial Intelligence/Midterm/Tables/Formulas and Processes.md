@@ -1,4 +1,4 @@
-
+# Formulas
 
 This note covers the foundational concepts of Deep Neural Networks, including the core math, common architectures, and training procedures.
 
