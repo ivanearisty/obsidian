@@ -1,5 +1,5 @@
 
-# [[Convolutional Neural Networks]] (CNN)
+# [[Convolutional Neural Networks]]
 
 add using covnets with small datasets
 
