@@ -1,6 +1,12 @@
 
 # [[Convolutional Neural Networks]] (CNN)
 
+add using covnets with small datasets
+
+explain what i need to know do sketch networks
+
+![[Screenshot 2025-10-17 at 2.56.58 AM.png]]
+
 ## 1) Output size & parameter count (fast formulas)
 
 - **Conv 2D output spatial size** (for H×W input, kernel (K), padding (P), stride (S)):  
