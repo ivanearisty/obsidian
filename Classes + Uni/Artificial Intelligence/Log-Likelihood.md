@@ -4,7 +4,7 @@ You are building a Cheet Sheet for an [[Artificial Intelligence]] exam.
 There are 5 topics.
 1. [[Log-Likelihood]],
 2. [[Binary Classification]],
-3. [[DNN]],
+3. [[DNN Pics]] [[Deep Neural Networks]],
 4. [[CNN]],
 5. [[Kalman]]
 
