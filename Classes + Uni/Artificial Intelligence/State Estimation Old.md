@@ -1,7 +1,7 @@
 The professor says:
 Nobody is going to ask anything about the equations so dont spend time on them.
 
-You need to understand the essence of the filter. 
+You need to understand the essence of the kalam filter. 
 
 you must understand how the filter operates.
 

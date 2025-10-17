@@ -128,3 +128,4 @@ For any supervised model, the loss function you minimize is the **cross-entropy*
 3.  **Differentiate w.r.t. second parameter**:
     $\partial \ell/\partial \sigma^2=0 \implies \hat\sigma^{2}=\frac{1}{N}\sum_n(x^{(n)}-\hat\mu)^2$
 4.  **Conclude**: State that these estimators maximize the Log-Likelihood (and minimize NLL/CE).
+

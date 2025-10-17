@@ -1,9 +1,9 @@
 Based on 
 
 [[Log-Likelihood]]
-[[Binary Classification TODO]]
+[[Binary Classification]]
 [[Deep Neural Networks]]
-[[Convolutional Neural Networks TODO]]
+[[Convolutional Neural Networks OLD]]
 [[Kalman]]
 
 Explain all the types of neurons we might see in detail and their characteristics for the exam.
