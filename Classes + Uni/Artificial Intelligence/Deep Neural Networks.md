@@ -4,6 +4,8 @@
 > This cheat sheet is laser-focused on feed-forward (fully-connected) DNNs and tuned for short, concept-plus-math, and quick derivation questions based on sample midterms.
 
 ---
+Why are dominant features bad?
+If one of the features of my input dominates the others, the gradient will be pointing towards dominating feature direction. then the gradient will be shooting towards that feature only. this is bad because then we can't move around that much to find a better local minimum.
 
 ## 1. Forward Pass, Shapes, and Parameter Counts
 

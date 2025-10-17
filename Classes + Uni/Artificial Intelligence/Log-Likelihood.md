@@ -5,7 +5,7 @@ There are 5 topics.
 1. [[Log-Likelihood]],
 2. [[Binary Classification]],
 3. [[DNN Pics]] [[Deep Neural Networks]],
-4. [[CNN]],
+4. [[Convolutional Neural Networks]],
 5. [[Kalman]]
 
 However, (((you are only focusing on creating the cheet sheet for [[Log-Likelihood]])))
