@@ -175,3 +175,5 @@ A residual block computes $h(x) = x + F(x)$, forcing the stacked layers ($F(x)$)
 > - [ ] For each linear map, use the outer-product rule: $\nabla_W=\delta(\text{input})^\top$.
 > - [ ] For each activation, gate the incoming gradient with $\phi'(z)$.
 > - [ ] If something feels off, **check your shapes** before doing more algebra.
+
+
