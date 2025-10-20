@@ -69,11 +69,8 @@ Also, remember these big no-nos:
 Your code must pass `mypy` and `ruff` checks. These are not hassles; they are essential tools for writing safe, maintainable Python.
 
 - **Mypy:** Do not ignore Mypy errors with `type: ignore` unless you have a very specific, documented reason. An error from Mypy indicates a potential issue with your type safety or configuration.
-    
 - **Ruff:** A few `noqa` comments are acceptable for niche cases (especially in tests), but they must be explained. Your source code should not be littered with ignored rules.
-    
 - **Workflow:** Run these tools **consistently as you code**, not just at the end. This helps catch issues early and keeps your codebase clean.
-    
 
 ### CircleCI
 
@@ -86,130 +83,97 @@ In HW1, the method for handling authentication was a simple workaround to get th
 Your new service must implement a proper **OAuth 2.0 flow**. When a user needs to authenticate, your service should:
 
 1. Redirect the user to an external provider (e.g., Google).
-    
 2. Handle the callback from the provider.
-    
 3. Receive the credentials (e.g., access token, refresh token).
-    
 4. Securely **store these credentials in a database** associated with the user.
-    
 
 Subsequent requests from that user will use the stored credentials to interact with the underlying API (e.g., Slack, OpenAI, etc.).
-
----
 
 ## The Assignment
 
 ### Objective
 
-The primary goal of this assignment is to design, implement, and deploy a complete, standalone microservice from scratch. You will select a service category, define its API, build its core functionality including user authentication, and make it publicly accessible. This project will build upon the skills you developed in HW1 and challenge you to think about system architecture and user interaction.
+The primary goal of this assignment is to design, implement, and deploy a complete, standalone microservice from scratch. 
 
+You will select a service category, define its API, build its core functionality, and make it publicly accessible. 
+
+This project will build upon the skills you developed in HW1 and challenge you to think about system architecture and user interaction.
+
+Throughout this entire sprint, you must adhere to the guidelines talked about in class regarding testing and dev workflow.
 ### Instructions
 
-1. **Service Selection:** Each team will choose **one** of the following service categories to implement. Please coordinate on the class Slack channel to avoid duplication.
-    
-    - **Chat Service** (e.g., wrapping the Slack, Discord, or WhatsApp API)
-        
-    - **Mail Service** (e.g., wrapping the Outlook or another mail provider's API)
-        
-    - **AI Service** (e.g., providing an interface to an AI model like OpenAI's GPT or Anthropic's Claude)
-        
-    - **Issue Tracker** (e.g., wrapping the Jira, Trello, or Asana API)
-        
-2. **API Design First:** Before you write any implementation code, your first task is to design the API for your service. This should be your **first pull request**. Define the endpoints, request/response structures, and data models. Think about how other developers would want to interact with your service.
-    
-3. **Implementation:**
-    
-    - **Core Logic:** Implement the main features of your chosen service.
-        
-    - **User Authentication:** This is a key requirement. Your service must handle user authentication as described in the "Remarks" section. When a user interacts with your service, they should be able to log in via an external provider. Your service will then handle the authentication flow, receive credentials (like a token), and store them in a database.
-        
-    - **Structure:** You can use the project structure from Homework 1 as a starting point.
-        
-4. **Deployment:** Deploy your completed service to a cloud platform (like Render) and ensure it is publicly accessible via a URL.
-    
-5. **Development Process and Documentation:**
-    
-    - Break your work into smaller, logical pull requests following the squash-merge workflow described above.
-        
-    - Maintain your `CONTRIBUTING.md` and `DESIGN.md` documents, updating them as your project evolves.
-        
+#### 1. Service Selection
+
+Each team will choose **one** of the following service categories to implement. We'll randomly release a sign-up sheet sometime in the next 24 hours for fairness.
+-   **Chat Service** (e.g., wrapping the Slack, Discord, or WhatsApp API)
+-   **Mail Service** (e.g., wrapping the Outlook or another mail provider's API \[that's obviously not gmail])
+-   **AI Service** (e.g., providing an interface to an AI model like OpenAI's GPT or Anthropic's Claude)
+-   **Issue Tracker** (e.g., wrapping the Jira, Trello, or Asana API)
+-   **Custom** (custom ideas must be approved by TAs)
+
+#### 2. Build the Core Components and Service
+
+Follow these steps to build your application, mirroring the structure of Homework 1.
+
+**A. The Abstract API (`[your_service]_api`)**
+-   **Action:** Define the abstract contract (ABC) for your new service. This is your `mail_client_api` equivalent.
+-   **Goal:** Create a clean, minimal interface that defines *what* your service does, not *how*. This package should have no dependencies on the external service's libraries.
+
+**B. The Concrete Implementation (`[your_service]_impl`)**
+-   **Action:** Create the concrete implementation that wraps the external API (e.g., Slack, Jira). This corresponds to `gmail_client_impl`.
+-   **Key Requirement:** This component must implement the new **OAuth 2.0 flow** as described in the "Remarks" section. It will handle redirecting the user, processing callbacks, and securely storing credentials.
+-   **Goal:** This package contains the core business logic and interacts directly with the third-party service.
+
+**C. The FastAPI Service (`[your_service]_service`)**
+-   **Action:** Build a FastAPI service that exposes your concrete implementation over HTTP endpoints. This service will be your main deployment unit and corresponds to the `mail_client_service` from HW1.
+-   **Functionality:**
+    -   It should import and use your concrete implementation from Step B.
+    -   It must expose endpoints for the OAuth 2.0 flow.
+    -   It should provide endpoints for all the core functions defined in your abstract API.
+
+**D. The Auto-Generated Client (`[your_service]_service_api_client`)**
+-   **Action:** Once your FastAPI service is running locally, use a tool like `openapi-python-client` to generate a client library from its OpenAPI specification (`/openapi.json`).
+-   **Goal:** This package provides a type-safe way to make network requests to your service, just like in HW1.
+
+**E. The Service Client Adapter (`[your_service]_adapter`)**
+-   **Action:** Finally, create an adapter that implements your original abstract API from Step A. However, instead of performing the logic directly, this adapter will use the auto-generated client from Step D to make network calls to your running service.
+-   **Goal:** This component makes your remote service usable through the exact same contract as your local library, achieving the "Adapter Pattern" and location transparency.
+
+#### 3. Deployment
+
+@Kamen Are we making students deploy this? 
 
 ### Extra Credit
 
-For teams looking for an additional challenge, extra credit will be offered for:
-
-- **Containerization:** Package your application using **Docker**.
-    
-- **Orchestration:** Deploy your containerized service using **Kubernetes**.
-    
-- **Advanced Integration Prep:** Implement an **NCMP (Nano-Composable Micro-Protocol) server** for your service. This will set the stage for more complex integrations in future assignments.
-    
-
----
-
-## Key Takeaways
-
-- **From Concept to Deployment:** You'll experience the full lifecycle of creating a new service.
-    
-- **API-First Design:** Emphasizing the importance of a well-thought-out API before implementation.
-    
-- **Robust Authentication:** Gaining hands-on experience with a critical component of modern applications.
-    
-- **Iterative Development:** Reinforcing the practice of incremental progress and continuous feedback through a professional Git workflow.
-    
-
----
+@Kamen what can we add?
 
 ## Timeline and Submission
 
-This is a two-week assignment.
+This is a two-week assignment with the following key deadlines:
 
-- **Build (First Draft PR):** Friday, October 31st @ Midnight
-    
-    - Submit a PR from your `hw2` feature branch. **Do not merge!**
-        
-- **Review:** Tuesday, November 4th @ Midnight
-    
-    - You will provide peer review for an assigned team and receive feedback from TAs.
-        
-- **Iterate (Final Submission):** Wednesday, November 12th @ Midnight
-    
-    - Address all feedback, complete any optional tasks, merge your PR, and submit the link to the final merged commit on the student portal.
-        
-
----
+| Milestone                    | Due Date & Time             | Duration |
+| :--------------------------- | :-------------------------- | :------- |
+| **HW2 Released**             | Wednesday (10/22)           | —        |
+| **First Run Submission**     | Tuesday (10/27) @ Midnight  | (6 days) |
+| **Peer Review + TA Reviews** | Friday (10/31) @ Midnight   | (3 days) |
+| **Final Submission**         | Wednesday (11/5) @ Midnight | (5 days) |
 
 ## Checklist on Motions
 
 Submitting work that fails these checks is considered an incomplete submission.
 
 - **`uv`:** `uv` is your package manager. No `requirements.txt` or `pip`. `pyproject.toml` only.
-    
 - **Code Quality and Static Analysis:** Use `ruff` (`ruff check`) and `mypy` (`mypy src tests`). Make sure it all passes.
-    
 - **Testing and Coverage:**
-    
     - Does your submission include comprehensive unit, integration, and E2E tests?
-        
     - Does your code meet or exceed the coverage percentage defined in your root `pyproject.toml`? A failing coverage check is a failing build.
-        
 - **Continuous Integration:**
-    
     - Have you pushed your latest commits to your team's remote feature branch on GitHub?
-        
     - Is your CircleCI build for that branch passing?
-        
     - Is your CircleCI project public?
-        
 - **Documentation:**
-    
     - Have you updated the documentation in the root `README.md` and in the `README.md` file for each component you created or modified?
-        
     - Does your `mkdocs` documentation build correctly and reflect the current state of your project?
-        
 - **PRs and Commits:**
-    
     - Does your PR have a descriptive title and a clear summary of the changes?
-        
     - Is your commit history meaningful and concise, following the squash-merge workflow?
