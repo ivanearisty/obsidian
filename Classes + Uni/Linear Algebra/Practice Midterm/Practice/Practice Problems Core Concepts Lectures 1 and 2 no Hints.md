@@ -42,8 +42,6 @@ These problems combine the concepts of span and linear independence to test your
 8.  Extending a Basis (Conceptual)
     The vectors $v_1 = (1, 1, 0, 0)$ and $v_2 = (0, 1, 1, 0)$ are linearly independent in $\mathbb{R}^4$. Find two more vectors $v_3$ and $v_4$ such that $\{v_1, v_2, v_3, v_4\}$ forms a basis for $\mathbb{R}^4$.
 
----
-
 #### Category 4: Synthesis and Abstract Proof
 
 This problem is at the level of the practice midterm and requires you to synthesize all the Week 1 concepts to write a formal proof.
