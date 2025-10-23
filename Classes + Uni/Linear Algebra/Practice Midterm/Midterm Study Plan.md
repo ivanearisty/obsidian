@@ -37,7 +37,7 @@ This schedule will help you systematically review the course material from Lectu
 **Week 3: Advanced Topics and Exam Preparation (Review of Lectures 5, 6, & 7 and Problem Sets 5 & 6)**
 *   **Key Topics**:
     *   Matrix multiplication and its connection to the composition of linear transformations.
-    *   Invertibility of linear transformations and matrices.
+    *   Invertibility of linear transformations and matrices. 
     *   Change of basis.
     *   Dual spaces and the transpose of a linear transformation.
     *   Systems of linear equations.
