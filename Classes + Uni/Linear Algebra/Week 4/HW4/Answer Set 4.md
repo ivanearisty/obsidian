@@ -39,7 +39,7 @@ $$[T]_\beta^\gamma = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \c
 
 ---
 
-###(iii)
+### (iii)
 Let tr : $M_{2\times2}(\mathbb{F}) \rightarrow \mathbb{F}$ be the trace map defined by tr$\begin{pmatrix} a & b \\ c & d \end{pmatrix} = a + d$,
 $\beta = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} \right\}$ and $\gamma = \{1\}$.
 
