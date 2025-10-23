@@ -38,7 +38,7 @@ This plan is restructured based on your excellent feedback to align with the flo
 *   **Action:** Review these lectures and work through Problem Sets 5 and 6, skipping problems that explicitly require solving large systems of equations.
 
 **Phase 4: Systems of Equations and Computation (Lecture 6.4 & Lecture 7)**
-*   **Topics:** Gaussian Elimination, Row Reduced Echelon Form (RREF), Solving `Ax=b`, using RREF to find bases for kernel, image, and row space.
+*   **Topics:** [[Gaussian Elimination, Row Reduced Echelon Form (RREF)]], Solving `Ax=b`, using RREF to find bases for kernel, image, and row space.
 *   **Goal:** Master the single most important computational tool for the first half of the course.
 *   **Action:** This is where you drill the mechanics of row reduction until it becomes second nature.
 
