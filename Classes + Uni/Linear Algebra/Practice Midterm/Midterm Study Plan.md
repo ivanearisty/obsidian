@@ -29,7 +29,7 @@ This schedule will help you systematically review the course material from Lectu
     *   Verify if a given map is a linear transformation.
     *   Find bases for the kernel and image of a linear transformation.
     *   Apply the Rank-Nullity theorem to find dimensions.
-    *   Construct the matrix of a linear transformation with respect to given bases.
+    *   [[Construct the matrix of a linear transformation with respect to given bases.]]
 *   **Action Plan**:
     1.  Review Lectures 3 and 4. Pay close attention to the relationship between a linear transformation and its matrix representation.
     2.  Complete the exercises in Problem Sets 3 and 4, with a focus on applying the Rank-Nullity Theorem.
