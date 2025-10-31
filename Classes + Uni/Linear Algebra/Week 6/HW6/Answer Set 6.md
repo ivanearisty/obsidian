@@ -34,23 +34,48 @@ $$
 $$
 \begin{gather}
 w = \sum_{i=1}^{m} a_{i}w_{i} \\
-\bar{\phi}(w) = \bar{\phi}\left( \sum_{i=1}^{m} a_{i}w_{i} \right) =
-\sum_{i=1}^{m} a_{i}\bar{\phi}(w_{i}) = 
-\sum_{i=1}^{m} a_{i}\phi(w_{i}) = 
-\phi\left( \sum_{i=1}^{m} a_{i}w_{i} \right) =
-\phi(w)
+\bar{\varphi}(w) = \bar{\varphi}\left( \sum_{i=1}^{m} a_{i}w_{i} \right) =
+\sum_{i=1}^{m} a_{i}\bar{\varphi}(w_{i}) = 
+\sum_{i=1}^{m} a_{i}\varphi(w_{i}) = 
+\varphi\left( \sum_{i=1}^{m} a_{i}w_{i} \right) =
+\varphi(w)
 \end{gather}
 $$
 
 ### 2
+For $a,b \in F$ and $\varphi_1, \varphi_2 \in W^*$,  
+$$
+i(a\varphi_1 + b\varphi_2) = \widetilde{\,a\varphi_1 + b\varphi_2\,}.
+$$
+Evaluate both sides on the basis of $V$:
+
+- On $w_i$:  
+  $$
+  \widetilde{\,a\varphi_1 + b\varphi_2\,}(w_i)
+  = a\varphi_1(w_i) + b\varphi_2(w_i)
+  = (a\tilde{\varphi}_1 + b\tilde{\varphi}_2)(w_i).
+  $$
+- On $v_j$:  
+  $$
+  \widetilde{\,a\varphi_1 + b\varphi_2\,}(v_j)
+  = 0 = (a\tilde{\varphi}_1 + b\tilde{\varphi}_2)(v_j).
+  $$
+
+Since the two functionals agree on a basis, they are equal:
+$$
+i(a\varphi_1 + b\varphi_2) = a\,i(\varphi_1) + b\,i(\varphi_2).
+$$
+Hence, $i$ is linear.
+
+
 $$
 \begin{gather}
-\text{Linearity: } 
 \text{Injective: }\\
-\text{If } i(\phi) = \bar{\phi} = 0 \in V^{*}, \text{then for } w \in W:
+\text{If } i(\varphi) = \bar{\varphi} = 0 \in V^{*}, \text{then for } w \in W:
 \\
-\phi(w) = \bar{\phi}(w) = 0\\
-\text{Which means that } \phi
+\varphi(w) = \bar{\varphi}(w) = 0\\
+\text{Which means that } \varphi = 0 \text{ in } W^{*}. \\
+\text{Since } ker(i) = \mathbf{0}, \text{ i is injective}
 \end{gather}
 $$
 
