@@ -6,4 +6,4 @@
 	1. Use hungarian algorithm to do $\mathcal{O}(n^{3})$
 
 
-![[Drawing 2025-11-02 20.03.14.excalidraw]]
+![[Architecture.excalidraw]]
