@@ -149,5 +149,76 @@ $$\det(M) = \det(1+v^t A^{-1}u) \cdot \det(A)$$
 Since $1+v^t A^{-1}u$ is just a single number (a $1 \times 1$ matrix), its determinant is just itself.
 ### (iv)
 
+From the previous problem, we have this formula:
+$$\det(A+uv^t) = \det(A) \big(1+v^t A^{-1}u\big)$$
 
+How does $I_n + J$ fit this?
+* Let $\mathbf{1}$ be the column vector of all ones: $\begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$.
+* Then $\mathbf{1}\mathbf{1}^t$ (column times row) is $\begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix} \begin{pmatrix} 1 & \cdots & 1 \end{pmatrix}$, which is the all-ones matrix, $J$.
+
+So, we're trying to find $\det(I_n + \mathbf{1}\mathbf{1}^t)$.
+* $A = I_n$
+* $u = \mathbf{1}$
+* $v = \mathbf{1}$
+
+$$\det(I_n + \mathbf{1}\mathbf{1}^t) = \det(I_n) \cdot \big(1 + \mathbf{1}^t (I_n)^{-1} \mathbf{1}\big)$$
+$$= 1 \cdot \big(1 + \mathbf{1}^t I_n \mathbf{1}\big)$$
+$$= 1 + \mathbf{1}^t \mathbf{1}$$
+
+$$\begin{pmatrix} 1 & \cdots & 1 \end{pmatrix} \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix} = (1\cdot1 + 1\cdot1 + \cdots + 1\cdot1)$$
+
+Since there are $n$ ones, this is just $n$.
+
+The whole thing equals $1 + n$.
+
+### (v)
+
+$$(A+uv^t)^{-1} = A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+v^t A^{-1}u}$$
+
+Let $\alpha = v^t A^{-1} u$
+$B = A^{-1} - \frac{1}{1+\alpha} A^{-1}u v^t A^{-1}$.
+
+$$(A+uv^t) \cdot \left( A^{-1} - \frac{1}{1+\alpha} A^{-1}u v^t A^{-1} \right)$$
+
+Distribute this out:
+1.  $A \cdot A^{-1} = \mathbf{I}$
+2.  $A \cdot \left( - \frac{1}{1+\alpha} A^{-1}u v^t A^{-1} \right) = - \frac{1}{1+\alpha} (A A^{-1}) u v^t A^{-1} = \mathbf{- \frac{1}{1+\alpha} u v^t A^{-1}}$
+3.  $uv^t \cdot A^{-1} = \mathbf{+ uv^t A^{-1}}$
+4.  $uv^t \cdot \left( - \frac{1}{1+\alpha} A^{-1}u v^t A^{-1} \right) = - \frac{1}{1+\alpha} u (v^t A^{-1} u) v^t A^{-1}$
+    * Notice that $v^t A^{-1} u$ is just our $\alpha$
+    * So this term is $\mathbf{- \frac{\alpha}{1+\alpha} u v^t A^{-1}}$
+
+
+All three messy terms have $uv^t A^{-1}$ in them. Let's factor it out:
+$$\mathbf{I} \quad + \quad \left[ - \frac{1}{1+\alpha} + 1 - \frac{\alpha}{1+\alpha} \right] (u v^t A^{-1})$$
+$$\left[ \frac{-1}{1+\alpha} + \frac{1+\alpha}{1+\alpha} - \frac{\alpha}{1+\alpha} \right]$$
+$$\left[ \frac{-1 + (1+\alpha) - \alpha}{1+\alpha} \right]$$
+$$\left[ \frac{-1 + 1 + \alpha - \alpha}{1+\alpha} \right] = \left[ \frac{0}{1+\alpha} \right] = \mathbf{0}$$
+So, the entire middle part just cancels out to zero
+
+All we're left with is $I + 0 \cdot (u v^t A^{-1}) = \mathbf{I}$.
+Since $(A+uv^t) \cdot B = I$, we're done.
+
+**How to *Derive* it (The Cool Part):**
+Your notes hint at this, and it's clever. It uses the block matrices from the first problem.
+
+1.  **The Setup:** We had two *different* ways to factor our original $M$ matrix:
+    * **From (ii):** $M = \begin{pmatrix}1&0\\u&I\end{pmatrix} \begin{pmatrix}1&-v^t\\0&A+uv^t\end{pmatrix}$
+    * **From (iii):** $M = \begin{pmatrix}1+\alpha&-v^t\\0&A\end{pmatrix} \begin{pmatrix}1&0\\A^{-1}u&I\end{pmatrix}$ (where $\alpha = v^tA^{-1}u$)
+
+2.  **The Plan:** Since $M = M$, let's find $M^{-1}$ both ways. The answers *must* be the same. We just need to look at the bottom-right corner.
+
+3.  **Inverse, Way 1:** We invert the factorization from (ii).
+    * $M^{-1} = \begin{pmatrix}1&-v^t\\0&A+uv^t\end{pmatrix}^{-1} \begin{pmatrix}1&0\\u&I\end{pmatrix}^{-1}$
+    * The formula for inverting block-triangular matrices is easy. The bottom-right corner of $M^{-1}$ just ends up being the inverse of the bottom-right block, which is **$(A+uv^t)^{-1}$**.
+
+4.  **Inverse, Way 2:** We invert the factorization from (iii).
+    * $M^{-1} = \begin{pmatrix}1&0\\A^{-1}u&I\end{pmatrix}^{-1} \begin{pmatrix}1+\alpha&-v^t\\0&A\end{pmatrix}^{-1}$
+    * This one takes a bit more algebra, but when you multiply out these two inverses...
+    * ...the bottom-right corner of *this* $M^{-1}$ is **$A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+\alpha}$**.
+
+5.  **Conclusion:**
+    The bottom-right corner of $M^{-1}$ must be equal to itself. Therefore:
+    $$(A+uv^t)^{-1} = A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+v^t A^{-1}u}$$
+    It's not a guess; the formula just pops right out from the block operations!
 ### (v)
