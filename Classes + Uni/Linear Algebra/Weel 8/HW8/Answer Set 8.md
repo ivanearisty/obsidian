@@ -147,20 +147,7 @@ Just like our row operation, this column operation does not change the determina
 This matrix is *also* block upper-triangular. So, we calculate its determinant the same way:
 $$\det(M) = \det(1+v^t A^{-1}u) \cdot \det(A)$$
 Since $1+v^t A^{-1}u$ is just a single number (a $1 \times 1$ matrix), its determinant is just itself.
-
----
-
-### Putting It All Together
-
-This is the easy part. We just found $\det(M)$ in two different ways. They *must* be equal.
-
-* From (ii): $\det(M) = \det(A+uv^t)$
-* From (iii): $\det(M) = \det(A) (1+v^t A^{-1}u)$
-
-Set them equal, and you're done:
-$$\boxed{\det(A+uv^t) = \det(A) \big(1+v^t A^{-1}u\big)}$$
-
-That's the identity! This whole process is just a clever way of "proving" it by calculating the determinant of a bigger matrix in two different ways.
-### (iii)
 ### (iv)
+
+
 ### (v)
