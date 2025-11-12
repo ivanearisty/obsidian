@@ -110,6 +110,7 @@ Since $A$ has integer entries, $\det(A)\in\mathbb{Z}$. Since $A^{-1}$ has intege
 
 Thus $1/\det(A)\in\mathbb{Z}$. The only integers whose reciprocals are integers are $\pm1$. Hence $\det(A)=\pm1$.
 ## Problem 4
+![[Screenshot 2025-11-09 at 10.26.22 PM.png]]
 ### (i)
 #### 1
 $$
@@ -133,9 +134,7 @@ This kind of row operation does not change the determinant. So, $\det(M)$ is the
 Because it's block upper-triangular, the determinant is just the product of the determinants of the blocks on the diagonal:
 $$\det(M) = \det(1) \cdot \det(A+uv^t) = \det(A+uv^t)$$
 
----
-
-### (iii) The Column Operation Trick
+### (iii)
 
 Let's call $C_1 = \begin{pmatrix} 1 \\ u \end{pmatrix}$ and the second column block $C_2 = \begin{pmatrix} -v^t \\ A \end{pmatrix}$.
 
@@ -172,6 +171,7 @@ Since there are $n$ ones, this is just $n$.
 The whole thing equals $1 + n$.
 
 ### (v)
+#### .1
 
 $$(A+uv^t)^{-1} = A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+v^t A^{-1}u}$$
 
@@ -199,26 +199,21 @@ So, the entire middle part just cancels out to zero
 All we're left with is $I + 0 \cdot (u v^t A^{-1}) = \mathbf{I}$.
 Since $(A+uv^t) \cdot B = I$, we're done.
 
-**How to *Derive* it (The Cool Part):**
-Your notes hint at this, and it's clever. It uses the block matrices from the first problem.
+#### .2
 
-1.  **The Setup:** We had two *different* ways to factor our original $M$ matrix:
-    * **From (ii):** $M = \begin{pmatrix}1&0\\u&I\end{pmatrix} \begin{pmatrix}1&-v^t\\0&A+uv^t\end{pmatrix}$
-    * **From (iii):** $M = \begin{pmatrix}1+\alpha&-v^t\\0&A\end{pmatrix} \begin{pmatrix}1&0\\A^{-1}u&I\end{pmatrix}$ (where $\alpha = v^tA^{-1}u$)
+We had two *different* ways to factor our original $M$ matrix:
+- ***From (ii):** $M = \begin{pmatrix}1&0\\u&I\end{pmatrix} \begin{pmatrix}1&-v^t\\0&A+uv^t\end{pmatrix}$
+- ***From (iii):** $M = \begin{pmatrix}1+\alpha&-v^t\\0&A\end{pmatrix} \begin{pmatrix}1&0\\A^{-1}u&I\end{pmatrix}$ (where $\alpha = v^tA^{-1}u$)
 
-2.  **The Plan:** Since $M = M$, let's find $M^{-1}$ both ways. The answers *must* be the same. We just need to look at the bottom-right corner.
+Since $M = M$, let's find $M^{-1}$ both ways. The answers *must* be the same. We just need to look at the bottom-right corner.
 
-3.  **Inverse, Way 1:** We invert the factorization from (ii).
-    * $M^{-1} = \begin{pmatrix}1&-v^t\\0&A+uv^t\end{pmatrix}^{-1} \begin{pmatrix}1&0\\u&I\end{pmatrix}^{-1}$
-    * The formula for inverting block-triangular matrices is easy. The bottom-right corner of $M^{-1}$ just ends up being the inverse of the bottom-right block, which is **$(A+uv^t)^{-1}$**.
+**Inverse, Way 1:** We invert the factorization from (ii).
+- $M^{-1} = \begin{pmatrix}1&-v^t\\0&A+uv^t\end{pmatrix}^{-1} \begin{pmatrix}1&0\\u&I\end{pmatrix}^{-1}$
+- The bottom-right corner of $M^{-1}$ just ends up being the inverse of the bottom-right block, which is **$(A+uv^t)^{-1}$**.
 
-4.  **Inverse, Way 2:** We invert the factorization from (iii).
-    * $M^{-1} = \begin{pmatrix}1&0\\A^{-1}u&I\end{pmatrix}^{-1} \begin{pmatrix}1+\alpha&-v^t\\0&A\end{pmatrix}^{-1}$
-    * This one takes a bit more algebra, but when you multiply out these two inverses...
-    * ...the bottom-right corner of *this* $M^{-1}$ is **$A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+\alpha}$**.
+**Inverse, Way 2:** We invert the factorization from (iii).
+- $M^{-1} = \begin{pmatrix}1&0\\A^{-1}u&I\end{pmatrix}^{-1} \begin{pmatrix}1+\alpha&-v^t\\0&A\end{pmatrix}^{-1}$
+- The bottom-right corner of *this* $M^{-1}$ is **$A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+\alpha}$**.
 
-5.  **Conclusion:**
-    The bottom-right corner of $M^{-1}$ must be equal to itself. Therefore:
-    $$(A+uv^t)^{-1} = A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+v^t A^{-1}u}$$
-    It's not a guess; the formula just pops right out from the block operations!
-### (v)
+
+The bottom-right corner of $M^{-1}$ must be equal to itself. Therefore:    $$(A+uv^t)^{-1} = A^{-1} - \frac{A^{-1}u v^t A^{-1}}{1+v^t A^{-1}u}$$
