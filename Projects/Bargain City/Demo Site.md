@@ -96,3 +96,4 @@ Here are the **key user-experience features** that are evident from how ShopRite
 | Accessibility                      | Hotspots should be keyboard‐focusable; text alternatives for screen-readers; ensure zoom/pan works with assistive tech.                                                              |
 | Metadata & timing                  | Each product mapping should include metadata: product ID, sale start date, sale end date, regular price, sale price, coupon info, link to product page. Admin must input/edit these. |
 | Analytics capability (future)      | Track which hotspots/users click, conversion to cart/list, so you can show value to Bargain City.                                                                                    |
+
