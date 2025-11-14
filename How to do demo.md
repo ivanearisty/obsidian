@@ -5,3 +5,4 @@
 
 send google slide to simon
 
+average percent of projected new sales industry standard
