@@ -1,7 +1,5 @@
 The assignment is out of 100 points but there are 110 points you can get (so you have some leniency)
 
-Also, extra credit is 10 additional points.
-
 ### 1. Repository (20pts)
 - \[ 5 pts ] commit history is kept clean with low # of commits
 * \[ 5 pts ] **`.gitignore`:** Ignores `.venv`, `__pycache__`, `*.pyc`, credentials (`credentials.json`, `token.json`), `.env`, build artifacts.
@@ -22,7 +20,7 @@ Also, extra credit is 10 additional points.
 
 ---
 
-### 4. Tooling & Configuration (`pyproject.toml`) 20 pts
+### 4. Tooling & Configuration `pyproject.toml` (20 pts)
 
 * \[ 4 pts ] **`uv` workspace:** Root `pyproject.toml` is a workspace; all `src/*` members listed.
 * \[ 4 pts ] **Centralized configs:** `ruff`, `mypy`, `pytest`, coverage in root `pyproject.toml`.
@@ -74,4 +72,4 @@ Also, extra credit is 10 additional points.
 * \[ 4 pts ] **Root `README.md`:** Purpose, architecture, ports/adapters philosophy, setup/auth, how to run toolchain.
 * \[ 2 pts ] **Component READMEs:** Each `src/*` package documents its API, dependencies, and role.
 * \[ 2 pts ] **Architecture doc:** A `component.md` (or similar) describing what a component is.
-* \[ 2 pts ] **MkDocs site:** `mkdocs.yml` present; `mkdocs serve` renders a clean site.
+* \[ 2 pts ] **MkDocs site:** `mkdocs.yml` present; `mkdocs` looks and clean updated.
