@@ -11,7 +11,7 @@ The assignment is out of 100 points but there are 110 points you can get (so you
 * \[ 4 pts ] **Mypy strictness:** `strict = true` with narrow, documented exceptions.
 ### 5. Architecture (20 pts)
 * \[ 2 pts ] **Interface purity:** token store should not be known by application
-* ~~\[2 pts] \_\_all\_\_  is kept. Unsure whether this was flagged to them so not removing points.~~
+* \[2 pts] \_\_all\_\_  is kept. Unsure whether this was flagged to them so not removing points.
 ### 6. Domain Modeling & API Design (8 pts)
 ### 7. Testing Strategy (“Testing Pyramid”) 12 pts
 * \[ 2 pts ] **Integration tests (top-level `tests/integration/`):**
@@ -21,4 +21,4 @@ The assignment is out of 100 points but there are 110 points you can get (so you
 ### 8. Documentation (10 pts)
 * \[ 1 pts ] **MkDocs site:** `mkdocs` not updated
 
-92/100
+90/100
