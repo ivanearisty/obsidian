@@ -26,7 +26,7 @@ The assignment is out of 100 points but there are 110 points you can get (so you
 * \[ 4 pts ] **Centralized configs:** `ruff`, `mypy`, `pytest`, coverage in root `pyproject.toml`.
 * \[ 4 pts ] **Ruff strictness:** `select = ["ALL"]`; any `ignore` entries are justified with comments.
 * \[ 4 pts ] **Mypy strictness:** `strict = true` with narrow, documented exceptions.
-* \[ 4 pts ] **Deps hygiene:** Dev deps under `[project.optional-dependencies]`; runtime deps minimal per package.
+* \[ 4 pts ] **Deps hygiene:** Dev deps under `[project.optional-dependencies]`; runtime deps minimal per package ; dependencies of a component are not forced into the main pyproject.toml
 
 ---
 
