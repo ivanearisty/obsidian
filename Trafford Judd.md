@@ -1,4 +1,5 @@
-people ops been with intenseye for two years
+Thoughts on what leetcode i should practice?
+{people ops been with intenseye for two years
 
 larger tech companie
 
@@ -42,3 +43,20 @@ head of sales and customer success.
 
 supporting people internally and professional development.
 
+Hi Ivan!
+
+It was great meeting you this morning and chatting about the Founding FDE role here at Intenseye!
+
+As discussed, I'd love to get you onsite next week to meet with our CTO, Serhat Cillidag. How would you be for 2pm Monday onsite at our office?
+
+The focus areas will be:
+
+    Part I: Technical interview - observation, we give code base in the meeting, you implement various simple features (data format, grouping, etc) - looking for ability to understand unknown code, are they independently familiar with code (Python / CC++ preferred)
+    Part II: Customer relationships - how would you scope a problem, can you act like a mini product manager, debug solution, collect data, ask questions to customer.
+
+Let me know if that works or if there is a time that works better for you?
+
+Many thanks,
+Traff
+
+}
