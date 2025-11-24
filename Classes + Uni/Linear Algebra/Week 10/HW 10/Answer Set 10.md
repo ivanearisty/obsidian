@@ -39,7 +39,7 @@ Let $A$ be invertible and $v$ be an eigenvector of $A$ with eigenvalue $\lambda$
 6.  Then
     $$p_{A^{-1}}(x) = \frac{(-1)^n}{\det(A)} x^n p_A\left(\frac{1}{x}\right)$$
 
-### Part (iii): Diagonalizability
+### Part (iii)
 
 Let $A \in M_{n\times n}(F)$ be invertible. Show that $A$ is diagonalizable over $F$ if and only if $A^{-1}$ is diagonalizable over $F$.
 
@@ -83,7 +83,6 @@ Show that there are no matrices $A, B \in M_{n\times n}(\mathbb{C})$ such that $
         $$0 = n$$
     * Since we are working in finite dimensions ($n \times n$ matrices), we assume $n \geq 1$. Therefore, $0 = n$ is a contradiction.
 
-**Conclusion:**
 There exist no matrices $A, B \in M_{n\times n}(\mathbb{C})$ such that $[A,B] = I$.
 
 ## Problem 3
@@ -182,16 +181,16 @@ Show that $\text{im } D \subset V$.
     $$D(f) = \frac{d}{dx}\left( \sum_{i=1}^{m} c_i e^{\lambda_i x} \right)$$
 3.  By the linearity of the derivative operator:
     $$D(f) = \sum_{i=1}^{m} c_i \frac{d}{dx}(e^{\lambda_i x})$$
-4.  $\frac{d}{dx}(e^{\lambda_i x}) = \lambda_i e^{\lambda_i x}$. Substituting this back:
+4.  $\frac{d}{dx}(e^{\lambda_i x}) = \lambda_i e^{\lambda_i}$
     $$D(f) = \sum_{i=1}^{m} c_i \lambda_i e^{\lambda_i x}$$
     $$D(f) = (c_1 \lambda_1) e^{\lambda_1 x} + \dots + (c_m \lambda_m) e^{\lambda_m x}$$
 5.  Let $k_i = c_i \lambda_i$. Then $D(f) = \sum_{i=1}^{m} k_i e^{\lambda_i x}$.
 6.  This result is a linear combination of the basis vectors $\{e^{\lambda_1 x}, \dots, e^{\lambda_m x}\}$, which means $D(f) \in \text{span}(e^{\lambda_1 x}, ..., e^{\lambda_m x})$.
 7.  Since $D(f) \in V$ for all $f \in V$, we conclude that $\text{im } D \subset V$.
 
-### Part (ii): Eigenvectors of D
+### Part (ii)
 
-**Statement:** Show that $D(e^{\lambda_i x}) = \lambda_i e^{\lambda_i x}$ for $i=1, ..., m$.
+Show that $D(e^{\lambda_i x}) = \lambda_i e^{\lambda_i x}$ for $i=1, ..., m$.
 
 **Proof:**
 1.  Let $v_i = e^{\lambda_i x}$.
@@ -201,13 +200,13 @@ Show that $\text{im } D \subset V$.
 4.  Therefore, $D(e^{\lambda_i x}) = \lambda_i e^{\lambda_i x}$.
 5.  This calculation confirms that each function $e^{\lambda_i x}$ is an eigenvector of the linear operator $D$ with the corresponding eigenvalue $\lambda_i$.
 
-### Part (iii): Linear Independence
+### Part (iii)
 
-**Statement:** Show that $e^{\lambda_1 x}, ..., e^{\lambda_m x}$ are linearly independent.
+Show that $e^{\lambda_1 x}, ..., e^{\lambda_m x}$ are linearly independent.
 
 **Proof:**
 1.  From Part (ii), we established that the functions $v_1 = e^{\lambda_1 x}, \dots, v_m = e^{\lambda_m x}$ are eigenvectors of the linear operator $D: V \rightarrow V$.
 2.  The corresponding eigenvalues are $\lambda_1, \dots, \lambda_m$.
-3.  [cite_start]The problem states that $\lambda_1, \dots, \lambda_m$ are distinct real numbers[cite: 148].
-4.  [cite_start]We apply **Theorem 10.9** from Lecture 10, which states: "Let $\lambda_1, ..., \lambda_m$ be distinct eigenvalues of [a linear operator]... Let $v_i$ be an eigenvector corresponding to $\lambda_i$... Then $v_1, ..., v_m$ are linearly independent" [cite: 52-53].
+3.  The problem states that $\lambda_1, \dots, \lambda_m$ are distinct real numbers.
+4.  We apply **Theorem 10.9** from Lecture 10, which states: "Let $\lambda_1, ..., \lambda_m$ be distinct eigenvalues of \[a linear operator]... Let $v_i$ be an eigenvector corresponding to $\lambda_i$... Then $v_1, ..., v_m$ are linearly independent".
 5.  Since our vectors $e^{\lambda_i x}$ are eigenvectors corresponding to distinct eigenvalues $\lambda_i$, they must be linearly independent.
