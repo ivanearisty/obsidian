@@ -1,4 +1,3 @@
-
 ## 1) Information Architecture & Navigation
 
 **Core shift: from “Shop by Brand” → “Shop by Category, Occasion, Brand.”**
