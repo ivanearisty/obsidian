@@ -1,7 +1,6 @@
 ## 1) Information Architecture & Navigation
 
 **Core shift: from “Shop by Brand” → “Shop by Category, Occasion, Brand.”**
-
 ### Short-Term
 
 * **Replace “SHOP BY BRAND” as the main entry point** with a hybrid menu:
@@ -11,25 +10,23 @@
     * CLOTHING
     * SHOES
     * ACCESSORIES
-    * THE EDIT (occasions)
+    * variable (christmas, halloween, etc.??? maybe, osea, could be too much for the brand image)
     * SALE
 
 * **Add a CATEGORIES mega menu under CLOTHING** with:
   * **Tops**: Polos, T-shirts, Dress Shirts, Casual Shirts, Knits
   * **Bottoms**: Jeans, Chinos, Trousers, Shorts, Swimwear
   * **Outerwear/Formal**: Blazers, Jackets, Vests, Suits
-* **Create SALE and BLACK FRIDAY collections** that aggregate *all* discounted items across brands.
+* **Create SALE collections** that aggregate *all* discounted items across brands.
 
 > [!todo] TODO
 > - What designers will be shown in "Designers"
-> - 
+> - What clothing categories will be shown for Tops, Bottoms, Formal, etc... what are the top level categories and their children?
 ### Medium / Long-Term
 
 * **Designer mega-menu** like Olivia:
-
   * Columned, alphabetized: Featured + A–F, G–M, N–Z.
 * **Occasion-based “The Edit” menu**, inspired by Atelier Munro & Olivia:
-
   * Wedding & Events (Groom’s Shop, Guest)
   * Resort & Vacation
   * Business Professional
@@ -41,10 +38,9 @@
 
 **Core shift: clean, enriched product metadata to power filters and search.**
 
-### Immediate (Sprint)
+### Immediate
 
 * Define a **required attribute set** for every SKU (via tags or metafields):
-
   * Category (Polo, Loafer, Chino, Suit, etc.)
   * Sub-category (Long Sleeve, Short Sleeve, Pleated, Flat Front, etc.)
   * Size
@@ -52,7 +48,6 @@
   * Brand/Vendor
   * Price
 * On collection pages, **add filters**:
-
   * Size (prioritized, always visible)
   * Brand
   * Price range or buckets
@@ -61,13 +56,10 @@
 ### Medium / Long-Term
 
 * **Size data hygiene project**:
-
   * Map “L”, “Large”, “L/G” → “L”, etc.
 * **Color swatch filters**:
-
   * Visual swatches backed by normalized color values.
 * **Material & fit filters**:
-
   * Material: Linen, Cotton, Wool, Tech-Merino, etc.
   * Fit: Slim, Regular, Classic – especially for tailoring.
 
@@ -76,19 +68,13 @@
 ## 3) Search & Discovery
 
 **Core shift: search becomes a primary navigation tool, not an afterthought.**
-
-### Immediate (Sprint)
-
-* Upgrade to a **search app** (Algolia / Shopify Search & Discovery / similar) with:
-
-  * Autocomplete suggestions as users type.
-  * Basic synonyms (pants/trousers, tee/T-shirt, polo/pique).
-  * Typo tolerance.
-
+### Immediate
+* Autocomplete szuggestions as users type.
+* Basic synonyms (pants/trousers, tee/T-shirt, polo/pique).
+* Typo tolerance.
 ### Medium / Long-Term
 
 * **Visual autocomplete**:
-
   * Thumbnails in search dropdown for key queries (e.g., “polo” shows best sellers).
 * **Merchandising rules**:
 
