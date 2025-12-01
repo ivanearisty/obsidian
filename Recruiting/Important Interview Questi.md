@@ -1,1 +1,0 @@
-make sure to talk to people about what they'd like or wish for on interviews. like what is their vision or what problems would they like to solve in their company.
