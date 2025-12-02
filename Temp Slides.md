@@ -125,10 +125,10 @@ With a small dataset, everything was fine. With full Brooklyn data:
 
 ---
 
-## Frontend Breakdown
-
 Our React application is designed for analysis, not just viewing.
+<grid >
 
+</grid>
 <small>
 
 **Core Capabilities:**
@@ -139,6 +139,8 @@ Our React application is designed for analysis, not just viewing.
 
 </small>
 
+![[Screenshot 2025-12-01 at 7.26.41 PM.png | 150]]
+
 ---
 
 ## Planned Changes for Final Report
@@ -147,6 +149,7 @@ Our React application is designed for analysis, not just viewing.
 
 1.  **Performance:** Figure out a way to replace raw GeoJSON, solving the RAM crash issue.
 2.  **Control:** Add user defined controls for spatial tolerance parameters in the UI.
+3.  **Control pt2:** Drag and drop shapefiles that take stuff from user.
 
 </small>
 
